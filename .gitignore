@@ -1,0 +1,19 @@
+# Datos personales: NUNCA en git (IP, fingerprint, texto libre)
+datos/brutos/*
+!datos/brutos/.gitkeep
+datos/intermedios/
+*.csv
+*.xlsx
+*.sav
+
+# Salidas de render
+codebook/codebook.html
+codebook/codebook.md
+codebook/*_files/
+.quarto/
+
+# Entorno
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store

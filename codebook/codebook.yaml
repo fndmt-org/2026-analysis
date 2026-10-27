@@ -1,0 +1,237 @@
+# Codebook · Estudio de Convivencia Social · Fundament · edición 2026
+# Fuente de verdad. La leen el script de validación (codebook.qmd) y el harness de modelos.
+#
+# Convenciones
+#   origen:  texto EXACTO guardado en el CSV -> código. Incluye variantes es/ca y erratas.
+#   valores: código -> etiqueta canónica (en castellano).
+#   98 = No sabe · 99 = Prefiere no decirlo. Se tratan como no-respuesta en el análisis.
+#   a_modelos: si | no | anonimizado | agregado   (qué puede salir hacia un LLM)
+#   TODO: dato que no se puede deducir del CSV; sale del código del formulario.
+#
+# OJO: todas las cadenas van entre comillas. En YAML 1.1 (PyYAML) un `No` sin comillas se lee como false.
+
+estudio: "Estudio de Convivencia Social"
+organizacion: "Fundament"
+edicion: 2026
+fuente: "fundament_survey_-_2026_-_Respuestas_brutas.csv"
+trabajo_de_campo: {inicio: "2026-06-19", fin: "2026-09-28"}
+version_codebook: "0.1"
+
+versiones_formulario:
+  - {id: v0, desde: "2026-06-19", nota: "Sin `lang`. Edades con guion corto (-). TODO: ¿piloto?"}
+  - {id: v1, desde: "2026-06-27", nota: "Añade `lang`. Sin paradatos. TODO: ¿piloto?"}
+  - {id: v2, desde: "2026-06-30T08:21:16Z", nota: "Añade ip, fingerprint, duración y q_abandono. Versión de producción."}
+
+reglas_calidad:
+  # Nunca se borran filas del bruto: las reglas marcan, el análisis decide.
+  - {id: menor_edad, condicion: "age == 1", accion: excluir, motivo: "Sin consentimiento válido"}
+  - {id: piloto, condicion: "timestamp < 2026-06-30T08:21:16Z", accion: "TODO: excluir si son pruebas"}
+  - {id: test_explicito, condicion: "utm_source == 'test'", accion: excluir}
+  - {id: rapido, condicion: "duration_seconds < mediana/3", accion: "TODO: decidir umbral; análisis de sensibilidad"}
+  - {id: dispositivo_repetido, condicion: "fp_flagged == True (fp_seen >= 3)", accion: "TODO: política; puede ser un hogar compartiendo dispositivo"}
+
+variables:
+
+  # ── Sociodemográficas ─────────────────────────────────────────
+  - nombre: lang
+    bloque: sociodemografico
+    pregunta: "Idioma en que se respondió el formulario"
+    tipo: nominal
+    desde: v1
+    valores: {1: "Castellano", 2: "Catalán"}
+    origen: {"es": 1, "ca": 2}
+    a_modelos: si
+
+  - nombre: gender
+    bloque: sociodemografico
+    pregunta: "TODO"
+    tipo: nominal
+    valores: {1: "Mujer", 2: "Hombre", 3: "Otro"}
+    origen: {"Mujer": 1, "Hombre": 2, "Otro": 3}
+    a_modelos: si
+
+  - nombre: nacionalidad
+    bloque: sociodemografico
+    pregunta: "TODO"
+    tipo: nominal
+    valores: {1: "Española", 2: "Europea (no española)", 3: "No europea", 99: "Prefiere no decirlo"}
+    origen: {"Española": 1, "Europea (no española)": 2, "No europea": 3, "Prefiero no decirlo": 99}
+    a_modelos: si
+
+  - nombre: age
+    bloque: sociodemografico
+    pregunta: "TODO"
+    tipo: ordinal
+    valores: {1: "Menos de 18", 2: "18–25", 3: "26–35", 4: "36–45", 5: "46–55", 6: "56–65", 7: "66–75", 8: "Más de 75"}
+    origen:
+      "Menos de 18 años": 1
+      "18–25 años": 2
+      "18–25 anys": 2
+      "18-25 años": 2        # guion corto, versión v0
+      "26–35 años": 3
+      "26–35 anys": 3
+      "36–45 años": 4
+      "36–45 anys": 4
+      "46–55 años": 5
+      "46–55 anys": 5
+      "56–65 años": 6
+      "56–65 anys": 6
+      "56-65 años": 6        # guion corto, versión v0
+      "66–75 años": 7
+      "66–75 anys": 7
+      "Más de 75 años": 8
+      # TODO: añadir las etiquetas catalanas de 1 y 8 tal como estén en el formulario
+    nota: "El formulario guarda la etiqueta traducida, no un código."
+    a_modelos: si
+
+  - nombre: municipio
+    bloque: sociodemografico
+    pregunta: "TODO"
+    tipo: nominal
+    valores_validos: ["Alaró", "Alcúdia", "Algaida", "Andratx", "Artà", "Banyalbufar", "Binissalem",
+      "Bunyola", "Búger", "Calvià", "Campanet", "Campos", "Capdepera", "Consell", "Esporles",
+      "Felanitx", "Inca", "Lloseta", "Llucmajor", "Manacor", "Mancor de la Vall", "Marratxí", "Muro",
+      "Palma", "Pobla, Sa", "Pollença", "Puigpunyent", "Salines, Ses", "Sant Llorenç des Cardassar",
+      "Santa Margalida", "Santa María del Camí", "Santanyí", "Selva", "Sineu", "Son Servera",
+      "Sóller", "Valldemossa"]
+    nota: "Lista observada, no la del formulario. TODO: lista completa y código INE."
+    cuasi_identificador: true
+    a_modelos: agregado      # municipios con n < 5 -> 'Otros' o comarca
+
+  - nombre: situacion
+    bloque: sociodemografico
+    pregunta: "TODO"
+    tipo: nominal
+    valores: {1: "Trabaja", 2: "En paro", 3: "Estudiante", 4: "Jubilado/a o pensionista"}
+    origen: {"Trabajo": 1, "Parado/a": 2, "Estudiante": 3, "Jubilado/a o pensionista": 4}
+    a_modelos: si
+
+  - nombre: convivencia
+    bloque: sociodemografico
+    pregunta: "TODO"
+    tipo: ordinal
+    valores: {0: "Vive solo/a", 1: "1 persona más", 2: "2 personas más", 3: "3 personas más", 4: "4 personas más", 5: "5 o más"}
+    origen:
+      "Vivo solo/a": 0
+      "Visc tot sol/a": 0
+      "1 persona más": 1
+      "1 persona més": 1
+      "2 personas más": 2
+      "2 persones més": 2
+      "3 personas más": 3
+      "3 persones més": 3
+      "4 personas más": 4
+      "4 persones més": 4
+      "5 personas o más": 5
+      "5 persones o més": 5
+    nota: "Código = número de convivientes además de quien responde (5 = 5 o más)."
+    a_modelos: si
+
+  - nombre: vivienda
+    bloque: sociodemografico
+    pregunta: "TODO"
+    tipo: nominal
+    valores: {1: "Propiedad", 2: "Alquiler", 3: "Otro"}
+    origen: {"Propiedad": 1, "Alquiler": 2, "Otro": 3}
+    a_modelos: si
+
+  - nombre: vivienda_otro
+    bloque: sociodemografico
+    pregunta: "TODO"
+    tipo: texto_libre
+    depende_de: "vivienda == 3"
+    sensible: true
+    a_modelos: anonimizado
+
+  - nombre: tourism_dependencia
+    bloque: sociodemografico
+    pregunta: "TODO"
+    tipo: nominal
+    valores: {1: "Sí", 0: "No", 98: "No sabe"}
+    origen: {"Sí": 1, "No": 0, "No lo sé": 98}
+    a_modelos: si
+
+  # ── Escalas 0–10 ──────────────────────────────────────────────
+  # TODO crítico: anclas y dirección de cada escala. Sin ellas, ningún modelo (ni persona)
+  # puede interpretar si 10 es "mejor" o "peor".
+  # TODO: ¿el slider tiene valor por defecto? Si lo tiene, "no lo tocó" es indistinguible de elegir ese valor.
+
+  - {nombre: situacion_economica, bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
+  - {nombre: q_vida_diaria,       bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
+  - {nombre: q_medio_ambiente,    bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
+  - {nombre: q_calidad_vida,      bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
+  - {nombre: q_precios,           bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
+  - {nombre: q_transporte,        bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si, nota: "Nadie eligió 0. TODO: ¿el mínimo del slider es 1?"}
+  - {nombre: q_espacios,          bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
+  - {nombre: q_bienestar,         bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
+  - {nombre: q_gastos_ocio,       bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
+  - {nombre: q_futuro_isla,       bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
+  - {nombre: q_diversificacion,   bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
+  - {nombre: q_interacciones,     bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
+  - {nombre: q_activismo,         bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
+  - {nombre: q_gestion,           bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
+
+  # ── Opinión ───────────────────────────────────────────────────
+  - nombre: manifestacion
+    bloque: opinion
+    pregunta: "TODO"
+    tipo: binaria
+    valores: {1: "Sí", 0: "No"}
+    origen: {"Sí": 1, "No": 0}
+    a_modelos: si
+
+  - nombre: responsable
+    bloque: opinion
+    pregunta: "TODO"
+    tipo: nominal
+    valores: {1: "El gobierno", 2: "Quienes traen, alojan y dan servicio a turistas", 3: "Ambos", 4: "Otro"}
+    origen:
+      "El gobierno": 1
+      "Los que traen, alojan y dan servicio a los turistas": 2
+      "Los dos anteriores": 3
+      "Otro": 4
+    nota: "'Ambos' concentra ~64 %. Revisar el diseño de la pregunta para la próxima edición."
+    a_modelos: si
+
+  - nombre: responsable_otro
+    bloque: opinion
+    pregunta: "TODO"
+    tipo: texto_libre
+    depende_de: "responsable == 4"
+    sensible: true
+    a_modelos: anonimizado
+
+  - nombre: q_abandono
+    bloque: opinion
+    pregunta: "TODO"
+    tipo: ordinal
+    desde: v2
+    valores: {0: "No", 1: "Sí, de pasada", 2: "Sí, seriamente"}
+    origen: {"No": 0, "Sí, de pasada": 1, "Sí, seriamente": 2}
+    a_modelos: si
+
+  - nombre: q_abandono_razon
+    bloque: opinion
+    pregunta: "TODO"
+    tipo: texto_libre
+    depende_de: "q_abandono >= 1"
+    sensible: true
+    a_modelos: anonimizado
+
+  # ── Preguntas abiertas ────────────────────────────────────────
+  - {nombre: cambio,    bloque: abiertas, pregunta: "TODO", tipo: texto_libre, sensible: true, a_modelos: anonimizado}
+  - {nombre: preservar, bloque: abiertas, pregunta: "TODO", tipo: texto_libre, sensible: true, a_modelos: anonimizado}
+
+  # ── Paradatos y técnicas ──────────────────────────────────────
+  - {nombre: timestamp,        bloque: paradatos, tipo: fecha,         a_modelos: agregado, nota: "Truncar a semana antes de enviar."}
+  - {nombre: duration_seconds, bloque: paradatos, tipo: numerico,      desde: v2, a_modelos: no, nota: "Solo para reglas de calidad."}
+  - {nombre: fp_seen,          bloque: paradatos, tipo: numerico,      desde: v2, a_modelos: no}
+  - {nombre: fp_flagged,       bloque: paradatos, tipo: booleano,      desde: v2, a_modelos: no, nota: "True si fp_seen >= 3."}
+  - {nombre: ip,               bloque: tecnico,   tipo: identificador, desde: v2, sensible: true, a_modelos: no}
+  - {nombre: fingerprint,      bloque: tecnico,   tipo: identificador, desde: v2, sensible: true, a_modelos: no}
+  - {nombre: utm_source,       bloque: captacion, tipo: nominal_libre, a_modelos: no}
+  - {nombre: utm_medium,       bloque: captacion, tipo: nominal_libre, a_modelos: no}
+  - {nombre: utm_campaign,     bloque: captacion, tipo: nominal_libre, a_modelos: no, nota: "Campaña de Instagram etiquetada 'prueba'. TODO: ¿respuestas reales?"}
+  - {nombre: utm_term,         bloque: captacion, tipo: nominal_libre, a_modelos: no, nota: "Vacía en 2026."}
+  - {nombre: utm_content,      bloque: captacion, tipo: nominal_libre, a_modelos: no}
+  - {nombre: gclid,            bloque: captacion, tipo: identificador, a_modelos: no, nota: "Vacía en 2026."}
