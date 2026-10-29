@@ -7,6 +7,8 @@
 #   98 = No sabe · 99 = Prefiere no decirlo. Se tratan como no-respuesta en el análisis.
 #   a_modelos: si | no | anonimizado | agregado   (qué puede salir hacia un LLM)
 #   TODO: dato que no se puede deducir del CSV; sale del código del formulario.
+#   Textos de pregunta: versión en castellano del formulario cerrado el 2026-09-30
+#   (referencia/formulario-2026.html).
 #
 # OJO: todas las cadenas van entre comillas. En YAML 1.1 (PyYAML) un `No` sin comillas se lee como false.
 
@@ -18,17 +20,17 @@ trabajo_de_campo: {inicio: "2026-06-19", fin: "2026-09-28"}
 version_codebook: "0.1"
 
 versiones_formulario:
-  - {id: v0, desde: "2026-06-19", nota: "Sin `lang`. Edades con guion corto (-). TODO: ¿piloto?"}
-  - {id: v1, desde: "2026-06-27", nota: "Añade `lang`. Sin paradatos. TODO: ¿piloto?"}
+  - {id: v0, desde: "2026-06-19", nota: "Sin `lang`. Edades con guion corto (-). Solo respuestas de prueba."}
+  - {id: v1, desde: "2026-06-27", nota: "Añade `lang`. Sin paradatos. Solo respuestas de prueba."}
   - {id: v2, desde: "2026-06-30T08:21:16Z", nota: "Añade ip, fingerprint, duración y q_abandono. Versión de producción."}
 
 reglas_calidad:
   # Nunca se borran filas del bruto: las reglas marcan, el análisis decide.
   - {id: menor_edad, condicion: "age == 1", accion: excluir, motivo: "Sin consentimiento válido"}
-  - {id: piloto, condicion: "timestamp < 2026-06-30T08:21:16Z", accion: "TODO: excluir si son pruebas"}
+  - {id: prueba, condicion: "utm_campaign == 'prueba'", accion: excluir, motivo: "Pruebas internas. Incluye todas las respuestas anteriores a v2"}
   - {id: test_explicito, condicion: "utm_source == 'test'", accion: excluir}
-  - {id: rapido, condicion: "duration_seconds < mediana/3", accion: "TODO: decidir umbral; análisis de sensibilidad"}
-  - {id: dispositivo_repetido, condicion: "fp_flagged == True (fp_seen >= 3)", accion: "TODO: política; puede ser un hogar compartiendo dispositivo"}
+  - {id: rapido, condicion: "duration_seconds < mediana/3", accion: sensibilidad, motivo: "No se excluyen: el análisis se hace con y sin estas filas"}
+  - {id: dispositivo_repetido, condicion: "fp_flagged == True (fp_seen >= 3)", accion: sensibilidad, motivo: "Puede ser un hogar compartiendo dispositivo. fp_seen == 2 no se marca"}
 
 variables:
 
@@ -44,7 +46,7 @@ variables:
 
   - nombre: gender
     bloque: sociodemografico
-    pregunta: "TODO"
+    pregunta: "Eres..."
     tipo: nominal
     valores: {1: "Mujer", 2: "Hombre", 3: "Otro"}
     origen: {"Mujer": 1, "Hombre": 2, "Otro": 3}
@@ -52,7 +54,7 @@ variables:
 
   - nombre: nacionalidad
     bloque: sociodemografico
-    pregunta: "TODO"
+    pregunta: "¿Cuál es tu nacionalidad?"
     tipo: nominal
     valores: {1: "Española", 2: "Europea (no española)", 3: "No europea", 99: "Prefiere no decirlo"}
     origen: {"Española": 1, "Europea (no española)": 2, "No europea": 3, "Prefiero no decirlo": 99}
@@ -60,7 +62,7 @@ variables:
 
   - nombre: age
     bloque: sociodemografico
-    pregunta: "TODO"
+    pregunta: "¿Cuántos años tienes?"
     tipo: ordinal
     valores: {1: "Menos de 18", 2: "18–25", 3: "26–35", 4: "36–45", 5: "46–55", 6: "56–65", 7: "66–75", 8: "Más de 75"}
     origen:
@@ -80,27 +82,33 @@ variables:
       "66–75 años": 7
       "66–75 anys": 7
       "Más de 75 años": 8
-      # TODO: añadir las etiquetas catalanas de 1 y 8 tal como estén en el formulario
-    nota: "El formulario guarda la etiqueta traducida, no un código."
+      "Menys de 18 anys": 1
+      "Més de 75 anys": 8
+    nota: "El formulario guarda la etiqueta traducida, no un código. Slider de 8 posiciones; exige moverlo para avanzar."
     a_modelos: si
 
   - nombre: municipio
     bloque: sociodemografico
-    pregunta: "TODO"
+    pregunta: "¿Dónde vives?"
     tipo: nominal
-    valores_validos: ["Alaró", "Alcúdia", "Algaida", "Andratx", "Artà", "Banyalbufar", "Binissalem",
-      "Bunyola", "Búger", "Calvià", "Campanet", "Campos", "Capdepera", "Consell", "Esporles",
-      "Felanitx", "Inca", "Lloseta", "Llucmajor", "Manacor", "Mancor de la Vall", "Marratxí", "Muro",
-      "Palma", "Pobla, Sa", "Pollença", "Puigpunyent", "Salines, Ses", "Sant Llorenç des Cardassar",
-      "Santa Margalida", "Santa María del Camí", "Santanyí", "Selva", "Sineu", "Son Servera",
-      "Sóller", "Valldemossa"]
-    nota: "Lista observada, no la del formulario. TODO: lista completa y código INE."
+    valores_validos: ["Alaró", "Alcúdia", "Algaida", "Andratx", "Ariany", "Artà", "Banyalbufar",
+      "Binissalem", "Bunyola", "Búger", "Calvià", "Campanet", "Campos", "Capdepera", "Consell",
+      "Costitx", "Deià", "Escorca", "Esporles", "Estellencs", "Felanitx", "Fornalutx", "Inca",
+      "Lloret de Vistalegre", "Lloseta", "Llubí", "Llucmajor", "Manacor", "Mancor de la Vall",
+      "Maria de la Salut", "Marratxí", "Montuïri", "Muro", "Palma", "Petra", "Pobla, Sa", "Pollença",
+      "Puigpunyent", "Salines, Ses", "Sant Joan", "Sant Llorenç des Cardassar", "Santa Eugènia",
+      "Santa Margalida", "Santa María del Camí", "Santanyí", "Selva", "Sencelles", "Sineu",
+      "Son Servera", "Sóller", "Valldemossa", "Vilafranca de Bonany"]
+    nota: >-
+      Lista del formulario: 52 municipios agrupados por comarca. Porreres NO tenía botón,
+      así que nadie pudo elegirlo. Quien pulsaba "No resido en Mallorca" salía de la encuesta
+      sin responder: todas las respuestas son de residentes.
     cuasi_identificador: true
     a_modelos: agregado      # municipios con n < 5 -> 'Otros' o comarca
 
   - nombre: situacion
     bloque: sociodemografico
-    pregunta: "TODO"
+    pregunta: "¿Cuál de las siguientes situaciones se ajusta más a tu situación actual?"
     tipo: nominal
     valores: {1: "Trabaja", 2: "En paro", 3: "Estudiante", 4: "Jubilado/a o pensionista"}
     origen: {"Trabajo": 1, "Parado/a": 2, "Estudiante": 3, "Jubilado/a o pensionista": 4}
@@ -108,7 +116,7 @@ variables:
 
   - nombre: convivencia
     bloque: sociodemografico
-    pregunta: "TODO"
+    pregunta: "¿Cuántas personas conviven contigo en casa?"
     tipo: ordinal
     valores: {0: "Vive solo/a", 1: "1 persona más", 2: "2 personas más", 3: "3 personas más", 4: "4 personas más", 5: "5 o más"}
     origen:
@@ -129,7 +137,7 @@ variables:
 
   - nombre: vivienda
     bloque: sociodemografico
-    pregunta: "TODO"
+    pregunta: "¿En qué régimen vives?"
     tipo: nominal
     valores: {1: "Propiedad", 2: "Alquiler", 3: "Otro"}
     origen: {"Propiedad": 1, "Alquiler": 2, "Otro": 3}
@@ -137,7 +145,7 @@ variables:
 
   - nombre: vivienda_otro
     bloque: sociodemografico
-    pregunta: "TODO"
+    pregunta: "Describe tu situación de vivienda…"
     tipo: texto_libre
     depende_de: "vivienda == 3"
     sensible: true
@@ -145,36 +153,39 @@ variables:
 
   - nombre: tourism_dependencia
     bloque: sociodemografico
-    pregunta: "TODO"
+    pregunta: "¿Tu ocupación depende o ha dependido directa o indirectamente del turismo?"
     tipo: nominal
     valores: {1: "Sí", 0: "No", 98: "No sabe"}
     origen: {"Sí": 1, "No": 0, "No lo sé": 98}
     a_modelos: si
 
   # ── Escalas 0–10 ──────────────────────────────────────────────
-  # TODO crítico: anclas y dirección de cada escala. Sin ellas, ningún modelo (ni persona)
-  # puede interpretar si 10 es "mejor" o "peor".
-  # TODO: ¿el slider tiene valor por defecto? Si lo tiene, "no lo tocó" es indistinguible de elegir ese valor.
+  # Sliders 0–10. Se muestran en 5, pero el valor solo se registra al moverlos y no se puede
+  # avanzar sin hacerlo (todas las versiones del formulario). "No lo tocó" no existe en los datos.
+  # Para dejar un 5 hay que moverlo y volver: el 5 puede estar algo infrarrepresentado.
+  # Las q_* son grado de acuerdo con una afirmación: 0 = nada de acuerdo, 10 = totalmente de acuerdo.
+  # Ojo: varias afirmaciones no tienen dirección valorativa ("afecta", "influye"): un 10 indica
+  # acuerdo con que hay efecto, no si es positivo o negativo.
 
-  - {nombre: situacion_economica, bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
-  - {nombre: q_vida_diaria,       bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
-  - {nombre: q_medio_ambiente,    bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
-  - {nombre: q_calidad_vida,      bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
-  - {nombre: q_precios,           bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
-  - {nombre: q_transporte,        bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si, nota: "Nadie eligió 0. TODO: ¿el mínimo del slider es 1?"}
-  - {nombre: q_espacios,          bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
-  - {nombre: q_bienestar,         bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
-  - {nombre: q_gastos_ocio,       bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
-  - {nombre: q_futuro_isla,       bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
-  - {nombre: q_diversificacion,   bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
-  - {nombre: q_interacciones,     bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
-  - {nombre: q_activismo,         bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
-  - {nombre: q_gestion,           bloque: escalas, pregunta: "TODO", tipo: escala_0_10, anclas: {0: "TODO", 10: "TODO"}, a_modelos: si}
+  - {nombre: situacion_economica, bloque: escalas, pregunta: "¿Cómo percibes tu situación económica?", tipo: escala_0_10, anclas: {0: "Muy mala", 10: "Muy buena"}, a_modelos: si}
+  - {nombre: q_vida_diaria,       bloque: escalas, pregunta: "El turismo influye en mi vida diaria.", tipo: escala_0_10, anclas: {0: "Nada de acuerdo", 10: "Totalmente de acuerdo"}, a_modelos: si}
+  - {nombre: q_medio_ambiente,    bloque: escalas, pregunta: "El turismo afecta al medio ambiente.", tipo: escala_0_10, anclas: {0: "Nada de acuerdo", 10: "Totalmente de acuerdo"}, a_modelos: si}
+  - {nombre: q_calidad_vida,      bloque: escalas, pregunta: "El turismo afecta a mi calidad de vida.", tipo: escala_0_10, anclas: {0: "Nada de acuerdo", 10: "Totalmente de acuerdo"}, a_modelos: si}
+  - {nombre: q_precios,           bloque: escalas, pregunta: "El turismo contribuye al aumento de precios en Mallorca.", tipo: escala_0_10, anclas: {0: "Nada de acuerdo", 10: "Totalmente de acuerdo"}, a_modelos: si}
+  - {nombre: q_transporte,        bloque: escalas, pregunta: "El turismo afecta a la calidad del transporte público.", tipo: escala_0_10, anclas: {0: "Nada de acuerdo", 10: "Totalmente de acuerdo"}, a_modelos: si, nota: "El slider va de 0 a 10; nadie eligió 0."}
+  - {nombre: q_espacios,          bloque: escalas, pregunta: "Los espacios públicos se deterioran a causa del turismo.", tipo: escala_0_10, anclas: {0: "Nada de acuerdo", 10: "Totalmente de acuerdo"}, a_modelos: si}
+  - {nombre: q_bienestar,         bloque: escalas, pregunta: "El turismo influye en mi bienestar y en las interacciones comunitarias.", tipo: escala_0_10, anclas: {0: "Nada de acuerdo", 10: "Totalmente de acuerdo"}, a_modelos: si}
+  - {nombre: q_gastos_ocio,       bloque: escalas, pregunta: "El turismo ha afectado a mis gastos de ocio.", tipo: escala_0_10, anclas: {0: "Nada de acuerdo", 10: "Totalmente de acuerdo"}, a_modelos: si}
+  - {nombre: q_futuro_isla,       bloque: escalas, pregunta: "El turismo es el futuro de la isla.", tipo: escala_0_10, anclas: {0: "Nada de acuerdo", 10: "Totalmente de acuerdo"}, a_modelos: si}
+  - {nombre: q_diversificacion,   bloque: escalas, pregunta: "La economía de Mallorca sería más resistente con una mayor variedad de industrias.", tipo: escala_0_10, anclas: {0: "Nada de acuerdo", 10: "Totalmente de acuerdo"}, a_modelos: si}
+  - {nombre: q_interacciones,     bloque: escalas, pregunta: "El turismo favorece interacciones positivas entre residentes y visitantes.", tipo: escala_0_10, anclas: {0: "Nada de acuerdo", 10: "Totalmente de acuerdo"}, a_modelos: si}
+  - {nombre: q_activismo,         bloque: escalas, pregunta: "El activismo de los residentes ha tenido un impacto positivo en la gestión del turismo.", tipo: escala_0_10, anclas: {0: "Nada de acuerdo", 10: "Totalmente de acuerdo"}, a_modelos: si}
+  - {nombre: q_gestion,           bloque: escalas, pregunta: "La gestión del turismo esta temporada ha mejorado la convivencia en Mallorca.", tipo: escala_0_10, anclas: {0: "Nada de acuerdo", 10: "Totalmente de acuerdo"}, a_modelos: si}
 
   # ── Opinión ───────────────────────────────────────────────────
   - nombre: manifestacion
     bloque: opinion
-    pregunta: "TODO"
+    pregunta: "¿Has participado en alguna manifestación o actividad relacionada con el turismo este año?"
     tipo: binaria
     valores: {1: "Sí", 0: "No"}
     origen: {"Sí": 1, "No": 0}
@@ -182,7 +193,7 @@ variables:
 
   - nombre: responsable
     bloque: opinion
-    pregunta: "TODO"
+    pregunta: "¿Quién debería hacerse cargo de los efectos colaterales del turismo de masas en Mallorca?"
     tipo: nominal
     valores: {1: "El gobierno", 2: "Quienes traen, alojan y dan servicio a turistas", 3: "Ambos", 4: "Otro"}
     origen:
@@ -195,7 +206,7 @@ variables:
 
   - nombre: responsable_otro
     bloque: opinion
-    pregunta: "TODO"
+    pregunta: "¿Quién, en tu opinión?"
     tipo: texto_libre
     depende_de: "responsable == 4"
     sensible: true
@@ -203,7 +214,7 @@ variables:
 
   - nombre: q_abandono
     bloque: opinion
-    pregunta: "TODO"
+    pregunta: "¿Has pensado alguna vez en irte de Mallorca a causa del turismo?"
     tipo: ordinal
     desde: v2
     valores: {0: "No", 1: "Sí, de pasada", 2: "Sí, seriamente"}
@@ -212,15 +223,15 @@ variables:
 
   - nombre: q_abandono_razon
     bloque: opinion
-    pregunta: "TODO"
+    pregunta: "¿Cuál es la razón principal? (opcional)"
     tipo: texto_libre
     depende_de: "q_abandono >= 1"
     sensible: true
     a_modelos: anonimizado
 
   # ── Preguntas abiertas ────────────────────────────────────────
-  - {nombre: cambio,    bloque: abiertas, pregunta: "TODO", tipo: texto_libre, sensible: true, a_modelos: anonimizado}
-  - {nombre: preservar, bloque: abiertas, pregunta: "TODO", tipo: texto_libre, sensible: true, a_modelos: anonimizado}
+  - {nombre: cambio,    bloque: abiertas, pregunta: "Si pudieras cambiar una sola cosa sobre el turismo en Mallorca, ¿cuál sería y por qué?", opcional: true, tipo: texto_libre, sensible: true, a_modelos: anonimizado}
+  - {nombre: preservar, bloque: abiertas, pregunta: "¿Qué aspecto del turismo en Mallorca te gustaría preservar para las futuras generaciones?", opcional: true, tipo: texto_libre, sensible: true, a_modelos: anonimizado}
 
   # ── Paradatos y técnicas ──────────────────────────────────────
   - {nombre: timestamp,        bloque: paradatos, tipo: fecha,         a_modelos: agregado, nota: "Truncar a semana antes de enviar."}
@@ -231,7 +242,7 @@ variables:
   - {nombre: fingerprint,      bloque: tecnico,   tipo: identificador, desde: v2, sensible: true, a_modelos: no}
   - {nombre: utm_source,       bloque: captacion, tipo: nominal_libre, a_modelos: no}
   - {nombre: utm_medium,       bloque: captacion, tipo: nominal_libre, a_modelos: no}
-  - {nombre: utm_campaign,     bloque: captacion, tipo: nominal_libre, a_modelos: no, nota: "Campaña de Instagram etiquetada 'prueba'. TODO: ¿respuestas reales?"}
+  - {nombre: utm_campaign,     bloque: captacion, tipo: nominal_libre, a_modelos: no, nota: "'prueba' marca respuestas de prueba internas; ver regla `prueba`."}
   - {nombre: utm_term,         bloque: captacion, tipo: nominal_libre, a_modelos: no, nota: "Vacía en 2026."}
   - {nombre: utm_content,      bloque: captacion, tipo: nominal_libre, a_modelos: no}
   - {nombre: gclid,            bloque: captacion, tipo: identificador, a_modelos: no, nota: "Vacía en 2026."}

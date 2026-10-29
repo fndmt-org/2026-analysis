@@ -17,3 +17,6 @@ codebook/*_files/
 __pycache__/
 .ipynb_checkpoints/
 .DS_Store
+
+# Código del formulario (contiene el ID de la hoja de respuestas). Copia limpia en referencia/
+web/

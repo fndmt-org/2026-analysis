@@ -18,8 +18,8 @@ from pathlib import Path
 import yaml
 import pandas as pd
 
-RUTA_CODEBOOK = Path("codebook.yaml")
-RUTA_DATOS = Path("../datos/brutos/fundament_survey_-_2026_-_Respuestas_brutas.csv")
+RUTA_CODEBOOK = Path("./codebook.yaml")
+RUTA_DATOS = Path("../datos/brutos/fundament_survey_-_2026_-_Respuestas_brutas.csv") 
 
 cb = yaml.safe_load(RUTA_CODEBOOK.read_text(encoding="utf-8"))
 df = pd.read_csv(RUTA_DATOS)
@@ -153,7 +153,7 @@ Las reglas marcan filas; no las borran. El análisis decide qué excluir y lo de
 mediana = df["duration_seconds"].median()
 marcas = pd.DataFrame({
     "menor_edad": h["age"] == 1,
-    "piloto": df["timestamp"] < VERSIONES["v2"],
+    "prueba": df["utm_campaign"] == "prueba",
     "test_explicito": df["utm_source"] == "test",
     "rapido": df["duration_seconds"] < mediana / 3,
     "dispositivo_repetido": df["fp_flagged"] == True,  # noqa: E712 (columna con NaN)

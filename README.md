@@ -20,7 +20,7 @@ pip install -r requirements.txt
 ## Datos
 
 Los datos brutos contienen IP, fingerprint y texto libre: nunca se suben al repositorio, tampoco si es privado.
-TODO: indicar dónde se guardan y a quién pedirlos.
+Se guardan en el Drive de la asociación. Para pedir acceso, contacta con Pablo Grillo o Frank Hoeft.
 
 Copia el CSV a `datos/brutos/` y comprueba que es la misma versión con la que se trabajó:
 

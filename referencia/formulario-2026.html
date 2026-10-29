@@ -1,0 +1,2334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) — Consent Mode v2, default denegado hasta que el usuario acepte el banner. -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied'
+  });
+  gtag('js', new Date());
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0PBK317XEB"></script>
+<script>
+  gtag('config', 'G-0PBK317XEB');
+  gtag('config', 'AW-356168464');
+</script>
+<!-- Google tag (gtag.js) event - delayed navigation helper -->
+<script>
+  // Helper function to delay opening a URL until a gtag event is sent.
+  // Call it in response to an action that should navigate to a URL.
+  function gtagSendEvent(url) {
+    var callback = function () {
+      if (typeof url === 'string') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion_event_submit_lead_form', {
+      'event_callback': callback,
+      'event_timeout': 2000,
+      // <event_parameters>
+    });
+    return false;
+  }
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudio sobre la sostenibilidad social del turismo en Mallorca — fundament</title>
+<link rel="icon" href="https://www.fundament.es/wp-content/uploads/2019/10/cropped-01-fundament-symbol-icon-2.png">
+<meta name="description" content="Encuesta bianual de fundament sobre cómo el turismo afecta a la convivencia de los residentes en Mallorca. Edición 2026.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://encuesta.fundament.es">
+<meta property="og:title" content="Cómo vives el turismo en Mallorca — Encuesta fundament 2026">
+<meta property="og:description" content="Cada año recogemos la voz de quienes viven en Mallorca. Tu respuesta se suma a la de tus vecinos para entender, con datos, cómo nos afecta el turismo de verdad.">
+<meta property="og:image" content="https://www.fundament.es/wp-content/uploads/2026/07/og-image-encuesta-2026-v2.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cómo vives el turismo en Mallorca — Encuesta fundament 2026">
+<meta name="twitter:description" content="Cada año recogemos la voz de quienes viven en Mallorca. Tu respuesta se suma a la de tus vecinos.">
+<meta name="twitter:image" content="https://www.fundament.es/wp-content/uploads/2026/07/og-image-encuesta-2026-v2.png">
+<style>
+  /* ============ TOKENS ============ */
+  :root{
+    --ink:#102b33;
+    --teal-900:#163f49;
+    --teal-700:#1d5663;
+    --teal-500:#3f8a96;
+    --teal-300:#9bcdd2;
+    --teal-150:#cfe6e7;
+    --teal-100:#eaf4f3;
+    --paper:#faf8f3;
+    --coral:#e8602f;
+    --coral-dark:#c44a1f;
+    --font-display:'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-body:'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-mono:ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    --radius:14px;
+    --max:680px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:var(--font-display); margin:0; letter-spacing:-0.01em;}
+  p{margin:0;}
+  button{font-family:inherit;}
+  ::selection{background:var(--coral); color:#fff;}
+
+  :focus-visible{outline:2px solid var(--coral); outline-offset:3px; border-radius:4px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ============ TOP PROGRESS RAIL ============ */
+  #rail{
+    position:fixed; top:0; left:0; right:0; height:3px;
+    background:var(--teal-100); z-index:50;
+  }
+  #rail-fill{
+    height:100%; width:0%; background:var(--coral);
+    transition:width .35s ease;
+  }
+
+  /* ============ LAYOUT ============ */
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 24px; }
+  .screen{ display:none; min-height:100svh; padding:64px 0 48px; }
+  .screen.active{ display:block; }
+
+  .eyebrow{
+    font-family:var(--font-mono); font-size:12.5px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--teal-700);
+    display:flex; align-items:center; gap:10px; margin-bottom:18px;
+  }
+  .eyebrow .brand{ text-transform:none; }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--coral);}
+
+  /* ============ HERO ============ */
+  .hero h1{
+    font-size:clamp(2.4rem, 7vw, 3.6rem);
+    font-weight:600; line-height:1.04; color:var(--ink);
+  }
+  .hero h1 em{ font-style:normal; color:var(--teal-500); }
+  .hero .lede{
+    margin-top:20px; max-width:46ch; font-size:1.08rem; color:var(--teal-900);
+  }
+
+  .dotfield{
+    margin:40px -4px 10px; padding:18px; border-radius:var(--radius);
+    background:var(--teal-100);
+    display:flex; flex-wrap:wrap; align-content:flex-start; gap:7px;
+  }
+  .dotfield .gd{
+    width:7px; height:7px; border-radius:50%; background:var(--teal-300);
+    transition:background .25s ease, transform .25s ease;
+  }
+  .dotfield .gd.filled{ background:var(--coral); transform:scale(1.2); }
+  /* Puntos "bonus": respuestas por encima del mínimo estadístico (384). Se
+     añaden en un color distinto para que se note visualmente que se sigue
+     creciendo más allá del mínimo, sin fijar un tope superior. */
+  .dotfield .gd.bonus{ background:var(--teal-900); }
+  .dotfield-caption{
+    font-family:var(--font-mono); font-size:.78rem; color:var(--teal-700);
+    margin-bottom:34px;
+  }
+  .dotfield-caption b{ color:var(--coral-dark); }
+
+  .credibility{
+    display:flex; gap:28px; flex-wrap:wrap; margin-bottom:36px;
+  }
+  .credibility div b{
+    font-family:var(--font-mono); display:block; font-size:1.5rem; color:var(--teal-900);
+  }
+  .credibility div span{ font-size:.82rem; color:var(--teal-700); }
+
+  .btn{
+    appearance:none; border:none; cursor:pointer; border-radius:999px;
+    font-family:var(--font-display); font-weight:600; font-size:1rem;
+    padding:15px 30px; display:inline-flex; align-items:center; gap:10px;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn-primary{ background:var(--coral); color:#fff; }
+  .btn-primary:hover{ background:var(--coral-dark); transform:translateY(-1px); }
+  .btn-ghost{ background:transparent; color:var(--teal-700); padding:15px 8px; }
+  .btn-ghost:hover{ color:var(--ink); }
+  .btn[disabled]{ opacity:.35; cursor:not-allowed; transform:none; }
+
+  .privacy-note{
+    margin-top:18px; font-size:.84rem; color:var(--teal-700); max-width:42ch;
+  }
+
+  /* ============ TRES CUADROS DE REPRESENTACIÓN ============ */
+  .demo-badge{
+    display:inline-block; font-family:var(--font-mono); font-size:.72rem;
+    color:var(--teal-700); background:var(--teal-100); border-radius:99px;
+    padding:6px 14px; margin-bottom:14px;
+  }
+  .three-cards{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:14px;
+    margin:48px 0 18px;
+  }
+  .mini-card{
+    padding:20px; border-radius:var(--radius); background:var(--teal-100); color:var(--ink);
+  }
+  .mini-card h3{ font-size:.98rem; color:var(--ink); font-weight:700; line-height:1.25; }
+  .mini-card .sub{ font-size:.78rem; color:var(--teal-700); margin-top:6px; }
+  .mini-list{ margin-top:16px; display:flex; flex-direction:column; gap:12px; }
+  .mini-row{
+    font-size:.85rem; padding-bottom:9px; border-bottom:1px solid rgba(22,63,73,.12);
+  }
+  .mini-row:last-child{ border-bottom:none; padding-bottom:0; }
+  .mini-row .mini-name{ display:block; margin-bottom:7px; }
+  .mini-row .mini-tag{
+    font-family:var(--font-mono); font-size:.66rem; color:var(--teal-700);
+    text-transform:uppercase; letter-spacing:.04em; display:block; margin-top:1px;
+  }
+  /* Barra de dos tonos: el tramo naranja es la parte "que aún falta" —
+     siempre visible, nunca desaparece del todo (ver miniRow: la barra
+     nunca llega al 100%), para que ningún pueblo se vea "terminado". */
+  .mini-bar{
+    position:relative; height:8px; border-radius:99px; background:rgba(232,96,47,.28);
+  }
+  .mini-bar-fill{ height:100%; border-radius:99px; background:var(--teal-900); }
+  /* Aguja: marca la cuota de este pueblo dentro del mínimo estadístico de
+     Mallorca (384 respuestas en total). No es "overflow:hidden" en .mini-bar
+     para que la aguja sobresalga un poco por arriba/abajo y se note. */
+  .mini-needle{
+    position:absolute; top:-3px; bottom:-3px; width:2px; background:var(--ink);
+    border-radius:1px; opacity:.55;
+  }
+  .mini-row.is-self{
+    background:rgba(232,96,47,.12); margin:0 -10px; padding:8px 10px; border-radius:8px;
+  }
+
+  .methodology-note{
+    font-size:.78rem; color:var(--teal-700); line-height:1.5; margin-bottom:36px;
+  }
+
+  @media (max-width:760px){
+    .three-cards{ grid-template-columns:1fr; }
+  }
+
+  .town-note{
+    margin-top:14px; padding:14px 16px; border-radius:10px;
+    background:var(--teal-100); font-size:.88rem; color:var(--teal-900);
+    display:none; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+  }
+  .town-note.show{ display:flex; }
+  .town-note .share-link{
+    font-family:var(--font-mono); font-size:.78rem; color:var(--coral-dark);
+    text-decoration:none; white-space:nowrap; border-bottom:1px solid var(--coral);
+  }
+
+  /* ============ STICKY FORM HEADER ============ */
+  .form-header{
+    position:sticky; top:3px; background:var(--paper); padding-top:18px;
+    padding-bottom:16px; z-index:10; border-bottom:1px solid var(--teal-100);
+    margin-bottom:32px;
+  }
+  .form-header-row{ display:flex; justify-content:space-between; align-items:baseline; }
+  .form-header h2{ font-size:1.5rem; color:var(--ink); }
+  .step-counter{ font-family:var(--font-mono); font-size:.8rem; color:var(--teal-700); }
+
+  #progress-dots{
+    display:flex; flex-wrap:wrap; gap:5px; margin-top:14px;
+  }
+  #progress-dots .d{
+    width:7px; height:7px; border-radius:50%; background:var(--teal-150);
+    transition:background .25s ease, transform .25s ease;
+  }
+  #progress-dots .d.filled{ background:var(--coral); transform:scale(1.15); }
+
+  /* ============ FIELDS ============ */
+  .field{ margin-bottom:36px; }
+  .field-label{
+    font-family:var(--font-display); font-size:1.06rem; font-weight:500;
+    color:var(--ink); margin-bottom:14px; display:block;
+  }
+
+  .pill-group{ display:flex; flex-wrap:wrap; gap:10px; }
+  .pill{
+    position:relative;
+  }
+  .pill input{ position:absolute; opacity:0; width:100%; height:100%; cursor:pointer; margin:0; }
+  .pill span{
+    display:inline-block; padding:10px 18px; border-radius:999px;
+    border:1.5px solid var(--teal-150); font-size:.93rem; color:var(--teal-900);
+    transition:all .15s ease; background:#fff;
+  }
+  .pill input:checked + span{
+    background:var(--teal-900); border-color:var(--teal-900); color:#fff;
+  }
+  .pill input:focus-visible + span{ outline:2px solid var(--coral); outline-offset:2px; }
+
+  select, textarea, input[type="text"]{
+    width:100%; font-family:var(--font-body); font-size:1rem; color:var(--ink);
+    border:1.5px solid var(--teal-150); border-radius:10px; padding:13px 14px;
+    background:#fff; appearance:none;
+  }
+  select{
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9'><path d='M1 1l6 6 6-6' stroke='%231d5663' stroke-width='1.6' fill='none'/></svg>");
+    background-repeat:no-repeat; background-position:right 16px center; padding-right:38px;
+  }
+  textarea{ resize:vertical; min-height:96px; }
+
+  /* Slider */
+  .slider-field{ margin-bottom:42px; }
+  .slider-field .field-label{ margin-bottom:6px; }
+  input[type="range"]{
+    -webkit-appearance:none; appearance:none; width:100%; height:4px;
+    background:var(--teal-150); border-radius:99px; outline:none; margin:8px 0;
+  }
+  input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance:none; width:22px; height:22px; border-radius:50%;
+    background:var(--coral); border:3px solid #fff; box-shadow:0 0 0 1.5px var(--coral);
+    cursor:pointer; margin-top:-1px; transition:background .2s, box-shadow .2s;
+  }
+  input[type="range"]::-moz-range-thumb{
+    width:16px; height:16px; border-radius:50%; background:var(--coral);
+    border:3px solid #fff; box-shadow:0 0 0 1.5px var(--coral); cursor:pointer;
+    transition:background .2s, box-shadow .2s;
+  }
+  input[type="range"][data-touched="1"]::-webkit-slider-thumb{
+    background:var(--teal-700); box-shadow:0 0 0 1.5px var(--teal-700);
+  }
+  input[type="range"][data-touched="1"]::-moz-range-thumb{
+    background:var(--teal-700); box-shadow:0 0 0 1.5px var(--teal-700);
+  }
+  .slider-scale{
+    display:flex; justify-content:space-between; font-size:.72rem;
+    color:var(--teal-700); margin-top:6px;
+  }
+  .slider-scale span{ text-align:center; flex:1; }
+  /* Flechas en sliders de dos extremos (Likert 0–10) */
+  .slider-field:not([data-type="text"]) .slider-scale span:first-child::before{ content:'← '; }
+  .slider-field:not([data-type="text"]) .slider-scale span:last-child::after{ content:' →'; }
+
+  .other-input{ margin-top:12px; display:none; }
+  .other-input.show{ display:block; }
+
+  /* Municipio grid por comarca */
+  .municipio-grid{ display:flex; flex-direction:column; gap:20px; }
+  .comarca-block h4{
+    font-size:.72rem; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--teal-700); margin:0 0 8px; font-weight:600;
+  }
+  .comarca-pills{ display:flex; flex-wrap:wrap; gap:8px; }
+  .muni-pill{
+    padding:7px 14px; border-radius:99px; border:1.5px solid var(--teal-200);
+    background:var(--teal-150); font-size:.88rem; color:var(--teal-700);
+    cursor:pointer; transition:border-color .15s, background .15s, color .15s;
+    font-family:var(--font-sans); line-height:1;
+  }
+  .muni-pill:hover{ background:var(--teal-200); border-color:var(--teal-300); color:var(--teal-900); }
+  .muni-pill.selected{
+    background:var(--coral); border-color:var(--coral); color:#fff;
+  }
+  .muni-no-residente{
+    margin-top:16px; padding:9px 18px; border-radius:99px;
+    border:1.5px dashed var(--teal-300); background:transparent;
+    font-size:.85rem; color:var(--teal-600); cursor:pointer;
+    font-family:var(--font-sans); transition:border-color .15s;
+  }
+  .muni-no-residente:hover{ border-color:var(--teal-500); color:var(--teal-800); }
+
+  /* Estado colapsado del municipio */
+  .muni-selected-row{
+    display:none; align-items:center; gap:12px; flex-wrap:wrap;
+  }
+  .muni-selected-row.show{ display:flex; }
+  .muni-selected-chip{
+    padding:8px 16px; border-radius:99px;
+    background:var(--coral); color:#fff;
+    font-family:var(--font-sans); font-size:.9rem;
+  }
+  .muni-change-btn{
+    background:none; border:none; cursor:pointer;
+    color:var(--teal-600); font-size:.85rem; font-family:var(--font-sans);
+    text-decoration:underline; text-underline-offset:3px; padding:0;
+  }
+  .muni-change-btn:hover{ color:var(--teal-900); }
+
+  /* Todos los sliders (Likert 0–10 y los de texto edad/convivencia) usan el
+     MISMO patrón, para que no cambie de comportamiento entre pasos: el texto
+     ("Desliza para…", y tras tocarlo el valor elegido) flota como una
+     etiqueta justo ENCIMA del propio handle, con una pequeña línea que lo
+     señala, y se mueve con él al arrastrar — en vez de una frase fija en
+     otra parte del bloque. Antes de tocarlo se mantiene pequeña y de color
+     neutro para que no parezca ya una respuesta (el mismo problema que
+     teníamos con los sliders numéricos mostrando "5" desde el principio); en
+     cuanto se mueve, pasa al estilo grande/coral de siempre. Si el usuario
+     intenta avanzar sin haberlo tocado, se resalta en naranja de forma
+     PERSISTENTE (no solo unos segundos) para que no pase desapercibido. */
+  .slider-track-wrap{ position:relative; padding-top:38px; }
+  .slider-bubble{
+    position:absolute; top:0;
+    left:calc((100% - 22px) * var(--pct, 0.5) + 11px);
+    transform:translateX(-50%);
+    font-family:var(--font-mono); color:var(--teal-700); font-size:.76rem;
+    white-space:nowrap; text-align:center; line-height:1.3;
+    transition:font-size .15s ease, color .15s ease, left .05s linear;
+  }
+  .slider-bubble::after{
+    content:''; position:absolute; left:50%; top:100%;
+    transform:translateX(-50%); width:1px; height:9px;
+    background:currentColor; opacity:.55;
+  }
+  .slider-field.touched .slider-bubble{
+    color:var(--coral); font-size:1.1rem;
+  }
+  .slider-field.needs-touch .slider-bubble{
+    color:var(--coral-dark); font-weight:600;
+  }
+  .slider-field.needs-touch .slider-bubble::before{ content:'⚠ '; }
+
+  /* ============ NAV ============ */
+  .step-nav{
+    display:flex; justify-content:space-between; align-items:center;
+    margin-top:48px; padding-top:24px; border-top:1px solid var(--teal-100);
+  }
+
+  /* ============ THANKS SCREEN ============ */
+  .thanks{ text-align:left; padding-top:80px; }
+  .thanks h1{ font-size:clamp(2rem,6vw,2.8rem); }
+  .thanks .lede{ max-width:48ch; margin-top:18px; color:var(--teal-900); }
+  .thanks-grid{ max-height:170px; overflow:hidden; margin:40px 0 8px; }
+
+  footer{
+    text-align:center; padding:30px 24px 50px; font-size:.78rem; color:var(--teal-500);
+    font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  footer img{ height:14px; width:auto; opacity:.6; vertical-align:middle; margin-right:6px; }
+
+  @keyframes shake{
+    0%,100%{ transform:translateX(0); }
+    20%{ transform:translateX(-6px); }
+    40%{ transform:translateX(6px); }
+    60%{ transform:translateX(-4px); }
+    80%{ transform:translateX(4px); }
+  }
+  .btn-shake{ animation:shake .45s ease; }
+
+  .field-error{ outline:2px solid var(--coral); border-radius:8px; outline-offset:4px; }
+  .field-error .field-label{ color:var(--coral); }
+
+  @media (max-width:560px){
+    .screen{ padding:48px 0 40px; }
+    .credibility{ gap:20px; }
+    .pill span{ padding:9px 14px; font-size:.88rem; }
+  }
+
+  /* Selector de idioma */
+  #lang-switch{
+    position:fixed; top:14px; right:16px; z-index:200;
+    display:flex; gap:2px; background:rgba(255,255,255,.92);
+    border:1px solid var(--teal-200); border-radius:99px;
+    padding:4px 6px; backdrop-filter:blur(8px);
+  }
+  .lang-btn{
+    background:none; border:none; cursor:pointer;
+    font-size:.72rem; font-family:var(--font-mono); font-weight:700;
+    color:var(--teal-600); padding:3px 7px; border-radius:99px;
+    letter-spacing:.04em; transition:background .15s, color .15s;
+  }
+  .lang-btn:hover{ color:var(--teal-900); }
+  .lang-btn.active{ background:var(--teal-700); color:#fff; }
+
+  /* Banner de consentimiento (Consent Mode v2) */
+  #consent-banner{
+    position:fixed; left:0; right:0; bottom:0; z-index:300;
+    background:var(--paper); border-top:1px solid var(--teal-150);
+    box-shadow:0 -4px 20px rgba(16,43,51,.12);
+    padding:18px 20px; display:flex; flex-wrap:wrap; gap:14px 24px;
+    align-items:center; justify-content:space-between;
+  }
+  #consent-banner[hidden]{ display:none; }
+  #consent-banner p{
+    margin:0; font-size:.86rem; line-height:1.5; color:var(--teal-900);
+    max-width:64ch; flex:1 1 320px;
+  }
+  #consent-banner a{ color:var(--teal-900); }
+  .consent-actions{ display:flex; gap:10px; flex-wrap:wrap; }
+  .consent-btn{
+    appearance:none; cursor:pointer; border-radius:999px;
+    font-family:var(--font-display); font-weight:600; font-size:.92rem;
+    padding:11px 22px; transition:background .15s ease, color .15s ease;
+  }
+  #consent-reject-btn{ background:transparent; border:1.5px solid var(--teal-700); color:var(--teal-700); }
+  #consent-reject-btn:hover{ background:var(--teal-100); }
+  #consent-accept-btn{ background:var(--teal-900); border:1.5px solid var(--teal-900); color:#fff; }
+  #consent-accept-btn:hover{ background:var(--ink); }
+  @media (max-width:520px){
+    #consent-banner{ flex-direction:column; align-items:stretch; }
+    .consent-actions{ justify-content:stretch; }
+    .consent-btn{ flex:1; text-align:center; }
+  }
+
+  /* Honeypot — invisible para humanos, visible para bots */
+  .hp-field{ display:none !important; visibility:hidden !important; }
+
+  /* Estado de envío */
+  .submit-state{
+    margin-top:16px; padding:12px 16px; border-radius:10px;
+    font-size:.88rem; display:none;
+  }
+  .submit-state.error{
+    display:block; background:#fef2f0; color:#c44a1f; border:1px solid #f8c8bb;
+  }
+  .submit-state.sending{
+    display:block; background:var(--teal-100); color:var(--teal-700);
+  }
+</style>
+<!-- Cloudflare Turnstile (CAPTCHA anti-fraude). Render explícito: se monta al llegar al paso 6. -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+</head>
+<body>
+
+<div id="consent-banner" hidden>
+  <p data-i18n="consent.text">Usamos cookies de analítica para medir cómo llegan las respuestas desde nuestras campañas. Puedes aceptarlas o rechazarlas; tu respuesta a la encuesta se guarda igual en ambos casos. <a href="https://www.fundament.es" data-i18n="consent.more_info">Más información</a>.</p>
+  <div class="consent-actions">
+    <button class="consent-btn" id="consent-reject-btn" data-i18n="consent.reject">Rechazar</button>
+    <button class="consent-btn" id="consent-accept-btn" data-i18n="consent.accept">Aceptar</button>
+  </div>
+</div>
+
+<div id="lang-switch">
+  <button class="lang-btn active" data-lang="es">ES</button>
+  <button class="lang-btn" data-lang="ca">CA</button>
+  <!-- EN disabled: <button class="lang-btn" data-lang="en">EN</button> -->
+</div>
+
+<div id="rail"><div id="rail-fill"></div></div>
+
+<!-- ============ HERO ============ -->
+<section class="screen active" id="screen-hero">
+  <div class="wrap hero">
+    <div class="eyebrow"><span class="dot"></span> <span data-i18n-html="hero.eyebrow"><span class="brand">fundament</span> · estudio bianual 2026</span></div>
+    <h1><span data-i18n="hero.h1_pre">Cómo vives </span><em data-i18n="hero.h1_em">el turismo</em><span data-i18n="hero.h1_post"> en Mallorca</span></h1>
+    <p class="lede" data-i18n="hero.lede">Cada dos años recogemos la voz de quienes viven aquí. Tus respuestas se suman a las de tus vecinos para entender, con datos, cómo nos afecta el turismo de verdad.</p>
+
+    <div class="dotfield" id="hero-dotfield" aria-hidden="true"></div>
+    <p class="dotfield-caption" id="hero-dotfield-caption"></p>
+
+    <div class="credibility">
+      <div><b id="cred-resp">—</b><span data-i18n="hero.cred_resp">respuestas esta edición</span></div>
+      <div><b id="cred-muni">—</b><span data-i18n="hero.cred_muni">municipios representados</span></div>
+      <div><b id="cred-time">~10 min</b><span data-i18n="hero.cred_time">de duración</span></div>
+    </div>
+
+    <button class="btn btn-primary" id="start-btn" data-i18n="hero.start">Empezar →</button>
+    <p class="privacy-note" data-i18n="hero.privacy">Sin registro ni cuenta. Tus respuestas son anónimas y se publican en abierto, como cada año, bajo licencia CC BY-SA.</p>
+
+    <span class="demo-badge" data-i18n="hero.demo_badge">Datos de ejemplo — en producción se actualizan en vivo con esta temporada</span>
+    <div class="three-cards">
+      <div class="mini-card underrep" id="wrap-towns">
+        <h3 data-i18n="hero.card1_title">Pueblos donde más falta tu voz</h3>
+        <p class="sub" data-i18n="hero.card1_sub">Los 10 municipios más lejos de su cuota de participación.</p>
+        <div class="mini-list" id="card-towns"></div>
+      </div>
+      <div class="mini-card near" id="wrap-near">
+        <h3 data-i18n="hero.card2_title">Pueblos a punto de llegar</h3>
+        <p class="sub" data-i18n="hero.card2_sub">Entre el 80% y el 100% de su cuota de participación.</p>
+        <div class="mini-list" id="card-near"></div>
+      </div>
+      <div class="mini-card achieved" id="wrap-achieved">
+        <h3 data-i18n="hero.card3_title">Pueblos que más están aportando</h3>
+        <p class="sub" data-i18n="hero.card3_sub">Ya superaron su propia cuota (no el mínimo de toda Mallorca) — los 10 más destacados.</p>
+        <div class="mini-list" id="card-achieved"></div>
+      </div>
+    </div>
+    <p class="methodology-note" data-i18n="hero.methodology">
+      Cómo se calcula, igual para los tres cuadros: cada municipio tiene una cuota de participación — un mínimo de 5 respuestas más una parte proporcional a su población, calculada sobre nuestro objetivo de 600 respuestas en total. La marca vertical de cada barra señala, además, la cuota de ese mismo pueblo dentro del mínimo estadístico de Mallorca (384 respuestas en total, entre todos los municipios): superarla no significa que el pueblo por sí solo haya alcanzado ese mínimo, sino que ha cubierto su parte proporcional de él. Las barras nunca se ven "completas": cuantas más respuestas lleguen, mejor, y siempre queda margen para seguir creciendo.
+      Mostrado aquí con los datos de la última encuesta publicada, solo a modo de ejemplo de cómo se vería. En producción, estos tres cuadros reflejarían las respuestas de la campaña en curso.
+    </p>
+  </div>
+</section>
+
+<!-- ============ RESIDENCIA (filtro inicial) ============ -->
+<section class="screen" id="screen-residencia">
+  <div class="wrap" style="padding-top:80px;">
+    <div class="eyebrow"><span class="dot"></span> <span data-i18n="res.eyebrow">Antes de empezar</span></div>
+    <h1 style="font-size:clamp(1.9rem,5.5vw,2.8rem); margin-bottom:16px;" data-i18n="res.h1">¿Resides habitualmente en Mallorca?</h1>
+    <p style="font-size:1rem; color:var(--teal-700); max-width:44ch; line-height:1.6; margin-bottom:40px;" data-i18n="res.sub">Esta encuesta recoge la experiencia de quienes viven aquí. Solo una pregunta de filtro.</p>
+    <div style="display:flex; flex-direction:column; gap:14px; max-width:380px;">
+      <button class="btn btn-primary" id="res-yes-btn" style="justify-content:center; font-size:1.05rem;" data-i18n="res.yes">
+        Sí, resido en Mallorca
+      </button>
+      <button class="btn" id="res-no-btn" style="justify-content:center; font-size:1.05rem; background:var(--teal-100); color:var(--teal-900);" data-i18n="res.no">
+        No, soy visitante o turista
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTRO ============ -->
+<section class="screen" id="screen-intro">
+  <div class="wrap" style="padding-top:80px;">
+    <div class="eyebrow"><span class="dot"></span> <span data-i18n="res.eyebrow">Antes de empezar</span></div>
+    <h1 style="font-size:clamp(1.9rem,5.5vw,2.8rem); margin-bottom:28px;" data-i18n="intro.h1">Un momento, por favor.</h1>
+    <p style="font-size:1.08rem; color:var(--teal-900); max-width:48ch; line-height:1.7; margin-bottom:20px;" data-i18n="intro.p1">
+      La encuesta no es larga, pero nos importa la calidad de tus respuestas más que la velocidad.
+    </p>
+    <p style="font-size:1.08rem; color:var(--teal-900); max-width:48ch; line-height:1.7; margin-bottom:20px;" data-i18n-html="intro.p2">
+      Te pedimos que te tomes un momento para pensar en cada pregunta. No nos interesa solo tu participación — nos interesa <em style="font-style:normal; color:var(--teal-500); font-weight:500;">tu situación real, cómo te sientes y qué opinas</em> sobre el turismo en Mallorca.
+    </p>
+    <p style="font-size:1.08rem; color:var(--teal-900); max-width:48ch; line-height:1.7; margin-bottom:48px;" data-i18n="intro.p3">
+      Tu voz cuenta. Muchas gracias — ¡vamos al lío! 😉
+    </p>
+    <button class="btn btn-primary" id="intro-next-btn" data-i18n="intro.btn">Adelante →</button>
+  </div>
+</section>
+
+<!-- ============ STEP: PERFIL ============ -->
+<section class="screen" id="screen-perfil" data-step="1">
+  <div class="wrap">
+    <div class="form-header">
+      <div class="form-header-row">
+        <h2 data-i18n="perfil.title">Tu perfil</h2>
+        <span class="step-counter" data-i18n="perfil.step">PASO 1 / 6</span>
+      </div>
+      <div id="progress-dots"></div>
+    </div>
+
+    <div class="field">
+      <span class="field-label" data-i18n="perfil.gender">Eres...</span>
+      <div class="pill-group" data-track="gender">
+        <label class="pill"><input type="radio" name="gender" value="Mujer"><span data-i18n="perfil.gender_f">Mujer</span></label>
+        <label class="pill"><input type="radio" name="gender" value="Hombre"><span data-i18n="perfil.gender_m">Hombre</span></label>
+        <label class="pill"><input type="radio" name="gender" value="Otro"><span data-i18n="perfil.gender_other">Otro</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <span class="field-label" data-i18n="perfil.nac">¿Cuál es tu nacionalidad?</span>
+      <div class="pill-group" data-track="nacionalidad">
+        <label class="pill"><input type="radio" name="nacionalidad" value="Española"><span data-i18n="perfil.nac_es">Española</span></label>
+        <label class="pill"><input type="radio" name="nacionalidad" value="Europea (no española)"><span data-i18n="perfil.nac_eu">Europea (no española)</span></label>
+        <label class="pill"><input type="radio" name="nacionalidad" value="No europea"><span data-i18n="perfil.nac_noeu">No europea</span></label>
+        <label class="pill"><input type="radio" name="nacionalidad" value="Prefiero no decirlo"><span data-i18n="perfil.nac_nodecir">Prefiero no decirlo</span></label>
+      </div>
+    </div>
+
+    <div class="slider-field" data-track="age" data-type="text">
+      <span class="field-label" data-i18n="perfil.age">¿Cuántos años tienes?</span>
+      <div class="slider-text-readout" id="age-readout" data-i18n="perfil.slide_prompt">Desliza para seleccionar</div>
+      <input type="range" id="age-range" min="0" max="7" step="1" style="margin-top:4px;">
+      <div class="slider-scale"><span>&lt; 18</span><span>18–25</span><span>26–35</span><span>36–45</span><span>46–55</span><span>56–65</span><span>66–75</span><span>75+</span></div>
+    </div>
+
+    <div class="field">
+      <span class="field-label" data-i18n="perfil.where">¿Dónde vives?</span>
+      <input type="hidden" id="municipio-select" data-track="municipio">
+      <div class="municipio-grid" id="municipio-grid">
+        <div class="comarca-block">
+          <h4>Palma</h4>
+          <div class="comarca-pills">
+            <button type="button" class="muni-pill" data-municipio="Palma">Palma</button>
+          </div>
+        </div>
+        <div class="comarca-block">
+          <h4>Raiguer</h4>
+          <div class="comarca-pills">
+            <button type="button" class="muni-pill" data-municipio="Alaró">Alaró</button>
+            <button type="button" class="muni-pill" data-municipio="Alcúdia">Alcúdia</button>
+            <button type="button" class="muni-pill" data-municipio="Binissalem">Binissalem</button>
+            <button type="button" class="muni-pill" data-municipio="Búger">Búger</button>
+            <button type="button" class="muni-pill" data-municipio="Campanet">Campanet</button>
+            <button type="button" class="muni-pill" data-municipio="Consell">Consell</button>
+            <button type="button" class="muni-pill" data-municipio="Inca">Inca</button>
+            <button type="button" class="muni-pill" data-municipio="Lloseta">Lloseta</button>
+            <button type="button" class="muni-pill" data-municipio="Mancor de la Vall">Mancor de la Vall</button>
+            <button type="button" class="muni-pill" data-municipio="Marratxí">Marratxí</button>
+            <button type="button" class="muni-pill" data-municipio="Pobla, Sa">Sa Pobla</button>
+            <button type="button" class="muni-pill" data-municipio="Santa María del Camí">Santa María del Camí</button>
+            <button type="button" class="muni-pill" data-municipio="Selva">Selva</button>
+          </div>
+        </div>
+        <div class="comarca-block">
+          <h4>Serra de Tramuntana</h4>
+          <div class="comarca-pills">
+            <button type="button" class="muni-pill" data-municipio="Andratx">Andratx</button>
+            <button type="button" class="muni-pill" data-municipio="Banyalbufar">Banyalbufar</button>
+            <button type="button" class="muni-pill" data-municipio="Bunyola">Bunyola</button>
+            <button type="button" class="muni-pill" data-municipio="Calvià">Calvià</button>
+            <button type="button" class="muni-pill" data-municipio="Deià">Deià</button>
+            <button type="button" class="muni-pill" data-municipio="Escorca">Escorca</button>
+            <button type="button" class="muni-pill" data-municipio="Esporles">Esporles</button>
+            <button type="button" class="muni-pill" data-municipio="Estellencs">Estellencs</button>
+            <button type="button" class="muni-pill" data-municipio="Fornalutx">Fornalutx</button>
+            <button type="button" class="muni-pill" data-municipio="Pollença">Pollença</button>
+            <button type="button" class="muni-pill" data-municipio="Puigpunyent">Puigpunyent</button>
+            <button type="button" class="muni-pill" data-municipio="Sóller">Sóller</button>
+            <button type="button" class="muni-pill" data-municipio="Valldemossa">Valldemossa</button>
+          </div>
+        </div>
+        <div class="comarca-block">
+          <h4>Llevant</h4>
+          <div class="comarca-pills">
+            <button type="button" class="muni-pill" data-municipio="Artà">Artà</button>
+            <button type="button" class="muni-pill" data-municipio="Capdepera">Capdepera</button>
+            <button type="button" class="muni-pill" data-municipio="Manacor">Manacor</button>
+            <button type="button" class="muni-pill" data-municipio="Sant Llorenç des Cardassar">Sant Llorenç</button>
+            <button type="button" class="muni-pill" data-municipio="Santa Margalida">Santa Margalida</button>
+            <button type="button" class="muni-pill" data-municipio="Son Servera">Son Servera</button>
+          </div>
+        </div>
+        <div class="comarca-block">
+          <h4>Migjorn</h4>
+          <div class="comarca-pills">
+            <button type="button" class="muni-pill" data-municipio="Campos">Campos</button>
+            <button type="button" class="muni-pill" data-municipio="Felanitx">Felanitx</button>
+            <button type="button" class="muni-pill" data-municipio="Llucmajor">Llucmajor</button>
+            <button type="button" class="muni-pill" data-municipio="Salines, Ses">Ses Salines</button>
+            <button type="button" class="muni-pill" data-municipio="Santanyí">Santanyí</button>
+          </div>
+        </div>
+        <div class="comarca-block">
+          <h4>Pla de Mallorca</h4>
+          <div class="comarca-pills">
+            <button type="button" class="muni-pill" data-municipio="Algaida">Algaida</button>
+            <button type="button" class="muni-pill" data-municipio="Ariany">Ariany</button>
+            <button type="button" class="muni-pill" data-municipio="Costitx">Costitx</button>
+            <button type="button" class="muni-pill" data-municipio="Lloret de Vistalegre">Lloret de Vistalegre</button>
+            <button type="button" class="muni-pill" data-municipio="Llubí">Llubí</button>
+            <button type="button" class="muni-pill" data-municipio="Maria de la Salut">Maria de la Salut</button>
+            <button type="button" class="muni-pill" data-municipio="Montuïri">Montuïri</button>
+            <button type="button" class="muni-pill" data-municipio="Muro">Muro</button>
+            <button type="button" class="muni-pill" data-municipio="Petra">Petra</button>
+            <button type="button" class="muni-pill" data-municipio="Sant Joan">Sant Joan</button>
+            <button type="button" class="muni-pill" data-municipio="Santa Eugènia">Santa Eugènia</button>
+            <button type="button" class="muni-pill" data-municipio="Sencelles">Sencelles</button>
+            <button type="button" class="muni-pill" data-municipio="Sineu">Sineu</button>
+            <button type="button" class="muni-pill" data-municipio="Vilafranca de Bonany">Vilafranca de Bonany</button>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="muni-no-residente" id="muni-no-residente-btn" data-i18n="perfil.no_res">No resido en Mallorca</button>
+      <div class="muni-selected-row" id="muni-selected-row">
+        <span class="muni-selected-chip" id="muni-selected-chip"></span>
+        <button type="button" class="muni-change-btn" id="muni-change-btn" data-i18n="perfil.change">← Cambiar</button>
+      </div>
+      <div class="town-note" id="town-note">
+        <span id="town-note-text"></span>
+        <a href="#" class="share-link" id="town-share" target="_blank" rel="noopener" data-i18n="perfil.wa_share">Compartir por WhatsApp →</a>
+      </div>
+    </div>
+
+    <div class="field">
+      <span class="field-label" data-i18n="perfil.situacion">¿Cuál de las siguientes situaciones se ajusta más a tu situación actual?</span>
+      <div class="pill-group" data-track="situacion">
+        <label class="pill"><input type="radio" name="situacion" value="Trabajo"><span data-i18n="perfil.sit_trabajo">Trabajo</span></label>
+        <label class="pill"><input type="radio" name="situacion" value="Jubilado/a o pensionista"><span data-i18n="perfil.sit_jubilado">Jubilado/a o pensionista</span></label>
+        <label class="pill"><input type="radio" name="situacion" value="Estudiante"><span data-i18n="perfil.sit_estudiante">Estudiante</span></label>
+        <label class="pill"><input type="radio" name="situacion" value="Parado/a"><span data-i18n="perfil.sit_parado">Parado/a</span></label>
+      </div>
+    </div>
+
+    <div class="slider-field" data-track="convivencia" data-type="text">
+      <span class="field-label" data-i18n="perfil.conv">¿Cuántas personas conviven contigo en casa?</span>
+      <div class="slider-text-readout" id="conv-readout" data-i18n="perfil.slide_prompt">Desliza para seleccionar</div>
+      <input type="range" id="conv-range" min="0" max="5" step="1" style="margin-top:4px;">
+      <div class="slider-scale"><span data-i18n="perfil.conv_solo">Solo/a</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5+</span></div>
+    </div>
+
+    <div class="field">
+      <span class="field-label" data-i18n="perfil.vivienda">¿En qué régimen vives?</span>
+      <div class="pill-group" data-track="vivienda">
+        <label class="pill"><input type="radio" name="vivienda" value="Propiedad"><span data-i18n="perfil.viv_prop">Propiedad</span></label>
+        <label class="pill"><input type="radio" name="vivienda" value="Alquiler"><span data-i18n="perfil.viv_alq">Alquiler</span></label>
+        <label class="pill"><input type="radio" name="vivienda" value="Otro"><span data-i18n="perfil.viv_otro">Otro</span></label>
+      </div>
+      <div class="other-input" id="vivienda-other">
+        <input type="text" data-i18n-placeholder="perfil.viv_otro_ph" placeholder="Describe tu situación de vivienda…" id="vivienda-otro-input">
+      </div>
+    </div>
+
+    <div class="field">
+      <span class="field-label" data-i18n="perfil.turismo">¿Tu ocupación depende o ha dependido directa o indirectamente del turismo?</span>
+      <div class="pill-group" data-track="tourism_dependencia">
+        <label class="pill"><input type="radio" name="tourism_dependencia" value="Sí"><span data-i18n="perfil.tur_si">Sí</span></label>
+        <label class="pill"><input type="radio" name="tourism_dependencia" value="No"><span data-i18n="perfil.tur_no">No</span></label>
+        <label class="pill"><input type="radio" name="tourism_dependencia" value="No lo sé"><span data-i18n="perfil.tur_nose">No lo sé</span></label>
+      </div>
+      <div class="town-note" id="turismo-note">
+        <span id="turismo-note-text"></span>
+        <a href="#" class="share-link" id="turismo-share" target="_blank" rel="noopener" data-i18n="perfil.wa_share">Compartir por WhatsApp →</a>
+      </div>
+    </div>
+
+    <div class="slider-field" data-track="situacion_economica">
+      <span class="field-label" data-i18n="perfil.econ">¿Cómo percibes tu situación económica?</span>
+      <div class="slider-readout">5</div>
+      <input type="range" min="0" max="10" value="5" step="1">
+      <div class="slider-scale"><span data-i18n="perfil.econ_low">Muy mala</span><span data-i18n="perfil.econ_high">Muy buena</span></div>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn btn-ghost" data-back data-i18n="nav.back">← Atrás</button>
+      <button class="btn btn-primary" data-next data-i18n="nav.next">Siguiente →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEP: DÍA A DÍA ============ -->
+<section class="screen" id="screen-dia" data-step="2">
+  <div class="wrap">
+    <div class="form-header">
+      <div class="form-header-row">
+        <h2 data-i18n="dia.title">Tu día a día</h2>
+        <span class="step-counter" data-i18n="dia.step">PASO 2 / 6</span>
+      </div>
+      <div id="progress-dots-2"></div>
+    </div>
+
+    <p style="color:var(--teal-700); font-size:.92rem; margin-bottom:32px;" data-i18n="dia.instruction">Indica tu grado de acuerdo con cada afirmación, de 0 (nada de acuerdo) a 10 (totalmente de acuerdo).</p>
+
+    <div class="slider-field" data-track="q_vida_diaria">
+      <span class="field-label" data-i18n="dia.q_vida_diaria">El turismo influye en mi vida diaria.</span>
+      <div class="slider-readout">5</div>
+      <input type="range" min="0" max="10" value="5" step="1">
+      <div class="slider-scale"><span data-i18n="slider.disagree">Nada de acuerdo</span><span data-i18n="slider.agree">Totalmente de acuerdo</span></div>
+    </div>
+
+    <div class="slider-field" data-track="q_medio_ambiente">
+      <span class="field-label" data-i18n="dia.q_medio_ambiente">El turismo afecta al medio ambiente.</span>
+      <div class="slider-readout">5</div>
+      <input type="range" min="0" max="10" value="5" step="1">
+      <div class="slider-scale"><span data-i18n="slider.disagree">Nada de acuerdo</span><span data-i18n="slider.agree">Totalmente de acuerdo</span></div>
+    </div>
+
+    <div class="slider-field" data-track="q_calidad_vida">
+      <span class="field-label" data-i18n="dia.q_calidad_vida">El turismo afecta a mi calidad de vida.</span>
+      <div class="slider-readout">5</div>
+      <input type="range" min="0" max="10" value="5" step="1">
+      <div class="slider-scale"><span data-i18n="slider.disagree">Nada de acuerdo</span><span data-i18n="slider.agree">Totalmente de acuerdo</span></div>
+    </div>
+
+    <div class="slider-field" data-track="q_precios">
+      <span class="field-label" data-i18n="dia.q_precios">El turismo contribuye al aumento de precios en Mallorca.</span>
+      <div class="slider-readout">5</div>
+      <input type="range" min="0" max="10" value="5" step="1">
+      <div class="slider-scale"><span data-i18n="slider.disagree">Nada de acuerdo</span><span data-i18n="slider.agree">Totalmente de acuerdo</span></div>
+    </div>
+
+    <div class="slider-field" data-track="q_transporte">
+      <span class="field-label" data-i18n="dia.q_transporte">El turismo afecta a la calidad del transporte público.</span>
+      <div class="slider-readout">5</div>
+      <input type="range" min="0" max="10" value="5" step="1">
+      <div class="slider-scale"><span data-i18n="slider.disagree">Nada de acuerdo</span><span data-i18n="slider.agree">Totalmente de acuerdo</span></div>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn btn-ghost" data-back data-i18n="nav.back">← Atrás</button>
+      <button class="btn btn-primary" data-next data-i18n="nav.next">Siguiente →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEP: TU ENTORNO ============ -->
+<section class="screen" id="screen-entorno" data-step="3">
+  <div class="wrap">
+    <div class="form-header">
+      <div class="form-header-row">
+        <h2 data-i18n="entorno.title">Tu entorno</h2>
+        <span class="step-counter" data-i18n="entorno.step">PASO 3 / 6</span>
+      </div>
+      <div id="progress-dots-3"></div>
+    </div>
+
+    <div class="slider-field" data-track="q_espacios">
+      <span class="field-label" data-i18n="entorno.q_espacios">Los espacios públicos se deterioran a causa del turismo.</span>
+      <div class="slider-readout">5</div>
+      <input type="range" min="0" max="10" value="5" step="1">
+      <div class="slider-scale"><span data-i18n="slider.disagree">Nada de acuerdo</span><span data-i18n="slider.agree">Totalmente de acuerdo</span></div>
+    </div>
+
+    <div class="slider-field" data-track="q_bienestar">
+      <span class="field-label" data-i18n="entorno.q_bienestar">El turismo influye en mi bienestar y en las interacciones comunitarias.</span>
+      <div class="slider-readout">5</div>
+      <input type="range" min="0" max="10" value="5" step="1">
+      <div class="slider-scale"><span data-i18n="slider.disagree">Nada de acuerdo</span><span data-i18n="slider.agree">Totalmente de acuerdo</span></div>
+    </div>
+
+    <div class="slider-field" data-track="q_gastos_ocio">
+      <span class="field-label" data-i18n="entorno.q_gastos_ocio">El turismo ha afectado a mis gastos de ocio.</span>
+      <div class="slider-readout">5</div>
+      <input type="range" min="0" max="10" value="5" step="1">
+      <div class="slider-scale"><span data-i18n="slider.disagree">Nada de acuerdo</span><span data-i18n="slider.agree">Totalmente de acuerdo</span></div>
+    </div>
+
+    <div class="slider-field" data-track="q_futuro_isla">
+      <span class="field-label" data-i18n="entorno.q_futuro_isla">El turismo es el futuro de la isla.</span>
+      <div class="slider-readout">5</div>
+      <input type="range" min="0" max="10" value="5" step="1">
+      <div class="slider-scale"><span data-i18n="slider.disagree">Nada de acuerdo</span><span data-i18n="slider.agree">Totalmente de acuerdo</span></div>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn btn-ghost" data-back data-i18n="nav.back">← Atrás</button>
+      <button class="btn btn-primary" data-next data-i18n="nav.next">Siguiente →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEP: TU MIRADA ============ -->
+<section class="screen" id="screen-mirada" data-step="4">
+  <div class="wrap">
+    <div class="form-header">
+      <div class="form-header-row">
+        <h2 data-i18n="mirada.title">Tu mirada</h2>
+        <span class="step-counter" data-i18n="mirada.step">PASO 4 / 6</span>
+      </div>
+      <div id="progress-dots-4"></div>
+    </div>
+
+    <div class="slider-field" data-track="q_diversificacion">
+      <span class="field-label" data-i18n="mirada.q_diversificacion">La economía de Mallorca sería más resistente con una mayor variedad de industrias.</span>
+      <div class="slider-readout">5</div>
+      <input type="range" min="0" max="10" value="5" step="1">
+      <div class="slider-scale"><span data-i18n="slider.disagree">Nada de acuerdo</span><span data-i18n="slider.agree">Totalmente de acuerdo</span></div>
+    </div>
+
+    <div class="slider-field" data-track="q_interacciones">
+      <span class="field-label" data-i18n="mirada.q_interacciones">El turismo favorece interacciones positivas entre residentes y visitantes.</span>
+      <div class="slider-readout">5</div>
+      <input type="range" min="0" max="10" value="5" step="1">
+      <div class="slider-scale"><span data-i18n="slider.disagree">Nada de acuerdo</span><span data-i18n="slider.agree">Totalmente de acuerdo</span></div>
+    </div>
+
+    <div class="slider-field" data-track="q_activismo">
+      <span class="field-label" data-i18n="mirada.q_activismo">El activismo de los residentes ha tenido un impacto positivo en la gestión del turismo.</span>
+      <div class="slider-readout">5</div>
+      <input type="range" min="0" max="10" value="5" step="1">
+      <div class="slider-scale"><span data-i18n="slider.disagree">Nada de acuerdo</span><span data-i18n="slider.agree">Totalmente de acuerdo</span></div>
+    </div>
+
+    <div class="slider-field" data-track="q_gestion">
+      <span class="field-label" data-i18n="mirada.q_gestion">La gestión del turismo esta temporada ha mejorado la convivencia en Mallorca.</span>
+      <div class="slider-readout">5</div>
+      <input type="range" min="0" max="10" value="5" step="1">
+      <div class="slider-scale"><span data-i18n="slider.disagree">Nada de acuerdo</span><span data-i18n="slider.agree">Totalmente de acuerdo</span></div>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn btn-ghost" data-back data-i18n="nav.back">← Atrás</button>
+      <button class="btn btn-primary" data-next data-i18n="nav.next">Siguiente →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEP: PARTICIPACIÓN ============ -->
+<section class="screen" id="screen-participacion" data-step="5">
+  <div class="wrap">
+    <div class="form-header">
+      <div class="form-header-row">
+        <h2 data-i18n="part.title">Participación y responsabilidad</h2>
+        <span class="step-counter" data-i18n="part.step">PASO 5 / 6</span>
+      </div>
+      <div id="progress-dots-5"></div>
+    </div>
+
+    <div class="field">
+      <span class="field-label" data-i18n="part.manifestacion">¿Has participado en alguna manifestación o actividad relacionada con el turismo este año?</span>
+      <div class="pill-group" data-track="manifestacion">
+        <label class="pill"><input type="radio" name="manifestacion" value="Sí"><span data-i18n="perfil.tur_si">Sí</span></label>
+        <label class="pill"><input type="radio" name="manifestacion" value="No"><span data-i18n="perfil.tur_no">No</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <span class="field-label" data-i18n="part.responsable">¿Quién debería hacerse cargo de los efectos colaterales del turismo de masas en Mallorca?</span>
+      <div class="pill-group" data-track="responsable" id="responsable-group">
+        <label class="pill"><input type="radio" name="responsable" value="El gobierno"><span data-i18n="part.res_gov">El gobierno</span></label>
+        <label class="pill"><input type="radio" name="responsable" value="Los que traen, alojan y dan servicio a los turistas"><span data-i18n="part.res_industry">Los que traen, alojan y dan servicio a los turistas</span></label>
+        <label class="pill"><input type="radio" name="responsable" value="Los dos anteriores"><span data-i18n="part.res_both">Los dos anteriores</span></label>
+        <label class="pill"><input type="radio" name="responsable" value="Otro"><span data-i18n="perfil.viv_otro">Otro</span></label>
+      </div>
+      <div class="other-input" id="responsable-other">
+        <input type="text" data-i18n-placeholder="part.res_other_ph" placeholder="¿Quién, en tu opinión?">
+      </div>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn btn-ghost" data-back data-i18n="nav.back">← Atrás</button>
+      <button class="btn btn-primary" data-next data-i18n="nav.next">Siguiente →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEP: TU VISIÓN ============ -->
+<section class="screen" id="screen-vision" data-step="6">
+  <div class="wrap">
+    <div class="form-header">
+      <div class="form-header-row">
+        <h2 data-i18n="vision.title">Tu visión</h2>
+        <span class="step-counter" data-i18n="vision.step">PASO 6 / 6</span>
+      </div>
+      <div id="progress-dots-6"></div>
+    </div>
+
+    <div class="field">
+      <span class="field-label" data-i18n="vision.cambio">Si pudieras cambiar una sola cosa sobre el turismo en Mallorca, ¿cuál sería y por qué?</span>
+      <textarea data-track="cambio" data-i18n-placeholder="vision.cambio_ph" placeholder="Escribe tu respuesta..."></textarea>
+    </div>
+
+    <div class="field">
+      <span class="field-label" data-i18n="vision.preservar">¿Qué aspecto del turismo en Mallorca te gustaría preservar para las futuras generaciones?</span>
+      <textarea data-track="preservar" data-i18n-placeholder="vision.preservar_ph" placeholder="Escribe tu respuesta..."></textarea>
+    </div>
+
+    <div class="field">
+      <span class="field-label" data-i18n="vision.q_abandono">¿Has pensado alguna vez en irte de Mallorca a causa del turismo?</span>
+      <div class="pill-group" data-track="q_abandono">
+        <label class="pill"><input type="radio" name="q_abandono" value="Sí, seriamente"><span data-i18n="vision.abandono_si_serious">Sí, seriamente</span></label>
+        <label class="pill"><input type="radio" name="q_abandono" value="Sí, de pasada"><span data-i18n="vision.abandono_si_casual">Sí, de pasada</span></label>
+        <label class="pill"><input type="radio" name="q_abandono" value="No"><span data-i18n="perfil.tur_no">No</span></label>
+      </div>
+      <div class="other-input" id="abandono-razon">
+        <span class="field-label" style="font-size:.9rem; font-weight:400;" data-i18n-html="vision.abandono_razon_label">¿Cuál es la razón principal? <em style="color:var(--teal-700); font-style:normal;">(opcional)</em></span>
+        <textarea data-track="q_abandono_razon" data-i18n-placeholder="vision.abandono_razon_ph" placeholder="Escribe tu respuesta…" style="margin-top:6px;"></textarea>
+      </div>
+    </div>
+
+    <!-- Honeypot: campo trampa invisible para humanos, los bots lo rellenan -->
+    <div class="hp-field" aria-hidden="true">
+      <label>Teléfono <input type="text" name="phone" id="hp-phone" autocomplete="off" tabindex="-1"></label>
+    </div>
+
+    <!-- Cloudflare Turnstile: se renderiza aquí al llegar al paso 6 (solo si hay sitekey) -->
+    <div id="turnstile-widget" style="margin:4px 0 8px;"></div>
+
+    <div class="step-nav">
+      <button class="btn btn-ghost" data-back data-i18n="nav.back">← Atrás</button>
+      <button class="btn btn-primary" id="submit-btn" data-i18n="nav.send">Enviar respuestas →</button>
+    </div>
+    <div class="submit-state" id="submit-state"></div>
+  </div>
+</section>
+
+<!-- ============ EXCLUIDO (turista / no residente) ============ -->
+<section class="screen" id="screen-excluido">
+  <div class="wrap thanks">
+    <div class="eyebrow"><span class="dot"></span> <span data-i18n="excl.eyebrow">Gracias por tu interés</span></div>
+    <h1 data-i18n="excl.title">Esta encuesta es para residentes en Mallorca.</h1>
+    <p class="lede" data-i18n="excl.lede">Recogemos la experiencia de quienes viven aquí de forma habitual — no la de visitantes o turistas.</p>
+    <p style="margin-top:20px; font-size:1rem; color:var(--teal-700); max-width:46ch; line-height:1.6;" data-i18n-html="excl.body">
+      Si eres turista o visitante, nos interesa igualmente tu perspectiva. Estamos preparando una encuesta específica para ti — vuelve pronto a <strong>fundament.es</strong> para encontrarla.
+    </p>
+    <a class="btn btn-primary" href="https://www.fundament.es" style="text-decoration:none; margin-top:36px;" data-i18n="excl.back">Volver a fundament.es →</a>
+  </div>
+</section>
+
+<!-- ============ THANKS ============ -->
+<section class="screen" id="screen-thanks">
+  <div class="wrap thanks">
+    <div class="eyebrow"><span class="dot"></span> <span data-i18n="thanks.eyebrow">Gracias</span></div>
+    <h1 data-i18n="thanks.title">Tu voz ya forma parte del estudio.</h1>
+    <p class="lede" data-i18n="thanks.lede">Se suma a las de tus vecinos. Cuando cerremos la temporada de recogida, publicaremos los resultados completos en abierto, como cada año.</p>
+    <div class="dotfield thanks-grid" id="thanks-dotfield" aria-hidden="true"></div>
+    <p class="dotfield-caption" id="thanks-dotfield-caption"></p>
+    <a class="btn btn-ghost" href="https://www.fundament.es" style="text-decoration:none;" data-i18n="thanks.back">Volver a fundament.es</a>
+  </div>
+</section>
+
+<footer><img src="https://www.fundament.es/wp-content/uploads/2019/10/cropped-01-fundament-symbol-icon-2.png" alt="fundament"><span data-i18n-html="footer.text">fundament asociación · Estudio de convivencia social con el turismo en Mallorca 2026 · <a href="https://www.fundament.es" style="color:inherit">fundament.es</a></span></footer>
+
+<script>
+(function(){
+  // ─── CONFIGURACIÓN ───────────────────────────────────────────────────────
+  // Pega aquí la URL de tu implementación de Google Apps Script tras desplegar.
+  // Mientras sea 'PENDIENTE', el formulario funciona en modo prototipo (console.log).
+  var WEBAPP_URL = 'https://script.google.com/macros/s/REDACTADO/exec';
+
+  // Cloudflare Turnstile — clave de sitio (pública, client-side).
+  // Mientras sea 'PENDIENTE', el CAPTCHA queda inactivo y el formulario funciona igual.
+  // Obtenla en dash.cloudflare.com → Turnstile → Add site. Pega también la SECRET en Code.gs.
+  var TURNSTILE_SITEKEY = '0x4AAAAAADswKpDmGQSJWXRp';
+
+  // ─── DATOS DE REFERENCIA ─────────────────────────────────────────────────
+  // Respuestas reales 2024 (fundament) × población INE Censo Anual 2025 (1-ene-2025).
+  // idx = (% resp de este pueblo ÷ % población balear que vive aquí) × 100.
+  // 100 = representación exactamente proporcional a la población.
+  // pop = INE Censo Anual de Población 2025 (tabla 68535). Total Mallorca = 971.068.
+  var PUEBLOS = [
+    {"name":"Alaró","comarca":"Raiguer","pop":6172,"resp":2,"idx":72.8},
+    {"name":"Alcúdia","comarca":"Raiguer","pop":22459,"resp":1,"idx":10.2},
+    {"name":"Algaida","comarca":"Pla","pop":6421,"resp":3,"idx":105.3},
+    {"name":"Andratx","comarca":"Serra","pop":12424,"resp":2,"idx":35.8},
+    {"name":"Ariany","comarca":"Pla","pop":1071,"resp":0,"idx":0},
+    {"name":"Artà","comarca":"Llevant","pop":8696,"resp":10,"idx":258.1},
+    {"name":"Banyalbufar","comarca":"Serra","pop":578,"resp":0,"idx":0},
+    {"name":"Binissalem","comarca":"Raiguer","pop":9323,"resp":5,"idx":118.2},
+    {"name":"Búger","comarca":"Raiguer","pop":1221,"resp":0,"idx":0},
+    {"name":"Bunyola","comarca":"Serra","pop":7678,"resp":9,"idx":267.1},
+    {"name":"Calvià","comarca":"Serra","pop":54082,"resp":13,"idx":53.0},
+    {"name":"Campanet","comarca":"Raiguer","pop":2855,"resp":2,"idx":159.1},
+    {"name":"Campos","comarca":"Migjorn","pop":12510,"resp":1,"idx":18.4},
+    {"name":"Capdepera","comarca":"Llevant","pop":13298,"resp":1,"idx":17.3},
+    {"name":"Consell","comarca":"Raiguer","pop":4516,"resp":0,"idx":0},
+    {"name":"Costitx","comarca":"Pla","pop":1617,"resp":1,"idx":151.0},
+    {"name":"Deià","comarca":"Serra","pop":753,"resp":0,"idx":0},
+    {"name":"Escorca","comarca":"Serra","pop":199,"resp":0,"idx":0},
+    {"name":"Esporles","comarca":"Serra","pop":5321,"resp":7,"idx":286.8},
+    {"name":"Estellencs","comarca":"Serra","pop":374,"resp":0,"idx":0},
+    {"name":"Felanitx","comarca":"Migjorn","pop":19215,"resp":8,"idx":92.8},
+    {"name":"Fornalutx","comarca":"Serra","pop":739,"resp":0,"idx":0},
+    {"name":"Inca","comarca":"Raiguer","pop":36076,"resp":3,"idx":18.8},
+    {"name":"Lloret de Vistalegre","comarca":"Pla","pop":1697,"resp":1,"idx":143.7},
+    {"name":"Lloseta","comarca":"Raiguer","pop":6559,"resp":3,"idx":100.3},
+    {"name":"Llubí","comarca":"Pla","pop":2600,"resp":0,"idx":0},
+    {"name":"Llucmajor","comarca":"Migjorn","pop":40450,"resp":7,"idx":38.4},
+    {"name":"Manacor","comarca":"Llevant","pop":49275,"resp":13,"idx":61.2},
+    {"name":"Mancor de la Vall","comarca":"Raiguer","pop":1691,"resp":0,"idx":0},
+    {"name":"Maria de la Salut","comarca":"Pla","pop":2457,"resp":0,"idx":0},
+    {"name":"Marratxí","comarca":"Raiguer","pop":40434,"resp":18,"idx":99.1},
+    {"name":"Montuïri","comarca":"Pla","pop":3274,"resp":3,"idx":206.9},
+    {"name":"Muro","comarca":"Pla","pop":8392,"resp":0,"idx":0},
+    {"name":"Palma","comarca":"Palma","pop":443196,"resp":258,"idx":128.2},
+    {"name":"Petra","comarca":"Pla","pop":3265,"resp":1,"idx":69.2},
+    {"name":"Pobla, Sa","comarca":"Raiguer","pop":15106,"resp":4,"idx":60.1},
+    {"name":"Pollença","comarca":"Serra","pop":17801,"resp":11,"idx":137.4},
+    {"name":"Porreres","comarca":"Pla","pop":5871,"resp":1,"idx":37.5},
+    {"name":"Puigpunyent","comarca":"Serra","pop":2087,"resp":0,"idx":0},
+    {"name":"Salines, Ses","comarca":"Migjorn","pop":5201,"resp":3,"idx":126.2},
+    {"name":"Sant Joan","comarca":"Pla","pop":2360,"resp":0,"idx":0},
+    {"name":"Sant Llorenç des Cardassar","comarca":"Llevant","pop":9479,"resp":2,"idx":46.6},
+    {"name":"Santa Eugènia","comarca":"Pla","pop":1933,"resp":2,"idx":238.0},
+    {"name":"Santa Margalida","comarca":"Llevant","pop":14137,"resp":3,"idx":49.4},
+    {"name":"Santa María del Camí","comarca":"Raiguer","pop":7768,"resp":7,"idx":196.4},
+    {"name":"Santanyí","comarca":"Migjorn","pop":12928,"resp":7,"idx":119.5},
+    {"name":"Selva","comarca":"Raiguer","pop":4313,"resp":2,"idx":102.7},
+    {"name":"Sencelles","comarca":"Pla","pop":4077,"resp":3,"idx":175.2},
+    {"name":"Sineu","comarca":"Pla","pop":4552,"resp":1,"idx":50.8},
+    {"name":"Sóller","comarca":"Serra","pop":13996,"resp":10,"idx":155.0},
+    {"name":"Son Servera","comarca":"Llevant","pop":12583,"resp":0,"idx":0},
+    {"name":"Valldemossa","comarca":"Serra","pop":2054,"resp":5,"idx":515.7},
+    {"name":"Vilafranca de Bonany","comarca":"Pla","pop":3934,"resp":3,"idx":178.3}
+  ];
+
+  // Objetivo de participación por municipio: cada pueblo necesita un mínimo
+  // de voces para contar como "escuchado" (FLOOR), y los más poblados
+  // necesitan además una parte proporcional del resto del objetivo total.
+  // El objetivo total usado aquí (TARGET_BUDGET) es nuestro objetivo
+  // ASPIRACIONAL de 600 respuestas — más alto que el mínimo estadístico de
+  // 384 (95%/±5% a nivel de Mallorca) — precisamente para que, aunque se
+  // supere el mínimo, siga habiendo margen real de mejora en cada pueblo.
+  // Así ningún pueblo "termina" con 1 sola respuesta, y los grandes siguen
+  // necesitando bastantes más voces que los pequeños.
+  var TARGET_FLOOR = 5;
+  var TARGET_BUDGET = 600;       // objetivo aspiracional — define la escala de la barra
+  var TARGET_BUDGET_MIN = 384;   // reparto de CADA pueblo del mínimo estadístico de Mallorca —
+                                  // usado solo para la marca ("aguja") de referencia en la barra,
+                                  // NO es "el objetivo del pueblo" ni implica que el pueblo por sí
+                                  // solo deba llegar a 384 respuestas.
+  (function assignTargets(){
+    var totalPop = PUEBLOS.reduce(function(s,p){ return s + p.pop; }, 0);
+    var remainder    = Math.max(0, TARGET_BUDGET     - TARGET_FLOOR * PUEBLOS.length);
+    var remainderMin  = Math.max(0, TARGET_BUDGET_MIN - TARGET_FLOOR * PUEBLOS.length);
+    PUEBLOS.forEach(function(p){
+      p.target    = TARGET_FLOOR + (p.pop / totalPop) * remainder;
+      p.targetMin = TARGET_FLOOR + (p.pop / totalPop) * remainderMin;
+    });
+  })();
+
+  function pueblosPorMunicipio(name){
+    for (var i=0;i<PUEBLOS.length;i++){ if (PUEBLOS[i].name === name) return PUEBLOS[i]; }
+    return null;
+  }
+
+  // Fila de un municipio: nombre + comarca y una barra de progreso.
+  // Deliberadamente SIN números ("X/Y" o "%") — solo la barra. Y la barra
+  // usa una curva de rendimiento decreciente (resp / (resp + target)) en
+  // vez de un simple resp/target tope al 100%: así, aunque un pueblo ya haya
+  // alcanzado su objetivo (resp === target), la barra solo llega a la mitad,
+  // nunca se ve "completa" ni "terminada" — siempre queda una parte visible
+  // en naranja invitando a seguir participando, tanto en pueblos pequeños
+  // que ya cumplieron su mínimo como en Palma con cientos de respuestas.
+  //
+  // Además, una "aguja" (marca vertical) señala en la misma barra el reparto
+  // de ESTE pueblo dentro del mínimo estadístico de Mallorca (384 respuestas
+  // en total, entre todos los municipios) — para que quede claro que superar
+  // esa marca es solo la cuota local de un mínimo colectivo, no una meta
+  // individual ni el mínimo de validez de la encuesta en sí.
+  function miniRow(label, tag, resp, target, targetMin){
+    var row = document.createElement('div');
+    row.className = 'mini-row';
+    row.dataset.town = label;
+    var t = target || 1;
+    var pct = Math.max(0, Math.min(100, (resp / (resp + t)) * 100));
+    var needleHtml = '';
+    if (targetMin){
+      var needlePct = Math.max(2, Math.min(98, (targetMin / (targetMin + t)) * 100));
+      needleHtml = '<div class="mini-needle" style="left:' + needlePct + '%"></div>';
+    }
+    row.innerHTML =
+      '<span class="mini-name">' + label + (tag ? ' <span class="mini-tag">' + tag + '</span>' : '') + '</span>' +
+      '<div class="mini-bar">' +
+        '<div class="mini-bar-fill" style="width:' + pct + '%"></div>' +
+        needleHtml +
+      '</div>';
+    return row;
+  }
+
+  // Cuadro 1 — los 10 municipios más lejos de su objetivo de participación.
+  (function renderCardTowns(){
+    var list = document.getElementById('card-towns');
+    PUEBLOS.slice().sort(function(a,b){
+        var ra = a.resp/a.target, rb = b.resp/b.target;
+        // Empate frecuente en 0 respuestas al inicio de la encuesta: se rompe por
+        // población descendente, ya que el hueco pesa más cuanto mayor es el pueblo.
+        return ra !== rb ? ra - rb : b.pop - a.pop;
+      })
+      .filter(function(p){ return p.resp < p.target; })
+      .slice(0, 10)
+      .forEach(function(p){ list.appendChild(miniRow(p.name, p.comarca, p.resp, p.target, p.targetMin)); });
+  })();
+
+  // Cuadro 2 — municipios entre el 80% y el 100% de su objetivo.
+  (function renderCardNear(){
+    var list = document.getElementById('card-near');
+    PUEBLOS.filter(function(p){ var r = p.resp/p.target; return r >= 0.8 && r < 1; })
+      .sort(function(a,b){ return (b.resp/b.target) - (a.resp/a.target); })
+      .forEach(function(p){ list.appendChild(miniRow(p.name, p.comarca, p.resp, p.target, p.targetMin)); });
+  })();
+
+  // Cuadro 3 — municipios que ya alcanzaron su objetivo (los 10 más destacados).
+  (function renderCardAchieved(){
+    var list = document.getElementById('card-achieved');
+    PUEBLOS.filter(function(p){ return p.resp >= p.target; })
+      .sort(function(a,b){ return (b.resp/b.target) - (a.resp/a.target); })
+      .slice(0, 10)
+      .forEach(function(p){ list.appendChild(miniRow(p.name, p.comarca, p.resp, p.target, p.targetMin)); });
+  })();
+
+  // Grid de puntos: visualiza el progreso hacia el mínimo estadístico
+  // (STAT_MIN = 384 respuestas para 95% de confianza / ±5% de margen).
+  // Una vez superado ese mínimo, la rejilla sigue creciendo con puntos de
+  // OTRO color (bonus) por cada respuesta adicional — sin fijar ningún
+  // tope superior (no se "apunta" a 600 ni a ningún otro número; sencillamente
+  // sigue sumando puntos mientras entren respuestas).
+  var STAT_MIN = 384;
+
+  function renderStatDots(container, total){
+    if (!container) return;
+    container.innerHTML = '';
+    var baseFilled = Math.min(total, STAT_MIN);
+    for (var i = 0; i < STAT_MIN; i++){
+      var d = document.createElement('div');
+      d.className = 'gd' + (i < baseFilled ? ' filled' : '');
+      container.appendChild(d);
+    }
+    var extra = Math.max(0, total - STAT_MIN);
+    for (var j = 0; j < extra; j++){
+      var e = document.createElement('div');
+      e.className = 'gd filled bonus';
+      container.appendChild(e);
+    }
+  }
+
+  renderStatDots(document.getElementById('hero-dotfield'), 0);
+
+  function buildThanksGrid() {
+    var filled = liveTotal + 1; // +1 por la respuesta que acaban de enviar
+    var container = document.getElementById('thanks-dotfield');
+    var caption   = document.getElementById('thanks-dotfield-caption');
+    renderStatDots(container, filled);
+    if (caption) {
+      if (liveTotal > 0) {
+        if (filled > STAT_MIN) {
+          caption.innerHTML = 'Tu respuesta es la número <b>' + filled + '</b> — ya hemos superado el mínimo estadístico de 384. ¡Gracias por sumar aún más peso a los resultados!';
+        } else {
+          caption.innerHTML = 'Tu respuesta es la número <b>' + filled + '</b> de las <b>' + STAT_MIN + '</b> necesarias para un margen de error del ±5%.';
+        }
+      } else {
+        caption.innerHTML = 'Tu respuesta ya está en camino. El conteo en vivo se actualizará en unos momentos.';
+      }
+    }
+  }
+  buildThanksGrid();
+
+  // ─── MUNICIPIO GRID ──────────────────────────────────────────────────────
+  function selectMunicipio(value) {
+    document.querySelectorAll('.muni-pill').forEach(function(p){ p.classList.remove('selected'); });
+    if (value) {
+      var pill = document.querySelector('.muni-pill[data-municipio="' + value + '"]');
+      if (pill) pill.classList.add('selected');
+    }
+    document.getElementById('municipio-select').value = value;
+    markAnswered('municipio', value);
+
+    // Colapsar grid y mostrar chip de selección
+    var grid        = document.getElementById('municipio-grid');
+    var noResBtn    = document.getElementById('muni-no-residente-btn');
+    var selectedRow = document.getElementById('muni-selected-row');
+    var selectedChip= document.getElementById('muni-selected-chip');
+    if (value) {
+      grid.style.display        = 'none';
+      noResBtn.style.display    = 'none';
+      selectedChip.textContent  = value;
+      selectedRow.classList.add('show');
+    } else {
+      grid.style.display        = '';
+      noResBtn.style.display    = '';
+      selectedRow.classList.remove('show');
+    }
+
+    var note  = document.getElementById('town-note');
+    var text  = document.getElementById('town-note-text');
+    var share = document.getElementById('town-share');
+    var p = pueblosPorMunicipio(value);
+    if (!p){ note.classList.remove('show'); return; }
+
+    var ratio = p.resp / p.target;
+    var faltan = Math.max(0, Math.ceil(p.target - p.resp));
+    var msg, shareMsg;
+    if (p.name === 'Palma'){
+      msg = 'Palma ya tiene mucha presencia históricamente (' + p.resp + ' respuestas en la última edición) — y aun así, cuantas más lleguen, más peso tendrá vuestra realidad en los resultados. Tu opinión cuenta igual.';
+      shareMsg = 'Estoy rellenando la nueva encuesta bianual de fundament sobre turismo en Mallorca. Si vives aquí, tu opinión cuenta: ';
+    } else if (ratio < 0.8){
+      msg = p.name + ' lleva ' + p.resp + ' de las ' + Math.round(p.target) + ' voces que necesita para estar bien representado. Faltan ' + faltan + ' — compártelo con tu gente para llegar antes.';
+      shareMsg = p.name + ' apenas tiene voz en la encuesta de fundament sobre turismo en Mallorca. Ayúdanos a representar mejor a nuestro pueblo: ';
+    } else {
+      // Ya alcanzó su mínimo, pero el mensaje sigue invitando a más — nunca "misión cumplida".
+      msg = 'Gracias por representar a ' + p.name + '. Vuestro pueblo ya lleva ' + p.resp + ' respuestas — pero cuantas más sumen, más fuerte será vuestra voz. Nunca sobra un vecino más.';
+      shareMsg = 'Estoy rellenando la nueva encuesta bianual de fundament sobre turismo en Mallorca, desde ' + p.name + '. Súmate: ';
+    }
+    text.textContent = msg;
+    share.href = 'https://wa.me/?text=' + encodeURIComponent(shareMsg + window.location.href);
+    note.classList.add('show');
+
+    document.querySelectorAll('.mini-row.is-self').forEach(function(r){ r.classList.remove('is-self'); });
+    var ownRow = document.querySelector('.mini-row[data-town="' + p.name.replace(/"/g,'') + '"]');
+    if (ownRow) ownRow.classList.add('is-self');
+  }
+
+  document.querySelectorAll('.muni-pill').forEach(function(pill){
+    pill.addEventListener('click', function(){
+      selectMunicipio(pill.getAttribute('data-municipio'));
+    });
+  });
+
+  document.getElementById('muni-no-residente-btn').addEventListener('click', function(){
+    goTo('excluido');
+  });
+
+  document.getElementById('muni-change-btn').addEventListener('click', function(){
+    selectMunicipio('');
+    document.getElementById('town-note').classList.remove('show');
+  });
+
+  // ─── FEEDBACK TURISMO ────────────────────────────────────────────────────
+  document.querySelectorAll('input[name="tourism_dependencia"]').forEach(function(radio){
+    radio.addEventListener('change', function(){
+      var note  = document.getElementById('turismo-note');
+      var text  = document.getElementById('turismo-note-text');
+      var share = document.getElementById('turismo-share');
+      var val   = radio.value;
+
+      var total = liveTotal || 0;
+      // Si no hay datos aún, no mostramos nota
+      if (total < 10) { note.classList.remove('show'); return; }
+
+      var si    = liveTurismo['Sí']      || 0;
+      var no    = liveTurismo['No']      || 0;
+      var pctSi = Math.round((si / total) * 100);
+      var pctNo = Math.round((no / total) * 100);
+
+      var msg, shareMsg;
+
+      if (val === 'Sí') {
+        // Personas vinculadas al turismo
+        if (pctSi < 30) {
+          msg = 'Solo el ' + pctSi + '% de las respuestas hasta ahora son de personas vinculadas al turismo. Vuestro punto de vista es clave — si conoces a compañeros del sector, pásales la encuesta.';
+          shareMsg = 'Trabajo en turismo y creo que el sector tiene que estar bien representado en este estudio. ¿Me ayudas a compartirlo? ';
+        } else {
+          msg = 'El sector turístico representa ya el ' + pctSi + '% de las respuestas. Buen nivel de participación — gracias por estar aquí.';
+          shareMsg = 'Participo en la nueva encuesta bianual de fundament sobre cómo vivimos el turismo en Mallorca. Si trabajas en el sector, tu opinión también importa: ';
+        }
+      } else if (val === 'No') {
+        // Personas no vinculadas al turismo
+        if (pctNo < 40) {
+          msg = 'Solo el ' + pctNo + '% de los participantes no trabaja en turismo. La voz de quienes viven aquí al margen del sector también es fundamental — comparte con tu entorno.';
+          shareMsg = 'No trabajo en turismo pero vivo sus efectos cada día. Esta encuesta de fundament recoge también esa perspectiva: ';
+        } else {
+          msg = 'Las personas no vinculadas al turismo representan el ' + pctNo + '% de las respuestas. Sigue así — vuestra perspectiva equilibra el estudio.';
+          shareMsg = 'Estoy rellenando la encuesta de fundament sobre turismo en Mallorca. Si vives aquí, tu opinión cuenta aunque no trabajes en el sector: ';
+        }
+      } else {
+        note.classList.remove('show');
+        return;
+      }
+
+      text.textContent = msg;
+      share.href = 'https://wa.me/?text=' + encodeURIComponent(shareMsg + window.location.href);
+      note.classList.add('show');
+    });
+  });
+
+  // ─── ESTADO GLOBAL ───────────────────────────────────────────────────────
+  var steps = ['hero','residencia','intro','perfil','dia','entorno','mirada','participacion','vision','thanks'];
+  var trackedIds = [
+    'gender','nacionalidad','age','municipio','situacion','convivencia','vivienda','tourism_dependencia','situacion_economica',
+    'q_vida_diaria','q_medio_ambiente','q_calidad_vida','q_precios','q_transporte',
+    'q_espacios','q_bienestar','q_gastos_ocio','q_futuro_isla',
+    'q_diversificacion','q_interacciones','q_activismo','q_gestion',
+    'manifestacion','responsable',
+    'q_abandono'
+  ];
+  var totalFields  = trackedIds.length;
+  // ─── I18N ────────────────────────────────────────────────────────────────
+  var TRANSLATIONS = {
+    es: {
+      'nav.back': '← Atrás', 'nav.next': 'Siguiente →', 'nav.send': 'Enviar respuestas →',
+      'slider.disagree': 'Nada de acuerdo', 'slider.agree': 'Totalmente de acuerdo',
+      'perfil.slide_prompt': 'Desliza para seleccionar',
+      'hero.eyebrow': '<span class="brand">fundament</span> · estudio bianual 2026',
+      'hero.h1_pre': 'Cómo vives ', 'hero.h1_em': 'el turismo', 'hero.h1_post': ' en Mallorca',
+      'hero.lede': 'Cada dos años recogemos la voz de quienes viven aquí. Tus respuestas se suman a las de tus vecinos para entender, con datos, cómo nos afecta el turismo de verdad.',
+      'hero.cred_resp': 'respuestas esta edición', 'hero.cred_muni': 'municipios representados', 'hero.cred_time': 'de duración',
+      'hero.start': 'Empezar →',
+      'hero.privacy': 'Sin registro ni cuenta. Tus respuestas son anónimas y se publican en abierto, como cada año, bajo licencia CC BY-SA. Registramos la IP y la duración únicamente como evidencia de integridad de los datos.',
+      'hero.demo_badge': 'Datos de ejemplo — en producción se actualizan en vivo con esta temporada',
+      'hero.card1_title': 'Pueblos donde más falta tu voz',
+      'hero.card1_sub': 'Los 10 municipios más lejos de su cuota de participación.',
+      'hero.card2_title': 'Pueblos a punto de llegar',
+      'hero.card2_sub': 'Entre el 80% y el 100% de su cuota de participación.',
+      'hero.card3_title': 'Pueblos que más están aportando',
+      'hero.card3_sub': 'Ya superaron su propia cuota (no el mínimo de toda Mallorca) — los 10 más destacados.',
+      'hero.methodology': 'Cómo se calcula: cada municipio tiene una cuota de participación — un mínimo de 5 respuestas más una parte proporcional a su población, calculada sobre nuestro objetivo de 600 respuestas. La marca vertical de cada barra señala la cuota de ese pueblo dentro del mínimo estadístico de Mallorca (384 respuestas en total, entre todos los municipios) — superarla es cubrir su parte proporcional de ese mínimo, no alcanzarlo en solitario.',
+      'res.eyebrow': 'Antes de empezar',
+      'res.h1': '¿Resides habitualmente en Mallorca?',
+      'res.sub': 'Esta encuesta recoge la experiencia de quienes viven aquí. Solo una pregunta de filtro.',
+      'res.yes': 'Sí, resido en Mallorca', 'res.no': 'No, soy visitante o turista',
+      'intro.h1': 'Un momento, por favor.',
+      'intro.p1': 'La encuesta no es larga, pero nos importa la calidad de tus respuestas más que la velocidad.',
+      'intro.p2': 'Te pedimos que te tomes un momento para pensar en cada pregunta. No nos interesa solo tu participación — nos interesa <em style="font-style:normal; color:var(--teal-500); font-weight:500;">tu situación real, cómo te sientes y qué opinas</em> sobre el turismo en Mallorca.',
+      'intro.p3': 'Tu voz cuenta. Muchas gracias — ¡vamos al lío! 😉',
+      'intro.btn': 'Adelante →',
+      'perfil.title': 'Tu perfil', 'perfil.step': 'PASO 1 / 6',
+      'perfil.gender': 'Eres...',
+      'perfil.gender_f': 'Mujer', 'perfil.gender_m': 'Hombre', 'perfil.gender_other': 'Otro',
+      'perfil.nac': '¿Cuál es tu nacionalidad?',
+      'perfil.nac_es': 'Española', 'perfil.nac_eu': 'Europea (no española)',
+      'perfil.nac_noeu': 'No europea', 'perfil.nac_nodecir': 'Prefiero no decirlo',
+      'perfil.age': '¿Cuántos años tienes?',
+      'perfil.where': '¿Dónde vives?',
+      'perfil.no_res': 'No resido en Mallorca', 'perfil.change': '← Cambiar',
+      'perfil.wa_share': 'Compartir por WhatsApp →',
+      'perfil.situacion': '¿Cuál de las siguientes situaciones se ajusta más a tu situación actual?',
+      'perfil.sit_trabajo': 'Trabajo', 'perfil.sit_jubilado': 'Jubilado/a o pensionista',
+      'perfil.sit_estudiante': 'Estudiante', 'perfil.sit_parado': 'Parado/a',
+      'perfil.conv': '¿Cuántas personas conviven contigo en casa?', 'perfil.conv_solo': 'Solo/a',
+      'perfil.vivienda': '¿En qué régimen vives?',
+      'perfil.viv_prop': 'Propiedad', 'perfil.viv_alq': 'Alquiler', 'perfil.viv_otro': 'Otro',
+      'perfil.viv_otro_ph': 'Describe tu situación de vivienda…',
+      'perfil.turismo': '¿Tu ocupación depende o ha dependido directa o indirectamente del turismo?',
+      'perfil.tur_si': 'Sí', 'perfil.tur_no': 'No', 'perfil.tur_nose': 'No lo sé',
+      'perfil.econ': '¿Cómo percibes tu situación económica?',
+      'perfil.econ_low': 'Muy mala', 'perfil.econ_high': 'Muy buena',
+      'dia.title': 'Tu día a día', 'dia.step': 'PASO 2 / 6',
+      'dia.instruction': 'Indica tu grado de acuerdo con cada afirmación, de 0 (nada de acuerdo) a 10 (totalmente de acuerdo).',
+      'dia.q_vida_diaria': 'El turismo influye en mi vida diaria.',
+      'dia.q_medio_ambiente': 'El turismo afecta al medio ambiente.',
+      'dia.q_calidad_vida': 'El turismo afecta a mi calidad de vida.',
+      'dia.q_precios': 'El turismo contribuye al aumento de precios en Mallorca.',
+      'dia.q_transporte': 'El turismo afecta a la calidad del transporte público.',
+      'entorno.title': 'Tu entorno', 'entorno.step': 'PASO 3 / 6',
+      'entorno.q_espacios': 'Los espacios públicos se deterioran a causa del turismo.',
+      'entorno.q_bienestar': 'El turismo influye en mi bienestar y en las interacciones comunitarias.',
+      'entorno.q_gastos_ocio': 'El turismo ha afectado a mis gastos de ocio.',
+      'entorno.q_futuro_isla': 'El turismo es el futuro de la isla.',
+      'mirada.title': 'Tu mirada', 'mirada.step': 'PASO 4 / 6',
+      'mirada.q_diversificacion': 'La economía de Mallorca sería más resistente con una mayor variedad de industrias.',
+      'mirada.q_interacciones': 'El turismo favorece interacciones positivas entre residentes y visitantes.',
+      'mirada.q_activismo': 'El activismo de los residentes ha tenido un impacto positivo en la gestión del turismo.',
+      'mirada.q_gestion': 'La gestión del turismo esta temporada ha mejorado la convivencia en Mallorca.',
+      'part.title': 'Participación y responsabilidad', 'part.step': 'PASO 5 / 6',
+      'part.manifestacion': '¿Has participado en alguna manifestación o actividad relacionada con el turismo este año?',
+      'part.responsable': '¿Quién debería hacerse cargo de los efectos colaterales del turismo de masas en Mallorca?',
+      'part.res_gov': 'El gobierno', 'part.res_industry': 'Los que traen, alojan y dan servicio a los turistas',
+      'part.res_both': 'Los dos anteriores', 'part.res_other_ph': '¿Quién, en tu opinión?',
+      'vision.title': 'Tu visión', 'vision.step': 'PASO 6 / 6',
+      'vision.cambio': 'Si pudieras cambiar una sola cosa sobre el turismo en Mallorca, ¿cuál sería y por qué?',
+      'vision.cambio_ph': 'Escribe tu respuesta…',
+      'vision.preservar': '¿Qué aspecto del turismo en Mallorca te gustaría preservar para las futuras generaciones?',
+      'vision.preservar_ph': 'Escribe tu respuesta…',
+      'vision.q_abandono': '¿Has pensado alguna vez en irte de Mallorca a causa del turismo?',
+      'vision.abandono_si_serious': 'Sí, seriamente', 'vision.abandono_si_casual': 'Sí, de pasada',
+      'vision.abandono_razon_label': '¿Cuál es la razón principal? <em style="color:var(--teal-700); font-style:normal;">(opcional)</em>',
+      'vision.abandono_razon_ph': 'Escribe tu respuesta…',
+      'excl.eyebrow': 'Gracias por tu interés', 'excl.title': 'Esta encuesta es para residentes en Mallorca.',
+      'excl.lede': 'Recogemos la experiencia de quienes viven aquí de forma habitual — no la de visitantes o turistas.',
+      'excl.body': 'Si eres turista o visitante, nos interesa igualmente tu perspectiva. Estamos preparando una encuesta específica para ti — vuelve pronto a <strong>fundament.es</strong> para encontrarla.',
+      'excl.back': 'Volver a fundament.es →',
+      'thanks.eyebrow': 'Gracias', 'thanks.title': 'Tu voz ya forma parte del estudio.',
+      'thanks.lede': 'Se suma a las de tus vecinos. Cuando cerremos la temporada de recogida, publicaremos los resultados completos en abierto, como cada año.',
+      'thanks.back': 'Volver a fundament.es',
+      'footer.text': 'fundament asociación · Estudio de convivencia social con el turismo en Mallorca 2026 · <a href="https://www.fundament.es" style="color:inherit">fundament.es</a>',
+      'consent.text': 'Usamos cookies de analítica para medir cómo llegan las respuestas desde nuestras campañas. Puedes aceptarlas o rechazarlas; tu respuesta a la encuesta se guarda igual en ambos casos.',
+      'consent.more_info': 'Más información',
+      'consent.reject': 'Rechazar',
+      'consent.accept': 'Aceptar',
+      'age_labels': ['Menos de 18 años','18–25 años','26–35 años','36–45 años','46–55 años','56–65 años','66–75 años','Más de 75 años'],
+      'conv_labels': ['Vivo solo/a','1 persona más','2 personas más','3 personas más','4 personas más','5 personas o más']
+    },
+    ca: {
+      'nav.back': '← Enrere', 'nav.next': 'Següent →', 'nav.send': 'Enviar respostes →',
+      'slider.disagree': 'Gens d\'acord', 'slider.agree': 'Totalment d\'acord',
+      'perfil.slide_prompt': 'Llisca per seleccionar',
+      'hero.eyebrow': '<span class="brand">fundament</span> · estudi bianual 2026',
+      'hero.h1_pre': 'Com vius ', 'hero.h1_em': 'el turisme', 'hero.h1_post': ' a Mallorca',
+      'hero.lede': 'Cada dos anys recollim la veu de qui viu aquí. Les teves respostes s\'afegeixen a les dels teus veïns per entendre, amb dades, com ens afecta el turisme de veritat.',
+      'hero.cred_resp': 'respostes aquesta edició', 'hero.cred_muni': 'municipis representats', 'hero.cred_time': 'de durada',
+      'hero.start': 'Començar →',
+      'hero.privacy': 'Sense registre ni compte. Les teves respostes són anònimes i es publiquen en obert, com cada any, sota llicència CC BY-SA. Registrem la IP i la durada únicament com a evidència d\'integritat de les dades.',
+      'hero.demo_badge': 'Dades d\'exemple — en producció s\'actualitzen en viu amb aquesta temporada',
+      'hero.card1_title': 'Pobles on més falta la teva veu',
+      'hero.card1_sub': 'Els 10 municipis més lluny de la seva quota de participació.',
+      'hero.card2_title': 'Pobles a punt d\'arribar',
+      'hero.card2_sub': 'Entre el 80% i el 100% de la seva quota de participació.',
+      'hero.card3_title': 'Pobles que més estan aportant',
+      'hero.card3_sub': 'Ja han superat la seva pròpia quota (no el mínim de tota Mallorca) — els 10 més destacats.',
+      'hero.methodology': 'Com es calcula: cada municipi té una quota de participació — un mínim de 5 respostes més una part proporcional a la seva població, calculada sobre el nostre objectiu de 600 respostes. La marca vertical de cada barra assenyala la quota d\'aquest poble dins el mínim estadístic de Mallorca (384 respostes en total, entre tots els municipis) — superar-la és cobrir la seva part proporcional d\'aquest mínim, no assolir-lo tot sol.',
+      'res.eyebrow': 'Abans de començar',
+      'res.h1': 'Resideixes habitualment a Mallorca?',
+      'res.sub': 'Aquesta enquesta recull l\'experiència de qui viu aquí. Només una pregunta de filtre.',
+      'res.yes': 'Sí, residesc a Mallorca', 'res.no': 'No, som turista o visitant',
+      'intro.h1': 'Un moment, si us plau.',
+      'intro.p1': 'L\'enquesta no és llarga, però ens importa la qualitat de les teves respostes més que la velocitat.',
+      'intro.p2': 'Et demanam que et prenguis un moment per pensar en cada pregunta. No ens interessa només la teva participació — ens interessa <em style="font-style:normal; color:var(--teal-500); font-weight:500;">la teva situació real, com et sents i què opines</em> sobre el turisme a Mallorca.',
+      'intro.p3': 'La teva veu compta. Moltes gràcies — anem-hi! 😉',
+      'intro.btn': 'Endavant →',
+      'perfil.title': 'El teu perfil', 'perfil.step': 'PAS 1 / 6',
+      'perfil.gender': 'Ets...',
+      'perfil.gender_f': 'Dona', 'perfil.gender_m': 'Home', 'perfil.gender_other': 'Altre',
+      'perfil.nac': 'Quina és la teva nacionalitat?',
+      'perfil.nac_es': 'Espanyola', 'perfil.nac_eu': 'Europea (no espanyola)',
+      'perfil.nac_noeu': 'No europea', 'perfil.nac_nodecir': 'Preferesc no dir-ho',
+      'perfil.age': 'Quants anys tens?',
+      'perfil.where': 'On vius?',
+      'perfil.no_res': 'No residesc a Mallorca', 'perfil.change': '← Canviar',
+      'perfil.wa_share': 'Compartir per WhatsApp →',
+      'perfil.situacion': 'Quina de les situacions següents s\'ajusta més a la teva situació actual?',
+      'perfil.sit_trabajo': 'Treball', 'perfil.sit_jubilado': 'Jubilat/da o pensionista',
+      'perfil.sit_estudiante': 'Estudiant', 'perfil.sit_parado': 'A l\'atur',
+      'perfil.conv': 'Quantes persones conviviu a ca teva?', 'perfil.conv_solo': 'Tot sol/a',
+      'perfil.vivienda': 'En quin règim vius?',
+      'perfil.viv_prop': 'Propietat', 'perfil.viv_alq': 'Lloguer', 'perfil.viv_otro': 'Altre',
+      'perfil.viv_otro_ph': 'Descriu la teva situació d\'habitatge…',
+      'perfil.turismo': 'La teva ocupació depèn o ha depès directa o indirectament del turisme?',
+      'perfil.tur_si': 'Sí', 'perfil.tur_no': 'No', 'perfil.tur_nose': 'No ho sé',
+      'perfil.econ': 'Com perceps la teva situació econòmica?',
+      'perfil.econ_low': 'Molt dolenta', 'perfil.econ_high': 'Molt bona',
+      'dia.title': 'El teu dia a dia', 'dia.step': 'PAS 2 / 6',
+      'dia.instruction': 'Indica el teu grau d\'acord amb cada afirmació, de 0 (gens d\'acord) a 10 (totalment d\'acord).',
+      'dia.q_vida_diaria': 'El turisme influeix en la meva vida diària.',
+      'dia.q_medio_ambiente': 'El turisme afecta el medi ambient.',
+      'dia.q_calidad_vida': 'El turisme afecta la meva qualitat de vida.',
+      'dia.q_precios': 'El turisme contribueix a l\'augment de preus a Mallorca.',
+      'dia.q_transporte': 'El turisme afecta la qualitat del transport públic.',
+      'entorno.title': 'El teu entorn', 'entorno.step': 'PAS 3 / 6',
+      'entorno.q_espacios': 'Els espais públics es deterioren a causa del turisme.',
+      'entorno.q_bienestar': 'El turisme influeix en el meu benestar i en les interaccions comunitàries.',
+      'entorno.q_gastos_ocio': 'El turisme ha afectat les meves despeses d\'oci.',
+      'entorno.q_futuro_isla': 'El turisme és el futur de l\'illa.',
+      'mirada.title': 'La teva mirada', 'mirada.step': 'PAS 4 / 6',
+      'mirada.q_diversificacion': 'L\'economia de Mallorca seria més resistent amb una major varietat d\'indústries.',
+      'mirada.q_interacciones': 'El turisme afavoreix interaccions positives entre residents i visitants.',
+      'mirada.q_activismo': 'L\'activisme dels residents ha tingut un impacte positiu en la gestió del turisme.',
+      'mirada.q_gestion': 'La gestió del turisme aquesta temporada ha millorat la convivència a Mallorca.',
+      'part.title': 'Participació i responsabilitat', 'part.step': 'PAS 5 / 6',
+      'part.manifestacion': 'Has participat en alguna manifestació o activitat relacionada amb el turisme enguany?',
+      'part.responsable': 'Qui hauria de fer-se càrrec dels efectes col·laterals del turisme de masses a Mallorca?',
+      'part.res_gov': 'El govern', 'part.res_industry': 'Els que porten, allotgen i donen servei als turistes',
+      'part.res_both': 'Els dos anteriors', 'part.res_other_ph': 'Qui, en la teva opinió?',
+      'vision.title': 'La teva visió', 'vision.step': 'PAS 6 / 6',
+      'vision.cambio': 'Si poguessis canviar una sola cosa sobre el turisme a Mallorca, quina seria i per què?',
+      'vision.cambio_ph': 'Escriu la teva resposta…',
+      'vision.preservar': 'Quin aspecte del turisme a Mallorca t\'agradaria preservar per a les futures generacions?',
+      'vision.preservar_ph': 'Escriu la teva resposta…',
+      'vision.q_abandono': 'Has pensat alguna vegada en anar-te\'n de Mallorca a causa del turisme?',
+      'vision.abandono_si_serious': 'Sí, seriosament', 'vision.abandono_si_casual': 'Sí, de passada',
+      'vision.abandono_razon_label': 'Quina és la raó principal? <em style="color:var(--teal-700); font-style:normal;">(opcional)</em>',
+      'vision.abandono_razon_ph': 'Escriu la teva resposta…',
+      'excl.eyebrow': 'Gràcies pel teu interès', 'excl.title': 'Aquesta enquesta és per a residents a Mallorca.',
+      'excl.lede': 'Recollim l\'experiència de qui viu aquí de forma habitual — no la de visitants o turistes.',
+      'excl.body': 'Si ets turista o visitant, ens interessa igualment la teva perspectiva. Estam preparant una enquesta específica per a tu — torna aviat a <strong>fundament.es</strong> per trobar-la.',
+      'excl.back': 'Tornar a fundament.es →',
+      'thanks.eyebrow': 'Gràcies', 'thanks.title': 'La teva veu ja forma part de l\'estudi.',
+      'thanks.lede': 'S\'afegeix a la dels teus veïns. Quan tanquem la temporada de recollida, publicarem els resultats complets en obert, com cada any.',
+      'thanks.back': 'Tornar a fundament.es',
+      'footer.text': 'fundament associació · Estudi de convivència social amb el turisme a Mallorca 2026 · <a href="https://www.fundament.es" style="color:inherit">fundament.es</a>',
+      'consent.text': 'Utilitzam cookies d\'analítica per mesurar com arriben les respostes des de les nostres campanyes. Les pots acceptar o rebutjar; la teva resposta a l\'enquesta es desa igualment en ambdós casos.',
+      'consent.more_info': 'Més informació',
+      'consent.reject': 'Rebutjar',
+      'consent.accept': 'Acceptar',
+      'age_labels': ['Menys de 18 anys','18–25 anys','26–35 anys','36–45 anys','46–55 anys','56–65 anys','66–75 anys','Més de 75 anys'],
+      'conv_labels': ['Visc tot sol/a','1 persona més','2 persones més','3 persones més','4 persones més','5 persones o més']
+    },
+    en: {
+      'nav.back': '← Back', 'nav.next': 'Next →', 'nav.send': 'Submit responses →',
+      'slider.disagree': 'Strongly disagree', 'slider.agree': 'Strongly agree',
+      'perfil.slide_prompt': 'Slide to select',
+      'hero.eyebrow': '<span class="brand">fundament</span> · biennial study 2026',
+      'hero.h1_pre': 'How you experience ', 'hero.h1_em': 'tourism', 'hero.h1_post': ' in Mallorca',
+      'hero.lede': 'Every two years we gather the voices of those who live here. Your answers join your neighbours\' to understand, with data, how tourism really affects us.',
+      'hero.cred_resp': 'responses this edition', 'hero.cred_muni': 'municipalities represented', 'hero.cred_time': 'duration',
+      'hero.start': 'Start →',
+      'hero.privacy': 'No registration or account needed. Your responses are anonymous and published openly each year under CC BY-SA. We record IP address and duration solely as data integrity evidence.',
+      'hero.demo_badge': 'Sample data — in production this updates live with the current season',
+      'hero.card1_title': 'Towns where your voice is most needed',
+      'hero.card1_sub': 'The 10 municipalities furthest from their participation quota.',
+      'hero.card2_title': 'Towns almost there',
+      'hero.card2_sub': 'Between 80% and 100% of their participation quota.',
+      'hero.card3_title': 'Towns contributing the most',
+      'hero.card3_sub': 'Already passed their own quota (not Mallorca\'s overall minimum) — top 10.',
+      'hero.methodology': 'How it\'s calculated: every municipality has a participation quota — a minimum of 5 responses plus a share proportional to its population, calculated against our goal of 600 responses. The vertical mark on each bar shows that town\'s share of Mallorca\'s overall statistical minimum (384 responses total, across all municipalities) — passing it means covering its proportional part of that minimum, not reaching it alone.',
+      'res.eyebrow': 'Before we start',
+      'res.h1': 'Do you regularly live in Mallorca?',
+      'res.sub': 'This survey captures the experience of those who live here. Just one filter question.',
+      'res.yes': 'Yes, I live in Mallorca', 'res.no': 'No, I\'m a visitor or tourist',
+      'intro.h1': 'One moment, please.',
+      'intro.p1': 'The survey isn\'t long, but we care more about the quality of your answers than the speed.',
+      'intro.p2': 'We ask you to take a moment to think about each question. We\'re not just interested in your participation — we\'re interested in <em style="font-style:normal; color:var(--teal-500); font-weight:500;">your real situation, how you feel and what you think</em> about tourism in Mallorca.',
+      'intro.p3': 'Your voice matters. Thank you so much — let\'s go! 😉',
+      'intro.btn': 'Let\'s go →',
+      'perfil.title': 'Your profile', 'perfil.step': 'STEP 1 / 6',
+      'perfil.gender': 'You are...',
+      'perfil.gender_f': 'Woman', 'perfil.gender_m': 'Man', 'perfil.gender_other': 'Other',
+      'perfil.nac': 'What is your nationality?',
+      'perfil.nac_es': 'Spanish', 'perfil.nac_eu': 'European (non-Spanish)',
+      'perfil.nac_noeu': 'Non-European', 'perfil.nac_nodecir': 'Prefer not to say',
+      'perfil.age': 'How old are you?',
+      'perfil.where': 'Where do you live?',
+      'perfil.no_res': 'I don\'t live in Mallorca', 'perfil.change': '← Change',
+      'perfil.wa_share': 'Share on WhatsApp →',
+      'perfil.situacion': 'Which of the following best describes your current situation?',
+      'perfil.sit_trabajo': 'Employed', 'perfil.sit_jubilado': 'Retired / pensioner',
+      'perfil.sit_estudiante': 'Student', 'perfil.sit_parado': 'Unemployed',
+      'perfil.conv': 'How many people live with you at home?', 'perfil.conv_solo': 'Alone',
+      'perfil.vivienda': 'What is your housing situation?',
+      'perfil.viv_prop': 'Owner', 'perfil.viv_alq': 'Renting', 'perfil.viv_otro': 'Other',
+      'perfil.viv_otro_ph': 'Describe your housing situation…',
+      'perfil.turismo': 'Does or has your occupation depended directly or indirectly on tourism?',
+      'perfil.tur_si': 'Yes', 'perfil.tur_no': 'No', 'perfil.tur_nose': 'I don\'t know',
+      'perfil.econ': 'How do you perceive your personal financial situation?',
+      'perfil.econ_low': 'Very poor', 'perfil.econ_high': 'Very good',
+      'dia.title': 'Your daily life', 'dia.step': 'STEP 2 / 6',
+      'dia.instruction': 'Rate your agreement with each statement from 0 (strongly disagree) to 10 (strongly agree).',
+      'dia.q_vida_diaria': 'Tourism influences my daily life.',
+      'dia.q_medio_ambiente': 'Tourism affects the environment.',
+      'dia.q_calidad_vida': 'Tourism affects my quality of life.',
+      'dia.q_precios': 'Tourism contributes to rising prices in Mallorca.',
+      'dia.q_transporte': 'Tourism affects the quality of public transport.',
+      'entorno.title': 'Your surroundings', 'entorno.step': 'STEP 3 / 6',
+      'entorno.q_espacios': 'Public spaces are deteriorating because of tourism.',
+      'entorno.q_bienestar': 'Tourism influences my wellbeing and community interactions.',
+      'entorno.q_gastos_ocio': 'Tourism has affected my leisure spending.',
+      'entorno.q_futuro_isla': 'Tourism is the future of the island.',
+      'mirada.title': 'Your perspective', 'mirada.step': 'STEP 4 / 6',
+      'mirada.q_diversificacion': 'Mallorca\'s economy would be more resilient with a greater variety of industries.',
+      'mirada.q_interacciones': 'Tourism fosters positive interactions between residents and visitors.',
+      'mirada.q_activismo': 'Resident activism has had a positive impact on tourism management.',
+      'mirada.q_gestion': 'Tourism management this season has improved coexistence in Mallorca.',
+      'part.title': 'Participation & responsibility', 'part.step': 'STEP 5 / 6',
+      'part.manifestacion': 'Have you participated in any protest or activity related to tourism this year?',
+      'part.responsable': 'Who should be responsible for the side effects of mass tourism in Mallorca?',
+      'part.res_gov': 'The government', 'part.res_industry': 'Those who bring, host and serve tourists',
+      'part.res_both': 'Both of the above', 'part.res_other_ph': 'Who, in your opinion?',
+      'vision.title': 'Your vision', 'vision.step': 'STEP 6 / 6',
+      'vision.cambio': 'If you could change one thing about tourism in Mallorca, what would it be and why?',
+      'vision.cambio_ph': 'Write your answer…',
+      'vision.preservar': 'What aspect of tourism in Mallorca would you like to preserve for future generations?',
+      'vision.preservar_ph': 'Write your answer…',
+      'vision.q_abandono': 'Have you ever considered leaving Mallorca because of tourism?',
+      'vision.abandono_si_serious': 'Yes, seriously', 'vision.abandono_si_casual': 'Yes, briefly',
+      'vision.abandono_razon_label': 'What is the main reason? <em style="color:var(--teal-700); font-style:normal;">(optional)</em>',
+      'vision.abandono_razon_ph': 'Write your answer…',
+      'excl.eyebrow': 'Thank you for your interest', 'excl.title': 'This survey is for Mallorca residents.',
+      'excl.lede': 'We collect the experience of those who live here year-round — not that of visitors or tourists.',
+      'excl.body': 'If you\'re a tourist or visitor, we\'re equally interested in your perspective. We\'re preparing a specific survey for you — come back soon to <strong>fundament.es</strong> to find it.',
+      'excl.back': 'Go to fundament.es →',
+      'thanks.eyebrow': 'Thank you', 'thanks.title': 'Your voice is now part of the study.',
+      'thanks.lede': 'It joins your neighbours\'. When we close the collection season, we\'ll publish the full results openly, as every year.',
+      'thanks.back': 'Go to fundament.es',
+      'footer.text': 'fundament asociación · Social coexistence with tourism in Mallorca 2026 · <a href="https://www.fundament.es" style="color:inherit">fundament.es</a>',
+      'consent.text': 'We use analytics cookies to measure how responses arrive from our campaigns. You can accept or reject them; your survey response is saved either way.',
+      'consent.more_info': 'More information',
+      'consent.reject': 'Reject',
+      'consent.accept': 'Accept',
+      'age_labels': ['Under 18','18–25','26–35','36–45','46–55','56–65','66–75','Over 75'],
+      'conv_labels': ['I live alone','1 more person','2 more people','3 more people','4 more people','5 or more people']
+    }
+  };
+
+  var currentLang = 'es';
+  var AGE_LABELS  = TRANSLATIONS.es.age_labels;
+  var CONV_LABELS = TRANSLATIONS.es.conv_labels;
+
+  function t(key) {
+    return (TRANSLATIONS[currentLang] && TRANSLATIONS[currentLang][key]) ||
+           (TRANSLATIONS['es'][key]) || key;
+  }
+
+  function applyLang(lang) {
+    if (!TRANSLATIONS[lang]) return;
+    currentLang = lang;
+    localStorage.setItem('survey_lang', lang);
+
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      var val = t(key);
+      if (val) el.textContent = val;
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n-html');
+      var val = t(key);
+      if (val) el.innerHTML = val;
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n-placeholder');
+      var val = t(key);
+      if (val) el.setAttribute('placeholder', val);
+    });
+
+    // Update language switcher buttons
+    document.querySelectorAll('.lang-btn').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+
+    // Update slider label arrays
+    AGE_LABELS  = t('age_labels');
+    CONV_LABELS = t('conv_labels');
+
+    // Re-apply slider readouts if already interacted
+    var ageInput = document.getElementById('age-range');
+    var ageReadout = document.getElementById('age-readout');
+    if (ageInput && ageReadout) {
+      if (ageInput.getAttribute('data-touched')) {
+        ageReadout.textContent = AGE_LABELS[parseInt(ageInput.value)];
+      } else {
+        ageReadout.textContent = t('perfil.slide_prompt');
+      }
+    }
+    var convInput = document.getElementById('conv-range');
+    var convReadout = document.getElementById('conv-readout');
+    if (convInput && convReadout) {
+      if (convInput.getAttribute('data-touched')) {
+        convReadout.textContent = CONV_LABELS[parseInt(convInput.value)];
+      } else {
+        convReadout.textContent = t('perfil.slide_prompt');
+      }
+    }
+  }
+
+  // Detect language: URL param → localStorage → default es
+  var _urlLang = new URLSearchParams(window.location.search).get('lang');
+  var _initLang = (_urlLang && TRANSLATIONS[_urlLang]) ? _urlLang :
+                  (localStorage.getItem('survey_lang') && TRANSLATIONS[localStorage.getItem('survey_lang')] ? localStorage.getItem('survey_lang') : 'es');
+
+  var answered     = {};
+  var responses    = {};
+  var sessionToken = null;
+  var startedAt    = null;
+  var deviceFingerprint = '';   // hash SHA-256 de señales del dispositivo (anti-fraude)
+
+  // Atribución de campañas (cookieless): captura los parámetros UTM y el gclid de Google Ads
+  // desde la URL al cargar. Sin cookies, sin banner de consentimiento. Se guardan por respuesta.
+  var campaign = (function(){
+    var p = new URLSearchParams(location.search);
+    return {
+      source:   p.get('utm_source')   || '',
+      medium:   p.get('utm_medium')   || '',
+      campaign: p.get('utm_campaign') || '',
+      term:     p.get('utm_term')     || '',
+      content:  p.get('utm_content')  || '',
+      gclid:    p.get('gclid')        || ''
+    };
+  })();
+  var liveTotal    = 0;  // conteo real obtenido del backend
+  var liveTurismo  = {};  // {Sí: N, No: N, 'No lo sé': N}
+
+  // ─── JSONP helper ────────────────────────────────────────────────────────
+  // Apps Script hace redirect 302 sin cabeceras CORS en la respuesta inicial,
+  // lo que aborta cualquier fetch. JSONP inyecta un <script> en su lugar —
+  // no necesita CORS porque los scripts no tienen restricción de origen.
+  function jsonp(url, cb) {
+    var fn = '_gs_' + Date.now() + '_' + Math.random().toString(36).slice(2);
+    window[fn] = function(data) {
+      try { document.head.removeChild(script); } catch(e){}
+      delete window[fn];
+      cb(data);
+    };
+    var script = document.createElement('script');
+    script.src = url + (url.indexOf('?') > -1 ? '&' : '?') + 'callback=' + fn;
+    script.onerror = function() {
+      try { document.head.removeChild(script); } catch(e){}
+      delete window[fn];
+    };
+    document.head.appendChild(script);
+  }
+
+  // ─── HUELLA DE DISPOSITIVO (anti-fraude) ──────────────────────────────────
+  // Reúne señales de baja sensibilidad del navegador y las reduce a un hash SHA-256
+  // de un solo sentido. NO se guarda ningún dato crudo del dispositivo, solo el hash.
+  // Sirve para detectar (en análisis) varias respuestas del mismo dispositivo aunque
+  // cambien la IP o el token. Sin dependencias externas: usa crypto.subtle del navegador.
+  function computeFingerprint() {
+    try {
+      var tz = '';
+      try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch(e){}
+      var parts = [
+        screen.width + 'x' + screen.height,
+        screen.colorDepth,
+        window.devicePixelRatio || '',
+        tz,
+        navigator.language || '',
+        (navigator.languages || []).join(','),
+        navigator.platform || '',
+        navigator.userAgent || '',
+        navigator.hardwareConcurrency || '',
+        navigator.deviceMemory || '',
+        ('ontouchstart' in window) ? 't' : 'n'
+      ].join('|');
+      if (!window.crypto || !crypto.subtle) return Promise.resolve('');
+      var bytes = new TextEncoder().encode(parts);
+      return crypto.subtle.digest('SHA-256', bytes).then(function(buf) {
+        return Array.from(new Uint8Array(buf)).map(function(b) {
+          return ('0' + b.toString(16)).slice(-2);
+        }).join('');
+      }).catch(function(){ return ''; });
+    } catch (e) {
+      return Promise.resolve('');
+    }
+  }
+  computeFingerprint().then(function(fp){ deviceFingerprint = fp; });
+
+  // ─── TOKEN DE SESIÓN ─────────────────────────────────────────────────────
+  if (WEBAPP_URL !== 'PENDIENTE') {
+    jsonp(WEBAPP_URL + '?action=token', function(d) {
+      sessionToken = d.token || null;
+    });
+  }
+
+  // ─── DATOS EN VIVO ───────────────────────────────────────────────────────
+  function loadLiveCounts() {
+    if (WEBAPP_URL === 'PENDIENTE') return;
+    jsonp(WEBAPP_URL + '?action=counts', function(data) {
+        if (!data || data.total === undefined) return;
+        var total = data.total;
+        liveTotal = total;
+        var muni  = data.municipios || {};
+        liveTurismo = data.turismo  || {};
+
+        // Números dinámicos del hero (en vivo desde el Sheet)
+        var credResp = document.getElementById('cred-resp');
+        var credMuni = document.getElementById('cred-muni');
+        var credTime = document.getElementById('cred-time');
+        if (credResp) credResp.textContent = total;
+        if (credMuni) credMuni.textContent = Object.keys(muni).length;
+        if (credTime && data.avgDuration) {
+          credTime.textContent = '~' + Math.max(1, Math.round(data.avgDuration / 60)) + ' min';
+        }
+
+        // Actualizar respuestas en vivo para cada pueblo. El objetivo (p.target)
+        // ya está fijado de antemano según población (ver assignTargets arriba)
+        // y no cambia con la participación — solo cambia cuánto se ha llenado.
+        PUEBLOS.forEach(function(p){
+          p.resp = muni[p.name] || 0;
+        });
+
+        // Actualizar cuadros y grid
+        _rebuildCards();
+        _rebuildGrid(total);
+        document.querySelector('.demo-badge').textContent =
+          'Datos en vivo · ' + total + ' respuestas esta temporada';
+    });
+  }
+
+  var MIN_SAMPLE = 50;
+
+  function _pendingMsg(el) {
+    var msg = document.createElement('p');
+    msg.style.cssText = 'font-size:.8rem;color:var(--teal-700);margin-top:12px;line-height:1.5;';
+    msg.textContent = 'Disponible a partir de ' + MIN_SAMPLE + ' respuestas. Comparte la encuesta para llegar antes.';
+    el.appendChild(msg);
+  }
+
+  // Mensaje para cuando una categoría está vacía con datos en vivo (p.ej.
+  // ningún pueblo ha superado aún su cuota). Importante: esto NUNCA oculta
+  // la tarjeta entera (nada de display:none) — las tres columnas deben
+  // permanecer siempre visibles y en el mismo sitio. Antes, ocultar la
+  // tarjeta cuando la lista salía vacía hacía que, al pasar del dato de
+  // ejemplo (2024) al recuento en vivo, la tercera columna pareciera
+  // "desaparecer" justo cuando la página terminaba de cargar — que es
+  // exactamente el bug reportado.
+  function _emptyMsg(el, text) {
+    var msg = document.createElement('p');
+    msg.style.cssText = 'font-size:.8rem;color:var(--teal-700);margin-top:4px;line-height:1.5;';
+    msg.textContent = text;
+    el.appendChild(msg);
+  }
+
+  function _rebuildCards() {
+    var cardTowns    = document.getElementById('card-towns');
+    var cardNear     = document.getElementById('card-near');
+    var cardAchieved = document.getElementById('card-achieved');
+    var wrapTowns    = document.getElementById('wrap-towns');
+    var wrapNear     = document.getElementById('wrap-near');
+    var wrapAchieved = document.getElementById('wrap-achieved');
+    // Las tres tarjetas se quedan siempre visibles — nunca se les pone
+    // display:none — para que la rejilla de 3 columnas no cambie de forma
+    // mientras llegan los datos en vivo.
+    wrapTowns.style.display    = '';
+    wrapNear.style.display     = '';
+    wrapAchieved.style.display = '';
+    cardTowns.innerHTML = '';
+    cardNear.innerHTML  = '';
+    cardAchieved.innerHTML = '';
+
+    // Card 1 — towns furthest from their target
+    var withResp = PUEBLOS.filter(function(p){ return p.resp > 0; });
+    if (withResp.length === 0) {
+      _emptyMsg(cardTowns, 'Aún no ha llegado ninguna respuesta. ¡Sé el primero en compartirla!');
+    } else {
+      PUEBLOS.slice().sort(function(a,b){
+        var ra = a.resp/a.target, rb = b.resp/b.target;
+        // Empate frecuente en 0 respuestas al inicio de la encuesta: se rompe por
+        // población descendente, ya que el hueco pesa más cuanto mayor es el pueblo.
+        return ra !== rb ? ra - rb : b.pop - a.pop;
+      })
+        .filter(function(p){ return p.resp < p.target; }).slice(0,10)
+        .forEach(function(p){ cardTowns.appendChild(miniRow(p.name, p.comarca, p.resp, p.target, p.targetMin)); });
+    }
+
+    // Cards 2 & 3 — only meaningful above MIN_SAMPLE
+    if (liveTotal < MIN_SAMPLE) {
+      _pendingMsg(cardNear);
+      _pendingMsg(cardAchieved);
+    } else {
+      var near = PUEBLOS.filter(function(p){ var r = p.resp/p.target; return r >= 0.8 && r < 1; })
+        .sort(function(a,b){ return (b.resp/b.target) - (a.resp/a.target); });
+      if (near.length === 0) {
+        _emptyMsg(cardNear, 'Ahora mismo ningún pueblo está en este tramo — vuelve más adelante.');
+      } else {
+        near.forEach(function(p){ cardNear.appendChild(miniRow(p.name, p.comarca, p.resp, p.target, p.targetMin)); });
+      }
+
+      var achieved = PUEBLOS.filter(function(p){ return p.resp >= p.target; })
+        .sort(function(a,b){ return (b.resp/b.target) - (a.resp/a.target); }).slice(0,10);
+      if (achieved.length === 0) {
+        _emptyMsg(cardAchieved, 'Todavía ningún pueblo ha cubierto su cuota — ¡puede ser el tuyo!');
+      } else {
+        achieved.forEach(function(p){ cardAchieved.appendChild(miniRow(p.name, p.comarca, p.resp, p.target, p.targetMin)); });
+      }
+    }
+  }
+
+  function _rebuildGrid(total) {
+    var hero = document.getElementById('hero-dotfield');
+    var cap  = document.getElementById('hero-dotfield-caption');
+    if (!hero) return;
+    renderStatDots(hero, total);
+    if (total >= STAT_MIN) {
+      cap.innerHTML = '<b>' + total + '</b> respuestas — mínimo estadístico (384) superado. ¡Seguimos sumando!';
+    } else {
+      cap.innerHTML = '<b>' + total + ' / ' + STAT_MIN + '</b> respuestas — mínimo para ±5% de margen de error.';
+    }
+  }
+
+  loadLiveCounts();
+
+  // ─── LANG SWITCHER ───────────────────────────────────────────────────────
+  document.querySelectorAll('.lang-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      applyLang(btn.getAttribute('data-lang'));
+    });
+  });
+  applyLang(_initLang);
+
+  // ─── DOTS DE PROGRESO ────────────────────────────────────────────────────
+  var dotContainers = document.querySelectorAll('[id^="progress-dots"]');
+  dotContainers.forEach(function(c){
+    for (var i = 0; i < totalFields; i++){
+      var d = document.createElement('div');
+      d.className = 'd';
+      c.appendChild(d);
+    }
+  });
+
+  function renderDots(){
+    var filledCount = Object.keys(answered).length;
+    dotContainers.forEach(function(c){
+      c.querySelectorAll('.d').forEach(function(d, i){
+        d.classList.toggle('filled', i < filledCount);
+      });
+    });
+    document.getElementById('rail-fill').style.width =
+      Math.round((filledCount / totalFields) * 100) + '%';
+  }
+
+  function markAnswered(key, value){
+    if (value === '' || value === null || value === undefined) {
+      delete answered[key];
+    } else {
+      answered[key] = true;
+    }
+    responses[key] = value;
+    renderDots();
+  }
+
+  // ─── LISTENERS DE CAMPOS ─────────────────────────────────────────────────
+  document.querySelectorAll('.pill-group').forEach(function(group){
+    var key = group.getAttribute('data-track');
+    group.querySelectorAll('input[type=radio]').forEach(function(input){
+      input.addEventListener('change', function(){
+        markAnswered(key, input.value);
+        if (key === 'responsable'){
+          document.getElementById('responsable-other')
+            .classList.toggle('show', input.value === 'Otro');
+        }
+        if (key === 'vivienda'){
+          document.getElementById('vivienda-other')
+            .classList.toggle('show', input.value === 'Otro');
+        }
+        if (key === 'q_abandono'){
+          document.getElementById('abandono-razon')
+            .classList.toggle('show', input.value !== 'No');
+        }
+      });
+    });
+  });
+
+  document.querySelectorAll('select[data-track]').forEach(function(sel){
+    sel.addEventListener('change', function(){
+      markAnswered(sel.getAttribute('data-track'), sel.value);
+    });
+  });
+
+  document.querySelectorAll('textarea[data-track]').forEach(function(ta){
+    ta.addEventListener('input', function(){
+      markAnswered(ta.getAttribute('data-track'), ta.value.trim());
+    });
+  });
+
+  // Texto de pista para los sliders numéricos (Likert 0–10) antes de
+  // tocarlos — igual de corto que "Desliza para seleccionar" para que quepa
+  // en la burbuja flotante sin partirse en varias líneas.
+  var SLIDER_NUMERIC_HINT = 'Desliza para valorar';
+
+  document.querySelectorAll('.slider-field[data-track]').forEach(function(field){
+    var key     = field.getAttribute('data-track');
+    var type    = field.getAttribute('data-type'); // 'text' or null (numeric)
+    var input   = field.querySelector('input[type=range]');
+    var readout = field.querySelector('.slider-readout, .slider-text-readout');
+    var touched = false;
+
+    // TODOS los sliders (Likert 0–10 y los de texto edad/convivencia) usan
+    // el mismo patrón, para que no cambie de un paso a otro: el mensaje
+    // ("Desliza para…" y, tras tocarlo, el valor elegido) flota justo
+    // ENCIMA del propio "handle" — como una etiqueta con una pequeña línea
+    // que lo señala — y se mueve con él al arrastrar. Antes de tocarlo se ve
+    // pequeño y neutro (para que no parezca ya una respuesta, el mismo
+    // problema que teníamos con los sliders numéricos mostrando "5" desde
+    // el principio); en cuanto se mueve, pasa al valor real en grande/coral.
+    var wrap = document.createElement('div');
+    wrap.className = 'slider-track-wrap';
+    input.parentNode.insertBefore(wrap, input);
+    wrap.appendChild(input);
+    readout.classList.add('slider-bubble');
+    wrap.insertBefore(readout, input);
+
+    if (type !== 'text') {
+      readout.textContent = SLIDER_NUMERIC_HINT;
+    }
+
+    function positionBubble() {
+      var pct = (input.value - input.min) / (input.max - input.min);
+      wrap.style.setProperty('--pct', pct);
+    }
+
+    function updateSlider() {
+      if (type === 'text') {
+        var labels = key === 'age' ? AGE_LABELS : CONV_LABELS;
+        readout.textContent = labels[parseInt(input.value)] || input.value;
+        markAnswered(key, labels[parseInt(input.value)] || input.value);
+      } else {
+        readout.textContent = input.value;
+        markAnswered(key, input.value);
+      }
+      positionBubble();
+    }
+
+    positionBubble();
+
+    input.addEventListener('input', function(){
+      touched = true;
+      input.setAttribute('data-touched', '1');
+      field.classList.add('touched');
+      field.classList.remove('needs-touch');
+      updateSlider();
+    });
+
+  });
+
+  document.querySelector('#responsable-other input').addEventListener('input', function(e){
+    responses['responsable_otro'] = e.target.value.trim();
+  });
+
+  document.getElementById('vivienda-otro-input').addEventListener('input', function(e){
+    responses['vivienda_otro'] = e.target.value.trim();
+  });
+
+  // ─── NAVEGACIÓN ──────────────────────────────────────────────────────────
+  // ─── Cloudflare Turnstile (CAPTCHA) ────────────────────────────────────────
+  var turnstileWidgetId = null;
+  function renderTurnstile(){
+    if (TURNSTILE_SITEKEY === 'PENDIENTE') return;   // inactivo hasta configurar la sitekey
+    if (turnstileWidgetId !== null) return;           // ya renderizado
+    if (!window.turnstile) {                           // api.js aún no cargado → reintentar
+      setTimeout(renderTurnstile, 300);
+      return;
+    }
+    turnstileWidgetId = window.turnstile.render('#turnstile-widget', {
+      sitekey: TURNSTILE_SITEKEY,
+      theme: 'light',
+      'refresh-expired': 'auto'   // renueva el token solo si caduca antes de enviar
+    });
+  }
+
+  function goTo(stepName){
+    document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('active'); });
+    document.getElementById('screen-' + stepName).classList.add('active');
+    window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
+    if (stepName === 'vision') renderTurnstile();
+    if (typeof gtag === 'function') {
+      gtag('event', 'encuesta_paso_visto', { paso: stepName });
+    }
+  }
+
+  // Google Ads / GA4 — conversión de encuesta completada. Mismo dominio que el clic
+  // de Ads (gclid intacto), así que no hace falta transaction_id para deduplicar.
+  function trackConversion(){
+    if (typeof gtag !== 'function') return;
+    gtag('event', 'encuesta_thankyou');
+    gtag('event', 'conversion', { 'send_to': 'AW-356168464' });
+  }
+
+  document.getElementById('start-btn').addEventListener('click', function(){
+    goTo('residencia');
+  });
+
+  document.getElementById('res-yes-btn').addEventListener('click', function(){
+    goTo('intro');
+  });
+
+  document.getElementById('res-no-btn').addEventListener('click', function(){
+    goTo('excluido');
+  });
+
+  document.getElementById('intro-next-btn').addEventListener('click', function(){
+    startedAt = new Date().toISOString();
+    goTo('perfil');
+  });
+
+  // Required fields per step (cambio + preservar intentionally optional)
+  var REQUIRED_BY_STEP = {
+    'perfil':       ['gender','nacionalidad','age','municipio','situacion','convivencia','vivienda','tourism_dependencia','situacion_economica'],
+    'dia':          ['q_vida_diaria','q_medio_ambiente','q_calidad_vida','q_precios','q_transporte'],
+    'entorno':      ['q_espacios','q_bienestar','q_gastos_ocio','q_futuro_isla'],
+    'mirada':       ['q_diversificacion','q_interacciones','q_activismo','q_gestion'],
+    'participacion':['manifestacion','responsable'],
+    'vision':       ['q_abandono']
+  };
+
+  function getMissing(stepName) {
+    var required = REQUIRED_BY_STEP[stepName] || [];
+    return required.filter(function(id){ return !answered[id]; });
+  }
+
+  function highlightMissing(stepName) {
+    var missing = getMissing(stepName);
+    missing.forEach(function(id) {
+      var field = document.querySelector(
+        '[data-track="' + id + '"], [name="' + id + '"]'
+      );
+      if (!field) return;
+      var container = field.closest('.field, .slider-field');
+      if (!container) return;
+      container.classList.add('field-error');
+      setTimeout(function(){ container.classList.remove('field-error'); }, 2000);
+      // Los sliders son el caso más fácil de pasar por alto (ya muestran un
+      // valor, así que el simple contorno de 2 segundos puede no notarse).
+      // Aquí se marca de forma PERSISTENTE — no desaparece a los 2 segundos,
+      // sigue en naranja hasta que el usuario realmente mueva el control.
+      if (container.classList.contains('slider-field')) {
+        container.classList.add('needs-touch');
+      }
+    });
+    if (typeof gtag === 'function' && missing.length > 0) {
+      gtag('event', 'encuesta_campo_faltante', {
+        paso: stepName,
+        campos: missing.join(',')
+      });
+    }
+    return missing.length;
+  }
+
+  document.querySelectorAll('[data-next]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var current = btn.closest('.screen').id.replace('screen-','');
+      var missing = highlightMissing(current);
+      if (missing > 0) {
+        btn.classList.add('btn-shake');
+        setTimeout(function(){ btn.classList.remove('btn-shake'); }, 500);
+        return;
+      }
+      goTo(steps[steps.indexOf(current) + 1]);
+    });
+  });
+
+  document.querySelectorAll('[data-back]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var current = btn.closest('.screen').id.replace('screen-','');
+      goTo(steps[steps.indexOf(current) - 1]);
+    });
+  });
+
+  // ─── ENVÍO ───────────────────────────────────────────────────────────────
+  document.getElementById('submit-btn').addEventListener('click', function(){
+    var btn       = this;
+    var stateEl   = document.getElementById('submit-state');
+
+    // Modo prototipo (sin backend configurado)
+    if (WEBAPP_URL === 'PENDIENTE') {
+      console.log('Prototipo — respuestas (no enviadas):', responses);
+      goTo('thanks');
+      trackConversion();
+      return;
+    }
+
+    // CAPTCHA: si Turnstile está activo pero no hay token, pedir verificación antes de enviar.
+    var tsToken = (turnstileWidgetId !== null && window.turnstile)
+      ? window.turnstile.getResponse(turnstileWidgetId) : '';
+    if (TURNSTILE_SITEKEY !== 'PENDIENTE' && !tsToken) {
+      stateEl.className = 'submit-state error';
+      stateEl.textContent = 'Por favor, completa la verificación de seguridad.';
+      if (typeof gtag === 'function') {
+        gtag('event', 'encuesta_error_captcha');
+      }
+      return;
+    }
+
+    btn.disabled = true;
+    stateEl.className = 'submit-state sending';
+    stateEl.textContent = 'Enviando…';
+
+    var started = startedAt ? new Date(startedAt) : new Date();
+    var duration_seconds = Math.round((new Date() - started) / 1000);
+
+    // Obtener IP antes de enviar
+    fetch('https://api.ipify.org?format=json')
+      .then(function(r){ return r.json(); })
+      .catch(function(){ return {ip: ''}; })
+      .then(function(ipData) {
+        var payload = Object.assign({}, responses, {
+          lang:             currentLang,
+          _token:           sessionToken || '',
+          _started_at:      startedAt   || new Date().toISOString(),
+          _hp:              document.getElementById('hp-phone').value,
+          _ip:              ipData.ip   || '',
+          _duration_seconds: duration_seconds,
+          _turnstile:       tsToken,
+          _fp:              deviceFingerprint || '',
+          _utm_source:      campaign.source,
+          _utm_medium:      campaign.medium,
+          _utm_campaign:    campaign.campaign,
+          _utm_term:        campaign.term,
+          _utm_content:     campaign.content,
+          _gclid:           campaign.gclid
+        });
+
+        return fetch(WEBAPP_URL, {
+          method: 'POST',
+          mode:   'no-cors',
+          body:   JSON.stringify(payload)
+        });
+      })
+    .then(function(){
+      // Pantalla de gracias interna (mismo dominio) → tracking de conversión limpio para Ads.
+      buildThanksGrid();
+      goTo('thanks');
+      trackConversion();
+    })
+    .catch(function(err){
+      btn.disabled = false;
+      stateEl.className = 'submit-state error';
+      stateEl.textContent = 'Error de conexión. Comprueba tu internet e inténtalo de nuevo.';
+      console.error('Error de red:', err);
+      if (typeof gtag === 'function') {
+        gtag('event', 'encuesta_error_envio', {
+          mensaje: (err && err.message) ? err.message : 'unknown'
+        });
+      }
+      // El token Turnstile es de un solo uso: lo reseteamos para permitir reintento.
+      if (turnstileWidgetId !== null && window.turnstile) window.turnstile.reset(turnstileWidgetId);
+    });
+  });
+
+  // ─── CONSENT MODE v2 ───────────────────────────────────────────────────────
+  // Banner propio (sin dependencias), botones de igual peso visual (Aceptar/Rechazar),
+  // consentimiento denegado por defecto. Elección persistida para no repetir el banner.
+  var CONSENT_KEY = 'survey_consent';
+
+  function applyConsent(choice){
+    var granted = choice === 'granted';
+    gtag('consent', 'update', {
+      'ad_storage':          granted ? 'granted' : 'denied',
+      'ad_user_data':        granted ? 'granted' : 'denied',
+      'ad_personalization':  granted ? 'granted' : 'denied',
+      'analytics_storage':   granted ? 'granted' : 'denied'
+    });
+  }
+
+  var storedConsent = localStorage.getItem(CONSENT_KEY);
+  if (storedConsent === 'granted' || storedConsent === 'denied') {
+    applyConsent(storedConsent);
+  } else {
+    document.getElementById('consent-banner').hidden = false;
+  }
+
+  document.getElementById('consent-accept-btn').addEventListener('click', function(){
+    localStorage.setItem(CONSENT_KEY, 'granted');
+    applyConsent('granted');
+    document.getElementById('consent-banner').hidden = true;
+  });
+
+  document.getElementById('consent-reject-btn').addEventListener('click', function(){
+    localStorage.setItem(CONSENT_KEY, 'denied');
+    applyConsent('denied');
+    document.getElementById('consent-banner').hidden = true;
+  });
+
+  renderDots();
+})();
+</script>
+
+</body>
+</html>

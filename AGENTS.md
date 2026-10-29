@@ -5,7 +5,7 @@ Válidas para cualquier modelo. Sin sintaxis específica de ningún proveedor.
 ## Contexto
 
 Estudio de Convivencia Social de Fundament, edición 2026. Encuesta online en castellano y catalán, 429 respuestas recogidas entre junio y septiembre de 2026.
-TODO: objetivo del estudio en dos líneas.
+Objetivo: analizar las percepciones sobre el turismo de las personas residentes en Mallorca que respondieron la encuesta.
 
 ## Fuente de verdad
 
