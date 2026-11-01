@@ -2,7 +2,7 @@
 
 ```
 codebook/     codebook.yaml (fuente de verdad) + codebook.qmd (valida y renderiza)
-codigo/       fundament.py (lógica común) + limpiar.py (genera el conjunto limpio)
+codigo/       fundament.py (lógica común), limpiar.py y anonimizar.py
 datos/        SHA256SUMS versionado; los brutos NO se versionan
 tareas/       una pregunta de análisis por archivo + esquema de salida
 referencia/   resultados de referencia calculados por el equipo
@@ -57,6 +57,24 @@ sin `ip` ni `fingerprint`, con un `id_respuesta` estable y una columna `marca_<r
 
 El bruto no se modifica nunca. Las reglas están en `codebook.yaml` y su lógica en `codigo/fundament.py`;
 si no coinciden, el script falla.
+
+## Anonimización de respuestas abiertas
+
+```bash
+python codigo/anonimizar.py          # después de limpiar.py
+```
+
+Afecta a las variables `texto_libre` con `a_modelos: anonimizado`. Tacha automáticamente correos,
+teléfonos, URL, DNI/NIE y usuarios @. Las respuestas con indicios que no se pueden tachar a ciegas
+(direcciones, nombres propios) van a `datos/intermedios/revision_textos.csv`:
+
+1. Abre el CSV (por ejemplo, en el visor de datos de Positron).
+2. En cada fila, edita `texto_final` si hay que tachar algo (usa `[NOMBRE]`, `[LUGAR]`, `[NEGOCIO]`…) y pon `revisado` = `si`.
+3. Vuelve a ejecutar el script.
+
+Hasta que una fila está revisada, su texto sale como `[PENDIENTE DE REVISIÓN]` en
+`datos/intermedios/fundament_2026_anonimizado.csv`. Las decisiones se conservan entre ejecuciones,
+salvo que el texto original cambie. La revisión la hace una persona: ningún modelo ve los textos sin anonimizar.
 
 ## Versiones
 
