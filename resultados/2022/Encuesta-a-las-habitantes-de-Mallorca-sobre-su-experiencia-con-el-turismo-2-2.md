@@ -1,0 +1,1695 @@
+# Encuesta-a-las-habitantes-de-Mallorca-sobre-su-experiencia-con-el-turismo-2-2
+
+<!-- Convertido automáticamente desde Encuesta-a-las-habitantes-de-Mallorca-sobre-su-experiencia-con-el-turismo-2-2.pdf con codigo/pdf_a_md.py -->
+
+
+<!-- página 1 -->
+
+
+## Encuesta a
+
+
+## los habitantes
+
+
+## de Mallorca sobre
+
+
+## su experiencia
+
+
+## con el turismo
+
+
+## 2022/23
+
+
+## fundament asociación
+
+1
+
+<!-- página 2 -->
+
+FundamentAsociaciónMayo/2023
+Nosotroscomoasociaciónsinánimodelucro,
+publicamoslosresultadosdelaencuestabajo
+licencialibre(CCBY-SA4.0)
+
+### Atribución-CompartirIgual 4.0
+
+
+### Internacional (CC BY-SA 4.0)
+
+Ustedeslibrede:
+Compartir—copiaryredistribuirelmaterialen
+cualquiermediooformato
+Adaptar—remezclar,transformaryconstruira
+partirdelmaterialparacualquierpropósito,
+inclusocomercialmente.
+Lalicenciantenopuederevocarestaslibertades
+entantoustedsigalostérminosdelalicencia
+Bajolossiguientestérminos:
+Atribución—Usteddebedarcréditodemanera
+adecuada,brindarunenlacealalicencia,e
+indicarsisehanrealizadocambios.Puede
+hacerloencualquierformarazonable,peronode
+formatalquesugieraqueustedosuusotienenel
+apoyodelalicenciante.
+CompartirIgual—Siremezcla,transformaocrea
+apartirdelmaterial,debedistribuirsu
+contribuciónbajolalamismalicenciadeloriginal.
+Nohayrestriccionesadicionales—Nopuede
+aplicartérminoslegalesnimedidastecnológicas
+querestrinjanlegalmenteaotrasahacer
+cualquierusopermitidoporlalicencia.
+1
+
+<!-- página 3 -->
+
+
+## Encuesta a los habitantes de Mallorca
+
+
+## sobre su experiencia con el turismo
+
+
+## 2022/23
+
+
+## Introducción
+
+Lapresenteencuestarepresentativa,realizadaentrelosmesesdenoviembrede2022yfebrerode
+2023,buscacomprenderlaexperienciadeloshabitantesdeMallorcaconelturismoquefrecuentala
+islaysuimpactoenlavidasocialdelaregión.
+Sehaquerido'tomarelpulso'aloshabitantes,yaque,aunquelaindustriaylapolíticatienenla
+intencióndetransformarelturismohaciamodelosmássostenibles,esimportanteconocerlaopinión
+delaspersonasquevivenyconvivenconelturismo,yaqueellostambiéndeberíanseractores
+clavesenelprocesoderedefinicióndelturismo.
+ParadefinirelfuturodelturismoenMallorca,esnecesariocontemplarlasdiversasopinionesdelos
+habitantesdelaisla.Atravésdelosresultadosdeestaencuesta,sepuedeconcluirqueexisteuna
+ampliavariedaddeopinionessobrecómodeberíaserelturismoenelfuturo,especialmentehaciael
+año2030.
+Esimportantedestacarqueestasopinionespuedendiferirdelasintencionesdelaindustriaturística
+odelgobierno,porloqueresultaesencialtenerencuentaalapoblaciónlocalparacrearpropuestas
+queseansosteniblesnosoloparaelnegocio,sinotambiéndesdeunpuntodevistasocialmente
+sostenible.
+1
+
+<!-- página 4 -->
+
+
+## Índice
+
+Metodologíaydiseñomuestral
+Demografía
+Género
+Edad
+Idioma
+Lugardevivienda
+Situaciónvivienda
+Tipodeviviendahabitual
+Nacionalidad
+Situaciónsocioeconómica
+Situaciónlaboral
+Ingresosporhogar
+Autoevaluacióndelasituaciónfinanciera
+Situacióndedependenciaalturismo
+Experienciaconelturismo
+Sobreelimpactodelturismoalavidadelosencuestados
+¿Cómoseráelturismoen2030?
+Resumen
+¿Cómodebeserelturismoen2030?
+Resumen
+Editorial
+Gracias
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página2
+
+<!-- página 5 -->
+
+
+## Metodología y diseño muestral
+
+LaEncuestaEstudiosobrelaSostenibilidadSocialdelTurismoenMallorcaesunaencuesta
+cuantitativaqueserealizóentrelastemporadasturísticasde2022y2023.
+Paracumplirconlosobjetivosdelaencuestayproporcionarestimacionesconfiablessobrelaopinión
+deloshabitantesdeMallorcaconrespectoalturismoenlaisla,seseleccionóunamuestrade454
+personasquevivenen42municipiosdiferentes.
+Losdatosobtenidosenlaencuestarepresentanelpuntodevistadeunapoblaciónde
+aproximadamente956,0001habitantesenMallorca,conunmargendeerrordel+/-4.2%
+Porlotanto,podemosafirmarquelosresultadosdelaencuestasonválidosyconfiablespara
+proporcionarunaideageneraldelaopinióndeloshabitantesdelaislasobreelturismo.
+
+## Demografía
+
+
+### Género
+
+Enlaparticipaciónporgénerosedestacalaparticipacióndelasmujeresconun58.37%.Segúnla
+últimaestadísticadelpadróndelINEde2016nohayindicadorcomparableparaotrosgéneros.Los
+génerosentremujeryhombreestán+/-equilibradasensuúltimoinforme.
+Porlocualsepuededecidirqueaparentementelasmujeresestabanmásinteresadasen
+participarenlaencuesta.
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página3
+
+<!-- página 6 -->
+
+
+### Edad
+
+Enlaparticipaciónporedadsedestacalarespuestadelasparticipantesde36-45(34.14%)años
+deedad.
+Concluyendo,ensuconjuntosepuededecirquesedestacalaintervencióndelaspersonas
+demedianaedadentre26-55años(76.87%)quehanparticipado.
+Entrelasmásjóvenes(18-25años3.52%)ylasparticipantesdemásde55años(19.61%)hay
+muchadiferenciaenelinterésdeparticipación.
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página4
+
+<!-- página 7 -->
+
+
+### Idioma
+
+Lapreferenciasdeidiomaentrelasrespuestasesalgoequilibrado,conunamayorparticipaciónde
+personasqueprefierenlalenguacatalana.
+
+### Lugar de vivienda
+
+Lamayoríadelosparticipantesdelaencuesta,un52,24%,provienendePalmadeMallorca,seguido
+porSóllerconun8,71%yMarratxíconun3,29%.Surgeladudadesiladensidadturísticadecada
+poblacióninfluyóenlaparticipaciónenlaencuesta.Aunquenuestrosdatosnopermitenverificaresta
+hipótesis,serecomiendainvestigarestacuestiónenfuturasencuestas.
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página5
+
+<!-- página 8 -->
+
+
+### Situación vivienda
+
+Lamayoríadelosencuestados,un34,66%vivendeadosenunavivienda,seguidoporviviendasde
+3personasconun25,17%.
+
+### Tipo de vivienda habitual
+
+Lagranmayoríadelasviviendastienentresdormitoriosseguidosporviviendasconcasayjardíncon
+un28,82%.
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página6
+
+<!-- página 9 -->
+
+
+### Nacionalidad
+
+Enlaparticipaciónentrenacionalidadesdestacalaespañolacon92.07%seguidoconotras
+nacionalidadeseuropeascon4.4%yelrestodeotrasnacionalidadesconun3.8%.
+
+## Situación socio económica
+
+
+### Situación laboral
+
+Lagranmayoríadelosparticipantesdelaencuestaseencuentranenempleo(80.09%)seguidopor
+personasensituacióndejubilación(8.41%)yparados(5.75%)alosquehayqueañadirquela
+encuestaserealizóenlatemporadabajade2022/23porlocualestacifrapuedesernotan
+representativa.
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página7
+
+<!-- página 10 -->
+
+
+### Ingresos por hogar
+
+Deltotaldeparticipantes,el72.28%reportóingresosfamiliaresmensualesqueoscilanentrelos1501
+y4500€porhogar.
+Sinembargo,tambiénseencontróqueel12.04%deloshogarestieneningresosinferioresalos
+1500€mensuales,mientrasqueun16.12%deloshogarestieneningresossuperioresalos4501€.
+
+### Autoevaluación de la situación financiera
+
+El69.43%deloshogaresdefinensusituaciónfinancieracomomuybuenayencimadelalamedia,
+sinembargodebajodelamediaseencuentranun15.08%quenoestánsatisfechasconsusingresos.
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página8
+
+<!-- página 11 -->
+
+
+### Situación de dependencia al turismo
+
+Lamayoríadelosencuestadosdeclaranquesutrabajonodependedirectaoindirectamentedel
+turismo,mientrasun32.57%sítienentrabajoquedependedirectaoindirectamentedelturismo.
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página9
+
+<!-- página 12 -->
+
+
+## Experiencia con el turismo
+
+
+### Experiencia de los efectos del turismo a la vida cotidiana de los
+
+
+### habitantes de Mallorca
+
+Hemosqueridosaberqueopinanlaspersonassobrelosefectosdelturismoensuvidacotidiana.Las
+preguntasrepresentabantemáticasrecurrentesenlaopiniónpúblicareflejadosporlaprensao
+manifestacionesdemalestaratravésdeaccionescívicas.
+
+### Sobre el impacto del turismo a la vida de los encuestados
+
+Enlaescalade1-5 (1completamenteendesacuerdo/5completamentedeacuerdo)queríamos
+entenderhastaquépuntoelturismoafectalavidadelosencuestados.
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página10
+
+<!-- página 13 -->
+
+Comparacióntodosylosquetienentrabajodirectaoindirectamentealturismo:
+
+| Encuestados relacionado alturismo | Todoslos encuestados |  |
+|---|---|---|
+| 72.54% | 72.26% | dicenelturismoafectasudiaadia |
+| 87,58% | 87,95% | dicenelturismotieneungranimpactoambiental |
+| 65.74% | 74,44% | dicensiaumentaelbeneficiodelturismo,decrecelacalidaddevidadelosresidentesdeMallorca |
+| 93% | 90,16% | dicenqueacausadelturismo,haydeterminadosproductosmáscarosenMallorca |
+| 43,35% | 50,78% | dicenqueeltransportepúblicoenMallorcaespeorporcausadelturismo |
+| 40,14% | 47,87% | dicenquelosserviciospúblicosenMallorcasondepeorcalidadporcausadelturismo |
+| 41,96% | 53,11% | dicenqueavecespiensanqueviviránmejorsinturismo |
+| 63.12% | 61,91% | dicenquehantenidoproblemasparaaccederunaviviendaporconsecuenciadelospisosdel turismo |
+| 48% | 47,19% | dicenqueeldinerodestinadoaocio(deporte,cultura,restauración)sehavistoincrementadopor causadelturismo |
+
+Paraobtenerdeclaracionesclarasyevidentes,sehansumadolospicosafirmativosdelatablaenpágina10quese
+sitúanporencimadelamedia.
+Sepuedeinterpretarquelasdiferenciasentreencuestadosquetrabajanenelámbitodelturismoy
+losencuestadosentotal,difierenmuchoentresíporinterésydependencias.
+Noobstante,hayalgunasdeclaracionesdóndedestacanpercepcionesdetalimportancia,aunque
+hayaunaciertadependenciaalturismo.
+● Estosenotaenlapercepcióndelimpactoambientaldelturismodelosquetrabajan
+enelámbitodelturismoesprácticamenteigual(87,58%/87,95%).
+● Lamayoría(65.74%)tambiénafirmaqueconelaumentodelbeneficiodelturismo
+tambiéndecrecelacalidaddevidadeloshabitantes.
+● Un93%(90,16%todos)reconocequeacausadelturismohaydeterminados
+productosmáscarosenlaisla.
+● Lamayoría(63.12%)dicequesevenafectadosporescasezdeviviendasacausade
+lasviviendasturísticasenlasisla.
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página11
+
+<!-- página 14 -->
+
+
+## ¿Cómo será el turismo en 2030?
+
+
+### Resumen
+
+80%
+
+### de los encuestados piensan que el turismo en 2030 va a empeorar.
+
+11%
+
+### de los encuestados piensan que el turismo en 2030 va a mejorar.
+
+8%
+
+### de los encuestados no saben cómo será el turismo en 2030.
+
+
+### A continuación se presentan los comentarios cualitativos de los encuestados
+
+
+### sobre cómo será el turismo en el año 2030, desde su punto de vista.
+
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página12
+
+<!-- página 15 -->
+
+Elsiguientetextocontieneloscomentariosoriginales,sineditarnicorregir.
+● Dosextrems,perunlloc,elitista,VIP,deluxe,...iperunaltre,degaterailowcost,nohi
+hauràtermemig.
+● Insostenible
+● Moltpersobredelescapacitatsdel’illaielsseushabitants.
+● Igual,noveocambiosenlospolíticos
+● totalmentinsostenibleiendecadència
+● Masificación
+● Esperoquedecalidad
+● Noespotadivinar,oigualomort!!
+● Massostenibleydemejorcalidad
+● Moltnombrósiimpossibled,assumir,agobiantiimpactantenlavidaquotidianadelagentdel
+poble.Arajaésaixíisinoesposaunlímitseràperjudicialpelmediambientitambéperla
+qualitatdevidadelespersones.
+● Iguald’horrorós.Saturat.Depoderadquisitiucadavegadamésalt.
+● Excessiu
+● Insostenible,massificat
+● Aumentaráun30%
+● Undesastreopotserjanovenguiningú
+● Comara,peròmésgentencara
+● pitjor
+● nohosé
+● Nohovullnipensar.Moltpitjorencara
+● Seguirálaprogresiónanualactualsinohayningúnelementoqueloimpida
+● Debotellonyplaya
+● Tendrázonasdeconturismodecalidadylugaresmasificados
+● Massificació
+● Augmentarà
+● Parecidoaldeahora,conmayorpoderadquisitivoymásdifícilelaccesoaunavivienda
+digna.Máscaralavida
+● Probablementesiguecreciendo,yaquenohayformadepararlacodicia.
+● Massiuidesproporcionat.
+● Siseguimaixíseràinaguantableiacabaràqueelsmallorquinshauremdepartirforadurant
+lesèpoquesdetemporadaalta.
+● Excesivo,comoyaloesperoimaginoquemuchopeor!
+● HabráMallorca?
+● Insostenible.Notenimrecursosniinfraestructurespersostenirlamassificaciódelailla.Els
+mallorquinssobretotens,estiutancatsacasapernohaverdesofrirmassificacionsales
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página13
+
+<!-- página 16 -->
+
+platjes,carreteres,etc...icadavegadas,allargaméslatemporada.Ésmolttristviureauna
+illaonenllocdedisfrutardequanarribal,estiu(comquanerempetits)ensagobiemdesa
+gentadaquehiha.
+● Delujo
+● Onon'hihaurà,oseràunhorror.
+● Augmentaranelnombredeturistesipertant,lesconseqüènciesnegativesdel'indústria
+turísticasobreelsresidents,elsrecursosielterritori.
+● Demasiadoturismo
+● Mésmoderat
+● Nocreoquecambieacortoplazo,especialmentesitampococambianlosinteresesdelas
+grandesempresasytouroperadoresquevivendelturismoquesonlosprimerosque
+deberíanconcienciarsedelproblemaactualdesaturacióndelasislas
+● Siseguimcomfinsara,crecqueelturismeseràesbordant,massificat,demalaqualitatiels
+habitantsdeMallorcanoenveuremelssuposatsbeneficis
+● Massificació
+● Nosoyadivino.
+● Excesivo
+● Similaralquetenimara.Talvegadaenmenorquantitatdegutaleslimitacionsqueesvolen
+interposarperoaquestanoeslasolucio.
+● Pitjor.Novindranturistesdequalitatperlamassificacióieldeterioramentdelpaisatge.
+● Cadavegadamésturisme
+● Puedequesigaigualqueahora,tantocuantitativamentecomocualitativamente.Noseestán
+realizandopasosparaunamejora,todolocontrario.Seincentivaunturismodemasas.
+● Insostenible!!!!!
+● Masivoydepeorcalidad.
+● Masificadoprovocandoquelospropiosresidentesdelaislanopuedandisfrutardeunverano
+tranquiloyaquetantoturismoimplicaunconstantetráficocolpsadosintenerespacioenlas
+calasoplayas,conreservascompletasenloshotelesorestaurantesporoverbooking,
+preciosmáselevadosenlagranmayoríadezonasalestartodasdestinadasalturismoysin
+disfrutedevacacionesxdemanda
+● Moltmassificat
+● jano.hicabremal´illaperaquestadata
+● Alt
+● Igual
+● Exageratimassificat.
+● Horrible,saturadíssim
+● Inavasivo
+● Undesastresinoescanviaelmodeliarribam...Sipodemseguirvivintal'ills
+● DestructiuambMallorcaielsseusresidents.Elturismematabenigualqueunaplagainfecta.
+● Unaplagad'inconscientsqueveuenMallorcanoméscomunllocd'esbarjo....
+● Mayorypeor
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página14
+
+<!-- página 17 -->
+
+● Uncaosinsostenible
+● Menysrespectuós
+● Demassesimalaqualitat
+● Saturado,ydescontroladomedioambientalmente.Siguiendoconelabusodelosrecursos
+naturales.
+● Masivo
+● Estarátanexplotadaquesolovendráunturismobarato
+● Bueno
+● Horrible
+● Catastròfic.DegutalsvolsdirectesambEstatsUnits,ontenenunarentamitjade
+80.000$/120.000$anuals,totselspreuspujaràn
+● Sisigueasícomolatemporadadel2022seráuntotaldesastre.Hayqueponerunlímite,el
+turismonoesunbieninfinito
+● Seràexcessiu,igualquehoésara.
+● Siéssegueixenaquestalíneaundesastreperl'illaielsquihiresidim.
+● Laisladesbordada,losprecioslocalesadaptadosalosquevienendefueraypuedengastar
+ensusvacacionesloqueensuscasasnigastarían...
+● Perl,estil
+● Asfixiant
+● Excesivoymasivo
+● Nomelopuedoimaginar
+● Igualqueesadíadehoy,conpeorescondicionesparalosresidentes(incrementodeprecio
+entodo,noabastecimientodeviviendas).
+● Habrámuchosturistasyesperoqueseandemejorclase,quelosactuales
+● Siseguimaixí,pensqhihauràmoltsproblemesconseqüènciadirectadelturismeiqueja
+estampatint:creixementdemogràficdegentespanyolaiestrangeracercantfeina,
+encarimentdelspreusdelshabitatges,granparcautomobilístic,saturaciócapacapd'any,
+minvadel'úsdelanostrallengua,destrossadelcampconvertitenextensionsdeplaques
+fotovoltaiques,úsresidencialdelcamp...
+● Esperoquemoderado
+● Mentreelshotelsnoobrin,seguiremambsoliplatjaestacional.
+● Insostenible
+● Delujoycadavezmáselitista
+● Esperoqueelturismedecreuerseslimiti,nopotserque5000personesespassejinper
+PalmaalhoraivaquevagisalaplatadeCalaRatjadaisentisdellunycomcridendurant
+horeselsturistesborratxos.
+● Esperoquenoaumentedelamaneraquelohahechoestosultimosaños
+● Crecquepocapocmilloraràrespectealasituacioactual,perquehemcomençataprendre
+consciènciadequelamassificaciópotacabaressentunproblema,malgratencarafalta
+prendreiaplicarmesuresperlimitar-lo.
+● Mesmassificatiambmestensionsentreturistesiresidents
+● Igualqueahora
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página15
+
+<!-- página 18 -->
+
+● Aumentayserádepocacalidad
+● Crecqueseguiràlatendènciad'augmentdevisitantsiquelatemporadaturísticaseguirà
+estirant-seiocupantcadavegadamésmesosdel'anyizonesdel'illa.Aixòaniràen
+detrimentdelaqualitatdevidaipoderadquisitiudelapoblaciólocaliqueafectaràdeforma
+especialmentnegativaiprecaritzantal'accésal'habitatge,quejahasobrepassatelslímits
+desdefaanys.
+● Turismodeborrachera
+● Infernal
+● Deimposiblegestión.Desorganizadoysinrazón.Cruceros,cochesdealquiler,alquiler
+vacacional,masificado,imposibledegestionar.Nonosengañemos,elbeneficiodela
+industriaturísticarepercutiráacuatroempresasyaddministraciónpúblicadeámbitonacional
+peroafectaránegativamentealnegociolocalyalciudadanomallorquín.Estamoshartos
+● Nohosé
+● aclaparador,insuportable
+● depèndelgraudesensibilitzaciódelaciutadaniarespectedel'impacteelcanviclimàticiper
+conseqüència,del'equippolíticquegoverni,quesiguicapaçdereflectiraquestapreocupació
+(enelsfonslespersonesrepresentantspolítiquessónunreflexdelasocietat).Sihedeser
+sincera,notencgairefeenalgunscanvisimminentsmésuqenecessaris
+● Segúnestaavanzandoelturismo,seestáintentandoenfocarelturismoenalgomásdelujoy
+calidadquecantidad
+● Crecques’estàdonantcartablancaalturismeiqueaquestcadavegadaseràmésabundant
+iinvasiuambelsrecursos(econòmics,naturalsisocials)delespersonesquevivim
+habitualmentaMallorcaiaixòsuposaràunaperduadequalitatenlesnostresvides.
+● Crecqueestaràcompletamentdesestacionalitzat.Nocrecqueaquestfetfacidecreixerel
+nombredepersonesentemporadad'estiu.Mésbécrecqueaugmentaranelnombrede
+turistesperanyperquès'hisumaranelsdel'hivern.
+● Massificatsinoposamlímits.TurismequeveuràMallorcacomunparctemàticonveniraque
+eldiverteixin,liorganitzintot,beureianardefesta,ignorantdelsperjodicisambientalsque
+provoca
+● Esperqueinteligentisensat
+● Igualqueara
+● Massiu
+● Lasempresesquefanfeinaambturismepagantmoltmalamenticreallocsdefeinaprecaris,
+fentquevenguimésgentperagafaraquetsllocsdefeinaiensempobreixatots.
+● Totindicaquecontinuaracreixentambelqueaixocomporta.
+● Similaralde2022,descontrolat
+● Esperoquedesciendaelturismoyqueelturismoquehayaseadecalidad.
+● Serámáscaro.Mallorcaseráelprincipallugarturísticodelmediterráneo.
+● Desbordant
+● Vullpensarqueserâunturismeexcelent150%sostenibleiJoapostaréperquesiguiaixi
+● Mésmassificatiencaramésdolent
+● Seguiremambelmateixmodeldemagaluf,quanamblasingularitqtdelillapodriemsermolt
+méselitistestriantunperfilquevenguiagaudirdelillademaneraresponsable,deixant
+dobersnonomesenunapensiocompleta,sinoenpetitscomerços,etc
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página16
+
+<!-- página 19 -->
+
+● Unexcès,pitjorquel’anypassat;absolutasaturació
+● Nosesihabrá,laislapierdecalidaddebidoalmismoamarchasforzadas,lastemperaturas
+seguiransubiendoylaislaestasiendocompradaporricosdetodaspartes.
+● Supongoqueigualoaúnmásqueen2022.Uninfierno.
+● Conmáscapacidadeseconómicas
+● Masificado,estacional,desbordadoporloscochesdealquiler
+● Máscaótico
+● Igualqueahoraopeor
+● Igualqueahora,masificacionesenverano,deborrachera,debajacalidadentérminos
+generales.
+● Sisigueasí,inaguantabletendremosqueirnosfuera
+● M'agradariaquefosrespectuósambelmediambient.
+● Dependedelospolíticos,noparecequeesténmuyinteresadosencontrolarelturismode
+masas.Amientenderesloquemásestáperjudicandoelmedioambienteylacalidadde
+vidadelosylasmallorquinas.
+● Patètic.
+● Siseguim,delsmallorquinssegurqueno.
+● Cadavezmássucioymásabarrotado
+● Crecquenecessitad'uncanviurgentiintegral.Perquèdecaraal'any2030potser
+completamentinsostenibleiofegaralímitsmésquepreocupantstantalapoblaciólocalcom
+alsrecursosnaturalsdel'illa.
+● Totdependràdelasituacióeconòmicamundial.Sicomdemomentespensaambuna
+situaciódecrisieconòmicaimedioambiemtalpotserensapanadiremd'haver-hojugatauna
+solacarta:elturisme.
+● Elturismobajaráporconscienciadeldeterioroambiental
+● Undesastre
+● Enelmarcoactual,conmenoscapacidaddeahorro,portantodegasto.Porotrolado,se
+estáviendolaprepotenciainsultantedealgunosnórdicos,porquequierenimponersede
+formamuydespótica.Nomegustasuactitudysudesprecio,parecequeseríenennuestra
+cara,noloentiendo,peronomegustaeseaspecto.Losdeahorasonlosquemenosse
+integran.Antesveníanyeranmuybuenosvecinos.
+● Igualquearaopitjor.
+● Nocreoquecambiemuchodelmodeloactual..
+● Sinoponemosunlímitedeloscochesyvuelosvaserundisastreen2030
+● siéscomel2022seràinsoportable
+● Nolose
+● Sinoseaplicanmedidas,insostenible,vidacarísimaparaelresidente,sinaccesoa
+viviendasnidecompranialquileres,sintransportepúblicoconnormalidadentemporada
+alta,sinbuenosserviciosalturismodelujoporquenohaypersonalcualificadonicamareros
+nipersonaldelimpieza…etc
+● Igualquesempre,bestia,senselimits,totpelturisme
+● Masificado
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página17
+
+<!-- página 20 -->
+
+● Mallorcaseràunparcd'atraccions
+● Nohosé..L'hemdecuidarperquèsiguidqualitat,compatibleamblasostenibilitatdels
+recursos,perquèajudialsresidents,...
+● MenosturismoenBalearesacausadelacompetenciacroatayturca.
+● nefast
+● Nohabrá,osolodehighlevel,nauticooresidentes,Mallorcasehaconvertidoenunport
+aventuraperosilopararicos,queabretodoelaño.
+● Hihauramoltmésturismedegutaquehihamoltsinversorsquefarandelescaseshotelsi
+lloguersvacacionals
+● Turismedemasses.Mediambientfetmalbé.Pitjorqualitatdevidapelsresidents.Preude
+l'habitatgeinassumiblepelsresidents.Preusengeneraldesorbitats.
+● Másypeor.Masificaciónenaumento
+● Excesivagente
+● Másagotador,agobianteydestructorqueahora.Dueñodelascasas,lascalleslasterrazasy
+losserviciospúblicos.
+● Igual
+● Sínos'arreglalasituaciódelmediambientiesredueixenobresestécuradel'aigua,dela
+contaminacióqueprovoquenelscreuersiexcessiuscotxesihotels...al2030notindremni
+turistes
+● Depèndelcairequeagafiounparcd'atraccionsgigantperturistesopotquedarestancat
+● Nohicabrem.Nopodremcircularperlescarreteresnianarasesplatgesdetantagent.Com
+ara,peròmés
+● EsPRIORITARIquetotsnoltrossapiguemquinaMALLORCAVOLEM.Despresestablirels
+criterispelTURISME.
+● Endecreixement
+● Enlosresortde2-3*enverano,másdelomismo(turismodeborrachera,turistasdeflotador
+quefumaenlaplayaydejalascolillasenlaarena.Playaspetadasysucias,atascos,
+crucerosatope,barcosportodo
+● Siseguimosconlamismadinámica,laislaenteraseconvertiráenunparquedeatracciones
+● Esperquevenguimoltmenysqueara
+● Esperoquenosebatanmásrecordsdenúmerodevisitantes.Esperoqueprimeelmedio
+ambientealcapitalturístico.
+● Encantidadparecidoa2022,peroturistasconmáspoderadquisitivo.Losaltosprecios,la
+inflaciónylasituaciónmundialfrenaráelincrementolospróximosaños.
+● Igualopitjor
+● Sisigueporelcaminoquelleva,seráunapesadillainsostenible
+● Sinohayuncataclismomundialdebidoalatecnologíanuclear,creoquelossiguientesaños
+seránaproximadamenteigualeseiráincrementandoelnúmerodeturistasanualdeforma
+gradual.
+● Habrámuestrasdelosaccionesdemejoradelasostenibilidadcomparadoconahora,pero
+estaremoslejosdeunaformadeturismosostenibleengeneral.Simplementeporelhecho
+delpurocrecimientodelademandaporeldestinopopularmanifestadoMallorcaenel
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página18
+
+<!-- página 21 -->
+
+mercadomundialgigantesco,combinadoconlaprofesionalidaddelasgrandescompañíasy
+elgranatractivonaturalquetieneestaisla...
+● Muchomásbajodebidoalcambioclimáticoyalfindeloscombustiblesfosiles
+● Másypeor
+● Opitjoros'haurareduit
+● Aestepaso,seráundesastre
+● Igualdeterribleomés.
+● Pitjor
+● Nadasostenible
+● Ojaláseamuchomenor
+● Nosefaltamucho
+● Sisegueixaixí...........patètics ....................................................................................................
+● Puedequeyanohayaturismoporelabusoylasinrazóndelapatronalhoteleragovern
+mediante
+● Dependedelasmedidasquesetomen
+● Insuportable
+● Excessiu,talcomésara.
+● Masivoydurantetodoelañosiseguimosestatendencia.
+● Massiuidesmesurat
+● Deperfilesparecidosperomuyreducidoalserdecaídoaotrosdestinosmáscompetitivos
+● Nolosé
+● Excessiuiinsostenible.
+● Igualqueelsaltresanys
+● Elcanviclimàticenspotduraunasituacióaenseprecedents.
+● Sinoposamsostre,lillaestaràencaramésmassificadasismesosalany.
+● Crecqueacabaremagadantconsciènciadequenecessitemunturismedemenysquantitati
+mésqualitat,querespectilesnostresillesnocomunlloconanaradivertir-se,sinóunllocon
+anaragaudiriquepertantcalqueesrespectiiescuidi.
+● Habrámáspersonasaúnperonosintentaráncolarlasostenibilidadporalgúnsitio.
+● Cadavezserádepeorcalidadymásmasificado.Asimismo,consideroqueloimportanteson
+lasconsecuenciasqueelturismodejaparalosautóctonos.Nopodemospermitirnosvivir
+aquíporlasubidadelpreciodelavidaenconsecuenciadelturismo.Losjóvenesno
+podemospermitirnosunalquilerytampocounaviviendaporqueelmetrocuadradocadavez
+subemás.
+● Sinoseponeremedioamuchascosas,elturismoendeterminadoañoseráunturismoin
+caosynadabeneficiosoparaMallorcaysushabitantes
+● Pitjorqueelsanysanteriors.DecadacopméspersonesvisitenlaIlla,se'lsproporcionen
+moltfàcilmentunagranquantitatd'opcionsonresidir,llogarvehicles,accedirallocsetc
+teninetunimportantefectenegatiusobreelmediambientisobreelshabitantsdelailla.Tot
+aixòtambétéefectedirectesobreelpreudevivendesialtresserveispelseupoderadquisitiu
+● Siseguimaixí,INSOSTENIBLE
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página19
+
+<!-- página 22 -->
+
+● Desgraciadament,mésmassificat,afectantenormementalmediambient
+● Másmasificado
+● Nomemolestenelsturistes,memolestenelsforastersquevenenaquíatocarelscollonsi
+imposar-nossessevesmerdes.Elsturistesvenen,deixendoblersis'envan.Elsaltresse
+quedenimolesten.Barcoderejilla.
+● SinlímitesConefectoscadavezMasdañinosparalosresidentesylanaturalezaUn
+problemaquegeneramasproblemas
+● Sisegueixcreciente,serámolltdifícilviureaquí.
+● Sinosefrenadealgúnmodoyesalgoquellevocomentandoestosúltimosaños,enlaisla
+vanaquedarsóloextranjerosyalgunosmallorquinesconmuchopoderadquisitivo.Esun
+mododecolonizaciónelqueestánhaciendo
+● Silasituaciónocanvia,l’illaacabaràessentempradaperturistesielsresidentsquedarem
+relegataaciutadansdesegona,unpocelquepassaaEivissaiFormentera,onelforani
+dominaeconòmicamentsobreellocal.
+● Seráunacatástroferespetuosoconelmedioambiente.Enpequeñasdosis
+● Mallorcaseraunlugardondelosmallorquinesnopuedanaccederalaviviendadebidoano
+podercompetirconlospreciosquepuedenpagarlosextranjeros.
+● Deaquíal2030sehabráaplanadobastantelacurvadecrecimientodelnúmerodevisitantes
+anuales,peronolosuficiente.
+● Másivo
+● Avasallador.Destructiu.Egoista.Genssostenible,siseguimclmfinsara.Ensrestaqualitat
+devida.Notesentiti.noésresponsableirespectuos.Lesillenqueshauriendesortirdeca
+nostraperquèjanoespodraviureambsalut.
+● S’hauràposatremeialasituacióactual.
+● Crecqueseràbàsicamentigual,potsermajorincrementdelloguervacacional
+● Insuportable
+● Encaramésmassificat
+● Excessiuidepitjorqualitat
+● Mayor
+● Dependerádelainteligenciadelosgestorespolíticos,hoyesundesastreporquesonmuy
+torpes.
+● Seguiráconelmodeloexponencialactualhastaquellegueasulímitematerialycolapse,
+decayendodrásticamente.
+● Moltaquantitatipocaqualitat
+● Desbordante
+● Horrible
+● Mallorcaesconvertiràenlasegonaresidènciadegentdaltrespaïsos
+● Confioquelimitemoslallegadadecrucerosyelnúmerodecochesdealquiler,porqueesun
+excesoabsoluto,yexĳamoscontaminación0
+● Massiu,insolidari,superficial,pocrespectuós,mediambientalmentinsostenible.
+● Sisiguenconpolíticasquesolobuscanfavoreceralosdirigentesynotienenencuentaque
+vivimosenunaciudadturística,lapoblacióncareceráderecursoseconómicossuficientes
+parasubsistir
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página20
+
+<!-- página 23 -->
+
+● Nohihauràturisme.Hauremmortd'èxitinohauremcanviatelmodeleconòmic,aixíque
+tendremproblemesimportants.
+● Massiu,nocrecquecanvïigaire
+● Nohose.
+● Massamassiu
+● Massificat
+● Parairsedelaisla
+● Mésmassificatiméscar
+● Undescontrolambunesconseqüènciesambientals,culturalisocialsterrorifiques
+● Insostenibleyperjudicialparaelmedioambiente.Loshoteleroscadadíamásricosylaisla
+másdestrozada
+● Másdelomismo,noveoquevayaacambiarlafilosofíadeltodovale.Serequieredeuna
+graninversiónporpartedelashoteleraspararenovarlapropuestayofertadifícilde
+conseguirmientraselmodeloactuallesestéaportandorentabilidad
+● Uncaossisegueixaaquestritme
+● Nomuydiferente
+● Nocambiarámucho
+● Sinotenimseny…seremunparctemàtic
+● Insoportablesicontinuacreixent
+● Sisegueixigual,ambelmateixenfocament,acabaràamblafaunailafloraautòctones,els
+recursosilaculturapròpia.Amblaconseqüènciaquemallorcaesconvertiràplenamentamb
+unllocdetemporada,alseveidelturisme,senseculturapròpiaiamblaimpossibilitatde
+viure-hisielnivelladquisitiuésbaixofinsitotmoderat.
+● Comocadaaño,atómico.
+● Veoquehayintencióndemejorarlacalidaddelturismoperosiguehabiendodemasiada
+oferta
+● Másturismo
+● Igualqueahora
+● Nohosé...faanysqueparlenderegular-loperòningúfares...
+● Insostenible.
+● Residualacausadelcambioclimático.
+● Mayormasificaciónyturismodepeorcalidad
+● Hayquecontrolarlo
+● Limitat
+● SinoesregulaelturismeelspropersanystindremunPUNTABALLENAatotal'illa.
+L'administracióhoestàfentmoltmalament
+● Serámásaltoymásenfocadoalresidencial
+● Elaresidentsjanotrobaremlloguerassequibleinopodremcircularperenmig.
+● Insostenible
+● Enlamismalíneaquehastaahora,elsectorempresarialdelturismoseguirápresionando
+paramaximizarbeneficiosysocializarlaspérdidasquepuedahaberentretanto.
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página21
+
+<!-- página 24 -->
+
+● CRECqueelturismeaMallorcaaniráamés,anoserquehihagiunacrisieconòmicamajor.
+Probablementarribaremalaquantitatdeturistesmáximaenelspróximsanys,batintrecords
+cadatemporada,sinomantenintelsnúmerosdelestemporadesanteriors,peròtambécrec
+quelacalitatdel'experiènciaaMallorcadisminuirámolt,pernoparlard'efecteslogísticsi
+ambientals.
+● Col.lapsat
+● Elsresidentsenshauremd'anar
+● Ailtissimo,lleno,peroconlosalemanesquierendoserdoñosdemallorca,unacosaqueNO
+sepuededejar,noesporquetienendinerotienequemandar.
+● Másdelomismo
+● Massificat
+● Majorqualitatidesestacionalitzat
+● Aesteritmo,insostenible
+● Cómoeldeahora.Objetivo:cuántosmásmejor.
+● Insuportable.ExpulsaràalagentdelesIllesdelseupropiterritori.Faràqueencaraesnoti
+mésquefaltenrecursoscoml’aigua.
+● Deseguiraesteritmo,seráunturismodebajacalidad,masificadoypocorentable
+● noveigqueelproblemasiguicomserà,comsilaquantitatielsrecursospúblicsquese'lshi
+destinarà
+● Peor
+● caótico
+● Mesincontrolatqueara
+● Deprendràdecomderàpidarribilacrisienergètica
+● MENYSTURISTESMÉSQUALITAT
+● Bo
+● Igualopitjorqueel2022
+● Encarapitjor;menysqualitatimésgent
+● Delujo
+● Massui
+● Peor
+● Igualdemasssficatiinvassiuquel’anypassat
+● Igualqueara
+● Massificat
+● Undesastre,silespolítiquesnosonmésrestrictivesivalentesenbenefici(defensa)dels
+residents
+● Nopodemseguiralritmeactual.Ocanviemoal2030noquedaràserveisnillocsdelanostra
+illapelsresidents
+● Massificat,comara.MallorcailarestadelesIllesseranungranparctemàtic.
+● Crecquemoriremd'èxitinohihauràgensdeturisme.
+● Nohopucimaginarperquenosécomseràelmón
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página22
+
+<!-- página 25 -->
+
+● Turismodemasificaciónincompatibleconvivirtranquiloenlasoloparalosresidentes.
+Cambiosenelclima,vegetación,playas…yenpocosañosmásdesapareceráestaisla,ya
+escasiimposibleviviraquí
+● Confíoenqueseamásresponsable,querecibamosaturistasmásconcienciados
+● UnKaos
+● Inaguantable.PocapocdesplaçaranelsmallorquinscapalaPenínsula,onelpoder
+adquisitiuésmésfavorable.
+● Demasiadagenteenpocoespaciodetiempo.Congranimpactomedioambiental
+● Mepreocupaméslanostraqualitatdevida
+● Completamentmassiu.
+● Igualalquetenemosahora,yaquenosehanproducidocambioscuandohemospodido
+realizarlosentre2020y2022.Portanto,severáigualomayorelimpactosobrelasislas.
+● CadavezmásdelujoymasificadocomoIbiza,desplazandoalagenteresidente.Problemas
+desuministrodeaguayenergíaporquesederivatodoalturista.
+● Igual
+● Ungranparcperl'esbarjoivaltotdelsturistesambelsresidentsperserviriatendreaquesta
+massadescontrolada
+● Insoportable
+● Untipodeturismomássostenibleconelentornoperonosuficiente.Sosteniblees
+incompatibleaunaeconomíadeconsumismoincontrolado.
+● Absolutamentdesmesurat
+● Completamenteinsostenible.
+● Mésmassificació
+● Sinoseregula,creoquenohabrá.Nadiequerráveniraquí.
+● Insostenible
+● unparquetematico
+● Comofueesteaño2022,unturismodemasas,quecontamina,invadeyponeallímitelos
+recursosnaturalesdelaisla.
+● Encaramésinsostenibleiambtensionsambelsempresarisqueviuenexclusivamentdel
+turisme.
+● Seremoslosmallorquinesunosdesplazados
+● Esperoquedemajorqualitatimeinsturistes
+● Unamerda
+● Igualqueara.
+● Noserà,perquèalturistanoliagradaveureaaltresturistes,nisentir-seestafat,nicaureen
+trampesperturistes.Elturistaseràconscientil'únicturistaquevindràseràeldeborraxera,ja
+quenoliimportalaqualitatderes.
+● Esperqueméssostenible,peròcrecqueelmodelturísticnoevolucionaràtanràpidcomho
+hauriadefer.
+● masivoydepeorcalidadeconomicayambiental
+● Sinos'aturalamassificació..Undesastrecomplet.
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página23
+
+<!-- página 26 -->
+
+● Nohabrámuchoscambiossignificativosd
+● Horrible
+● Masivo
+● Tantdebofosunbonturistaidqualitat,respectuosambelmediambient,ambelsnostres
+recurçoslimitatsiqfesgastoalscomercoslocals!!inolamasificacioqtenimaraqesun
+desastre!
+● Igualopeorqueahoradebidoalamasificaciónyconmayorempobrecimientoindirectode
+granpartedelapoblaciónacausadelaumentodelniveldevida
+● Masivo
+● Masgente,másagobio,máscontaminación,menosrecursosdeagua.
+● Alarmante.Siyanocabemosenlaislanomeimaginocomoseraenel2030
+● Cadaañoserámásturismoloqueserápeorparaloshabitantes.Laescasezdeaguaserá
+másimportanteaúnyeltráficouninfierno.
+● Turismed'utilitzaciód'unailla.
+● Tendráquesermuchomenorencantidadymejorencalidad,onohabráMallorcaen2030
+● Siseguimosasípeor
+● Niidea
+● Saturació
+● Salvatge
+● delujo
+● Continuaràincrementantperdesgràcia
+● Fullmasificado
+● Noentincniidea,peròojalàhihagincanvisperqueelquehihaaranoessostenible
+● Insostenible
+● Muyparecidoaloqueesactualmente.Lacodiciadehotelerosytouroperadoresnotiene
+límitesylaclasepolíticaescadavezpeor,sólogestionanparahacernegocios.Entema
+vivienda,vamosdecaminoaserunibiza2.0
+● Sinohacemosuncambiodeunturismomássostenibleydecalidad,tendremosmenos
+turismoqueotrospaísesqueofrezcanmejorcalidadporigualprecio
+● Sepersigueunturismodeclasesaltasyerradicarelturismolowcost,perohayzonasdela
+islamuymarcadasporelturismodebatallaquedifícilmentepodránreconvertirseen7años.
+Seguramenteseatenúen,peroalfinalesetipodeturismotambiénsedemandaytienesu
+nichodemercado.
+● Sinoposamunesmesuresclaresundesgavell.
+● FamaldirperòaixícomvanlescoseslesIllesseranencaramésunparcd’atraccions
+massificatipledesegonesresidències.Somlagallinad’ousd’ordel’Estatiaixòfaràqres
+millori
+● Iguala2022
+● Igualopeor.muchosturistasquegastanpoco,contaminanmuchoydejanpocobeneficiopor
+persona
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página24
+
+<!-- página 27 -->
+
+● Pensquelatemporadaturísticaseràcadavegadamésllarga.D'abrilaoctubreambgent
+joveidenovembreamarçambgentgran.Siaixònos'aturahihauràunagranmassificaciói
+nosolsdeturistes,tambédetreballadorsquenecessitaelsector
+● Dependedelacrisisenergéticadeesteinvierno
+● MasoMenosenlatendenciaactual.Turismodemasadesolyplayaymejoradelturismo
+culturalparaalargartemporada.
+● Exacerbado,sinohayunaverdaderacrisisenergética.Vivimosenunparquetemático.
+● Igualqueahora,tenemosunospolíticosnefastosquenotienenniideadelosproblemas
+realesdelapoblación.Gobiernanparayporsusintereses,poresocreoquenocambiará
+nada.Oharánalgunabarbaridadsinpensarnianalizarquenospuedaafectaratodos,ellos
+notienenresponsabilidades.Bastaverlodelalquilervacacional,vergonzoso.
+● Igualdemassiuquesempre
+● Sinos'hiposacontrol,seràundesastre.Al'estiuhedesortir20minutsabansdecasa,per
+poderarribaralafeinaatemps.
+● Insostenible
+● Insostenible.S'hadelimitar.
+● Insosteniblesocialment,econòmicamentiambientalment
+● Demomentsemblaqueincrementa,perònosésiessaturaràoimplosionaràperfaltade
+recursos.
+● Sinohihacanvis,elturismeesveuràmoltdeteriorat.L’illanoporsostenirtantarotacióde
+gentioferiràcadavegadaunapitjorexperiènciaalsvisitants.Ellocalprobablementnopodrà
+sostenirelnivelldevidaaconseqüènciadelagentifricació(preusd’habitatge,delloguerde
+locals,deproductes,etc.)
+● Agobiant,asfixiant,multitudinari
+● Uninfierno.
+● Seguramenthauràdisminuïtiseràunturismebaratesidepredador,perquèhauremperdut
+atractiuacausadeladegradaciódelmediidelaculturaaméshihauràdestinacionsmés
+atractivesisensemassificar
+● Insoportable.Totmésmassificat
+● excessiu
+● Creoqueseráunturismomássostenibleyconmásconciencia.Tenemosgrandes
+profesionalestrabajandoduroparaqueestossuceda.Ademásqueesteritmonosepuede
+aguantar!
+● Insoportable,asfixiante,demasiadagentenosepodravisitarnadaniiralaplaya
+● Lomismoqueahora,conlagenteylanaturalezadelaislasufriendo.
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página25
+
+<!-- página 28 -->
+
+
+## ¿Cómo debe ser el turismo en 2030?
+
+
+### Resumen
+
+80%
+
+### de los encuestados piensan que el turismo en 2030 va a empeorar.
+
+11%
+
+### de los encuestados piensan que el turismo en 2030 va a mejorar.
+
+8%
+
+### de los encuestados no saben cómo será el turismo en 2030.
+
+
+### A continuación se presentan los comentarios cualitativos de los encuestados
+
+
+### sobre cómo debería ser el turismo en el año 203∫0, desde su punto de vista.
+
+Elsiguientetextocontieneloscomentariosoriginales,sineditarnicorregir.
+● Socialimediambientalmentsostenible,nodemasses,Respectuósamblespersonesqe
+viviemal'illa,ambelmediqueensrodeja,onelbeneficiredundaenelbenestarelsresidents
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página26
+
+<!-- página 29 -->
+
+● Menysquantitatimésqualitat.Gestionatpertouroperadorsmallorquinsquevulguincuidar
+delaillaiunataxaperentraralailla(peròalgunacosasignificativa,comButanquepagues
+150eurosjasolsperentraralpaisitotatravésdetouroperadorsdelpais),nocadascúque
+facielquevulguiiaunpreuridículperomplirplaces.Menysplacesaunpreumésalt.
+● Reguladarespetandolasrecursoslocalesyelefectoquetienealecosistemadelaisla.
+● SOSTENIBLE
+● Hadedecrecerylimitarseparafavorecerlarecuperaciónmedioambientalyelbienestarde
+losresidentes
+● Just,dequalitat
+● Sosteniblemedioambiental.Limitarlamassificacióactual,iaturarelturismedepocaqualitat.
+● Tendríaqueseralmenosun30%menos
+● Comfinsfa10anys!Nocomara!!!
+● S'haderestringirl'arribadadegental'illa.Elsrecursosnaturalsnosóninfinits.
+● sostenibeconpersonasyterritorioperoaccesibleparaquienquieravisitarlaislacuidandola.
+Turismoregenerativo
+● Controlat,sensibleirespectuosambelmedi,laculturaideelsnadius
+● Unturismequepreservilailla.Lacuidiilarespecti.
+● Dequalitatidemenysquantitat
+● Menospisosalquiladosdelosparticulares.
+● HauriadserunTurismedequalitat,sostenibleambelqtenim,amantdlanostracultura,
+llegua,tradicions,medi,...
+● 2030!!!A2023moltmésmoderat.
+● Ecologico,quenoconsumarecursos,nosepuedenhacercarreterasinfinitasparainfinitas
+flotasdealquilerquenopagannielimpuestodecirculaciónaquí,max100automóvilespor
+rentacar,nopuedeserqueuncrucerorepostemásde1000toneladasdeaguaporescalay
+día,unhotel60diarias,etc..
+● Méscontrolat.Menyspersonesambmésdespesa.Foracotxesdelloguer.Queesmoguinen
+transportpúblic.Milloraraquest.Reduïrelscreuersdràsticament.Contaminenmoltíssima
+mésdegenerarproblemesdesalutalagentqueviuapropdelport(hihaunestudiqueho
+demostra).
+● sostenible,limitatiacotataunsmesos
+● Ecosostenible,controlat,dequalitatieliminarturismed’ocinocturnengranquantia
+● Debuenacalidad,máscaroymenosturistas
+● Mescontrolat,resmassificatnitanpoctolerantambelllocquevisita
+● Hauriadedecréixeralmenysun30%.
+● Hauriadedisminuirmoltíssimelnombredeturistes.Menysturistes,peròdemésqualitat
+● Sedeberíalimitarlaentradadevehículos,reducirloscochesdealquilerymejorarel
+transportepúblicoyfomentarmuchomáselusodelabicicletacomomediodetransportepor
+todaslaszonasdelaisla.
+● Basadoenvehículossostenibles
+● Comomáximoun10porcientodelquehayahora
+● Equilibrado,decalidadynomasificado
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página27
+
+<!-- página 30 -->
+
+● Losserviciosmássostenibles,ecológicos,elalquilerdeviviendasvacacionalesmejor
+controlado.Peromasquetodoestohayquehaceralgoconlacompradeviviendasporparte
+deturistasqueacabanalquilándolasaturistasorevendidasaturistas,inmobiliariasque
+especulanconlospreciosdelasviviendas...losmallorquinesnotenemosaccesoauna
+viviendadigna
+● Másconscientedelimpactoquegenera.Menosmásivo,masfamiliar,máscultural,enfocado
+aactividadesgastronómicasyhacialanaturaleza.Limitarelnúmerodehotelesoviviendas
+turísticas,queinfluiráenelnumerodepersonasqueestánalavezenlaisladisponiendode
+recursoslimitadosparatodos,incluidoslosresidentes.Aumentarlatasaporestanciapordía
+ypersona.Inventirenmejorarelentornoyel.Medioambientequeesloquesostienenuestra
+islayelmediodevida.Actualmentelosbeneficiariossonunospocosynogenerancambios
+paramejorarlacalidadturística.Anivelpolíticohanpodidomáslaspresionesexternasqur
+laspolíticasinternas.
+● Regularl,entrada
+● Unturismesostenible,respectuósambelsquevivimal’illa,respectuósambelmediambient
+ielsrecursosquetenimirespectuósamblescostumsd’aquí.Bastajaquese’lsdonilo
+mateixquealseupaís…aplicarunlímitdepersonesicotxesdelloguer!!!
+● Responsableicontrolat.
+● Hauriadesercontrolatambunnúmeroconcretal'any.Deixardeconstruirhotels,perquè
+acabaremdemorird'èxit.
+● Controlado
+● Conlimitaciones
+● Sostenible,nombredeplacestancades,idequalitat
+● Controlado
+● Puescrecques'hauriadelimitarlaquantitatdepersonesquearribencadames
+● Limitado,sostenible,
+● Mésordenatiecologista
+● Deberíaestarreguladoennúmeroyrestringidoentiposdeocio.
+● Limitatidequalitat
+● Millorc'ara.
+● Decalidad
+● Másregulado,menoshoteles.
+● Mássostenibletantoparalaspersonascomoparaelmedioambiente.
+● Sostenibleconunlímiteobjetivo
+● Lameitatques'actual
+● Unturismodecalidad,nodemasas.Sinalquileresilegalesenbarriosresidenciales.Queno
+impidaeldisfrutedelaislaporpartedeloslocales…
+● Menysdelameitatdel'actual.
+● Sostenible
+● Incentivantelturismeduranttotl'any
+● Másmoderado
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página28
+
+<!-- página 31 -->
+
+● Hauriadereduïrenvolumiincrementarenqualitat,hauriadesersostenibleperlagentque
+viuaquí,quepermetésunaconvivènciatranquil.la,quenoimpactéstantenlavidarealdela
+gent(preus)inocreesunapetjadaecològicagran.
+● Mésamable
+● Equilibrado
+● Desdeluego,nounturismodemasascomoloesahora.Deberíaexistirunnúmeromáximo,
+yquedesdeluegoelcriteriodediscriminaciónnofueraeconómico,esdecir,turismode
+calidad,noesturismoexclusivoparagenteconciertopoderadquisitivo.Unturismo,queno
+hagasentiralosresidentesconlasensacióndevivirenunaratonera.
+● DEMÉSQUALITAT
+● Massostenibleentodoslosaspectos.
+● Regulado,compatibleconlaconvivenciaparaLisresidentes.Sinimpactarnegativamenteen
+nuestrasvidas.Sinperjuiciosparalaislaniparalosresidentes.Pocoydecalidad.Eliminar
+plazasturísticas.Reconvertirlas.Oseaalgoimposible.
+● Ambméscontrolperpartdel'administraciódelaquantitatdevolsquearribenal'illa,del
+nivelldetràficqueaccedeixasaSerradeTramuntana,menyscotxesdelloguer...
+● Sostenible,iquepermetialagentviureambellinosobreviured'ell
+● Elgobiernadeberíacobrarporsalirhacercaminatasporlosbosques,poriralaplaya,por
+salirenlasbicicletas,yporlasvisitasdeciertospuebloscomoValldemossa.Ylosbarcos
+grandesquevienenconmilesdeturistastambiénpagarundineroporpersona.Cobrarpor
+todosestoharíamáslimpiaMallorcaysolamentevendríalagentequepuederespetartodo
+loqueofrecelaisla.
+● Mancoturistes,turistesdequalitatiinteressantsenlanostrallenguaicultura,paissatge,etc.
+Inohauriendepodercomprarcases.Eltransportpúblics’hauriademillorariincrementarla
+xarxaviària.Dificultarlesempresesdelloguerdecotxesilesempresesestrangeresen
+general.
+● Comtoteslescoses,ambmesura.Nohadesuposarpaperavuiifamperdemà
+● Creoqueelturismoesimportanteynecesarioenlaeconomiaperoloqueconsiguenesque
+losmallorquinesdecidamosviajarenveranoparadisfrutardelatranquilidadfueradelaislay
+alfinalhacemosgastoyconsumofuera.Loidealestenerunequilibrioentreturismoy
+residentes.
+● ElturismoenMallorcadeberíaserdecalidadylimitado,puestoquelosnivelesde
+contaminaciónalosquesellegaaconsecuenciadelamasificaciónsoninsoportablesparala
+vida.Delmismomodo,deberíarespetarselaislaimponiendosancionesmuyaltasaaquellos
+quenolohacen,reducirelusodecochesparaturistas,prohibirlosTODOINCLUIDOqueen
+nadanosbeneficia.
+● Crecques'hauriadeprohibirl'habitatgevacacionalitancarlesplanteshoteleresmassives.
+● Limitacionsdegentqueentra.Limitacionsmoltestrictesalsvehiclesdelloguer.Disminució
+radicaldelesplaceshoteleres.Prohibiciótotaldelspisosdelloguerturístic
+● Menorqueahora
+● Mayorcalidadymenoscantidad
+● Unturismoresponsable,justo,yqueseabeneficiosoparaambaspartes
+● Deberíahaberlimitacionesenlacantidaddepersonasqueacceden.Deberíanreducirselas
+plazashoteleras.Tambiéndeberíanreducirsealmínimolasllegadasdecrucerosalos
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página29
+
+<!-- página 32 -->
+
+puertos.HabríaquepotenciarunturismoquevisiteMallorcadesdeelrespetoalentorno
+naturalyaloshabitantesdelasciudadesypueblos.
+● Ojaláfueseunpocomenorperodemáscalidad
+● Restringirelnúmerodevolsperdiaiafluènciadeturistes
+● Sostenible
+● Unturismodecalidad,menoscantidadymásrespetuoso
+● Unturismedequalitatmésquedequantitat.Ésunfetrealques'hauriadereduirelnombre
+devisitants,noésboniperaellsnipelresidents
+● Restringit,controlat,ambunlímitdepreudelslloguersdellargaduradaiunnombrereduïtde
+lloguerturístic.Amésdetaxesperalturismequereverteixindirectamentenmesuresen
+defensaimamtenimentdelmediambient
+● Esperoqueseamássostenibleycontrolado.
+● Sostenible,limitat
+● Restringit.Hihauriad'haverunimpostalscotxesdelloguer,limitarelsllitsiprohibirelspisos
+turístics.Aixímateix,s'hauriaderestringirl'accésdelsvehiclesprivatsalaSerrade
+Tramuntanaifomentareltransportpúblic.
+● Mallorcadeberíateneruncupodeplazasturísticaslimitadoasuscapacidadesreales,y
+tambiéndeberiaprohibirseelusodeinmueblesquenoseanhotelesausoturístico.
+● Sostenible,controladoadecuadamente,máspersonalizado,decalidad,conocedordel
+entornoydeldestinoelegido.Conscientedelentornoysuslimitaciones.Unturismoeducado
+yadaptadoalentorno.
+● Controlat,intervingutisostenible.
+● Turismevariat,esimposibleseleccionarnomesunaelit,hihad'haverdetotencertamesura,
+obviament,perocomaqualsevollloc,hihauràgentbonaigastadorsigentnotanbona.El
+ques'hadeferescontrolarelsexcesosmitjançantmecanismecomtotinclosos,controls
+policials,responsabilitat...Nolimitandepersil'entrada.Tambes'hauriendegestionartotes
+lesinfraestructuresassociadescomtractamentderesidus,milloradeserveispúblicperfer
+frontal'augmentdelademanda....
+● Debaiximpacteambiental
+● Menysquantitatimésqualitat
+● Sostenibleicontrolat.
+● Limitat
+● méssostenible,dequalitaticonsiderantpreferentmentlaciutadaniamallorquina
+● Sesmesuressonmoltbonesdedirimoltmalesd’aplicar.Siselimitensesplacesturístiques,
+automàticamentespreupujarà,afectantas’economiadelsquevivimaqui.Aixíquefaréuna
+propostasensata:queesturismequehihagisiguidequalitat,prohibiriaesmagalufstyleies
+turismedegateraambpreusridículs.Apostariapesturismefamiliar.
+● Restrictivo,respetandolascondicionesdevidadelosquesondelazona,susueñotambién
+importayelruidoactualmentenodejadescansar
+● Unamaneradeteniringressoseconòmicsregulatsiordenatsperaevitarelcaossociali
+territorialquearaperaranoensdeixagaudirdelanostrapròpiailla
+● Ambmenysvisitats
+● Menoscantidaddepersonas.
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página30
+
+<!-- página 33 -->
+
+● Turismodemáscalidad,familiarymenospacksdeofertasdeunasemanapor300€,queal
+finalnovanahacerningúntipodegasto,porquesequedanenelhotelypocomás
+● Deberíanlimitarselasplazashoteleras,prohibirlospisosturísticosendeterminadaszonas,
+fiscalizarlosbeneficiosdelasgrandesempresasturísticas,incrementareltransportepublico,
+limitarloscochesdealquiler,promoverunturismodetemporadabajaqueaportebeneficios
+sinsaturarelverano.
+● Menosmasivo,diferenciadoportipos,playero,deportivo,decongresos/similar.Nadade
+cruceros,menoshoteles,menoscochesdealquiler....
+● Familiar,favorecerelturismodeinterior,sinturismodeborracheraymásturismodealto
+poderadquisitivo.
+● Decalidadycontrolado
+● Hauriadedecréixer(molt)ielquehihaguéshauriadesermésconscientiresponsablede
+l'entorn.
+● Menosymejor
+● Nolosé
+● Unaafluènciadeturistesmésbaixaimésestesaduranttotl'any(nomésturistes,sinó,
+redistribuïts).Abolirelstot-inclososielturismedebaixaqualitat,especialmenteldegaterai
+malespràctiques.Fer-losostenibleeneltemps.
+● Decalidad.
+● moltméssostenible
+● Comohastaahora
+● Tendráquesermuchomenorencantidadymejorencalidad,onohabráMallorcaen2030
+● S'hauriademoderariferpolítiquesvalentesquepermetinreduirjaelnombrede
+pernoctacionsal'anydisponibles.
+● Sostenibleidequalitat.Menysgentperòambméspoderadquisitiuimésconscienciatsamb
+elmediielsrecursos.
+● unperfilquevenguiagaudirdelillademaneraresponsable,deixantdobersnonomesen
+unapensiocompleta,sinoenpetitscomerços,etc
+● Hauriadebaixarpersersostenible
+● Llenodeturistas,contrabajo.ConloqueloshabitantesdeMallorcanotengaprejuicio,yque
+lascosasseaparamejorarlavidadelosquevivenenMallorca.YNOdejarquelos
+AlemanesquieranserdoñosdelaIsla,ponerlímitesconlosalemanes.
+● Sostenible
+● Unturismedequalitatmésquedequantitatonlapreservaciódelterritorisiguilabaseilano
+sobreexplotaciódelsrecusosunanormabàsica.
+● Inexistent.TantdeBo.
+● LIMITAT
+● Sostenible,amblimitacionsidecalitat
+● Menysturistesquepassaranmesdiespreferiblementforadetemporada.Menysfixes
+discontinusquehaurandeferfeinamestemps,fentqueelshotelsobrinmesmesos
+● Elturismoensínohacedaño,loquedañalaislaeslamalagestiónquehacemosdeello.
+Deberíamospoderlimitarelturismoeincentivarunturismodecalidadynodecantidad.
+● Sostenible
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página31
+
+<!-- página 34 -->
+
+● Controlatidequalitat.
+● Reduitimesuratenquantitatitotbelqespuguiambqualitat.Quotesi/ocuposentrada
+com.altresterritorisfragilsdel.planeta.Sostenibleanivellmediambientalihumanament.
+L'ofertahadesermesselectivaidequalitat....Perohihamassainteressoseconomicsi.ens
+venenmoltbarato.Noensestimamproul'entorni.lanostraterraisimplementlavenena
+bocinetsméscarsoasaldo...éselreflexdelsvalorsindividualistesqimperenla.nostra
+societat.EsteimMORINTd'èxit.Esdifícilqunequipdegovernamb4anyscapgirires
+significatiu.Espoctempsiésun.suïcidipolíticqningúvolassumir.SommiuBalears
+recuperantlesillesdelacalmailatranquil.litat.Elsespaisverds,lesplatgesverges,les
+reservesmarines,reducciódelesembarcacionsqtantmalfan...ciutatsipoblesamables,
+segurs,pacíficsarquitectònicament,anivelldemobilitatideconvivència.
+● Deberíasermássostenibleyconunmecanismodecontroldeaforoenlasislas,
+dependiendodeltamañodecadaunadeellas.
+● Menosturismo.
+● Demajorpoderadquisitiuidisminuirconsiderablement.
+● PuesmeencantariaqueNOllegasengrandescrucerosdemásde100personas,quese
+limitelaentradamasivadecochesdealquiler,queeltransportepúblico(taxis,buses)y
+aparcamientosdisuasoriosseaprioritarioparatodos
+● Respectuós,sostenibleiambregulacionspertindresesmateixespossibilitatsqueelslocals
+● Sostenible
+● Moltméslimitat,ambunesplacesdeterminades.Elsserveiss’agotenilaqualitatdevidano
+potseguiraixí
+● Nosésiarribaremviussipunamésgrauslatemperaturaglobal.Hauriadeserunturisme
+150%sosteniblemediambientalment.Nohihauráresdeturismesenseunplanetaamb
+'equilibrari'
+● ConlímitesquetenganencuentalosimpactosnegativosdelTurismoyintentenreducirlos
+ReducircantidadyaumentarcalidadMasdistribuídodurantetodoelañoMásrespetuosodel
+medioambienteyhacialosresidentes
+● Másturismofamiliarymenosturismodeborrachera
+● TendríamosqueDecrecer
+● Dequalitatiambmoltamenorquantitatdeturistes
+● Respectuós,limitaticontrolat.
+● Responsableyconconcienciamedioambiental.Adióscruceroscontaminantes,hoteles
+chusqueros;holaespaciosnaturalesprotegidos(deverdad,conmultasparapersonasque
+nolosrespetan),aforosturísticosyreduccióndelaplantahotelera.Ecotasaaltaeinvertida
+enlasostenibilidadymantenimientodeespaciosnaturales
+● Respetuosoconelmedioambienteyconlasociedad
+● Sostenible
+● Sipercontrapodemseguirvivintdelturisme,aquesthauriadesermésrespectuósambel
+mediambientiambelsresidents.Hauriadeserunturismeméssosteniblesensepassar-se
+deroscacomfinsara.
+● Ilimitadoysostenible.Optaríaporunturismomásculturaloambiental,envezdevenira
+gastardineroenlujosyactividadesquedestruyenellitoralyotrostantosespaciosdelaisla,
+yquenoenriquecierasolamenteaunospocosylosmismosdesiempre(hotelesy
+restauración)
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página32
+
+<!-- página 35 -->
+
+● Sedeberíalimitarparanointerferirenlavidadelosciudadanos.
+● Turismedemésqualitatimésregulat.Foracreuers,menysbicicicletes,menyscotxes............
+● S'hauriadelimitard'algunamaneral'entradadepersonesisobretotdevehiclesi
+d'embarcacions(especialmentgranscreuers)Prohibirnohadeseruna'bèstianegre'.A
+vegadesésnecessariiconvenientperalasostenibilitatdelesIlles.
+● Másaustero,ecologista,quizásmásespañolqueahora,porcarestíadelostransportes
+● Siosidebesercontrolado.Limitandoladisponibilidaddeplazasturísticas.Nopuedehaber
+tantasaturación.
+● Sincruceros.Controldebarcosenpuertosyennavegación.Conunnúmerodeturistas
+sostenibleproporcionalalterritorio.
+● Menosturistas,menosplazasdehoteles,menoshabitantes,menoscoches,menos
+cruceros...másrespetoporelagua,elaire...lanaturaleza
+● Turismesostenible,senseferméshotels,nitotinclosos,reduirelscotxesdelloguer
+augmentanteltransportpúblic
+● Turismodecalidad,selectoymenosmasificado.
+● Crecqs'hauriad'haverlimitatelnombredeturistesiaquestdesastreqestampatintipatirem
+noexistiria.Elturismehauriadesercomeldefa20anys,peròaramateixtothasortitde
+mare.Necessitamgeneraractivitateconòmicaperdonarfeinaatotselsqhanvingutaviure
+aMallorca,aixícomcrearinfraestructures,qnohaurienestatnecessàries.Ésdesentit
+comú.Perajoeltemanoéscomhauriadeserelturisme,sinócomhauriadeserlavida
+delsmallorquins.
+● Deberíahabermenoshoteles,menosvuelos,menoscrucerosybarcos,ergomenosgente.
+Lasaturacióncadavezsenotamásylosrecursosnosoninfinitos.
+● Sobretotméscontrolat.Queescerquilaqualitatinolaquantitat.Acabarambels
+establimentsTIielsETV.Iquepuguemconviureambellsensepagarlesconseqüènciesels
+residents.
+● Demejorcalidad
+● Laentradadeturistasdeberíalimitarsealigualquedeloscoches.Laislanotienemás
+capacidaddecargaylosrecursosnaturalessonlimitados.Nopuedeserqueenveranohaya
+tráficocomoelquehay,nosepuedaaccederalasplayasyquecuandovayasanadarhaya
+tantasembarcacionesfondeadasdesdelacostadondenopuedesverelhorizonte.Precios
+deviviendasabusivosaligualquedelosproductosdeprimeranecesidad.Trabajode
+autónomaynolibroniunsólodíadelasemana,trabajando12horasaldíaaúnasínopuedo
+llegaralos1300netoscontodolosgastosqueconllevaautónomos,IRPF,IVAS,cuotade
+autónomosylospreciosdisparados.
+● Restringit.S'hauriendereduirlesplacesturístiquesd'hotelsialtresallotjaments,deaneraque
+algunsd'aquestsedificiss'hauriendetransformarperaaltresusos.S'hauriadelimitarel
+nombredepersonesivehiclesvisitantsquehipothaveralhoraal'illa,comjapassaa
+Formenteraalsmesosdejulioliagost,peròduranttotl'any.Elsnúmerostopalldeplaces,
+visitantsivehicles,s'hauriend'acordarambelsagentsexpertsensostenibilitatecològicai
+social.Amés,s'hauriendeposarmesuresperquèusinunnombrederecursosadequat,com
+perexempleaigua,combustible...Elscampsdegolfambgespahauriendedesaparèixeriels
+creuersestarlimitats.Perpoderaplicartotaixò,s'hauriadedesplegarunbonsistema
+d'inspeccióiseguimentqueasseguràsqueescompleixenlesrestriccions.Elcapitalisme
+salvatgeensposaalapoblaciólocalensituacióvulnerableis'handeposarlimitacionslegals
+ipolítiquespercontrarestaraquestainjustícia,noespotdeixaramercèdellliuremercat.
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página33
+
+<!-- página 36 -->
+
+● Menoscantidadconmayorpoderadquisitivo,querespectetantolanaturalezacomola
+culturaisleña
+● Turismequeensrespectatsalshabitants
+● Sostenible
+● Reducido,sostenibleydecalidad
+● Mesregular.Notantagente.Novaltot
+● Hauríemdetenirencompteelsrecursosdel’illaielsseushabitants,itenirunmajorcontrol
+delnombredevisitantsanuals
+● Deméscalitat.
+● Sostenible,limitatiresponsable.
+● HauriaNO,jacalSABERquinturisme....NOESPERARal'any2030
+● Controladoyconlimite
+● Sostenibleenrecursosporloquesetienequelimitarelnúmerodeturistas
+● Decalidadysintenerquepagartantabarbaridaddeimpuestos
+● Medido,organizado,filtradoymesurado.¿PodréllegaraFormentorenmivehículosintener
+quedarprioridadaunautobúsde60plazas?.¿Podréllegaralcentrodelaciudadacomprar
+enelFornetdelaSocasideboacompañaramimadrede80años?Yessóloelcomienzo...
+● Controlatidecalitat
+● Controlado
+● Turismedequalitat.Majorstassesturístiquesperapreservarelterritori,entred'altrescoses.
+● Másamableconelresidente
+● Sostenible
+● Unadistribuciónmáscontroladadeturistas,connúmerolimitadopormunicipio,ypor
+distritos.
+● Seleccionadosegúnsupoderdegastos
+● Méslimitatiambconsciènciaqueésunaillaitenimelsrecursosilesinfraestructures
+limitades
+● Teniendoencuentalosrecursoslimitadosdelaisla(territorio,agua,servicios),lacalidadde
+loqueofrecemos(muchagenteimplicamenoscalidad)ylacalidaddevidadelosque
+vivimosenMallorca.
+● Dependerádeloquequieranlascompañíashoteleras.Ellossonlosquedebenenfocarse,
+encolaboraciónconelGovern.
+● Creoquesedeberíaregularlacantidaddegentequepuedeveniralasislas,yaqueel
+espacioeslimitado.Deestaformaelturistavisitaríaunlugarmáscómodoydemejor
+calidad,ylagentequeviveaquí,podríallevaracasisudíaadíaconmayornormalidad.
+● CRECquehauriemd'enfocar-nosaunturismemésecològic,curiosament,crecquehemde
+delimitarelturismealeszonesd'hotelsiagroturismesillimitarellloguerturísticde
+particulars,iobligaralshotelsacomplirregulacions(preusminimsimáxims,impostos,
+revisarconvenissalarialsihoraris,etc..).Crecques'haurád'intervenirmésperpartdel
+govern.
+● Demedio/altopoderadquisitivo,dondesedemandaserviciosysepagaporello…
+destinandounapartedeestosimpuestosqueserecaudenarebajarlosimpuestosalos
+residentes,comoelIBI(insostenible),mástren,metrooautobusesaplayasyzonas
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página34
+
+<!-- página 37 -->
+
+residenciales…endefinitivamásmedidaspararesidentesyconsecuentementemáscalidad
+paraelturismo.
+● Controlat
+● Quedieraungirototalalasostenibilidaddelaisla...másrespetoportodoloquenosrodeay
+porlaspersonasquehabitamosaqui
+● Evitarmasificacióndelturismo.Incrementarunapropuestacomplementariaalsolyplayacon
+unturismomasdecultural.
+● Deberíaestarmásregulado,conmenoscochesdealquiler,prolongadodurantetodoelañoy
+conunacalidadyunprecioquedejealosborrachosensupaís.
+● Limitado.Deberíadeserunturismoreguladoquenocomprometaelbienestarnila
+convivenciadelaspersonasdeMallorca,quenocambienuestraciudad(gentrificación)yque
+noexplotenuestrosrecursosnaturales.Mallorcadeberíaserunaislaenlaquelos
+mallorquinespodamosvivir,evitandolaaglomeraciondeturistasydecochesdealquiler.Un
+lugardondeseprotejaalaspersonallocales,garantizandoqueelpreciodelavivendano
+suba,prohibiendoelalquilerdeviviendaparavacacional,qalavezserviríaparaproteger
+nuestrosbarriosevitandoquepocoapocoperdamosnuestrapropiaidentidadyconvirtiendo
+laislaenunparquetématico.Pd:vivimosdealquileryviendocomosepresentalasituacion
+futuranosestamosplanteandoqlacompradenuestraprimeraviviendaseafuerade
+Balearesyaquesomosconscientesdequenuestroshĳosnuncapodrancomprarseuna
+viviendaenMallorca.
+● Conlimitesdeocupacion.
+● Moderatisostenible
+● Controladoydecalidad
+● Máslimitadoencantidadycalidad
+● Nodeberíaexistir
+● Escas.
+● Llevantantotiempopredicandoquehayquealargarlatemporada,quehayquereducir
+plazas...Somosunamoda,esdecir,veniravacacionesalasislas...Cuandodejedeestarde
+moda,yaveremos.Saiudos
+● Comelsdeconfinament
+● Unturismequevenguiperlaqualitatdeserveills,ambganesdeconeitxelanostra
+cultura,paisatge,costums.
+● Deberiaestarmejorregulado,ordenadoparapermitirunacoexistenciasostenible
+● Tienequedejardeaumentarelnúmerodeturistas.Másdiversificación,sobretodoalargando
+latemporadaturística.Másinversiónparasubirelniveldelturista,personalmáscualificadoy
+deberíadisminuirelporcentajedeviviendasdestinadasalalquilervacacional:imprescindible
+paraquedurantelatemporadapuedanveniraBalearesprofesionalescualificados.
+● Deberíadesaparecerelturismodeborrachera,eltodoincluidoylomasimprtantemas
+sostenible
+● Sostenible,enequilibriambelsresidents.
+● Hauriadeserunturismesostenible,queconvisquiambellocalsenseinvadirniperjudicarla
+sevamaneradeviure.Unturismedequalitatreal,sensemassificacionsquenomés
+beneficienaunspocs.
+● Regulado,sensatoycoherente.Regularelnumeroyaunentarlaecotasa
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página35
+
+<!-- página 38 -->
+
+● Menyspersones,méscompensatalllargdel'any,illigataactivitatsmésdiversificadesi,
+sobretot,mésbeneficiosesperl'economiailaculturalocal.
+● Moltlimitat.Hauriadevenirlameitatdegentquevearaomenys.Elscreuershauriende
+desaparèixerpercomplet.
+● Limitat,nopermetrelaventadebensimmoblesaestrangers,noméspossibilitatdepernoctar
+enhotelohostal,ivehicleperllogarlimitat,carielectric.Nopermetrel'entradadevehicles
+deforaalsnoresidents
+● Menysturistes,moltamenys.Nocrecquesiguiimportantlaqualitatsinólaquantitat.El
+turismede'qualitat'gastamoltsmésrecursos,jaques'hopotpermetre:piscines,consumeix
+mésespai,mésmitjansdetransportparticulars,etc
+● Elturismoestaacordealaoferta.Lagentevienesegúnloqueleofrecemos.Nosepuede
+culparalosturistasporvenir..
+● Pocidequalitat
+● ElturismoesimprescindibleenMallorca.Hace20añosomás,elturistadejabamucho
+dineroporquelarentapercapitanuestraeramuyinferioraladelturista.Habíaturismopero
+nohacíafaltatantacantidad.Silaislavaletantoparasuslugareños(preciosprohibitivos
+paralavivienda),igualdeberíaserloparalosturistas.Endefinitiva,deberíamosvender
+menosymáscaro,afindepodertenerunturismosostenible.Demasiadagenteenlaislalos
+mesespico.Porotrolado,quieropensarqueelgobiernohabráimplantadomuchasmedidas
+deprotecciónmedioambientalesyurbanísticasparaprotegernuestrascostasytierras
+ademásdelaviviendaparalaspersonasquevivenyquierenseguirviviendoaquí
+● Menosturismomejorcalidad
+● Yalohedicho,queseanturistasquetenganunabuenaeducacion,sobretido
+● Turismeconscient.Elsrecursossónlimitats.
+● Mássostenible,menoscoches,másofertadetransportepúblico.
+● decalidad
+● Dequalitat
+● Totalmentecontrolado,máspatrullassobretodoenplayasyzonasdeocio
+● Esperquesiguiméssostenibleamblanatura.Leslleisperalsresidentss'hand'aplicar
+tambéalsextrangers.Hihadehaverunslímitspertalquetotspoguemdisfrutardel'illa.
+● Máscontroladoyconlimitaciones
+● Limitat
+● Orientadoavaloresyactividadesdesostenibilidad
+● Hauriademinvarisermoltmésrespectuósiafaptablealagentd’aquí
+● Respectuósatotselsnivells
+● MirarelimpactolocalycuidaralagenteSostenible100porcien
+● Sostenible,dequalitat,esportiu,limitarlesentradesd'avions,limitaraccesqlesplatges,
+disminuirlesplacesdelloguerturisticihoteleresalameitat,prohibirlaventadepropietatsa
+estrangers,possarmaximsdturistesaldiadecapacitataunailla....
+● Amblimitacionsperentrardinslailla,ambunareducciódràsticadelaflotadevehiclesde
+lloguer,ambrestricciód'entradaaalguneszonesprotegidesdelailla,etcSenselimitacions,
+elshabitantsdelaIllanopodranseguirvivintalessevescases
+● Limitat,turismedequalitatinteressatperlacultura,lagastronomía..PerconèixerMallorca
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página36
+
+<!-- página 39 -->
+
+● Menoscantidaddegente,másingresosporvisitante.Finalizarconelturismodemasasylos
+cruceros
+● Residual,siemprequelasautoridadesfomentenotrasvíasdenegocio.
+● Menysnúmerodeturistes,dequalitatiambunimpacteeconòmicsobretotselsteixitssocials
+delesIlles.
+● Menoriregulat.Nonoméselturisme,sinóelqueimplicalapujadadepreusilapèrduade
+vivendapelsresidents
+● Nosésipodremseguirconreantlaterraperquepuguinmenjarelsturistes.
+● Unpocdeturismecreariquesa.Unexcésdeturismeempobreixelpaís,amésd'unconsum
+excessiudelsrecursosidelafrustracióquegeneraenelsresidents.Pertant,hauriade
+decreixerisermésselectiu.Elturismedegateras'hauriad'excloure.
+● Talicomheexplicatalapreguntaanterior.
+● Másresponsablesyrespetuososconelentornosocialymedioambientaldellugarquevisiten
+● Sostenible.Nosoloanivelmedioambiental,sinoaniveleconómicoysocialdelapoblación
+queacogeaeseturismo.Resultapreocupantelaconsecuenciadelturismoqueterminacon
+personasviniendoavivirpermanenteotemporalmenteenlaisla,conunpoderadquisitivo
+superioraldeloslocales.Tambiénpreocupaelimpactodelalquilervacacionalenlosprecios
+delaviviendadealquiler.
+● Unaactivitateconòmicasecundàriacompatibleamblasostenibilitatdelmediambientiamb
+lavidadelsmally
+● Hayqueponeruntopedevisitantesturistasya!
+● Menysplacesturistiquesqueara,queeslimitinrecursoscomaiguaocotxesdedicatsa
+turisme,queesposilímitsanegociscombarcosxàrters,motosaquàtiques,activitatsde
+lleureamotorengeneral,augmentarimpostsalturismedeluxe-elsqvénenenavióprivat
+p.e.iatotselsproductesdeluxe,incentivarqvaginentransportpúbliciquecomprin
+productelocal,quealspoblesnoespuguininstal.larcomerçosexclusiusperusosturístics
+● Limitadoylosbeneficiosdescentralizados,repartidosmásalládelaoligarquíadelos
+hoteleros.
+● Nom'hopucimaginar
+● Equilibrado
+● Controlado,másecológicoysostenible.Yhaceralgo,noséquéexactamente,paranovivir
+bajolatiraníadelosgrandesgruposhotelerosquecontaldeenriquecerselesdaigualtodo,
+desdedestrozarelentornoadestrozaralaspersonasquetrabajanparaellos
+● Regulado
+● Hauriadeveurelaillacomunecosistemadelicatinounllocdebauxa.
+● Regulat
+● Ambmenysvisitantsiqueaportinmés.Nos'had'allargarlatemporadasis'hademassificar
+laillamésenllàdel'estiu
+● Deberíaestarlimitadoaunnúmerodeplazasycochesdealquilersostenible.Altiempoque
+deberíarepercutirenelresidentedeformanotablecomopasaentantospaíses.
+● Sostenible
+● Hauriadesersostenible,gradual,respectuósambelmediambientilaidiosincràsiad'un
+poble
+● Amblimitacions
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página37
+
+<!-- página 40 -->
+
+● Hauriadecanviarpercompletelmodeldeturisme.
+● Noes'comodeberíaserelturismo'es'comodeberíaserMallorca',elturismonoesunente
+ajeno,sinoqueesconviviente.Lapolémicaactualempiezaenesafractura.Mallorcatiene
+queserdelosmallorquinesylosturistasbienvenidosadisfrutarlo,hoyesjustoalrevésy
+obviamenteelautóctonoseestácabreando...
+● Controlat
+● Hauriaderegular-sel'entradaalesIllesBalearsialsdiferentsindrets.
+● Unturismomenosmasivoperoqueaportemásalaisla
+● Nodeberíaapenashaber
+● Comalsanys90
+● Limitadoysostenible(agua,huellaecológica,parqueautomovilístico).Sololosextranjeros
+queacreditenresidenciaduranteciertotiempopuedencomprarvivienda.Vivimosdel
+turismo,nosetratadeerradicarlo,sinodeencontrarelequilibrioquelaislapuedasoportara
+niveldeinfraestructurasyserviciosyquenoimpidaalosmallorquinesvivircondignidaden
+supropioterritorio.
+● Limitatenquantitat.
+● Sostenibleidequalitat
+● Comelturismedefa20anys
+● Menosdebajacalidad(botellón)perotampocodealtísimacalidadporqueacabarían
+subiéndonoslospreciosdetodoalosquevivimostodoelaño
+● Controlatlaquantitaticalifat
+● Lamajoriadelsdoblersse'nvanaforaonoarriben.Sehadepujarmoltméséssousifeina
+demillorqualitat.
+● Comeraals70-80temporadade6mesos.
+● Menysturistesiméspoderadquisitiu.L'economiadel'illamésdiversificada.
+● Mallorcapelsmallorquins
+● Crecquehauriademinvarconsiderablementireorganitzarelsserveisdestinatsalturisme,
+comtambéaugmentatlainversióenserveisdestinatsalespersonesresidents.
+● Acabariaamblescompanyiesd’aerolinieslowcostilloguersvacacionals
+● Menor
+● Crecquehauriad'estarlímitataunnombredepersones.Tambéqueestiguesinreguladesles
+despesesd'aigua.Tambéhauriadeperdreforçaellobbyhotelerperpoderdonarespaia
+altresformesdeturisme.
+● Menysnassificatiambméscontroldelavendad'habitatgesaestrangers
+● Unturismedeluxe.
+● Menoriambmésqualitat(noperserricssinórespectuosos)
+● Restringit
+● Limitatidequalitat.
+● S'hauriendecrearunnúmerosclausus.Espotmirarcom
+● Equilibrat
+● Sostenible.Cercantelrespectedelpatrimoninaturqliculturaldelailla
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página38
+
+<!-- página 41 -->
+
+● Encualquiercaso,controlado
+● Sostenible,medidoparaquenonosafectealacalidaddevidadelosdeaquí.Conmedidas
+parafrenarlaespeculaciónenviviendas,conmenosvuelos,playasmenosabarrotadas,más
+sostenibilidadporlosescasosbienesquetenemos,comoporejemploelagua.Yevitaríamos
+contaminacióndesdemuchospuntos
+● Dequalitatisostenible
+● Lasinstitucionesdeberíanpensartambiénenelresidenteynosoloenelturista.
+● PocidequalitatGràcies
+● Limitar
+● Sostenible?
+● Turistasqueestuvieraninteresadosenlagastronomia,laculturaylanaturaleza
+● Crecqueelturismehauriadedecrèixeriserdemajorqualitat.Donarprioritatalesnecesitats
+delespersonesquehabitaml’illainoalturisme.
+● Unmàximde250/300milplacesentrehotelsiapartaments
+● Sostenibleydeacuerdoalosrecursosnaturalesdeestaisla
+● protecciondelanaturalezaylimitaciondeturistasalañoylimitaciondecompradevivienda
+● Jocrecques'hauriadeposarunstopallsdeturistes.Paquetsméscarsal'estiu,mésbarats
+al'hivern.Taxesturístiquesmésaltes,topallenelnombredecotxesdelloguerienselsque
+vénenenferry.Nodeixarferméshotels,topallenelspisosturístics.Reduiroeliminarels
+granscreuers.Fernormesmésrestrictivesalspisosdelloguer,comallargarlesestades
+mínimesaduessetmanes.Deixarnomésel'totinclòs'alesfamíliesambnensdefins10
+anys,perposarunsexemples.Itambéficariamaalslloguersdeparticularsperquètothom
+puguillogarperpoderferfeina.Manqueninspectorspertotaixò.
+● Regulatiambmesuresmoltmésrestrictivessobretotenrelacióalsrecursoscomaguai
+transport
+● Sostenible
+● Limitat
+● Menosestacional,númerodecochesdealquilercontrolado,númerodecruceroscontrolado,
+númerodeplazas(hotelerasydeviviendasturísticascontroladas),conlaszonasnaturales
+másprotegidas,nopermitirquelaviviendaseaparanoresidentes(otodalaislaacabaráen
+fondosdeinversión)Porerenvalorlas.costumbres,fiestas,gastronomía,arquitectura,
+músicaetcmallorquinasenvalor
+● Sostenible,limitatimoltmésrespectuósambelresident.
+● Controlat,divers,limitatielmésimportant,nolaúnicafontd’ingressos.Elmonopoli
+econòmicésterriblesocioeconòmicaiambientalperaunterritori.Extremaladependència
+capal’exterior.
+● Deberíaserloopuestoaloqueesahora.Unturismodecalidadysostenible.
+● Sostenibleidequalitat
+● Unmodelodeturismosostenibleyrespetuosoconlavida
+● Dequalitat.Moltamenysgent,peròquevenguinaapreciarlescosesbonesqueencara
+tenim,noaengatar-seitenirsexe
+● Nomasivo,masrespetuoso
+● Sostenible
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página39
+
+<!-- página 42 -->
+
+● Enmenorcantidad
+● Turismosostenible
+● Sostenible
+● Millor
+● L'idealésquenofosl'únicafontd'ingressosiquecomaSuïssas'hagitrobatunequilibri
+entrelapreservacióculturalidelmediilaindústriaturística.
+● Deberíadesersostenible,deberíadeserdecalidad,esoquieredecirquenohayaAI.Sise
+ponelasrestriccionesnecesariasparapoderlimpiarpartesdelaislaquetienenunafama
+muymalayunturismodemuybajacalidadnotaremosuncambioincreíble.
+● Deberíaseracordealespacio,lascarreterasylanaturalezaquetenemos.Prohibiríael
+turismobaraterodejóvenesquevienenaemborracharse.IrporplayadePalmaeshorrible.
+Jóvenestiradosporelsueloborrachos.Gritando.Violentos.Queensucianlasplayascon
+botellasypajitas.Barcosturísticospetadosdeturistastirandovasosyplásticosalmar.
+Prohibiríaeseturismo100%.Limitaríaloscochesdealquiler,sonhorribleslosatascosa
+partirdeabril.Peroparaesohabríaquemejorareltransportepúblico.Nohayquienaparque
+enlasplayas,estánpetadas.NOENTIENDOPQTENEMOSQUEPAGARPARKINGEN
+LASPLAYAS(calaMondrago,estrenc...)LOSQUEVIVIMOSENMALLORCA!!!!Alos
+residentesdelasBaleareslesdejaríaaparcargratis!!
+● Deberíadehaberunareducciónolimitaciónenlasllegadasdeturistasalaisla.Tantoen
+cruceros,avionesytambiénentemadecochesdealquiler.Unlímitedecochesaceptados
+paracadatemporadaparanodesbordarlasinfraestructuras.
+● Decreixent,interessatperlaculturaielmediambient,sensehooligans,senseexcés
+d'alcohol...
+● Conlímites,nosiemprebuscandoelincremento,sinovelandoporelmedioambienteyla
+calidadtantoenlaexperienciadelosturistascomolacalidaddevidadelosresidentes.
+● Desestacionalitzat,fomentantnovespromocionsforadeleshabitualsactualment.Per
+exemplevaigveuremoltencertadal'ideadelvoldeEEUUpromocionantlesillescomadestí
+pernovis.
+● Hauriad'haveruncontroldecreuersiavionsdestinatsaMallorca.Limitantlagentrificació.A
+nivellvivendes,s'handeferpolítiquesperfacilitarl'accésalavivendaiylimitarl'especulació
+urbanísticailapressiohoteleraidelstouroperadors.
+● Esquehayquediversificarynopongamostodonuestrasinversioneseneltourism.Tenemos
+queinvertirenlabioversifaddelaisla.
+● Sostenibleirespectuóstantambelmediambientcomamblacultura.Demanantunimpost
+suficientcompercobrirlesnecessitatsquegenera.Limitantlapossibilitatdecomprar
+vivendaalquenoméshivedevacancesinohiviu.Fentunaofertaturísticadequalitatiamb
+consciènciadelescaracterístiquesinecessitatsdel’illa.
+● Abolit
+● Menorisostenible
+● Ponercotoatantoturismo
+● Unturismesosteniblequenosuperiennombrealapròpiagentdelpelpoble.Quequanagis
+pelcarrerettrobisambmésgentconegudaquedesconeguda,queescoltisméslateva
+llenguaquellenguesdeforaiquenoettransmetilasensacióquehaspassataviureaun
+paisestranger.
+● Poc
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página40
+
+<!-- página 43 -->
+
+● reducidoalamitaddelaactualyconstandaresmedioambientalesquecastiguenelmaluso
+delmedioambiente
+● Meinsturistesidemesqualitat
+● Preferiríamenosgente,mayorcalidadpersonalprimero,inclusositienenmenorcapacidad
+económica,peromásrespetoporelentornoylaspersonasquevivimos.
+● hauriad'esserunturismedequalitat,ihauriad'estarregulatlaquantitatdturistesqvenenpq
+aramateixhihamasificacioiesundesastretantcomperl'abusdelsrecursosnaturalscom
+deldiaadiadelpoble,nohihaparkings,noespotnicaminarxcarrersdgentqhiha,ni
+siquieraespotanarambbici,hasdtocarelclaxonseguitseguit!ilomesimportantnogasten
+euros,nomesambmenjar,hauriendferunamicamesdgastoalscomerçoslocals!
+● reduir-selaquantitatpertald'evitarsaturacions,dependenciesiabussosdepreus
+● Mássostenible,demáscalidad,orientadoafamilia,deporte,culturaymáslimitado.Eliminar
+turismodemasasesclave
+● Menorentradadeturismo,controladayrepartidadurantetodoelaño.Yunacosaimportante
+quenohabéistenidoencuenta;dejarbares,restauranteyespaciosdocioparalos
+residentesapreciosasequibles.ElcentrodePalmapareceunparquetemático,yanoqueda
+nadadebarrio,losmallorquinesvivimosaquíynonohemosido,apesardequedeel
+alquilerturísticonosvaechandodenuestraCiudadpocoapoco.
+● Esperoqueconmenosgenteyquenoafectenalospreciosdelaspersonasquevivimos
+aqui
+● Regulado,esdecir,noaceptarmásgentedelaquelaislapuedeasumir,ponerlímitesalos
+empresariosturísticos,empleosdignos,consueldosjustosyrespetandoloshorarioslegales
+paralosempleadosyempleadasenrestauraciónyhostelería.
+● Regulado.Elturismoesnecesarioperolovivimosenexceso.Regulandodemaneralógica
+lasentradasalaislaesindispensable.
+● Másacotado
+● Hauriadereduïrelseuvolum,finsalpuntenquefossostenibleanivellambiental,econòmic
+isocialperl'illa
+● Demejorcalidadsinqueesoincrementeelniveldevidaparalosisleños
+● Mésdivers.Donarvaloralapartforana,nonomésaleszonesturístiques.Inodeixarentrar
+tothomquevulguisinónoméslagentquepuguemsuportar,jaqueestractadunailla.No
+restringiriaaccessosalagentmallorquina.
+● S'hauriaderestringirl'entradadeturistes,talicomfaranaIslàndia,sino,acabaremde
+destrossarloboquequedaaMallorca
+● Mancoturismeimésrespectuós
+● Decrecimientodelsectorturismo,diversificacióndelaeconomíabalear.
+● Demáscalidadynomacrocruceros
+● Regulat,dequalitat.Tenintcomaprioritatalsquehivivimtotl'any,
+● Controlat
+● Respectuos,tenintencomptelagentquehiviu,mesregular,totl’anyiambmoltamenys
+afluencia
+● Sostenible,dequalitat,ques'integriiadaptialsquivivimaMallorca(inoal'inrevés),queno
+malmenielnostrepatrimoniculturalimediambiental,quenoprevalguipersobredeles
+necessitatsdelsquesomlocals,controlat,quesiguirespectuósifomentilaculturaillengua
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página41
+
+<!-- página 44 -->
+
+pròpies,queimpliquiunapressiósobreelterritoricoherentamblespossibilitatsqueté
+Mallorcaquantarecursosiaregeneració...
+● Controlat,regulatilimitat
+● Sintodoincluido
+● Deberíahaberunamayoríadeempresasturísticasadheridasaunprogramade
+sostenibilidadcontrolado/supervisadoporungremiomixtodeciutadan@s,negociantesy
+políticos,regionalesyinternacionales,guiandoelturismo,comonegocioconmás
+crecimientodelmundo(?)entodoslosaspectos.Supuestamenteconunnúmerototalde
+visitantesreducidoy/olimitado,unimpactomedioambientalmenor,conunimpacto
+económico-socialpositivo,distribuyendoseentretodaslosnivelesdepodereconomico(no
+solamentedelujo).
+● Nomemolestenelsturistes,memolestenelsforastersquevenenaquíatocarelscollonsi
+imposar-nossessevesmerdes.Elsturistesvenen,deixendoblersis'envan.Elsaltresse
+quedenimolesten.Barcoderejilla.
+● Moderado
+● Conespaciosytemporadasparaelturismo,dandoespacioytemporadasanotenerturismo
+portodo.Darlepreferenciaaturismodelargoplazos,nodepocasdíasconlas
+consecuenciasqueesosupone.
+● Sostenible,evitarelturismodeborratxera,sielpreuapagarésreduirelturismoireduir
+ingresos,ésnecesari,alsanys80i90viviembéaMallorca,arajanooo,sortimperjudicatsla
+majoríadelsmallorquina.Pactemsolucionsjaa.
+● Pocidelamillorqualitat.
+● Sostenibleambientalieconòmicament
+● Moltmésreduïtenvolum,s’hauriemtomarhotels,ielsquequedassin,s’hauriend’abastirde
+producteslocals.
+● Mejorturismo
+● limitatirespectuosambelsrecursosdelesilles
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página42
+
+<!-- página 45 -->
+
+
+## Editorial
+
+FundamentAsociaciónMayo/2023
+Nosotroscomoasociaciónsinánimodelucro,publicamoslosresultadosdelaencuestabajolicencia
+libre(CCBY-SA4.0) conlaesperanzadequeayudeadarunpuntodevistaimportanteyque
+fomentelaparticipaciónciudadanaenelprocesoderedefinirelturismoenMallorcahaciala
+sostenibilidad.
+
+## Gracias:
+
+Damoslasgraciasanuestroscolaboradoresymentores:Dr.AndréSören,RosarioCastillo,Pablo
+Grillo,AlicciaGarcía,MiguelGallego,BerndHagmüller,FrankHoeftyatodoslosquenoshandado
+soporteparaladistribucióndelaencuesta.
+Muchasgraciastambiénatodoslosparticipantesdelaencuestaporpreocuparse,actuarytomarse
+eltiempoparacompartirsuexperiencia.
+FundamentAsociación-EstudiosobrelaexperienciadeloshabitantesconelturismoenMallorca2022/23 Página43
