@@ -1,6 +1,7 @@
 """Genera el único archivo que puede ver un modelo.
 
-Uso:  python codigo/exportar.py [edición]      (después de limpiar.py y anonimizar.py; por defecto 2026)
+Uso:  python codigo/exportar.py [edición] [--sin-textos]
+      (después de limpiar.py y anonimizar.py; por defecto 2026)
 
 Aplica `a_modelos` del codebook:
 - si / anonimizado: la variable sale tal cual (los textos ya vienen anonimizados).
@@ -12,10 +13,13 @@ pueda hacerse con y sin esas filas.
 
 Falla si queda algún texto sin revisar o si una variable `agregado` no tiene transformación.
 Escribe datos/modelos/fundament_<edición>.csv (fuera de git).
+
+Con --sin-textos no sale ninguna variable de texto libre, así que no hace falta haberlas revisado.
+Escribe datos/modelos/fundament_<edición>_sin_textos.csv: el nombre avisa de que faltan.
 """
 import pandas as pd
 
-from fundament import DIR_MODELOS, RAIZ, cargar_codebook, edicion_cli, ruta_intermedio
+from fundament import DIR_MODELOS, RAIZ, argumentos, cargar_codebook, ruta_intermedio
 
 
 def semana(s: pd.Series) -> pd.Series:
@@ -28,19 +32,25 @@ AGREGAR = {"timestamp": semana}
 
 
 def main():
-    cb = cargar_codebook(edicion_cli(__doc__.splitlines()[0]))
+    args = argumentos(__doc__.splitlines()[0], {"sin-textos": "no exporta las variables de texto libre"})
+    cb = cargar_codebook(args.edicion)
     df = pd.read_csv(ruta_intermedio(cb, "anonimizado"))
-    salida_csv = DIR_MODELOS / f"fundament_{cb['edicion']}.csv"
+    sufijo = "_sin_textos" if args.sin_textos else ""
+    salida_csv = DIR_MODELOS / f"fundament_{cb['edicion']}{sufijo}.csv"
     extra = ["id_respuesta", "sensibilidad"] + [f"marca_{r['id']}" for r in cb["reglas_calidad"] if r["accion"] == "sensibilidad"]
+    textos = [v["nombre"] for v in cb["variables"] if v["tipo"] == "texto_libre"] if args.sin_textos else []
 
-    pendientes = df.astype(str).apply(lambda c: c.str.contains("PENDIENTE DE REVISIÓN", regex=False)).sum().sum()
+    pendientes = df.drop(columns=textos, errors="ignore").astype(str) \
+        .apply(lambda c: c.str.contains("PENDIENTE DE REVISIÓN", regex=False)).sum().sum()
     if pendientes:
-        raise SystemExit(f"Hay {pendientes} textos sin revisar. Ejecuta anonimizar.py tras la revisión.")
+        raise SystemExit(f"Hay {pendientes} textos sin revisar. Revísalos y ejecuta anonimizar.py, o usa --sin-textos.")
 
     salida = df[extra].copy()
     resumen = {"si": [], "anonimizado": [], "agregado": [], "no": []}
     for v in cb["variables"]:
         nombre, nivel = v["nombre"], v["a_modelos"]
+        if nombre in textos:
+            nivel = "no"  # --sin-textos
         resumen[nivel].append(nombre)
         if nivel in ("si", "anonimizado"):
             salida[nombre] = df[nombre]

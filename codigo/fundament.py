@@ -27,12 +27,19 @@ def ediciones() -> list:
     return sorted(p.stem for p in DIR_CODEBOOK.glob("[0-9]*.yaml"))
 
 
-def edicion_cli(descripcion: str) -> str:
-    """Lee la edición de la línea de comandos: `python codigo/limpiar.py 2022`."""
+def argumentos(descripcion: str, opciones: dict | None = None) -> argparse.Namespace:
+    """Edición y opciones booleanas de la línea de comandos: `python codigo/exportar.py 2022 --sin-textos`."""
     parser = argparse.ArgumentParser(description=descripcion)
     parser.add_argument("edicion", nargs="?", default=EDICION_POR_DEFECTO, choices=ediciones(),
                         help=f"edición a procesar (por defecto {EDICION_POR_DEFECTO})")
-    return parser.parse_args().edicion
+    for nombre, ayuda in (opciones or {}).items():
+        parser.add_argument(f"--{nombre}", action="store_true", help=ayuda)
+    return parser.parse_args()
+
+
+def edicion_cli(descripcion: str) -> str:
+    """Lee la edición de la línea de comandos: `python codigo/limpiar.py 2022`."""
+    return argumentos(descripcion).edicion
 
 
 def cargar_codebook(edicion: str = EDICION_POR_DEFECTO) -> dict:
