@@ -1,0 +1,189 @@
+# Codebook · Estudio de Convivencia Social · Fundament · edición 2024 (temporada 2024)
+# Fuente de verdad. La leen codigo/fundament.py, codebook.qmd y el harness de modelos.
+# Formato común en codebook/README.md.
+#
+# Fuente: «raw_data_survey_2024.csv», 440 respuestas. El archivo ya viene procesado:
+#   - Sin fecha, duración, IP ni ningún otro paradato. No se pueden detectar pruebas,
+#     respuestas rápidas ni duplicados por dispositivo.
+#   - Etiquetas en castellano, también en preguntas que en el formulario tenían más texto
+#     («Otra - Portuguesa»): la opción «Otra/Otro» y el texto libre van en la misma celda.
+#   - La primera columna es un índice de fila (1–440) sin cabecera.
+# TODO: localizar la exportación original del formulario (con fechas e idioma) y su código.
+#
+# Mismo cuestionario, en lo esencial, que 2026: se usan los mismos nombres y códigos.
+# Faltan lang, vivienda y q_abandono; la escala 0–10 ya existía.
+#
+# Convenciones
+#   columna: nombre de la columna en la fuente (sin espacios al principio o al final).
+#   origen:  texto EXACTO guardado en el CSV -> código. Incluye erratas («Alemána»).
+#   otro:    «Otra - texto» en la misma celda: la variable recibe `codigo` y el texto va a `texto`.
+#   98 = No sabe · 99 = Prefiere no decirlo. Se tratan como no-respuesta en el análisis.
+#   a_modelos: si | no | anonimizado | agregado   (qué puede salir hacia un LLM)
+#   TODO: dato que no se puede deducir del archivo.
+#
+# OJO: todas las cadenas van entre comillas. En YAML 1.1 (PyYAML) un `No` sin comillas se lee como false.
+
+estudio: "Estudio de Convivencia Social"
+organizacion: "Fundament"
+edicion: 2024
+fuente: {archivo: "raw_data_survey_2024.csv", formato: csv}
+trabajo_de_campo: {inicio: "TODO", fin: "TODO"}
+version_codebook: "0.1"
+
+reglas_calidad:
+  # Nunca se borran filas del bruto: las reglas marcan, el análisis decide.
+  # Sin paradatos no hay reglas `prueba`, `rapido` ni de dispositivo/IP repetidos.
+  - {id: menor_edad, condicion: "age == 1", accion: excluir, motivo: "Sin consentimiento válido. Ninguna fila en 2024"}
+  - {id: sin_respuestas, condicion: "ninguna pregunta cerrada respondida", accion: excluir}
+  - {id: incompleta, condicion: "ninguna escala q_* respondida", accion: sensibilidad, motivo: "Abandono antes de las preguntas sobre turismo"}
+
+columnas_ignoradas:
+  - {columna: "Unnamed: 0", motivo: "Índice de fila del archivo (1–440), sin cabecera"}
+
+variables:
+
+  # ── Sociodemográficas ─────────────────────────────────────────
+  - nombre: gender
+    columna: "Eres...?"
+    bloque: sociodemografico
+    pregunta: "Eres...?"
+    tipo: nominal
+    valores: {1: "Mujer", 2: "Hombre", 3: "Otro"}
+    origen: {"Mujer": 1, "Hombre": 2, "Otro": 3}
+    a_modelos: si
+
+  - nombre: nacionalidad
+    columna: "¿Qué nacionalidad tienes?"
+    bloque: sociodemografico
+    pregunta: "¿Qué nacionalidad tienes?"
+    tipo: nominal
+    valores: {1: "Española", 2: "Alemana", 3: "Francesa", 4: "Inglesa", 6: "Otra"}
+    origen: {"Española": 1, "Alemána": 2, "Francésa": 3, "Inglésa": 4}
+    otro: {prefijo: "Otra - ", codigo: 6, texto: nacionalidad_otro}
+    nota: >-
+      Códigos de 2022 y 2023. No aparece «Otra europea»: no se sabe si el formulario la ofrecía.
+      Categorías distintas de 2026 (Española / Europea no española / No europea).
+    a_modelos: si
+
+  - nombre: nacionalidad_otro
+    bloque: sociodemografico
+    pregunta: "Otra, ¿cuál?"
+    tipo: texto_libre
+    depende_de: "nacionalidad == 6"
+    sensible: true
+    cuasi_identificador: true
+    a_modelos: "no"
+    nota: "Separada de `nacionalidad` («Otra - texto»). Una nacionalidad poco frecuente identifica casi por sí sola."
+
+  - nombre: age
+    columna: "¿Cuántos años tienes?"
+    bloque: sociodemografico
+    pregunta: "¿Cuántos años tienes?"
+    tipo: ordinal
+    valores: {1: "Menos de 18", 2: "18–25", 3: "26–35", 4: "36–45", 5: "46–55", 6: "56–65", 7: "66–75", 8: "Más de 75"}
+    origen: {"Menos de 18 años": 1, "18-25 años": 2, "26-35 años": 3, "36-45 años": 4, "46-55 años": 5,
+             "56-65 años": 6, "66-75 años": 7, "Más de 75 años": 8}
+    nota: "Nadie eligió «Menos de 18 años»: no se sabe si el formulario la ofrecía."
+    a_modelos: si
+
+  - nombre: municipio
+    columna: "¿Dónde vives?"
+    bloque: sociodemografico
+    pregunta: "¿Dónde vives?"
+    tipo: nominal
+    valores_validos: ["Alaró", "Alcúdia", "Algaida", "Andratx", "Ariany", "Artà", "Banyalbufar",
+      "Binissalem", "Bunyola", "Búger", "Calvià", "Campanet", "Campos", "Capdepera", "Consell",
+      "Costitx", "Deià", "Escorca", "Esporles", "Estellencs", "Felanitx", "Fornalutx", "Inca",
+      "Lloret de Vistalegre", "Lloseta", "Llubí", "Llucmajor", "Manacor", "Mancor de la Vall",
+      "Maria de la Salut", "Marratxí", "Montuïri", "Muro", "Palma", "Petra", "Pobla, Sa", "Pollença",
+      "Porreres", "Puigpunyent", "Salines, Ses", "Sant Joan", "Sant Llorenç des Cardassar", "Santa Eugènia",
+      "Santa Margalida", "Santa María del Camí", "Santanyí", "Selva", "Sencelles", "Sineu",
+      "Son Servera", "Sóller", "Valldemossa", "Vilafranca de Bonany"]
+    nota: "Los 53 municipios (Porreres aparece una vez). No consta ninguna respuesta de no residentes."
+    cuasi_identificador: true
+    a_modelos: "no"
+    decision: "TODO: decidir si sale a modelos (en 2026 sale sin agrupar; revisar celdas pequeñas en esta edición)."
+
+  - nombre: situacion
+    columna: "¿Cuál de las siguientes situaciones se ajusta más a tu situación actual?"
+    bloque: sociodemografico
+    pregunta: "¿Cuál de las siguientes situaciones se ajusta más a tu situación actual?"
+    tipo: nominal
+    valores: {1: "Trabaja", 2: "En paro", 3: "Estudiante", 4: "Jubilado/a o pensionista"}
+    origen: {"Trabajo": 1, "Parado/a": 2, "Estudiante": 3, "Jubilado/a o pensionista": 4}
+    a_modelos: si
+
+  - nombre: convivencia
+    columna: "¿Cuántas personas conviven contigo, independientemente de su edad o si son parte de tu familia?"
+    bloque: sociodemografico
+    pregunta: "¿Cuántas personas conviven contigo, independientemente de su edad o si son parte de tu familia?"
+    tipo: ordinal
+    valores: {0: "Vive solo/a", 1: "1 persona más", 2: "2 personas más", 3: "3 personas más", 4: "4 personas más", 5: "5 o más"}
+    origen: {"Vivo solo/a": 0, "1 persona más": 1, "2 personas más": 2, "3 personas más": 3, "4 personas más": 4, "5 personas o más": 5}
+    nota: "Código = número de convivientes además de quien responde (5 = 5 o más)."
+    a_modelos: si
+
+  - nombre: tourism_dependencia
+    columna: "¿Tu ocupación depende o ha dependido directo o indirectamente del turismo?"
+    bloque: sociodemografico
+    pregunta: "¿Tu ocupación depende o ha dependido directo o indirectamente del turismo?"
+    tipo: nominal
+    valores: {1: "Sí", 0: "No", 98: "No sabe"}
+    origen: {"Sí": 1, "No": 0, "No lo sé": 98}
+    a_modelos: si
+
+  # ── Escalas 0–10 ──────────────────────────────────────────────
+  # TODO: anclas. El CSV no las recoge y no tenemos el formulario de 2024. No interpretes la
+  # dirección de estas escalas hasta confirmarlas (en 2026: 0 = nada de acuerdo, 10 = totalmente de acuerdo).
+  # A diferencia de 2026, hay respuestas en blanco: probablemente el formulario no las exigía.
+
+  - {nombre: situacion_economica, bloque: sociodemografico, columna: "¿Cómo percibes tu situación económica?", pregunta: "¿Cómo percibes tu situación económica?", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
+  - {nombre: q_vida_diaria,       bloque: escalas, columna: "El turismo influye en mi vida diaria.", pregunta: "El turismo influye en mi vida diaria.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
+  - {nombre: q_medio_ambiente,    bloque: escalas, columna: "El turismo afecta al medio ambiente.", pregunta: "El turismo afecta al medio ambiente.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
+  - {nombre: q_calidad_vida,      bloque: escalas, columna: "El turismo afecta a mi calidad de vida.", pregunta: "El turismo afecta a mi calidad de vida.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
+  - {nombre: q_precios,           bloque: escalas, columna: "El turismo contribuye al aumento de precios en Mallorca.", pregunta: "El turismo contribuye al aumento de precios en Mallorca.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
+  - {nombre: q_transporte,        bloque: escalas, columna: "El turismo afecta a la calidad del transporte público.", pregunta: "El turismo afecta a la calidad del transporte público.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
+  - {nombre: q_espacios,          bloque: escalas, columna: "Los espacios públicos se deterioran a causa del turismo", pregunta: "Los espacios públicos se deterioran a causa del turismo.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
+  - {nombre: q_bienestar,         bloque: escalas, columna: "El turismo influye en mi bienestar y en las interacciones comunitarias.", pregunta: "El turismo influye en mi bienestar y en las interacciones comunitarias.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
+  - {nombre: q_gastos_ocio,       bloque: escalas, columna: "El turismo ha afectado a mis gastos de ocio.", pregunta: "El turismo ha afectado a mis gastos de ocio.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
+  - {nombre: q_futuro_isla,       bloque: escalas, columna: "El turismo es el futuro de la isla.", pregunta: "El turismo es el futuro de la isla.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
+  - {nombre: q_diversificacion,   bloque: escalas, columna: "La economía de Mallorca sería más resistente con una mayor variedad de industrias.", pregunta: "La economía de Mallorca sería más resistente con una mayor variedad de industrias.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
+  - {nombre: q_interacciones,     bloque: escalas, columna: "El turismo favorece interacciones positivas entre residentes y visitantes.", pregunta: "El turismo favorece interacciones positivas entre residentes y visitantes.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
+  - {nombre: q_activismo,         bloque: escalas, columna: "El activismo de los residentes ha tenido un impacto positivo en la gestión del turismo.", pregunta: "El activismo de los residentes ha tenido un impacto positivo en la gestión del turismo.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
+  - {nombre: q_gestion,           bloque: escalas, columna: "La gestión del turismo durante la temporada 2024 ha mejorado la convivencia en Mallorca.", pregunta: "La gestión del turismo durante la temporada 2024 ha mejorado la convivencia en Mallorca.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
+
+  # ── Opinión ───────────────────────────────────────────────────
+  - nombre: manifestacion
+    columna: "¿Has participado en alguna manifestación o actividad relacionada el turismo este año?"
+    bloque: opinion
+    pregunta: "¿Has participado en alguna manifestación o actividad relacionada con el turismo este año?"
+    tipo: binaria
+    valores: {1: "Sí", 0: "No"}
+    origen: {"Sí": 1, "No": 0}
+    a_modelos: si
+
+  - nombre: responsable
+    columna: "¿Quién debería hacerse cargo de los efectos colaterales del turismo de masa den Mallorca?"
+    bloque: opinion
+    pregunta: "¿Quién debería hacerse cargo de los efectos colaterales del turismo de masas en Mallorca?"
+    tipo: nominal
+    valores: {1: "El gobierno", 2: "Quienes traen, alojan y dan servicio a turistas", 3: "Ambos", 4: "Otro"}
+    origen:
+      "El gobierno": 1
+      "Los que traen, alojan y dan servicio a los turistas": 2
+      "Los dos anteriores": 3
+    otro: {prefijo: "Otro - ", codigo: 4, texto: responsable_otro}
+    a_modelos: si
+
+  - nombre: responsable_otro
+    bloque: opinion
+    pregunta: "¿Quién, en tu opinión?"
+    tipo: texto_libre
+    depende_de: "responsable == 4"
+    sensible: true
+    nota: "Separada de `responsable` («Otro - texto»)."
+    a_modelos: anonimizado
+
+  # ── Preguntas abiertas ────────────────────────────────────────
+  - {nombre: cambio,    columna: "Si pudieras cambiar una sola cosa sobre el turismo en Mallorca, ¿cuál sería y por qué?", bloque: abiertas, pregunta: "Si pudieras cambiar una sola cosa sobre el turismo en Mallorca, ¿cuál sería y por qué?", opcional: true, tipo: texto_libre, sensible: true, a_modelos: anonimizado}
+  - {nombre: preservar, columna: "¿Qué aspecto del turismo en Mallorca te gustaría preservar para las futuras generaciones?", bloque: abiertas, pregunta: "¿Qué aspecto del turismo en Mallorca te gustaría preservar para las futuras generaciones?", opcional: true, tipo: texto_libre, sensible: true, a_modelos: anonimizado}
