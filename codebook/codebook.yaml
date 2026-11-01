@@ -17,7 +17,7 @@ organizacion: "Fundament"
 edicion: 2026
 fuente: "fundament_survey_-_2026_-_Respuestas_brutas.csv"
 trabajo_de_campo: {inicio: "2026-06-19", fin: "2026-09-28"}
-version_codebook: "0.1"
+version_codebook: "0.2"
 
 versiones_formulario:
   - {id: v0, desde: "2026-06-19", nota: "Sin `lang`. Edades con guion corto (-). Solo respuestas de prueba."}
