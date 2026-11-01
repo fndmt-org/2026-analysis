@@ -7,7 +7,7 @@ datos/        SHA256SUMS versionado; los brutos NO se versionan
 tareas/       una pregunta de análisis por archivo + esquema de salida
 referencia/   resultados de referencia calculados por el equipo
 runs/         salidas de los modelos + metadatos
-AGENTS.md     instrucciones comunes para todos los modelos
+AGENTS.md     instrucciones comunes para todos los modelos (CLAUDE.md y GEMINI.md solo lo importan)
 ```
 
 ## Puesta en marcha
