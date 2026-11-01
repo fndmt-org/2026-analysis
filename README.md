@@ -2,6 +2,7 @@
 
 ```
 codebook/     codebook.yaml (fuente de verdad) + codebook.qmd (valida y renderiza)
+codigo/       fundament.py (lógica común) + limpiar.py (genera el conjunto limpio)
 datos/        SHA256SUMS versionado; los brutos NO se versionan
 tareas/       una pregunta de análisis por archivo + esquema de salida
 referencia/   resultados de referencia calculados por el equipo
@@ -42,7 +43,22 @@ quarto render codebook.qmd --to gfm  # Markdown para el harness
 
 El render falla si los datos no cuadran con el codebook. Es intencionado.
 
+## Limpieza
+
+```bash
+python codigo/limpiar.py
+```
+
+Genera `datos/intermedios/fundament_2026_limpio.csv` (fuera de git): códigos en vez de etiquetas,
+sin `ip` ni `fingerprint`, con un `id_respuesta` estable y una columna `marca_<regla>` por regla de calidad.
+
+- `excluida`: no entra en ningún análisis (menores y pruebas).
+- `sensibilidad`: el análisis se hace con y sin estas filas (respuestas rápidas y dispositivos repetidos).
+
+El bruto no se modifica nunca. Las reglas están en `codebook.yaml` y su lógica en `codigo/fundament.py`;
+si no coinciden, el script falla.
+
 ## Versiones
 
-- Etiqueta el codebook al congelarlo: `git tag codebook-2026-v1.0`.
+- Etiqueta el codebook al congelarlo: `git tag -a codebook-v0.2 -m "..."` y sube `version_codebook` en el YAML.
 - Cada ejecución en `runs/` debe registrar el commit, el modelo con su versión exacta, la fecha y los parámetros. Sin eso, la comparativa no es reproducible.
