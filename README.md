@@ -2,7 +2,7 @@
 
 ```
 codebook/     codebook.yaml (fuente de verdad) + codebook.qmd (valida y renderiza)
-codigo/       fundament.py (lógica común), limpiar.py y anonimizar.py
+codigo/       fundament.py (lógica común), limpiar.py, anonimizar.py y exportar.py
 datos/        SHA256SUMS versionado; los brutos NO se versionan
 tareas/       una pregunta de análisis por archivo + esquema de salida
 referencia/   resultados de referencia calculados por el equipo
@@ -75,6 +75,18 @@ teléfonos, URL, DNI/NIE y usuarios @. Las respuestas con indicios que no se pue
 Hasta que una fila está revisada, su texto sale como `[PENDIENTE DE REVISIÓN]` en
 `datos/intermedios/fundament_2026_anonimizado.csv`. Las decisiones se conservan entre ejecuciones,
 salvo que el texto original cambie. La revisión la hace una persona: ningún modelo ve los textos sin anonimizar.
+
+## Exportación para modelos
+
+```bash
+python codigo/exportar.py            # después de anonimizar.py
+```
+
+Genera `datos/modelos/fundament_2026.csv` (fuera de git), el único archivo que puede ver un modelo.
+Aplica `a_modelos` del codebook: quita las variables `"no"`, reduce `timestamp` a la semana y solo
+incluye filas no excluidas, con `sensibilidad` y sus marcas. Falla si queda algún texto sin revisar.
+
+Pipeline completo: `python codigo/limpiar.py && python codigo/anonimizar.py && python codigo/exportar.py`
 
 ## Versiones
 
