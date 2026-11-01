@@ -29,7 +29,7 @@ reglas_calidad:
   - {id: menor_edad, condicion: "age == 1", accion: excluir, motivo: "Sin consentimiento válido"}
   - {id: prueba, condicion: "utm_campaign == 'prueba'", accion: excluir, motivo: "Pruebas internas. Incluye todas las respuestas anteriores a v2"}
   - {id: test_explicito, condicion: "utm_source == 'test'", accion: excluir}
-  - {id: rapido, condicion: "duration_seconds < mediana/3", accion: sensibilidad, motivo: "No se excluyen: el análisis se hace con y sin estas filas"}
+  - {id: rapido, condicion: "duration_seconds < mediana/3 (mediana de las filas no excluidas)", accion: sensibilidad, motivo: "No se excluyen: el análisis se hace con y sin estas filas"}
   - {id: dispositivo_repetido, condicion: "fp_flagged == True (fp_seen >= 3)", accion: sensibilidad, motivo: "Puede ser un hogar compartiendo dispositivo. fp_seen == 2 no se marca"}
 
 variables:
