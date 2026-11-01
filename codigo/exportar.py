@@ -1,6 +1,6 @@
 """Genera el único archivo que puede ver un modelo.
 
-Uso:  python codigo/exportar.py      (después de limpiar.py y anonimizar.py)
+Uso:  python codigo/exportar.py [edición]      (después de limpiar.py y anonimizar.py; por defecto 2026)
 
 Aplica `a_modelos` del codebook:
 - si / anonimizado: la variable sale tal cual (los textos ya vienen anonimizados).
@@ -11,15 +11,11 @@ Solo incluye filas no excluidas. Añade `sensibilidad` y sus marcas para que el 
 pueda hacerse con y sin esas filas.
 
 Falla si queda algún texto sin revisar o si una variable `agregado` no tiene transformación.
-Escribe datos/modelos/fundament_2026.csv (fuera de git).
+Escribe datos/modelos/fundament_<edición>.csv (fuera de git).
 """
 import pandas as pd
 
-from fundament import RAIZ, cargar_codebook
-
-ENTRADA = RAIZ / "datos" / "intermedios" / "fundament_2026_anonimizado.csv"
-SALIDA = RAIZ / "datos" / "modelos" / "fundament_2026.csv"
-EXTRA = ["id_respuesta", "sensibilidad", "marca_rapido", "marca_dispositivo_repetido"]
+from fundament import DIR_MODELOS, RAIZ, cargar_codebook, edicion_cli, ruta_intermedio
 
 
 def semana(s: pd.Series) -> pd.Series:
@@ -32,14 +28,16 @@ AGREGAR = {"timestamp": semana}
 
 
 def main():
-    cb = cargar_codebook()
-    df = pd.read_csv(ENTRADA)
+    cb = cargar_codebook(edicion_cli(__doc__.splitlines()[0]))
+    df = pd.read_csv(ruta_intermedio(cb, "anonimizado"))
+    salida_csv = DIR_MODELOS / f"fundament_{cb['edicion']}.csv"
+    extra = ["id_respuesta", "sensibilidad"] + [f"marca_{r['id']}" for r in cb["reglas_calidad"] if r["accion"] == "sensibilidad"]
 
     pendientes = df.astype(str).apply(lambda c: c.str.contains("PENDIENTE DE REVISIÓN", regex=False)).sum().sum()
     if pendientes:
         raise SystemExit(f"Hay {pendientes} textos sin revisar. Ejecuta anonimizar.py tras la revisión.")
 
-    salida = df[EXTRA].copy()
+    salida = df[extra].copy()
     resumen = {"si": [], "anonimizado": [], "agregado": [], "no": []}
     for v in cb["variables"]:
         nombre, nivel = v["nombre"], v["a_modelos"]
@@ -51,13 +49,13 @@ def main():
                 raise SystemExit(f"`{nombre}` es a_modelos: agregado pero no tiene transformación en AGREGAR")
             salida[nombre] = AGREGAR[nombre](df[nombre])
 
-    SALIDA.parent.mkdir(parents=True, exist_ok=True)
-    salida.to_csv(SALIDA, index=False)
+    salida_csv.parent.mkdir(parents=True, exist_ok=True)
+    salida.to_csv(salida_csv, index=False)
 
-    print(f"Codebook {cb['version_codebook']} · {len(salida)} filas · {salida.shape[1]} columnas")
+    print(f"Edición {cb['edicion']} · codebook {cb['version_codebook']} · {len(salida)} filas · {salida.shape[1]} columnas")
     for nivel, nombres in resumen.items():
         print(f"  {nivel:<12} {len(nombres):>2}: {', '.join(nombres)}")
-    print(f"Escrito: {SALIDA.relative_to(RAIZ)}")
+    print(f"Escrito: {salida_csv.relative_to(RAIZ)}")
 
 
 if __name__ == "__main__":

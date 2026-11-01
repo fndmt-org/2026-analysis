@@ -1,0 +1,227 @@
+# Codebook · Estudio de Convivencia Social · Fundament · edición 2022 (temporada 2022)
+# Fuente de verdad. La leen codigo/fundament.py, codebook.qmd y el harness de modelos.
+# Formato común en codebook/README.md.
+#
+# Encuesta de QuestionPro «2022 - Sostenibilidad Turismo en Mallorca», exportada el 2023-11-15.
+# El archivo estaba en referencia/2023/: la carpeta lleva el año de la exportación, no el de la edición.
+#
+# Convenciones
+#   columna: nombre de la columna en la fuente (subpregunta en las matrices y en los «Otro»).
+#   origen:  código guardado por QuestionPro -> código del codebook. Los códigos de QuestionPro
+#            siguen el orden en que se mostraban las opciones; se ha comprobado cruzando los recuentos
+#            con la hoja «Q1 - Q14» del mismo archivo.
+#   Donde las categorías son idénticas a las de 2026 se usan los códigos de 2026 (edad, convivencia,
+#   dependencia del turismo, género). Donde no, cada variable tiene sus propios códigos:
+#   no compares ediciones sin revisar las dos definiciones.
+#   98 = No sabe · 99 = Prefiere no decirlo. Se tratan como no-respuesta en el análisis.
+#   a_modelos: si | no | anonimizado | agregado   (qué puede salir hacia un LLM)
+#   TODO: dato que no se puede deducir del archivo.
+#
+# OJO: todas las cadenas van entre comillas. En YAML 1.1 (PyYAML) un `No` sin comillas se lee como false.
+
+estudio: "Estudio de Convivencia Social"
+organizacion: "Fundament"
+edicion: 2022
+fuente:
+  archivo: "QuestionPro-SR-RawData-10431095-11-15-2023-T140325.537.xlsx"
+  formato: questionpro
+  hoja: "Datos sin procesar"
+  formato_fecha: "%Y-%m-%d %H:%M:%S"
+trabajo_de_campo: {inicio: "2022-10-31", fin: "2023-02-13", nota: "Primera y última respuesta; no hay fechas oficiales."}
+version_codebook: "0.1"
+
+reglas_calidad:
+  # Nunca se borran filas del bruto: las reglas marcan, el análisis decide.
+  - {id: menor_edad, condicion: "age == 1", accion: excluir, motivo: "Sin consentimiento válido. Ninguna fila en 2022"}
+  - {id: no_residente, condicion: "municipio == 'No resido en Mallorca' (código 54)", accion: excluir, motivo: "El estudio es sobre residentes. QuestionPro dejaba seguir respondiendo"}
+  - {id: sin_respuestas, condicion: "ninguna pregunta cerrada respondida", accion: excluir}
+  - {id: incompleta, condicion: "ninguna escala del bloque 2 respondida", accion: sensibilidad, motivo: "Abandono antes de las preguntas sobre turismo"}
+  - {id: rapido, condicion: "duration_seconds < mediana/3, solo en respuestas completas (mediana de las filas no excluidas ni incompletas)", accion: sensibilidad}
+  - {id: ip_repetida, condicion: "la misma ip aparece en 3 o más respuestas", accion: sensibilidad, motivo: "Equivalente aproximado de dispositivo_repetido en 2026. Puede ser un hogar o una oficina"}
+
+columnas_ignoradas:
+  - {columna: "Seq. Número", motivo: "Constante (1) en todas las filas"}
+
+variables:
+
+  # ── Sociodemográficas ─────────────────────────────────────────
+  - nombre: gender
+    columna: "Eres..."
+    bloque: sociodemografico
+    pregunta: "Eres..."
+    tipo: nominal
+    valores: {1: "Mujer", 2: "Hombre", 3: "No se identifica como hombre ni como mujer"}
+    origen: {"1": 1, "2": 2, "3": 3}
+    a_modelos: si
+
+  - nombre: age
+    columna: "¿Cuántos años cumplidos tienes?"
+    bloque: sociodemografico
+    pregunta: "¿Cuántos años cumplidos tienes?"
+    tipo: ordinal
+    valores: {1: "Menos de 18", 2: "18–25", 3: "26–35", 4: "36–45", 5: "46–55", 6: "56–65", 7: "66–75", 8: "Más de 75"}
+    origen: {"1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8}
+    a_modelos: si
+
+  - nombre: nacionalidad
+    columna: "¿Qué nacionalidad tienes?"
+    bloque: sociodemografico
+    pregunta: "¿Qué nacionalidad tienes?"
+    tipo: nominal
+    valores: {1: "Española", 2: "Alemana", 3: "Francesa", 4: "Inglesa", 5: "Otra europea", 6: "Otra"}
+    origen: {"1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6}
+    nota: "Categorías distintas de 2026 (Española / Europea no española / No europea)."
+    a_modelos: si
+
+  - nombre: nacionalidad_otro
+    columna: "Otra, ¿cúal?"
+    bloque: sociodemografico
+    pregunta: "Otra, ¿cuál?"
+    tipo: texto_libre
+    depende_de: "nacionalidad == 6"
+    sensible: true
+    cuasi_identificador: true
+    a_modelos: "no"
+    nota: "14 respuestas. Una nacionalidad poco frecuente identifica casi por sí sola."
+
+  - nombre: municipio
+    columna: "¿Dónde vives?"
+    bloque: sociodemografico
+    pregunta: "¿Dónde vives?"
+    tipo: nominal
+    valores_validos: ["Alaró", "Alcúdia", "Algaida", "Andratx", "Ariany", "Artà", "Banyalbufar",
+      "Binissalem", "Búger", "Bunyola", "Calvià", "Campanet", "Campos", "Capdepera", "Consell",
+      "Costitx", "Deià", "Escorca", "Esporles", "Estellencs", "Felanitx", "Fornalutx", "Inca",
+      "Lloret de Vistalegre", "Lloseta", "Llubí", "Llucmajor", "Manacor", "Mancor de la Vall",
+      "Maria de la Salut", "Marratxí", "Montuïri", "Muro", "Palma", "Petra", "Pobla, Sa", "Pollença",
+      "Porreres", "Puigpunyent", "Salines, Ses", "Sant Joan", "Sant Llorenç des Cardassar",
+      "Santa Eugènia", "Santa Margalida", "Santa María del Camí", "Santanyí", "Selva", "Sencelles",
+      "Sineu", "Sóller", "Son Servera", "Valldemossa", "Vilafranca de Bonany", "No resido en Mallorca"]
+    origen: {"1": "Alaró", "2": "Alcúdia", "3": "Algaida", "4": "Andratx", "5": "Ariany", "6": "Artà",
+      "7": "Banyalbufar", "8": "Binissalem", "9": "Búger", "10": "Bunyola", "11": "Calvià", "12": "Campanet",
+      "13": "Campos", "14": "Capdepera", "15": "Consell", "16": "Costitx", "17": "Deià", "18": "Escorca",
+      "19": "Esporles", "20": "Estellencs", "21": "Felanitx", "22": "Fornalutx", "23": "Inca",
+      "24": "Lloret de Vistalegre", "25": "Lloseta", "26": "Llubí", "27": "Llucmajor", "28": "Manacor",
+      "29": "Mancor de la Vall", "30": "Maria de la Salut", "31": "Marratxí", "32": "Montuïri", "33": "Muro",
+      "34": "Palma", "35": "Petra", "36": "Pobla, Sa", "37": "Pollença", "38": "Porreres", "39": "Puigpunyent",
+      "40": "Salines, Ses", "41": "Sant Joan", "42": "Sant Llorenç des Cardassar", "43": "Santa Eugènia",
+      "44": "Santa Margalida", "45": "Santa María del Camí", "46": "Santanyí", "47": "Selva", "48": "Sencelles",
+      "49": "Sineu", "50": "Sóller", "51": "Son Servera", "52": "Valldemossa", "53": "Vilafranca de Bonany",
+      "54": "No resido en Mallorca"}
+    nota: >-
+      Se guarda el nombre, como en 2026. 53 municipios (Porreres incluido) y «No resido en Mallorca»
+      (código 54; ver regla no_residente). 28 personas no respondieron.
+    cuasi_identificador: true
+    a_modelos: "no"
+    decision: "TODO: decidir si sale a modelos (en 2026 sale sin agrupar; revisar celdas pequeñas en esta edición)."
+
+  - nombre: situacion
+    columna: "¿En cuál de las siguientes situaciones te encuentras actualmente?"
+    bloque: sociodemografico
+    pregunta: "¿En cuál de las siguientes situaciones te encuentras actualmente?"
+    tipo: nominal
+    valores: {1: "Trabaja", 2: "Jubilado/a o pensionista (ha trabajado antes)", 3: "En paro, ha trabajado antes",
+              4: "En paro, busca su primer empleo", 5: "Estudiante", 6: "Trabajo doméstico no remunerado", 7: "Otra situación"}
+    origen: {"1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7}
+    nota: "Categorías distintas de 2026: códigos propios."
+    a_modelos: si
+
+  - nombre: situacion_otro
+    columna: "Otra situación"
+    bloque: sociodemografico
+    pregunta: "Otra situación"
+    tipo: texto_libre
+    depende_de: "situacion == 7"
+    sensible: true
+    a_modelos: anonimizado
+
+  - nombre: tourism_dependencia
+    columna: "¿Tu trabajo está o estaba (en caso de estar desempleado/a o jubilado/a) relacionado directa o indirectamente con el turismo?"
+    bloque: sociodemografico
+    pregunta: "¿Tu trabajo está o estaba (en caso de estar desempleado/a o jubilado/a) relacionado directa o indirectamente con el turismo?"
+    tipo: nominal
+    valores: {1: "Sí", 0: "No"}
+    origen: {"1": 1, "2": 0}
+    nota: "Sin opción «No lo sé», a diferencia de 2026."
+    a_modelos: si
+
+  - nombre: convivencia
+    columna: "¿Cuántas personas conviven contigo, independientemente de su edad o si son parte de tu familia?"
+    bloque: sociodemografico
+    pregunta: "¿Cuántas personas conviven contigo, independientemente de su edad o si son parte de tu familia?"
+    tipo: ordinal
+    valores: {0: "Vive solo/a", 1: "1 persona más", 2: "2 personas más", 3: "3 personas más", 4: "4 personas más", 5: "5 o más"}
+    origen: {"1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5}
+    nota: "Código = número de convivientes además de quien responde (5 = 5 o más), como en 2026."
+    a_modelos: si
+
+  - nombre: tipo_vivienda
+    columna: "¿Cuál de las siguientes definiciones se ajusta más a tu vivienda habitual en Mallorca?"
+    bloque: sociodemografico
+    pregunta: "¿Cuál de las siguientes definiciones se ajusta más a tu vivienda habitual en Mallorca?"
+    tipo: nominal
+    valores: {1: "Vivienda compartida", 2: "Apartamento sin dormitorio", 3: "Apartamento de un dormitorio",
+              4: "Apartamento de dos dormitorios", 5: "Apartamento de tres dormitorios",
+              6: "Apartamento de cuatro o más dormitorios", 7: "Casa sin jardín", 8: "Casa con jardín", 9: "Otro"}
+    origen: {"1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9}
+    nota: "Tipo de vivienda, no régimen de tenencia: no equivale a `vivienda` de 2026."
+    a_modelos: si
+
+  - nombre: tipo_vivienda_otro
+    columna: "Otro"
+    bloque: sociodemografico
+    pregunta: "Otro"
+    tipo: texto_libre
+    depende_de: "tipo_vivienda == 9"
+    sensible: true
+    a_modelos: anonimizado
+
+  - nombre: ingresos
+    columna: "Pensando en los ingresos mensuales de todas las personas que conviven en la misma casa contigo, ¿en cuál de los siguientes tramos ubicarías estos ingresos, aproximadamente?"
+    bloque: sociodemografico
+    pregunta: "Pensando en los ingresos mensuales de todas las personas que conviven en la misma casa contigo, ¿en cuál de los siguientes tramos ubicarías estos ingresos, aproximadamente?"
+    tipo: ordinal
+    valores: {1: "Menos de 1.000 €", 2: "1.001–1.500 €", 3: "1.501–2.000 €", 4: "2.001–2.500 €", 5: "2.501–3.000 €",
+              6: "3.001–3.500 €", 7: "3.501–4.000 €", 8: "4.001–4.500 €", 9: "5.001–5.500 €", 10: "5.501–6.000 €",
+              11: "6.001–6.500 €", 12: "6.501–7.000 €", 13: "7.001 € o más"}
+    origen: {"1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "11": 11, "12": 12, "13": 13}
+    nota: "El formulario no ofrecía el tramo 4.501–5.000 €: los tramos 8 y 9 no son contiguos."
+    sensible: true
+    a_modelos: si
+
+  - nombre: situacion_economica
+    columna: "¿Cómo definirías tu situación económica?"
+    bloque: sociodemografico
+    pregunta: "¿Cómo definirías tu situación económica?"
+    tipo: escala_1_10
+    anclas: {1: "Muy mala", 10: "Muy buena"}
+    nota: "Escala 1–10 (en 2026 es 0–10)."
+    a_modelos: si
+
+  # ── Escalas 1–5 ───────────────────────────────────────────────
+  # Grado de acuerdo: 1 = completamente en desacuerdo, 5 = completamente de acuerdo (texto del encabezado).
+  # Varias afirmaciones están en negativo («no me afecta», «no percibo»): no se invierten aquí.
+
+  - {nombre: q_no_afecta_dia,        bloque: escalas, tipo: escala_1_5, columna: "El turismo no me afecta en mi día a día", pregunta: "El turismo no me afecta en mi día a día", anclas: {1: "Completamente en desacuerdo", 5: "Completamente de acuerdo"}, a_modelos: si, nota: "Redactada en negativo."}
+  - {nombre: q_no_impacto_ambiental, bloque: escalas, tipo: escala_1_5, columna: "No percibo que el turismo en Mallorca tenga un gran impacto ambiental", pregunta: "No percibo que el turismo en Mallorca tenga un gran impacto ambiental", anclas: {1: "Completamente en desacuerdo", 5: "Completamente de acuerdo"}, a_modelos: si, nota: "Redactada en negativo."}
+  - {nombre: q_beneficio_calidad,    bloque: escalas, tipo: escala_1_5, columna: "Cuando incrementa el beneficio del turismo, decrece la calidadde vida de los residentes en Mallorca", pregunta: "Cuando incrementa el beneficio del turismo, decrece la calidad de vida de los residentes en Mallorca", anclas: {1: "Completamente en desacuerdo", 5: "Completamente de acuerdo"}, a_modelos: si}
+  - {nombre: q_productos_caros,      bloque: escalas, tipo: escala_1_5, columna: "A causa del turismo, hay determinados productos más caros en Mallorca", pregunta: "A causa del turismo, hay determinados productos más caros en Mallorca", anclas: {1: "Completamente en desacuerdo", 5: "Completamente de acuerdo"}, a_modelos: si}
+  - {nombre: q_transporte_peor,      bloque: escalas, tipo: escala_1_5, columna: "El transporte público es peor, a causa del incremento del turismo", pregunta: "El transporte público es peor, a causa del incremento del turismo", anclas: {1: "Completamente en desacuerdo", 5: "Completamente de acuerdo"}, a_modelos: si}
+  - {nombre: q_servicios_peor,       bloque: escalas, tipo: escala_1_5, columna: "Los servicios públicos son de peor calidad, a causa del incremento del turismo", pregunta: "Los servicios públicos son de peor calidad, a causa del incremento del turismo", anclas: {1: "Completamente en desacuerdo", 5: "Completamente de acuerdo"}, a_modelos: si}
+  - {nombre: q_mejor_sin_turismo,    bloque: escalas, tipo: escala_1_5, columna: "A veces, pienso que viviría mejor si no hubiese turismo en Mallorca", pregunta: "A veces, pienso que viviría mejor si no hubiese turismo en Mallorca", anclas: {1: "Completamente en desacuerdo", 5: "Completamente de acuerdo"}, a_modelos: si}
+  - {nombre: q_problemas_vivienda,   bloque: escalas, tipo: escala_1_5, columna: "He tenido problemas para acceder a una vivienda, a consecuencia de los pisos turísticos", pregunta: "He tenido problemas para acceder a una vivienda, a consecuencia de los pisos turísticos", anclas: {1: "Completamente en desacuerdo", 5: "Completamente de acuerdo"}, a_modelos: si}
+  - {nombre: q_ocio_incrementado,    bloque: escalas, tipo: escala_1_5, columna: "El dinero que destino a ocio (deporte, cultura, restauración) se ha visto incrementado a consecuencia del turismo", pregunta: "El dinero que destino a ocio (deporte, cultura, restauración) se ha visto incrementado a consecuencia del turismo", anclas: {1: "Completamente en desacuerdo", 5: "Completamente de acuerdo"}, a_modelos: si}
+
+  # ── Preguntas abiertas ────────────────────────────────────────
+  - {nombre: futuro_2030, columna: "¿Cómo crees que será el turismo en Mallorca en 2030?", bloque: abiertas, pregunta: "¿Cómo crees que será el turismo en Mallorca en 2030?", opcional: true, tipo: texto_libre, sensible: true, a_modelos: anonimizado}
+  - {nombre: deseo_2030,  columna: "¿Cómo crees que debería ser el turismo en Mallorca en 2030?", bloque: abiertas, pregunta: "¿Cómo crees que debería ser el turismo en Mallorca en 2030?", opcional: true, tipo: texto_libre, sensible: true, a_modelos: anonimizado}
+
+  # ── Paradatos y técnicas (QuestionPro) ────────────────────────
+  - {nombre: id_questionpro,   columna: "ID de respuesta", bloque: tecnico, tipo: identificador, sensible: true, a_modelos: "no", nota: "Enlaza con la cuenta de QuestionPro. Se quita al limpiar; se usa id_respuesta."}
+  - {nombre: estado,           columna: "Estado de respuesta", bloque: paradatos, tipo: nominal, valores_validos: ["Completed", "Started", "Terminated"], a_modelos: "no", nota: "Todas «Completed» en 2022."}
+  - {nombre: ip,               columna: "Dirección IP", bloque: tecnico, tipo: identificador, sensible: true, a_modelos: "no"}
+  - {nombre: timestamp,        columna: "Marca de tiempo (dd/mm/yyyy)", bloque: paradatos, tipo: fecha, a_modelos: agregado, nota: "Hora local de la cuenta de QuestionPro, sin zona horaria. Truncar a semana antes de enviar."}
+  - {nombre: duplicado_qp,     columna: "Duplicar", bloque: paradatos, tipo: booleano, a_modelos: "no", nota: "Detección de duplicados de QuestionPro. Todas False."}
+  - {nombre: duration_seconds, columna: "Tiempo necesario para completar (segundos)", bloque: paradatos, tipo: numerico, a_modelos: "no", nota: "Solo para reglas de calidad."}
+  - {nombre: pais_ip,          columna: "Código de país", bloque: tecnico, tipo: nominal_libre, sensible: true, a_modelos: "no", nota: "País de la IP, no de residencia."}
+  - {nombre: region_ip,        columna: "Región", bloque: tecnico, tipo: nominal_libre, sensible: true, a_modelos: "no", nota: "Región de la IP."}

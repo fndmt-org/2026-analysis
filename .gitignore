@@ -7,8 +7,8 @@ datos/intermedios/
 *.sav
 
 # Salidas de render
-codebook/codebook.html
-codebook/codebook.md
+codebook/codebook*.html
+codebook/codebook*.md
 codebook/*_files/
 .quarto/
 
