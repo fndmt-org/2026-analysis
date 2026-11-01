@@ -4,12 +4,13 @@ Válidas para cualquier modelo. Sin sintaxis específica de ningún proveedor.
 
 ## Contexto
 
-Estudio de Convivencia Social de Fundament, edición 2026. Encuesta online en castellano y catalán, 429 respuestas recogidas entre junio y septiembre de 2026.
-Objetivo: analizar las percepciones sobre el turismo de las personas residentes en Mallorca que respondieron la encuesta.
+Estudio de Convivencia Social de Fundament. Encuesta online anual sobre las percepciones del turismo de las personas residentes en Mallorca que la respondieron.
+Ediciones (temporada): 2022, 2023, 2024 y 2026. La edición principal es 2026: 429 respuestas en castellano y catalán, recogidas entre junio y septiembre de 2026.
+Si la tarea no indica la edición, es 2026.
 
 ## Fuente de verdad
 
-`codebook/codebook.yaml` define cada variable: pregunta, códigos, filtros y qué puede usarse. No deduzcas el significado de una variable por su nombre. Si una escala tiene las anclas en `TODO`, no interpretes su dirección: dilo explícitamente.
+`codebook/<edición>.yaml` define cada variable de esa edición: pregunta, códigos, filtros y qué puede usarse. No deduzcas el significado de una variable por su nombre, tampoco porque se llame igual en otra edición. Si una escala tiene las anclas en `TODO`, no interpretes su dirección: dilo explícitamente.
 
 ## Reglas de análisis
 
@@ -21,6 +22,7 @@ Objetivo: analizar las percepciones sobre el turismo de las personas residentes 
 6. Los datos son transversales: no atribuyas causas.
 7. No calcules de memoria. Si no puedes ejecutar código sobre los datos, dilo y limítate a interpretar las tablas proporcionadas.
 8. Nunca uses ni solicites variables con `a_modelos: no`.
+9. Las ediciones no son directamente comparables: cambian las preguntas, las escalas (1–5, 1–10, 0–10), las categorías y la difusión. Compara solo si la tarea lo pide, variable a variable, tras comprobar en los dos codebooks que la pregunta y la escala coinciden, y declara las diferencias.
 
 ## Salida
 

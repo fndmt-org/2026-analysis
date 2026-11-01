@@ -1,5 +1,5 @@
 ---
-title: "Codebook · Estudio de Convivencia Social 2026"
+title: "Codebook · Estudio de Convivencia Social"
 subtitle: "Fundament"
 format:
   html:
@@ -14,6 +14,7 @@ jupyter: python3
 
 ```{python}
 #| label: setup
+import os
 import sys
 from pathlib import Path
 import pandas as pd
@@ -21,13 +22,14 @@ import pandas as pd
 # Funciona tanto al renderizar (cwd = codebook/) como celda a celda en el IDE (cwd = raíz).
 raiz = next(p for p in [Path.cwd(), *Path.cwd().parents] if (p / "codigo" / "fundament.py").exists())
 sys.path.insert(0, str(raiz / "codigo"))
-from fundament import armonizar, cargar_brutos, cargar_codebook, marcar_calidad
+from fundament import armonizar, cargar_brutos, cargar_codebook, marcar_calidad, rango_escala, validar
 
-cb = cargar_codebook()
-df = cargar_brutos().drop(columns="id_respuesta")
+# Edición: FUNDAMENT_EDICION=2022 quarto render codebook.qmd --output codebook_2022.html
+edicion = os.environ.get("FUNDAMENT_EDICION", "2026")
+cb = cargar_codebook(edicion)
+df = cargar_brutos(cb).drop(columns="id_respuesta")
 
 VARS = {v["nombre"]: v for v in cb["variables"]}
-VERSIONES = {x["id"]: pd.Timestamp(x["desde"], tz="UTC") for x in cb["versiones_formulario"]}
 
 
 def tabla_md(filas, cabecera):
@@ -47,51 +49,13 @@ Si los datos no cuadran con el codebook, el render se detiene. El documento no p
 ```{python}
 #| label: validacion
 #| output: asis
-errores = []
-
-for col in df.columns:
-    if col not in VARS:
-        errores.append(f"`{col}` está en los datos pero no en el codebook")
-
-for nombre, v in VARS.items():
-    if nombre not in df.columns:
-        errores.append(f"`{nombre}` está en el codebook pero no en los datos")
-        continue
-    s = df[nombre].dropna()
-
-    # 1. Valores no previstos
-    if "origen" in v:
-        fuera = set(s.astype(str)) - set(v["origen"])
-        sin_etiqueta = set(v["origen"].values()) - set(v["valores"])
-        if sin_etiqueta:
-            errores.append(f"`{nombre}`: códigos sin etiqueta {sorted(sin_etiqueta)}")
-    elif "valores_validos" in v:
-        fuera = set(s.astype(str)) - set(v["valores_validos"])
-    elif v["tipo"] == "escala_0_10":
-        fuera = set(s) - set(range(11))
-    else:
-        fuera = set()
-    if fuera:
-        errores.append(f"`{nombre}`: valores no previstos {sorted(map(str, fuera))}")
-
-    # 2. Datos anteriores a la versión que introdujo la pregunta
-    if "desde" in v:
-        antes = (df["timestamp"] < VERSIONES[v["desde"]]) & df[nombre].notna()
-        if antes.any():
-            errores.append(f"`{nombre}`: {antes.sum()} valores anteriores a {v['desde']}")
-
-    # 3. Respuestas filtradas que aparecen donde no toca
-    if "depende_de" in v:
-        cumple = h.eval(v["depende_de"])
-        incoherentes = df[nombre].notna() & ~cumple
-        if incoherentes.any():
-            errores.append(f"`{nombre}`: {incoherentes.sum()} respuestas sin cumplir `{v['depende_de']}`")
-
+# Misma función que usa codigo/limpiar.py.
+errores = validar(df, h, cb)
 if errores:
     raise ValueError("El codebook no cuadra con los datos:\n- " + "\n- ".join(errores))
 
-print(f"Validación correcta: {len(VARS)} variables, {len(df)} filas, "
-      f"del {df.timestamp.min():%d/%m/%Y} al {df.timestamp.max():%d/%m/%Y}.")
+fechas = (f", del {df.timestamp.min():%d/%m/%Y} al {df.timestamp.max():%d/%m/%Y}" if "timestamp" in df else ", sin fechas")
+print(f"Edición {cb['edicion']}. Validación correcta: {len(VARS)} variables, {len(df)} filas{fechas}.")
 ```
 
 ## Variables
@@ -105,7 +69,7 @@ for bloque in dict.fromkeys(v["bloque"] for v in VARS.values()):
     for nombre, v in VARS.items():
         if v["bloque"] != bloque:
             continue
-        n_na = df[nombre].isna().sum()
+        n_na = h[nombre].isna().sum()  # h incluye las variables derivadas («Otra - texto»)
         filas.append([f"`{nombre}`", v["tipo"], v.get("pregunta", "—"),
                       v.get("depende_de", v.get("desde", "—")), n_na, v["a_modelos"]])
     print(tabla_md(filas, ["Variable", "Tipo", "Pregunta", "Filtro / desde", "NA", "A modelos"]))
@@ -119,19 +83,19 @@ for bloque in dict.fromkeys(v["bloque"] for v in VARS.values()):
             print(tabla_md(filas, ["Código", "Etiqueta", "n", "%"]))
 ```
 
-### Distribución de las escalas 0–10
+### Distribución de las escalas
 
 ```{python}
 #| label: escalas
 #| output: asis
 filas = []
 for nombre, v in VARS.items():
-    if v["tipo"] != "escala_0_10":
+    if not v["tipo"].startswith("escala_"):
         continue
-    s = df[nombre].dropna()
-    filas.append([f"`{nombre}`", len(s), f"{s.mean():.1f}", int(s.median()),
-                  f"{(s == 0).mean():.0%}", f"{(s == 10).mean():.0%}"])
-print(tabla_md(filas, ["Variable", "n", "Media", "Mediana", "% en 0", "% en 10"]))
+    s, rango = df[nombre].dropna(), rango_escala(v["tipo"])
+    filas.append([f"`{nombre}`", f"{rango[0]}–{rango[-1]}", len(s), f"{s.mean():.1f}", int(s.median()),
+                  f"{(s == rango[0]).mean():.0%}", f"{(s == rango[-1]).mean():.0%}"])
+print(tabla_md(filas, ["Variable", "Rango", "n", "Media", "Mediana", "% en el mínimo", "% en el máximo"]))
 print("\nUn % alto en un extremo indica efecto techo o suelo: la escala discrimina poco en esa pregunta.")
 ```
 
@@ -148,7 +112,8 @@ reglas = {r["id"]: r for r in cb["reglas_calidad"]}
 filas = [[f"`{k}`", reglas[k]["condicion"], marcas[k].sum(), reglas[k]["accion"]] for k in marcas]
 filas.append(["**Alguna**", "", marcas.any(axis=1).sum(), ""])
 print(tabla_md(filas, ["Regla", "Condición", "Filas", "Acción"]))
-print(f"\nMediana de duración: {mediana:.0f} s (umbral `rapido`: {mediana / 3:.0f} s).")
+if mediana is not None:
+    print(f"\nMediana de duración: {mediana:.0f} s (umbral `rapido`: {mediana / 3:.0f} s).")
 ```
 
 ## Pendientes
@@ -168,9 +133,8 @@ def buscar_todo(nodo, ruta=""):
         yield ruta, nodo
 
 todos = list(buscar_todo(cb))
-print(f"{len(todos)} campos por completar en `codebook.yaml`.\n")
+print(f"{len(todos)} campos por completar en `codebook/{edicion}.yaml`.\n")
 for ruta, texto in todos:
-    if texto != "TODO":
-        print(f"- `{ruta}`: {texto}")
+    print(f"- `{ruta}`" + (f": {texto}" if texto != "TODO" else ""))
 print("\nLos textos de pregunta y las anclas de escala salen del código del formulario.")
 ```

@@ -1,28 +1,25 @@
 """Anonimiza las respuestas abiertas (variables `a_modelos: anonimizado`).
 
-Uso:  python codigo/anonimizar.py      (después de codigo/limpiar.py)
+Uso:  python codigo/anonimizar.py [edición]      (después de codigo/limpiar.py; por defecto 2026)
 
 Dos pasos:
 1. Automático: sustituye correos, teléfonos, URL, DNI/NIE y usuarios @ por una etiqueta.
 2. Revisión humana: las respuestas con indicios que no se pueden tachar a ciegas
-   (direcciones, nombres propios) van a datos/intermedios/revision_textos.csv.
+   (direcciones, nombres propios) van a datos/intermedios/revision_textos_<edición>.csv.
    Para cada fila, edita `texto_final` si hay que tachar algo y pon `revisado` = si.
    Las decisiones se conservan entre ejecuciones.
 
 Mientras una respuesta sospechosa no esté revisada, en la salida aparece como
 [PENDIENTE DE REVISIÓN]: por defecto no sale nada que no haya visto una persona.
 
-Escribe datos/intermedios/fundament_2026_anonimizado.csv (solo filas no excluidas).
+Escribe datos/intermedios/fundament_<edición>_anonimizado.csv (solo filas no excluidas).
 """
 import re
 
 import pandas as pd
 
-from fundament import RAIZ, cargar_codebook
+from fundament import DIR_INTERMEDIOS, RAIZ, cargar_codebook, edicion_cli, ruta_intermedio
 
-ENTRADA = RAIZ / "datos" / "intermedios" / "fundament_2026_limpio.csv"
-REVISION = RAIZ / "datos" / "intermedios" / "revision_textos.csv"
-SALIDA = RAIZ / "datos" / "intermedios" / "fundament_2026_anonimizado.csv"
 PENDIENTE = "[PENDIENTE DE REVISIÓN]"
 
 # Paso 1: patrones que se tachan siempre.
@@ -65,19 +62,21 @@ def indicios(texto: str, lugares: set) -> list:
 
 
 def main():
-    cb = cargar_codebook()
+    cb = cargar_codebook(edicion_cli(__doc__.splitlines()[0]))
+    entrada, salida = ruta_intermedio(cb, "limpio"), ruta_intermedio(cb, "anonimizado")
+    revision = DIR_INTERMEDIOS / f"revision_textos_{cb['edicion']}.csv"
     campos = [v["nombre"] for v in cb["variables"]
               if v.get("tipo") == "texto_libre" and v["a_modelos"] == "anonimizado"]
     municipio = next(v for v in cb["variables"] if v["nombre"] == "municipio")
     lugares = {parte for m in municipio["valores_validos"] for parte in re.split(r"[\s,]+", m) if parte}
 
-    df = pd.read_csv(ENTRADA)
+    df = pd.read_csv(entrada)
     df = df[~df["excluida"]].copy()
 
     # Decisiones ya tomadas en revisiones anteriores.
     previas = {}
-    if REVISION.exists():
-        rev = pd.read_csv(REVISION, dtype=str, keep_default_na=False)
+    if revision.exists():
+        rev = pd.read_csv(revision, dtype=str, keep_default_na=False)
         for fila in rev.itertuples():
             previas[(int(fila.id_respuesta), fila.campo)] = fila
 
@@ -104,13 +103,13 @@ def main():
             pendientes += not revisado
 
     pd.DataFrame(filas_revision, columns=["id_respuesta", "campo", "motivo", "texto_auto", "texto_final", "revisado"]) \
-        .to_csv(REVISION, index=False)
-    df.to_csv(SALIDA, index=False)
+        .to_csv(revision, index=False)
+    df.to_csv(salida, index=False)
 
     print(f"Campos: {', '.join(campos)}")
     print(f"Respuestas con tachado automático: {automaticas}")
     print(f"Respuestas para revisión humana: {len(filas_revision)} ({pendientes} pendientes)")
-    print(f"Escrito: {SALIDA.relative_to(RAIZ)} y {REVISION.relative_to(RAIZ)}")
+    print(f"Escrito: {salida.relative_to(RAIZ)} y {revision.relative_to(RAIZ)}")
     if pendientes:
         print(f"AVISO: {pendientes} respuestas salen como {PENDIENTE} hasta que se revisen.")
 

@@ -1,7 +1,9 @@
 # Codebook · Estudio de Convivencia Social · Fundament · edición 2026
-# Fuente de verdad. La leen el script de validación (codebook.qmd) y el harness de modelos.
+# Fuente de verdad. La leen codigo/fundament.py, codebook.qmd y el harness de modelos.
+# Un archivo por edición: codebook/<edición>.yaml. Formato común en codebook/README.md.
 #
 # Convenciones
+#   columna: nombre de la columna en la fuente, si no coincide con `nombre`.
 #   origen:  texto EXACTO guardado en el CSV -> código. Incluye variantes es/ca y erratas.
 #   valores: código -> etiqueta canónica (en castellano).
 #   98 = No sabe · 99 = Prefiere no decirlo. Se tratan como no-respuesta en el análisis.
@@ -15,7 +17,7 @@
 estudio: "Estudio de Convivencia Social"
 organizacion: "Fundament"
 edicion: 2026
-fuente: "fundament_survey_-_2026_-_Respuestas_brutas.csv"
+fuente: {archivo: "fundament_survey_-_2026_-_Respuestas_brutas.csv", formato: csv}
 trabajo_de_campo: {inicio: "2026-06-19", fin: "2026-09-28"}
 version_codebook: "0.2"
 
@@ -30,7 +32,7 @@ reglas_calidad:
   - {id: prueba, condicion: "utm_campaign == 'prueba'", accion: excluir, motivo: "Pruebas internas. Incluye todas las respuestas anteriores a v2"}
   - {id: test_explicito, condicion: "utm_source == 'test'", accion: excluir}
   - {id: rapido, condicion: "duration_seconds < mediana/3 (mediana de las filas no excluidas)", accion: sensibilidad, motivo: "No se excluyen: el análisis se hace con y sin estas filas"}
-  - {id: dispositivo_repetido, condicion: "fp_flagged == True (fp_seen >= 3)", accion: sensibilidad, motivo: "Puede ser un hogar compartiendo dispositivo. fp_seen == 2 no se marca"}
+  - {id: dispositivo_repetido, condicion: "huella con 3 o más respuestas (max fp_seen >= 3): se marcan todas, también la 1.ª y la 2.ª", accion: sensibilidad, motivo: "Puede ser un hogar compartiendo dispositivo. Huellas con 2 respuestas no se marcan"}
 
 variables:
 
@@ -104,7 +106,12 @@ variables:
       así que nadie pudo elegirlo. Quien pulsaba "No resido en Mallorca" salía de la encuesta
       sin responder: todas las respuestas son de residentes.
     cuasi_identificador: true
-    a_modelos: agregado      # municipios con n < 5 -> 'Otros' o comarca
+    a_modelos: si
+    decision: >-
+      2026-11-01: se envía sin agrupar por su interés analítico, aunque 19 municipios tienen
+      menos de 5 respuestas válidas y 11 solo una. Combinado con edad, género y nacionalidad,
+      104 de 413 personas tienen una combinación única. Ningún análisis debe publicar cruces
+      con n < 5 por municipio.
 
   - nombre: situacion
     bloque: sociodemografico
@@ -235,14 +242,14 @@ variables:
 
   # ── Paradatos y técnicas ──────────────────────────────────────
   - {nombre: timestamp,        bloque: paradatos, tipo: fecha,         a_modelos: agregado, nota: "Truncar a semana antes de enviar."}
-  - {nombre: duration_seconds, bloque: paradatos, tipo: numerico,      desde: v2, a_modelos: no, nota: "Solo para reglas de calidad."}
-  - {nombre: fp_seen,          bloque: paradatos, tipo: numerico,      desde: v2, a_modelos: no}
-  - {nombre: fp_flagged,       bloque: paradatos, tipo: booleano,      desde: v2, a_modelos: no, nota: "True si fp_seen >= 3."}
-  - {nombre: ip,               bloque: tecnico,   tipo: identificador, desde: v2, sensible: true, a_modelos: no}
-  - {nombre: fingerprint,      bloque: tecnico,   tipo: identificador, desde: v2, sensible: true, a_modelos: no}
-  - {nombre: utm_source,       bloque: captacion, tipo: nominal_libre, a_modelos: no}
-  - {nombre: utm_medium,       bloque: captacion, tipo: nominal_libre, a_modelos: no}
-  - {nombre: utm_campaign,     bloque: captacion, tipo: nominal_libre, a_modelos: no, nota: "'prueba' marca respuestas de prueba internas; ver regla `prueba`."}
-  - {nombre: utm_term,         bloque: captacion, tipo: nominal_libre, a_modelos: no, nota: "Vacía en 2026."}
-  - {nombre: utm_content,      bloque: captacion, tipo: nominal_libre, a_modelos: no}
-  - {nombre: gclid,            bloque: captacion, tipo: identificador, a_modelos: no, nota: "Vacía en 2026."}
+  - {nombre: duration_seconds, bloque: paradatos, tipo: numerico,      desde: v2, a_modelos: "no", nota: "Solo para reglas de calidad."}
+  - {nombre: fp_seen,          bloque: paradatos, tipo: numerico,      desde: v2, a_modelos: "no"}
+  - {nombre: fp_flagged,       bloque: paradatos, tipo: booleano,      desde: v2, a_modelos: "no", nota: "True si fp_seen >= 3."}
+  - {nombre: ip,               bloque: tecnico,   tipo: identificador, desde: v2, sensible: true, a_modelos: "no"}
+  - {nombre: fingerprint,      bloque: tecnico,   tipo: identificador, desde: v2, sensible: true, a_modelos: "no"}
+  - {nombre: utm_source,       bloque: captacion, tipo: nominal_libre, a_modelos: "no"}
+  - {nombre: utm_medium,       bloque: captacion, tipo: nominal_libre, a_modelos: "no"}
+  - {nombre: utm_campaign,     bloque: captacion, tipo: nominal_libre, a_modelos: "no", nota: "'prueba' marca respuestas de prueba internas; ver regla `prueba`."}
+  - {nombre: utm_term,         bloque: captacion, tipo: nominal_libre, a_modelos: "no", nota: "Vacía en 2026."}
+  - {nombre: utm_content,      bloque: captacion, tipo: nominal_libre, a_modelos: "no"}
+  - {nombre: gclid,            bloque: captacion, tipo: identificador, a_modelos: "no", nota: "Vacía en 2026."}
