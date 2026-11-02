@@ -9,8 +9,12 @@
 # con el mismo cuestionario:
 #   - A: 238 respuestas (2023-11-04 a 2024-02-29). Son las del xlsx exportado el 2024-02-29
 #     (QuestionPro-SR-RawData-11460708-…), que coincide con el CSV en todas las filas comunes.
-#   - B: 259 respuestas (2023-12-20 a 2024-02-28; ID de respuesta ≥ 120 000 000). Solo están en el CSV.
-#     TODO: localizar la exportación original de B para verificar sus códigos.
+#   - B: 259 respuestas (2023-12-20 a 2024-02-28). Exportación original: datos/brutos/
+#     QuestionPro-SR-RawData-11793018-02-28-2024-T111509.754.xlsx, encuesta «2023 - Sostenibilidad
+#     Turismo en Mallorca - 2». Coincide con el CSV en las 259 filas (por ID de respuesta): todas las
+#     respuestas cerradas, las 13 escalas, la situación económica y la marca de tiempo (al minuto).
+#   El CSV es exactamente A + B. El ID de respuesta no separa las dos encuestas: 96 respuestas de A
+#   también tienen ID ≥ 120 000 000. Lo que las distingue es en qué exportación aparecen.
 # Quien hizo la unión añadió una segunda columna «¿Dónde vives?» con el nombre del municipio.
 # Esa columna traduce el código 54 como «Vilafranca de Bonany», pero el 54 es «No resido en Mallorca»
 # (hoja «Q1 - Q13» del xlsx y edición 2022). Se ignora y se recodifica el código original.
@@ -19,7 +23,8 @@
 #   columna: nombre de la columna en la fuente (subpregunta en las matrices y en los «Otro»).
 #   origen:  código guardado por QuestionPro -> código del codebook. Los códigos de QuestionPro
 #            siguen el orden en que se mostraban las opciones; se ha comprobado cruzando los recuentos
-#            con la hoja «Q1 - Q13» del xlsx (solo cubre la encuesta A).
+#            con la hoja «Q1 - Q13» de las exportaciones de A y de B: cuadran todos los códigos.
+#            Municipio: B lista 53 municipios (códigos 1–53); el 54 no es un municipio.
 #   Donde las categorías son idénticas a las de 2026 se usan los códigos de 2026 (edad, situación,
 #   convivencia, dependencia del turismo, género). Donde no, cada variable tiene sus propios códigos.
 #   98 = No sabe · 99 = Prefiere no decirlo. Se tratan como no-respuesta en el análisis.
