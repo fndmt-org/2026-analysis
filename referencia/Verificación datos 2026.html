@@ -1,0 +1,216 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Verificación datos 2026</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Documento de trabajo para revisión: denso en tablas, sin ornamento */
+:root{
+  --paper:#f4f1ea; --card:#fff; --ink:#0f1c1c; --muted:#5d6e6e; --line:#d4ddd d;
+  --line:#d4dddd; --teal:#1a3a3a; --teal-soft:#eef3f2; --head:#16302f; --warn:#8a6d1f; --warnbg:#f2ead2;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0f1c1c; --card:#15302f; --ink:#eef2f0; --muted:#9ab0b0; --line:#2a4444; --teal:#9ab6b6; --teal-soft:#16302f; --head:#cdd8d8; --warn:#d8c27a; --warnbg:#2a2412; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#0f1c1c; --card:#15302f; --ink:#eef2f0; --muted:#9ab0b0; --line:#2a4444; --teal:#9ab6b6; --teal-soft:#16302f; --head:#cdd8d8; --warn:#d8c27a; --warnbg:#2a2412; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;line-height:1.5;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px));padding-block:0}
+header{padding-block:36px 10px}
+.eyebrow{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:0 0 8px}
+h1{font-size:clamp(1.6rem,4vw,2.3rem);margin:0;font-weight:700;letter-spacing:-.02em}
+.banner{background:var(--warnbg);border:1px solid var(--warn);border-radius:10px;padding:14px 16px;margin:18px 0 6px;font-size:.9rem;line-height:1.5}
+.banner b{color:var(--ink)}
+section{padding-block:26px;border-top:1px solid var(--line)}
+h2{font-size:1.2rem;margin:0 0 4px;font-weight:700}
+h2 .s{font-size:.8rem;font-weight:400;color:var(--muted)}
+.note{font-size:.84rem;color:var(--muted);margin:2px 0 16px;max-width:70ch}
+.tw{overflow-x:auto;margin:0 0 6px}
+table{border-collapse:collapse;width:100%;font-size:.82rem;min-width:420px}
+th,td{text-align:right;padding:6px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child{text-align:left;white-space:normal}
+thead th{color:var(--head);font-weight:700;border-bottom:2px solid var(--line);position:sticky;top:0;background:var(--paper)}
+tbody tr:hover{background:var(--teal-soft)}
+td.num{font-weight:700}
+.sub{color:var(--muted);font-size:.78rem}
+.tag{display:inline-block;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:1px 6px;border-radius:99px;border:1px solid var(--line);color:var(--muted);margin-left:6px}
+ul{margin:0;padding-left:20px}
+li{font-size:.88rem;margin-bottom:7px;line-height:1.45}
+li b{color:var(--ink)}
+.check li{margin-bottom:9px}
+footer{padding-block:24px 48px;border-top:1px solid var(--line);font-size:.78rem;color:var(--muted)}
+footer a{color:var(--teal)}
+code{font-family:ui-monospace,Menlo,monospace;font-size:.82em;background:var(--teal-soft);padding:1px 5px;border-radius:4px}
+.pipe{font-size:.9rem;line-height:1.9}
+.pipe b{font-variant-numeric:tabular-nums}
+</style>
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">fundament · sondeo turismo mallorca 2026</p>
+  <h1>Verificación de datos</h1>
+  <div class="banner"><b>Versión de trabajo para revisión (peer review).</b> Contiene solo los datos y cómo se obtuvieron, con recuentos exactos y la procedencia del histórico, para que puedan verificarse antes de añadir el análisis de contexto y la interpretación de fundament. No incluye conclusiones ni narrativa.</div>
+</header>
+
+<section>
+  <h2>1 · Muestra y limpieza</h2>
+  <p class="note">Fuente 2026: Sheet activo de la encuesta (hoja de respuestas). Limpieza reproducible a partir del export.</p>
+  <div class="pipe" id="pipe"></div>
+  <p class="note" id="repr" style="margin-top:12px"></p>
+</section>
+
+<section>
+  <h2>2 · Ítems Likert <span class="s">escala 0–10 · acuerdo = respuestas ≥6</span></h2>
+  <p class="note">Recuento y porcentaje por tramos. La cifra oficial del estudio es el % de acuerdo (top-box ≥6). Base n por ítem.</p>
+  <div class="tw"><table id="t-likert"></table></div>
+</section>
+
+<section>
+  <h2>3 · Histórico 2022–2026 con procedencia</h2>
+  <p class="note">Valores por año y fuente. Las cifras 2022–2024 provienen del texto del <i>Estudio sobre la sostenibilidad social del turismo en Mallorca 2024</i> (sección indicada), no de imágenes. "Métrica" avisa de qué se midió: afirmación (% de acuerdo) o negación (% de rechazo), que no deben mezclarse. Ítems "nuevos en 2024" solo tienen dos puntos.</p>
+  <div class="tw"><table id="t-hist"></table></div>
+</section>
+
+<section>
+  <h2>4 · Análisis cualitativo</h2>
+  <p class="note" id="cualit-metodo"></p>
+  <h3 class="s" style="margin:14px 0 6px"><b>cambio</b> — "si pudieras cambiar una cosa"</h3>
+  <div class="tw"><table id="t-cambio"></table></div>
+  <p class="sub" id="cambio-ml" style="margin:6px 0 16px"></p>
+  <h3 class="s" style="margin:14px 0 6px"><b>preservar</b> — "qué aspecto preservarías"</h3>
+  <div class="tw"><table id="t-preservar"></table></div>
+  <p class="sub" id="preservar-ml" style="margin-top:6px"></p>
+</section>
+
+<section>
+  <h2>5 · Segmentación (intención de dejar la isla)</h2>
+  <p class="note">Recuentos de celda, no solo porcentajes, para auditar el tamaño de cada grupo.</p>
+  <h3 class="s" style="margin:4px 0 6px">Por tenencia de vivienda</h3>
+  <div class="tw"><table id="t-ten"></table></div>
+  <h3 class="s" style="margin:16px 0 6px">Por edad y tenencia (% que se plantea irse)</h3>
+  <div class="tw"><table id="t-edadten"></table></div>
+</section>
+
+<section>
+  <h2>6 · Demografía y situación socioeconómica</h2>
+  <div id="demo-tables"></div>
+</section>
+
+<section>
+  <h2>7 · Representación territorial <span class="s">34 municipios con respuesta</span></h2>
+  <p class="note">Índice = (% de respuestas del municipio ÷ % de población de Mallorca que vive allí) × 100. Población de referencia: padrón municipal vigente (ref. 2026).</p>
+  <div class="tw"><table id="t-terr"></table></div>
+</section>
+
+<section>
+  <h2>8 · Limitaciones y sesgos conocidos</h2>
+  <ul id="limites"></ul>
+</section>
+
+<section>
+  <h2>9 · Qué pedimos verificar</h2>
+  <ul class="check" id="check"></ul>
+</section>
+
+<footer>
+  <p>fundament (2026). Sondeo sobre la sostenibilidad social del turismo en Mallorca. Datos en crudo: Sheet de la encuesta. Histórico: Estudio 2024 (fundament). Licencia CC BY-SA 4.0.</p>
+</footer>
+</div>
+
+<script>
+const V = {"n":405,"cleaning":{"total_rows":608,"blank":200,"nonblank":408,"prueba_removed":3,"clean":405,"fp_flagged_kept":27},"likert":[{"k":"q_precios","lab":"El turismo contribuye al aumento de precios","n":405,"neg":12,"neu":3,"pos":390,"negp":3.0,"neup":0.7,"posp":96.3,"mean":9.17},{"k":"q_medio_ambiente","lab":"El turismo afecta al medio ambiente","n":405,"neg":7,"neu":5,"pos":393,"negp":1.7,"neup":1.2,"posp":97.0,"mean":9.12},{"k":"q_calidad_vida","lab":"El turismo afecta a mi calidad de vida","n":405,"neg":22,"neu":4,"pos":379,"negp":5.4,"neup":1.0,"posp":93.6,"mean":8.52},{"k":"q_transporte","lab":"El turismo afecta al transporte público","n":405,"neg":19,"neu":12,"pos":374,"negp":4.7,"neup":3.0,"posp":92.3,"mean":8.73},{"k":"q_gastos_ocio","lab":"Mi gasto en ocio subió por el turismo","n":405,"neg":29,"neu":15,"pos":361,"negp":7.2,"neup":3.7,"posp":89.1,"mean":8.27},{"k":"q_vida_diaria","lab":"El turismo influye en mi vida diaria","n":405,"neg":26,"neu":18,"pos":361,"negp":6.4,"neup":4.4,"posp":89.1,"mean":7.99},{"k":"q_bienestar","lab":"El turismo influye en mi bienestar/interacciones","n":405,"neg":34,"neu":14,"pos":357,"negp":8.4,"neup":3.5,"posp":88.1,"mean":8.01},{"k":"q_espacios","lab":"Los espacios públicos se deterioran","n":405,"neg":32,"neu":17,"pos":356,"negp":7.9,"neup":4.2,"posp":87.9,"mean":8.21},{"k":"q_diversificacion","lab":"La economía sería más resistente diversificando","n":405,"neg":18,"neu":8,"pos":379,"negp":4.4,"neup":2.0,"posp":93.6,"mean":8.54},{"k":"q_futuro_isla","lab":"El turismo es el futuro de la isla","n":405,"neg":221,"neu":44,"pos":140,"negp":54.6,"neup":10.9,"posp":34.6,"mean":4.22},{"k":"q_activismo","lab":"El activismo mejoró la gestión","n":405,"neg":220,"neu":48,"pos":137,"negp":54.3,"neup":11.9,"posp":33.8,"mean":4.36},{"k":"q_interacciones","lab":"El turismo favorece interacciones positivas","n":405,"neg":268,"neu":37,"pos":100,"negp":66.2,"neup":9.1,"posp":24.7,"mean":3.46},{"k":"q_gestion","lab":"La gestión mejoró la convivencia","n":405,"neg":350,"neu":26,"pos":29,"negp":86.4,"neup":6.4,"posp":7.2,"mean":2.13}],"seg":{"tenencia":{"Alquiler":{"n":89,"No":18,"pasada":28,"seria":43},"Propiedad":{"n":270,"No":123,"pasada":89,"seria":58},"Otro":{"n":43,"No":11,"pasada":12,"seria":20}},"edadTen":[{"edad":"18–35","ten":"Alquiler","n":35,"si":28,"sip":80},{"edad":"18–35","ten":"Propiedad","n":40,"si":27,"sip":68},{"edad":"36–55","ten":"Alquiler","n":43,"si":34,"sip":79},{"edad":"36–55","ten":"Propiedad","n":113,"si":63,"sip":56},{"edad":"56+","ten":"Alquiler","n":11,"si":9,"sip":82},{"edad":"56+","ten":"Propiedad","n":117,"si":57,"sip":49}]},"repr":{"min":384,"ic":"95%","margen":"±5%","n2024":440,"poblacion_ref":"Padrón municipal vigente de Mallorca (ref. 2026): 960.270 hab. en 53 municipios"},"demo":{"gender":[{"label":"Mujer","n":255,"pct":63.0},{"label":"Hombre","n":147,"pct":36.3},{"label":"Otro","n":3,"pct":0.7}],"age":[{"label":"Menos de 18 años","n":1,"pct":0.2},{"label":"18–25 años","n":30,"pct":7.4},{"label":"26–35 años","n":67,"pct":16.5},{"label":"36–45 años","n":83,"pct":20.5},{"label":"46–55 años","n":90,"pct":22.2},{"label":"56–65 años","n":91,"pct":22.5},{"label":"66–75 años","n":40,"pct":9.9},{"label":"Más de 75 años","n":3,"pct":0.7}],"nacionalidad":[{"label":"Española","n":371,"pct":91.6},{"label":"Europea (no española)","n":25,"pct":6.2},{"label":"Prefiero no decirlo","n":5,"pct":1.2},{"label":"No europea","n":4,"pct":1.0}],"lang":[{"label":"es","n":302,"pct":74.6},{"label":"ca","n":103,"pct":25.4}],"municipio":[{"label":"Palma","n":204,"pct":50.4},{"label":"Valldemossa","n":51,"pct":12.6},{"label":"Santanyí","n":18,"pct":4.4},{"label":"Manacor","n":12,"pct":3.0},{"label":"Llucmajor","n":10,"pct":2.5},{"label":"Binissalem","n":9,"pct":2.2},{"label":"Inca","n":9,"pct":2.2},{"label":"Calvià","n":8,"pct":2.0},{"label":"Consell","n":8,"pct":2.0},{"label":"Marratxí","n":8,"pct":2.0},{"label":"Sant Llorenç des Cardassar","n":8,"pct":2.0},{"label":"Bunyola","n":6,"pct":1.5},{"label":"Esporles","n":6,"pct":1.5},{"label":"Algaida","n":6,"pct":1.5},{"label":"Campos","n":5,"pct":1.2},{"label":"Santa María del Camí","n":5,"pct":1.2},{"label":"Artà","n":5,"pct":1.2},{"label":"Alaró","n":4,"pct":1.0},{"label":"Santa Margalida","n":2,"pct":0.5},{"label":"Alcúdia","n":2,"pct":0.5},{"label":"Pobla, Sa","n":2,"pct":0.5},{"label":"Felanitx","n":2,"pct":0.5},{"label":"Sineu","n":2,"pct":0.5},{"label":"Andratx","n":2,"pct":0.5},{"label":"Sóller","n":2,"pct":0.5},{"label":"Capdepera","n":1,"pct":0.2},{"label":"Selva","n":1,"pct":0.2},{"label":"Puigpunyent","n":1,"pct":0.2},{"label":"Son Servera","n":1,"pct":0.2},{"label":"Muro","n":1,"pct":0.2},{"label":"Lloseta","n":1,"pct":0.2},{"label":"Banyalbufar","n":1,"pct":0.2},{"label":"Pollença","n":1,"pct":0.2},{"label":"Campanet","n":1,"pct":0.2}]},"socio":{"situacion":[{"label":"Trabajo","n":317,"pct":78.3},{"label":"Jubilado/a o pensionista","n":59,"pct":14.6},{"label":"Parado/a","n":17,"pct":4.2},{"label":"Estudiante","n":12,"pct":3.0}],"convivencia":[{"label":"Vivo solo/a","n":51,"pct":12.6},{"label":"1 persona más","n":103,"pct":25.4},{"label":"2 personas más","n":102,"pct":25.2},{"label":"3 personas más","n":72,"pct":17.8},{"label":"4 personas más","n":63,"pct":15.6},{"label":"5 personas o más","n":14,"pct":3.5}],"vivienda":[{"label":"Propiedad","n":273,"pct":67.4},{"label":"Alquiler","n":89,"pct":22.0},{"label":"Otro","n":43,"pct":10.6}],"tourism_dependencia":[{"label":"No","n":248,"pct":61.2},{"label":"Sí","n":140,"pct":34.6},{"label":"No lo sé","n":17,"pct":4.2}],"situacion_economica":{"mean":5.34,"dist":[{"label":"0","n":4,"pct":1.0},{"label":"1","n":10,"pct":2.5},{"label":"2","n":18,"pct":4.4},{"label":"3","n":33,"pct":8.1},{"label":"4","n":51,"pct":12.6},{"label":"5","n":77,"pct":19.0},{"label":"6","n":100,"pct":24.7},{"label":"7","n":74,"pct":18.3},{"label":"8","n":31,"pct":7.7},{"label":"9","n":6,"pct":1.5},{"label":"10","n":1,"pct":0.2}]}},"otras":{"manifestacion":[{"label":"No","n":220,"pct":54.3},{"label":"Sí","n":185,"pct":45.7}],"responsable":[{"label":"Los dos anteriores","n":270,"pct":66.7},{"label":"El gobierno","n":65,"pct":16.0},{"label":"Los que traen, alojan y dan servicio a los turistas","n":62,"pct":15.3},{"label":"Otro","n":8,"pct":2.0}],"q_abandono":[{"label":"No","n":152,"pct":37.8},{"label":"Sí, de pasada","n":129,"pct":32.1},{"label":"Sí, seriamente","n":121,"pct":30.1}]},"cualit":{"metodo":"Clasificación multilabel (una respuesta puede caer en varias categorías) con reglas de palabras clave asistidas y revisión manual sobre la lectura completa. Taxonomía heredada de 2024 para comparabilidad; categoría nueva solo si emerge con peso real.","cambio":{"resp":368,"sust":365,"unclass":15,"clasif_pct":96,"cats":[["Limitar / reducir el volumen",234],["Transformar el modelo",87],["Movilidad (coches, cruceros, vuelos)",84],["Gobernanza y fiscalidad",76],["Regular el alojamiento",64],["Proteger recursos naturales",53],["Vivienda y especulación (NUEVA vs 2024)",41],["Identidad y civismo",29],["Diversificar la economía",2]],"multilabel":{"1":154,"2":119,"3":43,"4":25,"5":6,"6":2,"7":1,"0 (sin clasificar)":15}},"preservar":{"resp":338,"sust":324,"unclass":44,"clasif_pct":86,"cats":[["Tipo de turismo deseable (calidad, familiar, cultural)",127],["Equilibrio ecológico y naturaleza",86],["Autenticidad cultural",82],["Nada que preservar (rechazo)",52],["Prosperidad compartida y economía",31],["Convivencia e intercambio cultural",28],["Soberanía y prioridad residente",24]],"multilabel":{"1":172,"2":71,"3":32,"4":5,"0 (sin clasificar)":44}}},"hist":[{"lab":"Precios","m":"afirmación","y":{"2022":90.16,"2023":96.69,"2024":97.66,"2026":96.3},"src":"Estudio 2024 §4.6"},{"lab":"Medio ambiente","m":"afirmación","y":{"2022":87.95,"2023":95.96,"2024":97.0,"2026":97.1},"src":"§4.4"},{"lab":"Calidad de vida","m":"afirmación","y":{"2022":74.44,"2023":82.98,"2024":93.46,"2026":93.6},"src":"§4.5"},{"lab":"Transporte","m":"afirmación","y":{"2022":50.78,"2023":55.68,"2024":90.14,"2026":92.4},"src":"§4.7"},{"lab":"Vida diaria","m":"afirmación","y":{"2022":72.26,"2023":81.04,"2024":90.19,"2026":89.2},"src":"§4.3"},{"lab":"Gastos de ocio","m":"afirmación","y":{"2022":47.19,"2023":75.12,"2024":93.68,"2026":89.0},"src":"§4.10"},{"lab":"Espacios públicos","m":"afirmación","y":{"2023":81.67,"2024":89.98,"2026":88.0},"src":"§4.8 (2022 n/d)"},{"lab":"Bienestar","m":"afirmación","y":{"2024":94.0,"2026":88.0},"src":"§4.9 (nuevo en 2024)"},{"lab":"Diversificación","m":"afirmación","y":{"2024":98.0,"2026":93.6},"src":"§4.12 (nuevo en 2024)"},{"lab":"Activismo mejoró gestión","m":"afirmación","y":{"2024":62.0,"2026":33.8},"src":"§4.14 (nuevo en 2024)"},{"lab":"Futuro de la isla","m":"negación (rechazo)","y":{"2023":67.0,"2024":57.85,"2026":54.7},"src":"§4.11"},{"lab":"Interacciones positivas","m":"negación (rechazo)","y":{"2024":52.0,"2026":66.4},"src":"§4.13 (nuevo en 2024)"},{"lab":"Gestión mejoró convivencia","m":"negación (rechazo)","y":{"2024":79.34,"2026":86.5},"src":"§4.15 (nuevo en 2024)"}],"terr":{"items":[{"name":"Palma","resp":204,"pop":434786,"idx":111,"poppct":45.28,"resppct":50.37},{"name":"Valldemossa","resp":51,"pop":2038,"idx":5933,"poppct":0.21,"resppct":12.59},{"name":"Santanyí","resp":18,"pop":13067,"idx":327,"poppct":1.36,"resppct":4.44},{"name":"Manacor","resp":12,"pop":49153,"idx":58,"poppct":5.12,"resppct":2.96},{"name":"Llucmajor","resp":10,"pop":40502,"idx":59,"poppct":4.22,"resppct":2.47},{"name":"Binissalem","resp":9,"pop":9350,"idx":228,"poppct":0.97,"resppct":2.22},{"name":"Inca","resp":9,"pop":36262,"idx":59,"poppct":3.78,"resppct":2.22},{"name":"Calvià","resp":8,"pop":53793,"idx":35,"poppct":5.6,"resppct":1.98},{"name":"Consell","resp":8,"pop":4521,"idx":420,"poppct":0.47,"resppct":1.98},{"name":"Marratxí","resp":8,"pop":40422,"idx":47,"poppct":4.21,"resppct":1.98},{"name":"Sant Llorenç des Cardassar","resp":8,"pop":9231,"idx":205,"poppct":0.96,"resppct":1.98},{"name":"Algaida","resp":6,"pop":6357,"idx":224,"poppct":0.66,"resppct":1.48},{"name":"Bunyola","resp":6,"pop":7642,"idx":186,"poppct":0.8,"resppct":1.48},{"name":"Esporles","resp":6,"pop":5264,"idx":270,"poppct":0.55,"resppct":1.48},{"name":"Artà","resp":5,"pop":8629,"idx":137,"poppct":0.9,"resppct":1.23},{"name":"Campos","resp":5,"pop":12485,"idx":95,"poppct":1.3,"resppct":1.23},{"name":"Santa María del Camí","resp":5,"pop":7744,"idx":153,"poppct":0.81,"resppct":1.23},{"name":"Alaró","resp":4,"pop":6121,"idx":155,"poppct":0.64,"resppct":0.99},{"name":"Alcúdia","resp":2,"pop":21907,"idx":22,"poppct":2.28,"resppct":0.49},{"name":"Andratx","resp":2,"pop":12195,"idx":39,"poppct":1.27,"resppct":0.49},{"name":"Felanitx","resp":2,"pop":19146,"idx":25,"poppct":1.99,"resppct":0.49},{"name":"Pobla, Sa","resp":2,"pop":14990,"idx":32,"poppct":1.56,"resppct":0.49},{"name":"Santa Margalida","resp":2,"pop":14056,"idx":34,"poppct":1.46,"resppct":0.49},{"name":"Sineu","resp":2,"pop":4537,"idx":105,"poppct":0.47,"resppct":0.49},{"name":"Sóller","resp":2,"pop":13882,"idx":34,"poppct":1.45,"resppct":0.49},{"name":"Banyalbufar","resp":1,"pop":573,"idx":414,"poppct":0.06,"resppct":0.25},{"name":"Campanet","resp":1,"pop":2859,"idx":83,"poppct":0.3,"resppct":0.25},{"name":"Capdepera","resp":1,"pop":13135,"idx":18,"poppct":1.37,"resppct":0.25},{"name":"Lloseta","resp":1,"pop":6463,"idx":37,"poppct":0.67,"resppct":0.25},{"name":"Muro","resp":1,"pop":8398,"idx":28,"poppct":0.87,"resppct":0.25},{"name":"Pollença","resp":1,"pop":17807,"idx":13,"poppct":1.85,"resppct":0.25},{"name":"Puigpunyent","resp":1,"pop":2049,"idx":116,"poppct":0.21,"resppct":0.25},{"name":"Selva","resp":1,"pop":4326,"idx":55,"poppct":0.45,"resppct":0.25},{"name":"Son Servera","resp":1,"pop":12417,"idx":19,"poppct":1.29,"resppct":0.25}],"totalpop":960270,"nmun_resp":34}};
+const pc = n => n.toLocaleString('es-ES');
+function table(el, head, rows){
+  const thead='<thead><tr>'+head.map(h=>`<th>${h}</th>`).join('')+'</tr></thead>';
+  const tb='<tbody>'+rows.map(r=>'<tr>'+r.map((c,i)=>`<td${i>0&&typeof c==='object'?' class="num"':''}>${typeof c==='object'?c.v:c}</td>`).join('')+'</tr>').join('')+'</tbody>';
+  document.getElementById(el).innerHTML=thead+tb;
+}
+// 1 pipeline
+const c=V.cleaning;
+document.getElementById('pipe').innerHTML=
+  `Filas exportadas: <b>${c.total_rows}</b> → vacías: <b>${c.blank}</b> → con contenido: <b>${c.nonblank}</b> → se retiran <b>${c.prueba_removed}</b> de prueba (<code>utm_campaign=prueba</code>) → <b>muestra limpia n=${c.clean}</b>. Se conservan las <b>${c.fp_flagged_kept}</b> respuestas con <code>fp_flagged=TRUE</code> (dispositivos/redes compartidas, revisadas una a una).`;
+document.getElementById('repr').innerHTML=
+  `Representatividad: mínimo <b>${V.repr.min}</b> respuestas para IC ${V.repr.ic} con margen ${V.repr.margen} (n=405 lo supera). En 2024 n=${V.repr.n2024}. Población de referencia: ${V.repr.poblacion_ref}.`;
+
+// 2 likert
+table('t-likert', ['Ítem','n','Desac. (1–4)','Neutral (5)','Acuerdo (6–10)','Media'],
+  V.likert.map(x=>[x.lab, {v:pc(x.n)}, {v:`${x.neg} · ${x.negp}%`}, {v:`${x.neu} · ${x.neup}%`}, {v:`${x.pos} · <b>${x.posp}%</b>`}, {v:x.mean.toFixed(2)}]));
+
+// 3 histórico
+table('t-hist', ['Ítem','Métrica','2022','2023','2024','2026','Fuente'],
+  V.hist.map(x=>[x.lab, x.m, {v:x.y['2022']!=null?x.y['2022']:'—'}, {v:x.y['2023']!=null?x.y['2023']:'—'}, {v:x.y['2024']!=null?x.y['2024']:'—'}, {v:`<b>${x.y['2026']}</b>`}, x.src]));
+
+// 4 cualitativo
+document.getElementById('cualit-metodo').textContent=V.cualit.metodo;
+function qtable(el, q){
+  table(el, ['Categoría','Respuestas','% sobre sust.'],
+    q.cats.map(([lab,n])=>[lab, {v:pc(n)}, {v:(100*n/q.sust).toFixed(1)+'%'}]));
+}
+qtable('t-cambio', V.cualit.cambio);
+document.getElementById('cambio-ml').innerHTML=
+  `cambio: ${V.cualit.cambio.resp} respondieron · ${V.cualit.cambio.sust} con contenido · ${V.cualit.cambio.clasif_pct}% clasificado. Categorías por respuesta → `+
+  Object.entries(V.cualit.cambio.multilabel).map(([k,v])=>`${k}: ${v}`).join(' · ');
+qtable('t-preservar', V.cualit.preservar);
+document.getElementById('preservar-ml').innerHTML=
+  `preservar: ${V.cualit.preservar.resp} respondieron · ${V.cualit.preservar.sust} con contenido · ${V.cualit.preservar.clasif_pct}% clasificado. Categorías por respuesta → `+
+  Object.entries(V.cualit.preservar.multilabel).map(([k,v])=>`${k}: ${v}`).join(' · ');
+
+// 5 segmentación
+const t=V.seg.tenencia;
+table('t-ten', ['Tenencia','n','No','Sí, de pasada','Sí, en serio','Sí (total)'],
+  ['Alquiler','Propiedad','Otro'].map(k=>{const r=t[k];const si=r.pasada+r.seria;
+    return [k,{v:pc(r.n)},{v:`${r.No} · ${Math.round(100*r.No/r.n)}%`},{v:`${r.pasada} · ${Math.round(100*r.pasada/r.n)}%`},{v:`${r.seria} · ${Math.round(100*r.seria/r.n)}%`},{v:`<b>${si} · ${Math.round(100*si/r.n)}%</b>`}]}));
+table('t-edadten', ['Edad','Tenencia','n','Se plantea irse (Sí)'],
+  V.seg.edadTen.map(x=>[x.edad, x.ten, {v:pc(x.n)}, {v:`<b>${x.sip}%</b>`}]));
+
+// 6 demografía/socio
+function catTable(title, arr){
+  const rows=arr.map(i=>[i.label,{v:pc(i.n)},{v:i.pct+'%'}]);
+  return `<h3 class="s" style="margin:14px 0 6px">${title}</h3><div class="tw"><table><thead><tr><th>Categoría</th><th>n</th><th>%</th></tr></thead><tbody>`+
+    rows.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1].v}</td><td class="num">${r[2].v}</td></tr>`).join('')+`</tbody></table></div>`;
+}
+let dh='';
+dh+=catTable('Género', V.demo.gender);
+dh+=catTable('Edad', V.demo.age);
+dh+=catTable('Nacionalidad', V.demo.nacionalidad);
+dh+=catTable('Idioma de respuesta', V.demo.lang);
+dh+=catTable('Situación laboral', V.socio.situacion);
+dh+=catTable('Vivienda', V.socio.vivienda);
+dh+=catTable('Dependencia del turismo', V.socio.tourism_dependencia);
+dh+=catTable('Convivencia en el hogar', V.socio.convivencia);
+dh+=catTable('Participó en movilizaciones', V.otras.manifestacion);
+dh+=catTable('Responsable de los efectos', V.otras.responsable);
+dh+=catTable('Intención de dejar la isla', V.otras.q_abandono);
+document.getElementById('demo-tables').innerHTML=dh;
+
+// 7 territorial
+table('t-terr', ['Municipio','Respuestas','% respuestas','% población','Índice'],
+  V.terr.items.map(x=>[x.name, {v:pc(x.resp)}, {v:x.resppct+'%'}, {v:x.poppct+'%'}, {v:`<b>${x.idx}</b>`}]));
+
+// 8 límites
+const limites=[
+ '<b>Sesgo territorial:</b> Palma concentra ~50% de la muestra y Valldemossa está muy sobrerrepresentada (índice >5000). 19 municipios no tienen ninguna respuesta. La difusión no fue proporcional a la población.',
+ '<b>Sesgo de composición:</b> 63% mujeres, 75% respondieron en español, 92% nacionalidad española. Autoselección (encuesta online abierta), no muestreo aleatorio.',
+ '<b>Histórico — métrica mixta:</b> en 2024 algunos ítems se publicaron como % de acuerdo (afirmación) y otros como % de rechazo (negación). La comparación se hace dentro de la misma métrica; no se convierte entre ambas.',
+ '<b>Ítems nuevos en 2024:</b> bienestar, diversificación, activismo, interacciones y gestión solo tienen 2024 y 2026 (sin 2022–2023).',
+ '<b>Salto temporal:</b> entre 2024 y 2026 hay dos años y no hubo edición 2025; no se interpola el hueco.',
+ '<b>Clasificación cualitativa:</b> primera pasada por palabras clave + revisión manual; es interpretativa y debe validarse. 4% (cambio) y 14% (preservar) quedan sin clasificar.',
+ '<b>Decisiones de codificación a validar:</b> "Vivienda y especulación" se añadió como categoría nueva en cambio; "precios duales / prioridad residente" se plegó en gobernanza.',
+ '<b>Antifraude:</b> las 27 respuestas con huella repetida (fp_flagged) se conservan: una huella repetida suele indicar dispositivo o red compartida (encuestas hechas en familia o entre amistades dentro del mismo contexto), no fraude. Se mantienen cuando las respuestas son coherentes y el tiempo de cumplimentación (duration_seconds) es plausible.',
+];
+document.getElementById('limites').innerHTML=limites.map(l=>`<li>${l}</li>`).join('');
+
+// 9 checklist
+const check=[
+ 'Reproducir la limpieza desde el export y confirmar n=405 (y si las 3 de prueba deben excluirse).',
+ 'Recalcular el % de acuerdo (≥6) de cada ítem Likert contra esta tabla.',
+ 'Confirmar la polaridad de cada ítem contra el texto del cuestionario 2026.',
+ 'Verificar cada cifra 2022–2024 contra la sección citada del Estudio 2024.',
+ 'Revisar una muestra del etiquetado cualitativo (cambio/preservar) y las categorías nuevas.',
+ 'Comprobar los recuentos de celda de los cruces de segmentación.',
+ 'Validar la población de referencia y el índice territorial.',
+];
+document.getElementById('check').innerHTML=check.map(l=>`<li>${l}</li>`).join('');
+</script>
+</body></html>

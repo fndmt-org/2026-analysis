@@ -27,12 +27,19 @@ def ediciones() -> list:
     return sorted(p.stem for p in DIR_CODEBOOK.glob("[0-9]*.yaml"))
 
 
-def edicion_cli(descripcion: str) -> str:
-    """Lee la edición de la línea de comandos: `python codigo/limpiar.py 2022`."""
+def argumentos(descripcion: str, opciones: dict | None = None) -> argparse.Namespace:
+    """Edición y opciones booleanas de la línea de comandos: `python codigo/exportar.py 2022 --sin-textos`."""
     parser = argparse.ArgumentParser(description=descripcion)
     parser.add_argument("edicion", nargs="?", default=EDICION_POR_DEFECTO, choices=ediciones(),
                         help=f"edición a procesar (por defecto {EDICION_POR_DEFECTO})")
-    return parser.parse_args().edicion
+    for nombre, ayuda in (opciones or {}).items():
+        parser.add_argument(f"--{nombre}", action="store_true", help=ayuda)
+    return parser.parse_args()
+
+
+def edicion_cli(descripcion: str) -> str:
+    """Lee la edición de la línea de comandos: `python codigo/limpiar.py 2022`."""
+    return argumentos(descripcion).edicion
 
 
 def cargar_codebook(edicion: str = EDICION_POR_DEFECTO) -> dict:
@@ -77,9 +84,21 @@ def _leer_questionpro(ruta: Path, hoja: str | None) -> pd.DataFrame:
     return df.dropna(axis=1, how="all")
 
 
+def _leer_xlsx(ruta: Path, hoja: str, fila_cabecera: int) -> pd.DataFrame:
+    """Hoja de Excel con una sola fila de cabecera, que puede no ser la primera (1 = primera fila).
+
+    Todo se lee como texto y los espacios de los nombres se normalizan (incluidos saltos de línea).
+    Se descartan las columnas vacías.
+    """
+    df = pd.read_excel(ruta, sheet_name=hoja, header=fila_cabecera - 1, dtype=str)
+    df.columns = [" ".join(str(c).split()) for c in df.columns]
+    return df.dropna(axis=1, how="all")
+
+
 LECTORES = {
     "csv": lambda ruta, fuente: _leer_csv(ruta),
     "questionpro": lambda ruta, fuente: _leer_questionpro(ruta, fuente.get("hoja")),
+    "xlsx": lambda ruta, fuente: _leer_xlsx(ruta, fuente["hoja"], fuente.get("fila_cabecera", 1)),
 }
 
 
@@ -103,6 +122,10 @@ def cargar_brutos(cb: dict) -> pd.DataFrame:
         elif v["tipo"] == "fecha":
             formato = fuente.get("formato_fecha")
             df[nombre] = pd.to_datetime(df[nombre], format=formato) if formato else pd.to_datetime(df[nombre], utc=True)
+    if "duracion" in fuente:
+        # La fuente da inicio y fin, no la duración: se calcula para la regla `rapido`.
+        d = fuente["duracion"]
+        df["duration_seconds"] = (df[d["fin"]] - df[d["inicio"]]).dt.total_seconds()
     df.insert(0, "id_respuesta", range(1, len(df) + 1))
     return df
 

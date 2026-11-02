@@ -7,7 +7,7 @@ no el año en que se exportaron los datos (la encuesta de la temporada 2022 se c
 |---|---|---|---|
 | 2022 | `QuestionPro-SR-RawData-10431095-…xlsx` | QuestionPro | 454 |
 | 2023 | `RawData 20240310 MERGED  - RAW Geo.csv` | QuestionPro (dos encuestas unidas) | 497 |
-| 2024 | `raw_data_survey_2024.csv` | Desconocida (ya procesado, sin paradatos) | 440 |
+| 2024 | `Tu experiencia con el turismo en Mallorca 2024 importa.xlsx` | Exportación original (hoja «Responses») | 440 |
 | 2026 | `fundament_survey_-_2026_-_Respuestas_brutas.csv` | Formulario propio | 429 |
 
 Los detalles y problemas de cada fuente están en la cabecera de su YAML.
@@ -18,9 +18,11 @@ Los detalles y problemas de cada fuente están en la cabecera de su YAML.
 edicion: 2022
 fuente:
   archivo: "…"                 # en datos/brutos/, con su huella en datos/SHA256SUMS
-  formato: questionpro         # csv | questionpro
+  formato: questionpro         # csv | questionpro | xlsx
   hoja: "Datos sin procesar"   # solo xlsx
+  fila_cabecera: 2             # solo formato xlsx; por defecto 1
   formato_fecha: "%d/%m/%Y %H:%M"   # opcional; sin él, la fecha se lee como ISO en UTC
+  duracion: {inicio: timestamp, fin: timestamp_fin}   # opcional: calcula duration_seconds
 reglas_calidad: [...]          # ver abajo
 columnas_ignoradas:            # columnas de la fuente que no son variables, con el motivo
   - {columna: "Seq. Número", motivo: "Constante"}
@@ -34,6 +36,8 @@ Formatos de fuente:
 - `questionpro`: exportación «Datos sin procesar». Dos filas de cabecera; el nombre de cada columna es la
   subpregunta (matrices, «Otro») o, si no hay, la pregunta, con los espacios normalizados.
   Se descartan las columnas vacías. Una cabecera repetida recibe el sufijo `.1`.
+- `xlsx`: una hoja con una fila de cabecera (`fila_cabecera`). Se normalizan los espacios de los nombres
+  y se descartan las columnas vacías.
 
 ## Variables
 
@@ -68,7 +72,7 @@ La lógica está en `codigo/fundament.py` (`REGLAS`); la `condicion` del YAML la
 | `incompleta` | Ninguna variable del bloque `escalas` respondida | — |
 | `rapido` | Duración < mediana/3, en respuestas completas; mediana de las válidas y completas | `duration_seconds` |
 | `prueba`, `test_explicito` | `utm_campaign == "prueba"`, `utm_source == "test"` | UTM |
-| `dispositivo_repetido` | `fp_flagged == True` | fingerprint |
+| `dispositivo_repetido` | Todas las respuestas de una huella con `fp_seen` máximo ≥ 3 | fingerprint, `fp_seen` |
 | `ip_repetida` | La misma IP en 3 o más respuestas | `ip` |
 
 Una regla nueva se añade en `REGLAS` y en esta tabla.

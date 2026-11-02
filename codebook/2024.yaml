@@ -2,13 +2,16 @@
 # Fuente de verdad. La leen codigo/fundament.py, codebook.qmd y el harness de modelos.
 # Formato común en codebook/README.md.
 #
-# Fuente: «raw_data_survey_2024.csv», 440 respuestas. El archivo ya viene procesado:
-#   - Sin fecha, duración, IP ni ningún otro paradato. No se pueden detectar pruebas,
-#     respuestas rápidas ni duplicados por dispositivo.
+# Fuente: «Tu experiencia con el turismo en Mallorca 2024 importa.xlsx», hoja «Responses», 440 respuestas.
+# Exportación original de la plataforma, localizada el 2026-11-02 en el Drive de la asociación.
+#   - Cabecera en la fila 2; la columna A es un índice de fila (1–440) sin cabecera.
+#     País y localización existen pero están vacíos.
+#   - Trae inicio y fin de cada respuesta (de ahí la duración) e IP. No trae idioma.
 #   - Etiquetas en castellano, también en preguntas que en el formulario tenían más texto
 #     («Otra - Portuguesa»): la opción «Otra/Otro» y el texto libre van en la misma celda.
-#   - La primera columna es un índice de fila (1–440) sin cabecera.
-# TODO: localizar la exportación original del formulario (con fechas e idioma) y su código.
+# Hasta el 2026-11-02 la fuente era «raw_data_survey_2024.csv»: las mismas 440 respuestas, en el mismo
+# orden y con los mismos valores (cerradas y abiertas), sin paradatos. «Resultados para analisar.xlsx»
+# es idéntico a ese CSV.
 #
 # Mismo cuestionario, en lo esencial, que 2026: se usan los mismos nombres y códigos.
 # Faltan lang, vivienda y q_abandono; la escala 0–10 ya existía.
@@ -26,19 +29,28 @@
 estudio: "Estudio de Convivencia Social"
 organizacion: "Fundament"
 edicion: 2024
-fuente: {archivo: "raw_data_survey_2024.csv", formato: csv}
-trabajo_de_campo: {inicio: "TODO", fin: "TODO"}
+fuente:
+  archivo: "Tu experiencia con el turismo en Mallorca 2024 importa.xlsx"
+  formato: xlsx
+  hoja: "Responses"
+  fila_cabecera: 2
+  formato_fecha: "%b %d, %Y %I:%M:%S %p"      # «Nov 12, 2024 11:49:29 AM»
+  duracion: {inicio: timestamp, fin: timestamp_fin}
+trabajo_de_campo: {inicio: "2024-11-12", fin: "2025-02-16"}   # de la exportación original; zona horaria sin indicar
 version_codebook: "0.1"
 
 reglas_calidad:
   # Nunca se borran filas del bruto: las reglas marcan, el análisis decide.
-  # Sin paradatos no hay reglas `prueba`, `rapido` ni de dispositivo/IP repetidos.
+  # Sin UTM ni huella no hay reglas `prueba` ni `dispositivo_repetido`.
   - {id: menor_edad, condicion: "age == 1", accion: excluir, motivo: "Sin consentimiento válido. Ninguna fila en 2024"}
   - {id: sin_respuestas, condicion: "ninguna pregunta cerrada respondida", accion: excluir}
   - {id: incompleta, condicion: "ninguna escala q_* respondida", accion: sensibilidad, motivo: "Abandono antes de las preguntas sobre turismo"}
+  - {id: rapido, condicion: "duration_seconds < mediana/3 (mediana de las válidas y completas)", accion: sensibilidad}
+  - {id: ip_repetida, condicion: "la misma IP en 3 o más respuestas", accion: sensibilidad, motivo: "Puede ser una red compartida (trabajo, wifi pública)"}
 
 columnas_ignoradas:
-  - {columna: "Unnamed: 0", motivo: "Índice de fila del archivo (1–440), sin cabecera"}
+  - {columna: "Unnamed: 0", motivo: "Índice de fila (1–440), sin cabecera"}
+  - {columna: "Nombre del recopilador", motivo: "Constante («Govt And Political»): no distingue canales"}
 
 variables:
 
@@ -101,8 +113,11 @@ variables:
       "Son Servera", "Sóller", "Valldemossa", "Vilafranca de Bonany"]
     nota: "Los 53 municipios (Porreres aparece una vez). No consta ninguna respuesta de no residentes."
     cuasi_identificador: true
-    a_modelos: "no"
-    decision: "TODO: decidir si sale a modelos (en 2026 sale sin agrupar; revisar celdas pequeñas en esta edición)."
+    a_modelos: si
+    decision: >-
+      2026-11-02: se envía sin agrupar, como en 2026, por su interés analítico. 23 municipios tienen
+      menos de 5 respuestas válidas y 8 solo una; 114 de 440 personas tienen una combinación única
+      de municipio × edad × género × nacionalidad. No publicar cruces por municipio con n < 5.
 
   - nombre: situacion
     columna: "¿Cuál de las siguientes situaciones se ajusta más a tu situación actual?"
@@ -133,24 +148,27 @@ variables:
     a_modelos: si
 
   # ── Escalas 0–10 ──────────────────────────────────────────────
-  # TODO: anclas. El CSV no las recoge y no tenemos el formulario de 2024. No interpretes la
-  # dirección de estas escalas hasta confirmarlas (en 2026: 0 = nada de acuerdo, 10 = totalmente de acuerdo).
+  # Anclas tomadas del informe publicado (resultados/2024/…-2024-ES-1-0.md); no tenemos el formulario.
+  # Afirmaciones q_*: «una escala que iba desde un completo desacuerdo hasta un acuerdo total» (p. 19) y
+  # «6 a 10: se interpreta como acuerdo» (p. 10). Mismo sentido que 2026.
+  # situacion_economica: «situación económica muy buena (10)» (p. 17). El 0 no aparece en el informe:
+  # «Muy mala» es un supuesto, por analogía con 2026.
   # A diferencia de 2026, hay respuestas en blanco: probablemente el formulario no las exigía.
 
-  - {nombre: situacion_economica, bloque: sociodemografico, columna: "¿Cómo percibes tu situación económica?", pregunta: "¿Cómo percibes tu situación económica?", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
-  - {nombre: q_vida_diaria,       bloque: escalas, columna: "El turismo influye en mi vida diaria.", pregunta: "El turismo influye en mi vida diaria.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
-  - {nombre: q_medio_ambiente,    bloque: escalas, columna: "El turismo afecta al medio ambiente.", pregunta: "El turismo afecta al medio ambiente.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
-  - {nombre: q_calidad_vida,      bloque: escalas, columna: "El turismo afecta a mi calidad de vida.", pregunta: "El turismo afecta a mi calidad de vida.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
-  - {nombre: q_precios,           bloque: escalas, columna: "El turismo contribuye al aumento de precios en Mallorca.", pregunta: "El turismo contribuye al aumento de precios en Mallorca.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
-  - {nombre: q_transporte,        bloque: escalas, columna: "El turismo afecta a la calidad del transporte público.", pregunta: "El turismo afecta a la calidad del transporte público.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
-  - {nombre: q_espacios,          bloque: escalas, columna: "Los espacios públicos se deterioran a causa del turismo", pregunta: "Los espacios públicos se deterioran a causa del turismo.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
-  - {nombre: q_bienestar,         bloque: escalas, columna: "El turismo influye en mi bienestar y en las interacciones comunitarias.", pregunta: "El turismo influye en mi bienestar y en las interacciones comunitarias.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
-  - {nombre: q_gastos_ocio,       bloque: escalas, columna: "El turismo ha afectado a mis gastos de ocio.", pregunta: "El turismo ha afectado a mis gastos de ocio.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
-  - {nombre: q_futuro_isla,       bloque: escalas, columna: "El turismo es el futuro de la isla.", pregunta: "El turismo es el futuro de la isla.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
-  - {nombre: q_diversificacion,   bloque: escalas, columna: "La economía de Mallorca sería más resistente con una mayor variedad de industrias.", pregunta: "La economía de Mallorca sería más resistente con una mayor variedad de industrias.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
-  - {nombre: q_interacciones,     bloque: escalas, columna: "El turismo favorece interacciones positivas entre residentes y visitantes.", pregunta: "El turismo favorece interacciones positivas entre residentes y visitantes.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
-  - {nombre: q_activismo,         bloque: escalas, columna: "El activismo de los residentes ha tenido un impacto positivo en la gestión del turismo.", pregunta: "El activismo de los residentes ha tenido un impacto positivo en la gestión del turismo.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
-  - {nombre: q_gestion,           bloque: escalas, columna: "La gestión del turismo durante la temporada 2024 ha mejorado la convivencia en Mallorca.", pregunta: "La gestión del turismo durante la temporada 2024 ha mejorado la convivencia en Mallorca.", tipo: escala_0_10, anclas: "TODO", a_modelos: si}
+  - {nombre: situacion_economica, bloque: sociodemografico, columna: "¿Cómo percibes tu situación económica?", pregunta: "¿Cómo percibes tu situación económica?", tipo: escala_0_10, anclas: {0: "Muy mala", 10: "Muy buena"}, a_modelos: si, nota: "Ancla 10: informe p. 17. Ancla 0: supuesto sin fuente (igual que 2026)."}
+  - {nombre: q_vida_diaria,       bloque: escalas, columna: "El turismo influye en mi vida diaria.", pregunta: "El turismo influye en mi vida diaria.", tipo: escala_0_10, anclas: {0: "Completo desacuerdo", 10: "Acuerdo total"}, a_modelos: si}
+  - {nombre: q_medio_ambiente,    bloque: escalas, columna: "El turismo afecta al medio ambiente.", pregunta: "El turismo afecta al medio ambiente.", tipo: escala_0_10, anclas: {0: "Completo desacuerdo", 10: "Acuerdo total"}, a_modelos: si}
+  - {nombre: q_calidad_vida,      bloque: escalas, columna: "El turismo afecta a mi calidad de vida.", pregunta: "El turismo afecta a mi calidad de vida.", tipo: escala_0_10, anclas: {0: "Completo desacuerdo", 10: "Acuerdo total"}, a_modelos: si}
+  - {nombre: q_precios,           bloque: escalas, columna: "El turismo contribuye al aumento de precios en Mallorca.", pregunta: "El turismo contribuye al aumento de precios en Mallorca.", tipo: escala_0_10, anclas: {0: "Completo desacuerdo", 10: "Acuerdo total"}, a_modelos: si}
+  - {nombre: q_transporte,        bloque: escalas, columna: "El turismo afecta a la calidad del transporte público.", pregunta: "El turismo afecta a la calidad del transporte público.", tipo: escala_0_10, anclas: {0: "Completo desacuerdo", 10: "Acuerdo total"}, a_modelos: si}
+  - {nombre: q_espacios,          bloque: escalas, columna: "Los espacios públicos se deterioran a causa del turismo", pregunta: "Los espacios públicos se deterioran a causa del turismo.", tipo: escala_0_10, anclas: {0: "Completo desacuerdo", 10: "Acuerdo total"}, a_modelos: si}
+  - {nombre: q_bienestar,         bloque: escalas, columna: "El turismo influye en mi bienestar y en las interacciones comunitarias.", pregunta: "El turismo influye en mi bienestar y en las interacciones comunitarias.", tipo: escala_0_10, anclas: {0: "Completo desacuerdo", 10: "Acuerdo total"}, a_modelos: si}
+  - {nombre: q_gastos_ocio,       bloque: escalas, columna: "El turismo ha afectado a mis gastos de ocio.", pregunta: "El turismo ha afectado a mis gastos de ocio.", tipo: escala_0_10, anclas: {0: "Completo desacuerdo", 10: "Acuerdo total"}, a_modelos: si}
+  - {nombre: q_futuro_isla,       bloque: escalas, columna: "El turismo es el futuro de la isla.", pregunta: "El turismo es el futuro de la isla.", tipo: escala_0_10, anclas: {0: "Completo desacuerdo", 10: "Acuerdo total"}, a_modelos: si}
+  - {nombre: q_diversificacion,   bloque: escalas, columna: "La economía de Mallorca sería más resistente con una mayor variedad de industrias.", pregunta: "La economía de Mallorca sería más resistente con una mayor variedad de industrias.", tipo: escala_0_10, anclas: {0: "Completo desacuerdo", 10: "Acuerdo total"}, a_modelos: si}
+  - {nombre: q_interacciones,     bloque: escalas, columna: "El turismo favorece interacciones positivas entre residentes y visitantes.", pregunta: "El turismo favorece interacciones positivas entre residentes y visitantes.", tipo: escala_0_10, anclas: {0: "Completo desacuerdo", 10: "Acuerdo total"}, a_modelos: si}
+  - {nombre: q_activismo,         bloque: escalas, columna: "El activismo de los residentes ha tenido un impacto positivo en la gestión del turismo.", pregunta: "El activismo de los residentes ha tenido un impacto positivo en la gestión del turismo.", tipo: escala_0_10, anclas: {0: "Completo desacuerdo", 10: "Acuerdo total"}, a_modelos: si}
+  - {nombre: q_gestion,           bloque: escalas, columna: "La gestión del turismo durante la temporada 2024 ha mejorado la convivencia en Mallorca.", pregunta: "La gestión del turismo durante la temporada 2024 ha mejorado la convivencia en Mallorca.", tipo: escala_0_10, anclas: {0: "Completo desacuerdo", 10: "Acuerdo total"}, a_modelos: si}
 
   # ── Opinión ───────────────────────────────────────────────────
   - nombre: manifestacion
@@ -187,3 +205,10 @@ variables:
   # ── Preguntas abiertas ────────────────────────────────────────
   - {nombre: cambio,    columna: "Si pudieras cambiar una sola cosa sobre el turismo en Mallorca, ¿cuál sería y por qué?", bloque: abiertas, pregunta: "Si pudieras cambiar una sola cosa sobre el turismo en Mallorca, ¿cuál sería y por qué?", opcional: true, tipo: texto_libre, sensible: true, a_modelos: anonimizado}
   - {nombre: preservar, columna: "¿Qué aspecto del turismo en Mallorca te gustaría preservar para las futuras generaciones?", bloque: abiertas, pregunta: "¿Qué aspecto del turismo en Mallorca te gustaría preservar para las futuras generaciones?", opcional: true, tipo: texto_libre, sensible: true, a_modelos: anonimizado}
+
+  # ── Paradatos y técnicas (solo en la exportación original) ───
+  - {nombre: id_plataforma, columna: "ID de respuesta", bloque: tecnico, tipo: identificador, sensible: true, a_modelos: "no", nota: "Enlaza con la cuenta de la plataforma. Se quita al limpiar."}
+  - {nombre: timestamp,     columna: "Respuesta iniciada", bloque: paradatos, tipo: fecha, a_modelos: agregado, nota: "Zona horaria sin indicar."}
+  - {nombre: timestamp_fin, columna: "Respuesta completada", bloque: paradatos, tipo: fecha, a_modelos: "no", nota: "Solo para calcular la duración."}
+  - {nombre: duration_seconds, bloque: paradatos, tipo: numerico, a_modelos: "no", nota: "timestamp_fin − timestamp. Solo para reglas de calidad."}
+  - {nombre: ip,            columna: "Dirección IP", bloque: tecnico, tipo: identificador, sensible: true, a_modelos: "no"}
