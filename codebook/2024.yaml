@@ -113,8 +113,11 @@ variables:
       "Son Servera", "Sóller", "Valldemossa", "Vilafranca de Bonany"]
     nota: "Los 53 municipios (Porreres aparece una vez). No consta ninguna respuesta de no residentes."
     cuasi_identificador: true
-    a_modelos: "no"
-    decision: "TODO: decidir si sale a modelos (en 2026 sale sin agrupar; revisar celdas pequeñas en esta edición)."
+    a_modelos: si
+    decision: >-
+      2026-11-02: se envía sin agrupar, como en 2026, por su interés analítico. 23 municipios tienen
+      menos de 5 respuestas válidas y 8 solo una; 114 de 440 personas tienen una combinación única
+      de municipio × edad × género × nacionalidad. No publicar cruces por municipio con n < 5.
 
   - nombre: situacion
     columna: "¿Cuál de las siguientes situaciones se ajusta más a tu situación actual?"

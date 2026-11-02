@@ -112,8 +112,11 @@ variables:
       Se guarda el nombre, como en 2026. 53 municipios (Porreres incluido) y «No resido en Mallorca»
       (código 54; ver regla no_residente). 28 personas no respondieron.
     cuasi_identificador: true
-    a_modelos: "no"
-    decision: "TODO: decidir si sale a modelos (en 2026 sale sin agrupar; revisar celdas pequeñas en esta edición)."
+    a_modelos: si
+    decision: >-
+      2026-11-02: se envía sin agrupar, como en 2026, por su interés analítico. 26 municipios tienen
+      menos de 5 respuestas válidas y 12 solo una; 112 de 453 personas tienen una combinación única
+      de municipio × edad × género × nacionalidad. No publicar cruces por municipio con n < 5.
 
   - nombre: situacion
     columna: "¿En cuál de las siguientes situaciones te encuentras actualmente?"

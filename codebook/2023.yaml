@@ -125,8 +125,11 @@ variables:
       "54": "No resido en Mallorca"}
     nota: "Se guarda el nombre, como en 2026. Código 54 = «No resido en Mallorca» (ver regla no_residente)."
     cuasi_identificador: true
-    a_modelos: "no"
-    decision: "TODO: decidir si sale a modelos (en 2026 sale sin agrupar; revisar celdas pequeñas en esta edición)."
+    a_modelos: si
+    decision: >-
+      2026-11-02: se envía sin agrupar, como en 2026, por su interés analítico. 25 municipios tienen
+      menos de 5 respuestas válidas y 6 solo una; 132 de 489 personas tienen una combinación única
+      de municipio × edad × género × nacionalidad. No publicar cruces por municipio con n < 5.
 
   - nombre: situacion
     columna: "¿Cuál de las siguientes situaciones se ajusta más a tu situación actual?"
