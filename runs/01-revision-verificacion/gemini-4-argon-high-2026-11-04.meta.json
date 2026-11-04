@@ -1,0 +1,33 @@
+{
+  "tarea": "tareas/01-revision-verificacion-2026.md",
+  "respuesta": "gemini-4-argon-high-2026-11-04.json",
+  "modelo": "Gemini 4 Argon (High)",
+  "version_modelo": "gemini-4-argon-high",
+  "fecha": "2026-11-04",
+  "entorno": "Antigravity (Google DeepMind), con acceso al repositorio y a la shell; Python 3 + pandas",
+  "commit": "d8b88041d46c012ad5da27d2255fb8c9939e3442",
+  "rama": "tarea-01",
+  "codebook": "2026 v0.2 (sin cambios desde la etiqueta codebook-v0.2); 2022–2024 v0.1 en HEAD, posteriores a la etiqueta",
+  "preparacion": [
+    "Verificación de hashes SHA-256 de los 6 archivos de entrada en datos/modelos/ y referencia/",
+    "Pasada 1 (Muestra, limpieza, representatividad y escalas Likert 0–10): conciliación exacta entre las 429 filas de companero_2026_filas.csv, las 405 de en_muestra, las 404 comunes, las 413 válidas de fundament_2026.csv y las 346 sin marcas de sensibilidad; verificación de los 13 ítems de V.likert",
+    "Pasada 2 (Redacción, serie histórica 2022–2026 y discrepancias internas): contraste literal con codebooks 2022–2026 e informes publicados en resultados/<año>/*.md; recálculo en fundament_2022_sin_textos.csv, fundament_2023_sin_textos.csv y fundament_2024_sin_textos.csv (detección de métrica 5–10 en 5 ítems de 2024 y discrepancia entre §2 V.likert y §3 V.hist)",
+    "Pasada 3 (Segmentación, demografía y análisis cualitativo): recálculo de q_abandono por vivienda y edad × vivienda (detección de 3 blancos, fusión del menor id=222 en 18–35 Propiedad, celda n=11 < 30 y omisión de Otro), recálculo de variables demográficas excluyendo códigos 98/99 (regla 2 de AGENTS.md) y auditoría aritmética/taxonómica de V.cualit",
+    "Pasada 4 (Territorio, serie temporal de campo y limitaciones): recálculo de los 36 municipios en n=413 frente a 34 en n=405, verificación de la omisión de Porreres en el formulario web (52 botones), análisis de concentración semanal de timestamp (83,8 % en 3 semanas de julio; brotes en Valldemossa, Santanyí y Consell) y contraste de limitaciones (§8)"
+  ],
+  "sha256_entradas": {
+    "datos/modelos/fundament_2026.csv": "07684daf9d7b4ec70b89cd9e48280300596879e11b7bbdcad853a67024e73c4e",
+    "datos/modelos/fundament_2022_sin_textos.csv": "e6ec5d5c6fdf6b776584e9a4f13b75f22d428f81a6bb8179288aaeed05042a13",
+    "datos/modelos/fundament_2023_sin_textos.csv": "c41e4d0af9d3f1a6b26e161dc0698d8cbfb4830637a917fb15a70170edfcbe05",
+    "datos/modelos/fundament_2024_sin_textos.csv": "cb598e3ad4bfb8f9217ad95811c4d2b69a1650bf88f3c74180e848da0bd1b897",
+    "datos/modelos/companero_2026_filas.csv": "2c0cd8b292a71ac5b5f085808874d60ff2b70a1b087419c3feb2270c78bdeef8",
+    "referencia/Verificación datos 2026.html": "ed269a025d1185d30ffd539c378bc2d826e42ff2622cc68d06a74fd791e5c0a0"
+  },
+  "parametros": "Ejecución en 4 pasadas iterativas de verificación con scripts de Python en el directorio scratch de la sesión (tanto para la auditoría completa 2022–2026 como para la auditoría exclusiva de 2026).",
+  "diferencias_con_un_lanzamiento_limpio": [
+    "Antes de generar el JSON, el modelo leyó README.md y DESIGN.md para contextualizar el repositorio y elaborar dos artefactos previos solicitados por el usuario (uno en Markdown con la revisión completa 2022–2026 y otro en HTML con estilo Fundament centrado exclusivamente en 2026).",
+    "El modelo leyó claude-opus-5-5-2026-11-02.json y claude-opus-5-5-2026-11-02.meta.json cuando el usuario pidió registrar las pasadas siguiendo su mismo formato en runs/01-revision-verificacion/, después de haber ejecutado ya sus propios scripts de verificación y generado los dos artefactos.",
+    "No leyó datos brutos, intermedios, web/, codigo/ ni el xlsx del compañero: todos los cálculos se realizaron exclusivamente sobre los archivos permitidos en tareas/01-revision-verificacion-2026.md."
+  ]
+}
+

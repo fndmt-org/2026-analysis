@@ -1,0 +1,414 @@
+{
+  "meta": {
+    "modelo": "Gemini 4 Argon (High)",
+    "version_modelo": "gemini-4-argon-high",
+    "fecha": "2026-11-04",
+    "pudo_ejecutar_codigo": true,
+    "archivos_leidos": [
+      "AGENTS.md",
+      "codebook/2022.yaml",
+      "codebook/2023.yaml",
+      "codebook/2024.yaml",
+      "codebook/2026.yaml",
+      "datos/modelos/fundament_2026.csv",
+      "datos/modelos/fundament_2022_sin_textos.csv",
+      "datos/modelos/fundament_2023_sin_textos.csv",
+      "datos/modelos/fundament_2024_sin_textos.csv",
+      "datos/modelos/companero_2026_filas.csv",
+      "referencia/Verificación datos 2026.html",
+      "resultados/2022/Encuesta-a-las-habitantes-de-Mallorca-sobre-su-experiencia-con-el-turismo-2-2.md",
+      "resultados/2023/Estudio-Mallorca-Informe-1.1-2023-1.md",
+      "resultados/2024/Estudio-sobre-la-Sostenibilidad-Social-del-Turismo-en-Mallorca-2024-ES-1-0.md"
+    ]
+  },
+  "muestra": {
+    "n_companero": 405,
+    "n_nuestras_validas": 413,
+    "conciliacion": [
+      {"concepto": "Filas totales en bruto 2026 (id_respuesta 1–429 en companero_2026_filas.csv)", "filas": 429},
+      {"concepto": "Ausentes de la hoja limpia del compañero (en_hoja_limpia = False)", "filas": 21},
+      {"concepto": "  · de ellas, excluidas también por nuestras reglas de calidad", "filas": 12},
+      {"concepto": "  · de ellas, válidas en fundament_2026.csv (id_respuesta 105, 190, 198, 311, 312, 368, 371, 373, 375), todas con sensibilidad = True (5 solo marca_rapido, 2 solo marca_dispositivo_repetido, 2 con ambas)", "filas": 9},
+      {"concepto": "En la hoja limpia del compañero (en_hoja_limpia = True)", "filas": 408},
+      {"concepto": "Retiradas por el compañero como prueba (utm_campaign = prueba: id_respuesta 4, 12, 13), excluidas también por nosotros", "filas": 3},
+      {"concepto": "En la muestra del compañero (en_muestra = True)", "filas": 405},
+      {"concepto": "  · de ellas, válidas en fundament_2026.csv (intersección común)", "filas": 404},
+      {"concepto": "  · de ellas, excluida en fundament_2026.csv (id_respuesta = 222): corresponde a la respuesta «Menos de 18 años» (age == 1) en V.demo.age", "filas": 1},
+      {"concepto": "Nuestras válidas en fundament_2026.csv (404 comunes + 9 válidas ausentes de su hoja)", "filas": 413},
+      {"concepto": "De las 404 comunes: sin marcas de sensibilidad (sensibilidad = False)", "filas": 346},
+      {"concepto": "De las 404 comunes: con marca_dispositivo_repetido = True (y marca_rapido = False)", "filas": 57},
+      {"concepto": "De las 404 comunes: con marca_rapido = True (id_respuesta = 109, marca_dispositivo_repetido = False)", "filas": 1},
+      {"concepto": "Nuestras válidas sin marcas de sensibilidad (idénticas a las 346 sin marcas de las 404 comunes)", "filas": 346}
+    ],
+    "reglas_companero": [
+      "Declarada: parte de «Sheet activo» con 608 filas exportadas y retira 200 filas completamente vacías, quedando 408 con contenido (V.cleaning).",
+      "Declarada: excluye 3 respuestas de prueba técnica con utm_campaign = 'prueba' (id_respuesta 4, 12, 13), quedando n = 405.",
+      "Declarada: mantiene las 27 respuestas con fp_flagged = TRUE tras revisarlas «una a una» por coherencia y duración plausible (criterios y umbrales no documentados).",
+      "No aplica exclusión de menores de edad: conserva 1 respuesta de «Menos de 18 años» (age == 1, id_respuesta = 222 en V.demo.age) y la fusiona dentro de «18–35» en el cruce edad × tenencia (V.seg.edadTen: 18–35 Propiedad n = 40 en vez de 39).",
+      "No declarada: su hoja limpia (408 filas) no incluye 21 filas de nuestro bruto (429 filas); 9 de esas 21 son válidas según codebook/2026.yaml (id_respuesta 105, 190, 198, 311, 312, 368, 371, 373, 375) y todas tienen sensibilidad = True (concentran 7 de las 8 respuestas rápidas de la edición y 4 con dispositivo repetido).",
+      "No declarada: en q_abandono y en los cruces de segmentación (V.seg.tenencia, V.seg.edadTen) trabaja con base efectiva n = 402 por 3 no-respuestas en blanco (id_respuesta 83, 109 y 410, todas en Propiedad), sin advertir que la base baja de 405 a 402.",
+      "Incluye los códigos de no-respuesta 99 («Prefiero no decirlo» en nacionalidad, n = 5) y 98 («No lo sé» en tourism_dependencia, n = 17) en el denominador de los porcentajes."
+    ],
+    "reglas_nuestras": [
+      "menor_edad (age == 1): excluir («Sin consentimiento válido»).",
+      "prueba (utm_campaign == 'prueba', incluye todo lo anterior a v2): excluir.",
+      "test_explicito (utm_source == 'test'): excluir.",
+      "Total tras reglas de exclusión: 429 − 16 = 413 filas válidas en fundament_2026.csv.",
+      "rapido (duration_seconds < mediana/3): marcar para sensibilidad (marca_rapido = True en 8 filas: 1 en las 404 comunes y 7 en las 9 ausentes de su hoja).",
+      "dispositivo_repetido (huellas con max(fp_seen) >= 3; se marcan todas las filas de esas huellas, incluidas 1.ª y 2.ª vez): marcar para sensibilidad (marca_dispositivo_repetido = True en 61 filas: 57 en las 404 comunes y 4 en las 9 ausentes de su hoja).",
+      "Total sensibilidad = True: 67 filas en n = 413 (58 en n = 404); submuestra limpia sin marcas (sensibilidad = False): 346 filas.",
+      "Bases utilizadas en esta revisión: n = 413 (muestra válida completa), n = 346 (submuestra de sensibilidad sin marcas) y n = 404 (intersección con la muestra del compañero). Se excluyen códigos 98 y 99 de medias y porcentajes (regla 2 de AGENTS.md)."
+    ]
+  },
+  "hallazgos": [
+    {
+      "id": "H01",
+      "seccion_documento": "3",
+      "supuesto": "Las cifras 2024 del histórico (V.hist) utilizan la misma métrica que 2026 (acuerdo = 6–10, desacuerdo = 0–4) y permiten medir la variación 2024 → 2026.",
+      "tipo": "comparabilidad",
+      "cifra_documento": "2024 → 2026 en V.hist: Bienestar 94,0 % → 88,0 %; Gastos de ocio 93,68 % → 89,0 %; Diversificación 98,0 % → 93,6 %; Activismo mejoró gestión 62,0 % → 33,8 % (Δ −28,2 pp); Futuro de la isla (negación) 57,85 % → 54,7 % (Δ −3,15 pp)",
+      "cifra_propia": "En el informe publicado de 2024, esos 5 ítems se calcularon sumando los valores 5–10 (incluyendo el 5 neutral), no 6–10 ni 0–4. Al recalcular sobre fundament_2024_sin_textos.csv con la métrica de 2026: q_bienestar (6–10) = 87,32 % (n = 426, frente a 88,1 % en 2026, Δ +0,8 pp); q_gastos_ocio (6–10) = 89,70 % (n = 427, frente a 89,1 %, Δ −0,6 pp); q_diversificacion (6–10) = 93,71 % (n = 429, frente a 93,6 %, Δ −0,1 pp); q_activismo (6–10) = 36,71 % (n = 425, frente a 33,8 %, Δ −2,9 pp en lugar de −28,2 pp); q_futuro_isla en desacuerdo (0–4) = 42,15 % (n = 427, frente a 54,6 % en 2026, Δ +12,45 pp: el rechazo sube en lugar de bajar). En cambio, q_interacciones (52,82 %, n = 426) y q_gestion (79,34 %, n = 426) sí se publicaron como 0–4.",
+      "n": 440,
+      "evidencia": [
+        {"fuente": "datos/modelos/fundament_2024_sin_textos.csv", "ubicacion": "q_bienestar (n=426: 5–10=93,66 %, 6–10=87,32 %), q_gastos_ocio (n=427: 5–10=93,68 %, 6–10=89,70 %), q_diversificacion (n=429: 5–10=97,67 %, 6–10=93,71 %), q_activismo (n=425: 5–10=61,41 %, 6–10=36,71 %), q_futuro_isla (n=427: 5–10=57,85 %, 0–4=42,15 %)"},
+        {"fuente": "resultados/2024/Estudio-sobre-la-Sostenibilidad-Social-del-Turismo-en-Mallorca-2024-ES-1-0.md", "ubicacion": "§1.2 p. 10 (define acuerdo 6–10); §4.9 p. 22 (93,66 %), §4.10 p. 23 (93,68 %), §4.11 p. 23 (57,85 % rotulado «Negación»), §4.12 p. 24 (97,67 %), §4.14 p. 25 (61,41 %)"},
+        {"fuente": "referencia/Verificación datos 2026.html", "ubicacion": "V.hist (Bienestar, Gastos de ocio, Diversificación, Activismo mejoró gestión, Futuro de la isla)"}
+      ],
+      "impacto": "alto",
+      "confianza": "alta",
+      "recomendacion": "Recalcular los 11 ítems comunes de 2024 directamente desde fundament_2024_sin_textos.csv aplicando exactamente la misma definición de tramos (6–10 para afirmación, 0–4 para negación) y documentar la discrepancia metodológica del informe publicado en 2024."
+    },
+    {
+      "id": "H02",
+      "seccion_documento": "3",
+      "supuesto": "Las series 2022 y 2023 de V.hist son directamente comparables con 2024–2026 y miden la misma dirección («afirmación» / «negación»).",
+      "tipo": "comparabilidad",
+      "cifra_documento": "Tabla histórica 2022–2026 en §3 (V.hist) con 6 ítems desde 2022 y 8 desde 2023, todos etiquetados como «afirmación» salvo Futuro de la isla («negación»).",
+      "cifra_propia": "En 2022 y 2023 la escala era 1–5 (no 0–10), en 2023 el valor 3 se etiquetó «Neutro (no lo sé)» mezclando punto medio y no-respuesta, y las preguntas cambiaron de constructo y polaridad: en 2022 q_no_afecta_dia («El turismo no me afecta en mi día a día») y q_no_impacto_ambiental («No percibo que el turismo en Mallorca tenga un gran impacto ambiental») estaban redactadas en negativo y las cifras publicadas (72,26 % y 87,95 %; recalculadas 1–2: 72,20 % con n = 446 y 87,92 % con n = 447) medían desacuerdo (1–2), no afirmación. En 2023 q_mas_turismo_calidad («Si hay más turismo, mejora la calidad de vida») era positiva y el 82,98 % publicado (recalculado 1–2: 83,10 %, n = 420) medía «Negación», pero V.hist lo clasifica como «afirmación».",
+      "n": null,
+      "evidencia": [
+        {"fuente": "codebook/2022.yaml", "ubicacion": "escala_1_5; q_no_afecta_dia, q_no_impacto_ambiental (nota: «Redactada en negativo»), q_beneficio_calidad, q_productos_caros, q_transporte_peor, q_ocio_incrementado"},
+        {"fuente": "codebook/2023.yaml", "ubicacion": "escala_1_5 (3: «Neutro (no lo sé)»); q_afecta_dia, q_impacto_ambiental, q_mas_turismo_calidad, q_vida_cara, q_transporte_peor, q_ocio_aumentado, q_espacios, q_futuro_isla"},
+        {"fuente": "resultados/2022/Encuesta-a-las-habitantes-de-Mallorca-sobre-su-experiencia-con-el-turismo-2-2.md", "ubicacion": "tabla p. 13 (impresa p. 11)"},
+        {"fuente": "resultados/2023/Estudio-Mallorca-Informe-1.1-2023-1.md", "ubicacion": "p. 16 (q_mas_turismo_calidad: 82,98 % «Negación»)"},
+        {"fuente": "AGENTS.md", "ubicacion": "regla 9 (no comparabilidad directa entre ediciones con distintas preguntas y escalas)"}
+      ],
+      "impacto": "alto",
+      "confianza": "alta",
+      "recomendacion": "Separar 2022 y 2023 de la serie 2024–2026; cuando se citen como antecedente, mostrar la pregunta literal, la escala 1–5 y si el porcentaje corresponde a acuerdo (4–5) o desacuerdo (1–2)."
+    },
+    {
+      "id": "H03",
+      "seccion_documento": "1, 5, 6",
+      "supuesto": "La muestra final del compañero (n = 405) está libre de respuestas inválidas por edad y el grupo «18–35» solo incluye adultos.",
+      "tipo": "diferencia_cifra",
+      "cifra_documento": "V.demo.age incluye «Menos de 18 años»: n = 1 (0,2 %); V.seg.edadTen en «18–35 × Propiedad» reporta n = 40, sí = 27 (68 %).",
+      "cifra_propia": "La única fila de en_muestra = True excluida en fundament_2026.csv es id_respuesta = 222, que corresponde al menor de edad (age == 1, «Sin consentimiento válido» según reglas_calidad.menor_edad). Además, en V.seg.edadTen esa respuesta se sumó indebidamente al tramo «18–35» en régimen de Propiedad (donde sí pensó en irse): sin el menor, la celda «18–35 × Propiedad» en las 404 comunes (y en nuestras 413 válidas) tiene n = 39 y sí = 26 (66,7 % → 67 %).",
+      "n": 1,
+      "evidencia": [
+        {"fuente": "referencia/Verificación datos 2026.html", "ubicacion": "V.demo.age («Menos de 18 años», n = 1, pct = 0.2); V.seg.edadTen (edad «18–35», ten «Propiedad», n = 40, si = 27, pct = 68)"},
+        {"fuente": "codebook/2026.yaml", "ubicacion": "reglas_calidad.reglas.menor_edad (condicion: age == 1, accion: excluir, motivo: «Sin consentimiento válido»)"},
+        {"fuente": "datos/modelos/companero_2026_filas.csv", "ubicacion": "id_respuesta = 222 (en_hoja_limpia = True, en_muestra = True, ausente en fundament_2026.csv)"}
+      ],
+      "impacto": "alto",
+      "confianza": "alta",
+      "recomendacion": "Aplicar la regla menor_edad (age == 1) excluyendo id_respuesta = 222 de toda la base y corregir el cruce edad × tenencia."
+    },
+    {
+      "id": "H04",
+      "seccion_documento": "1",
+      "supuesto": "La diferencia entre el bruto exportado y n = 405 se explica únicamente por 200 filas vacías y 3 pruebas (utm_campaign = prueba).",
+      "tipo": "diferencia_cifra",
+      "cifra_documento": "V.cleaning: 608 filas exportadas → 200 vacías eliminadas → 408 con contenido → 3 utm_campaign=prueba eliminadas → 405 muestra final.",
+      "cifra_propia": "En companero_2026_filas.csv (429 filas brutas), hay 21 filas con en_hoja_limpia = False. De esas 21, 12 también se excluyen por nuestras reglas, pero 9 son filas válidas en fundament_2026.csv (id_respuesta 105, 190, 198, 311, 312, 368, 371, 373 y 375, registradas entre el 2026-07-06 y el 2026-08-17). Las 9 tienen sensibilidad = True (7 tienen marca_rapido = True —de un total de 8 rápidas en toda la edición— y 4 tienen marca_dispositivo_repetido = True). La conciliación exacta es 405 = 413 válidas − 9 válidas ausentes de su hoja + 1 menor de edad no excluido. La diferencia máxima en los ítems Likert entre n = 404 y n = 413 es de 1,75 pp en el acuerdo 6–10 de q_gestion (7,18 % en n = 404; 7,2 % en V.likert con n = 405; 8,96 % en n = 413).",
+      "n": 413,
+      "evidencia": [
+        {"fuente": "datos/modelos/companero_2026_filas.csv", "ubicacion": "en_hoja_limpia = False (21 filas); cruce con id_respuesta de fundament_2026.csv (9 filas válidas: 105, 190, 198, 311, 312, 368, 371, 373, 375)"},
+        {"fuente": "datos/modelos/fundament_2026.csv", "ubicacion": "marca_rapido, marca_dispositivo_repetido y sensibilidad en las 9 filas con en_hoja_limpia = False"},
+        {"fuente": "referencia/Verificación datos 2026.html", "ubicacion": "§1 y V.cleaning"}
+      ],
+      "impacto": "alto",
+      "confianza": "alta",
+      "recomendacion": "Partir de una exportación bruta congelada y con suma SHA-256 verificable; no eliminar respuestas rápidas o de dispositivo repetido sin declararlo y tratarlas mediante análisis de sensibilidad (n = 413 con marcas frente a n = 346 sin marcas)."
+    },
+    {
+      "id": "H05",
+      "seccion_documento": "1",
+      "supuesto": "Una muestra de n = 405 supera el «mínimo de 384» requerido para un nivel de confianza del 95 % y un margen de error de ±5 % sobre el censo de Mallorca (960.270 hab.).",
+      "tipo": "afirmacion_no_sustentada",
+      "cifra_documento": "V.repr: censo 960.270, mínimo 384 («Mínimo para IC 95 %, margen ±5 %»), n_2026 = 405, n_2024 = 440.",
+      "cifra_propia": "El umbral 384 (1,96² × 0,5 × 0,5 / 0,05² = 384,16) y los márgenes ±4,87 % (n = 405) o ±4,67 % (n = 440 en el informe 2024) requieren muestreo aleatorio simple. La encuesta se difundió online y en redes con autoselección (como reconoce el propio §8 en «Sesgo de composición»), por lo que carece de probabilidad de inclusión conocida y no admite inferencia frecuentista ni intervalos de confianza poblacionales (regla 1 de AGENTS.md).",
+      "n": 405,
+      "evidencia": [
+        {"fuente": "AGENTS.md", "ubicacion": "regla 1 («La muestra no es probabilística… No extrapoles a la población: habla de personas encuestadas»)"},
+        {"fuente": "referencia/Verificación datos 2026.html", "ubicacion": "§1 (V.repr) y §8 («Sesgo de composición: difusión online y en redes, no muestreo aleatorio»)"},
+        {"fuente": "resultados/2024/Estudio-sobre-la-Sostenibilidad-Social-del-Turismo-en-Mallorca-2024-ES-1-0.md", "ubicacion": "§1.2 Metodología p. 10"}
+      ],
+      "impacto": "alto",
+      "confianza": "alta",
+      "recomendacion": "Suprimir el bloque de tamaño mínimo muestral, nivel de confianza del 95 % y margen de error ±5 %, refiriéndose siempre a las «personas encuestadas»."
+    },
+    {
+      "id": "H06",
+      "seccion_documento": "3, 8",
+      "supuesto": "Los años de la serie histórica son puntos temporales homogéneos y la única salvedad temporal es que «no hubo edición 2025».",
+      "tipo": "omision",
+      "cifra_documento": "§8 Limitación «Salto temporal»: «entre 2024 y 2026 hay dos años y no hubo edición 2025».",
+      "cifra_propia": "Los años etiquetados en el estudio representan temporadas turísticas, pero cambió radicalmente la estación del trabajo de campo: las ediciones 2022 (2022-10-31 a 2023-02-13), 2023 (2023-11-04 a 2024-02-29) y 2024 (2024-11-12 a 2025-02-16) se recogieron en otoño-invierno (post-temporada), mientras que 2026 se recogió entre junio y septiembre de 2026 (2026-06-19 a 2026-09-28), en plena temporada alta. Además, el 83,8 % de las respuestas válidas de 2026 (346 de 413; 339 de 404 en la intersección) se concentra en solo tres semanas de julio (95 en 2026-07-06, 112 en 2026-07-13 y 139 en 2026-07-20), más un repunte de 42 respuestas en la semana del 2026-09-14.",
+      "n": 413,
+      "evidencia": [
+        {"fuente": "codebook/2022.yaml", "ubicacion": "trabajo_de_campo (2022-10-31 a 2023-02-13)"},
+        {"fuente": "codebook/2023.yaml", "ubicacion": "trabajo_de_campo (2023-11-04 a 2024-02-29)"},
+        {"fuente": "codebook/2024.yaml", "ubicacion": "trabajo_de_campo (2024-11-12 a 2025-02-16)"},
+        {"fuente": "codebook/2026.yaml", "ubicacion": "trabajo_de_campo (2026-06-19 a 2026-09-28)"},
+        {"fuente": "datos/modelos/fundament_2026.csv", "ubicacion": "distribución de timestamp por semana ISO"}
+      ],
+      "impacto": "alto",
+      "confianza": "alta",
+      "recomendacion": "Documentar explícitamente el cambio estacional del trabajo de campo (verano/plena temporada en 2026 frente a otoño-invierno en 2022–2024) y la concentración del 83,8 % de la muestra en tres semanas de julio."
+    },
+    {
+      "id": "H07",
+      "seccion_documento": "3",
+      "supuesto": "Las cifras históricas 2022–2024 de V.hist reproducen fielmente los informes publicados que citan en la columna «Ref. 2024».",
+      "tipo": "diferencia_cifra",
+      "cifra_documento": "V.hist: Espacios públicos 2023 = 81,67 %; Medio ambiente 2024 = 97,0 %; Bienestar 2024 = 94,0 %; Diversificación 2024 = 98,0 %; Activismo 2024 = 62,0 %; Interacciones 2024 = 52,0 %; Futuro de la isla 2023 = 67,0 %.",
+      "cifra_propia": "Siete valores de V.hist no coinciden con la cifra con decimales del cuerpo del informe citado: (1) «Espacios públicos» 2023 figura como 81,67 %, cifra inexistente tanto en el Informe 2023 (p. 17: 83,07 %) como en el Informe 2024 (§4.8 p. 22: 83,07 %; recalculado 4–5 en CSV 2023: 83,29 %, n = 419); 81,67 sale de restar a 89,98 (cifra 2024) la variación errónea de +8,31 impresa en el Informe 2024 (89,98 − 8,31 = 81,67). (2) En cinco ítems de 2024 toma el titular redondeado en vez del texto: Medio ambiente 97,0 frente a 97,44 % (§4.4 p. 20), Bienestar 94,0 frente a 93,66 % (§4.9 p. 22), Diversificación 98,0 frente a 97,67 % (§4.12 p. 24), Activismo 62,0 frente a 61,41 % (§4.14 p. 25), Interacciones 52,0 frente a 52,82 % (§4.13 p. 24). (3) En Futuro de la isla 2023 toma el titular 67,0 % en vez de 66,59 % del texto (§4.11 p. 23; recalculado 1–2: 66,83 %, n = 419) para que cuadre con el −9,15 del informe 2024 (57,85 − 67,0 = −9,15).",
+      "n": null,
+      "evidencia": [
+        {"fuente": "resultados/2024/Estudio-sobre-la-Sostenibilidad-Social-del-Turismo-en-Mallorca-2024-ES-1-0.md", "ubicacion": "§4.4 p. 20, §4.8 p. 22, §4.9 p. 22, §4.11 p. 23, §4.12 p. 24, §4.13 p. 24, §4.14 p. 25"},
+        {"fuente": "resultados/2023/Estudio-Mallorca-Informe-1.1-2023-1.md", "ubicacion": "p. 17 (83,07 %) y p. 19 (66,59 % en texto, 67 % en titular)"},
+        {"fuente": "referencia/Verificación datos 2026.html", "ubicacion": "V.hist"}
+      ],
+      "impacto": "medio",
+      "confianza": "alta",
+      "recomendacion": "Corregir el 81,67 % de Espacios públicos 2023 y utilizar siempre cifras recalculadas desde los microdatos con precisión homogénea y declarando la base n de cada ítem."
+    },
+    {
+      "id": "H08",
+      "seccion_documento": "2",
+      "supuesto": "La tabla Likert (§2) clasifica «Desac. (1–4)», «Neutral (5)» y «Acuerdo (6–10)», donde el 5 representa un punto neutral estándar y «Acuerdo» refleja valoración direccional.",
+      "tipo": "metrica",
+      "cifra_documento": "Cabecera de #t-likert: «Desac. (1–4) | Neutral (5) | Acuerdo (6–10)»; notas al pie: «Acuerdo = 6 a 10 · Neutral = 5 · Desacuerdo = 0 a 4».",
+      "cifra_propia": "Tres problemas metodológicos: (1) La columna rotulada «Desac. (1–4)» contabiliza en realidad los valores 0–4 (neg + neu + pos = 405 en los 13 ítems; por ejemplo, en q_gestion hay 144 respuestas con valor 0 dentro de los 349 contados en neg). (2) En el formulario web 2026, el control deslizante (slider) iniciaba en 5 y exigía moverlo para habilitar el envío (codebook/2026.yaml), lo que penaliza mecánicamente la opción 5 (en q_activismo el valor 5 cae del 24,71 % en 2024 al 11,9 % en 2026, y en q_interacciones del 19,72 % al 9,1 %). (3) Seis ítems usan verbos sin valencia («afecta», «influye»), de modo que puntuar 6–10 mide intensidad percibida pero no si el efecto es positivo o negativo. Además, existe fuerte efecto techo en q_precios (66,8 % marca 10 en n = 404; media 9,20) y q_medio_ambiente (62,1 % marca 10; media 9,10).",
+      "n": 405,
+      "evidencia": [
+        {"fuente": "referencia/Verificación datos 2026.html", "ubicacion": "línea 137 (cabecera «Desac. (1–4)») y objeto V.likert"},
+        {"fuente": "codebook/2026.yaml", "ubicacion": "comentario en bloque «Escalas 0–10» sobre el valor inicial 5 del slider obligatorio"},
+        {"fuente": "datos/modelos/fundament_2026.csv", "ubicacion": "distribuciones 0–10 de q_precios, q_medio_ambiente, q_gestion, q_activismo, q_interacciones"}
+      ],
+      "impacto": "medio",
+      "confianza": "alta",
+      "recomendacion": "Corregir el encabezado de la tabla a «Desac. (0–4)», advertir del sesgo mecánico del slider sobre el valor 5 y acompañar los porcentajes agrupados con la media y desviación típica o el tramo de alta intensidad (8–10)."
+    },
+    {
+      "id": "H09",
+      "seccion_documento": "2, 3",
+      "supuesto": "La etiqueta «Mi gasto en ocio subió por el turismo» en V.likert refleja lo preguntado en 2026.",
+      "tipo": "redaccion",
+      "cifra_documento": "V.likert (q_gastos_ocio): «Mi gasto en ocio subió por el turismo» (89,1 % acuerdo).",
+      "cifra_propia": "En codebook/2026.yaml (igual que en 2024), la pregunta literal de q_gastos_ocio es «El turismo ha afectado a mis gastos de ocio.», sin especificar si el gasto subió (por encarecimiento) o bajó (por evitar zonas turísticas o menor renta disponible). El verbo «subió/aumentado» procede de la edición 2023 (q_ocio_aumentado: «El dinero que gasto en ocio ha aumentado a consecuencia del turismo.»), que el informe 2024 arrastró por error en el título de su §4.10.",
+      "n": 405,
+      "evidencia": [
+        {"fuente": "codebook/2026.yaml", "ubicacion": "variables.q_gastos_ocio.pregunta"},
+        {"fuente": "codebook/2024.yaml", "ubicacion": "variables.q_gastos_ocio.pregunta"},
+        {"fuente": "codebook/2023.yaml", "ubicacion": "variables.q_ocio_aumentado.pregunta"},
+        {"fuente": "referencia/Verificación datos 2026.html", "ubicacion": "V.likert[4].lab"}
+      ],
+      "impacto": "medio",
+      "confianza": "alta",
+      "recomendacion": "Sustituir la etiqueta por la formulación exacta del cuestionario 2026: «El turismo ha afectado a mis gastos de ocio»."
+    },
+    {
+      "id": "H10",
+      "seccion_documento": "5, 6",
+      "supuesto": "La variable q_abandono mide la «intención de dejar la isla» o quién «se plantea irse» actualmente al sumar los códigos 2 y 3.",
+      "tipo": "redaccion",
+      "cifra_documento": "§5 título «Segmentación: intención de dejar la isla»; columna «Se plantea irse (Sí)» = De pasada + Seriamente (Alquiler: 80 %, Propiedad: 53 %, Otro: 74 %).",
+      "cifra_propia": "La pregunta literal en codebook/2026.yaml es retrospectiva («¿Has pensado alguna vez en irte de Mallorca a causa del turismo?») y distingue entre «Sí, me lo he planteado de pasada» (código 2: 33,1 % en n = 402; 32,9 % en n = 410) y «Sí, me lo he planteado seriamente» (código 3: 29,4 % en n = 402; 30,2 % en n = 410). Sumar «de pasada» y «seriamente» (62,4 % en n = 402; 63,2 % en n = 410) y llamarlo «intención de dejar la isla» sobredimensiona la intención migratoria activa: en Alquiler solo el 48,3 % (43/89; 51,0 % = 49/96 en n = 410) se lo ha planteado «seriamente», y en Propiedad el 21,5 % (58/270; 21,8 % = 59/271 en n = 410).",
+      "n": 402,
+      "evidencia": [
+        {"fuente": "codebook/2026.yaml", "ubicacion": "variables.q_abandono.pregunta y valores (1: No, nunca; 2: Sí, de pasada; 3: Sí, seriamente)"},
+        {"fuente": "referencia/Verificación datos 2026.html", "ubicacion": "§5, §6, V.seg.tenencia, V.seg.edadTen y V.otras.q_abandono"}
+      ],
+      "impacto": "medio",
+      "confianza": "alta",
+      "recomendacion": "Mantener el enunciado literal («Ha pensado alguna vez en irse a causa del turismo») y desglosar siempre «de pasada» y «seriamente» en el cruce edad × tenencia."
+    },
+    {
+      "id": "H11",
+      "seccion_documento": "5",
+      "supuesto": "Las tablas de segmentación (§5) están completas, informan su base real y todas sus celdas tienen tamaño suficiente.",
+      "tipo": "sesgo_muestral",
+      "cifra_documento": "V.seg.tenencia (suma n = 402: Alquiler 89, Propiedad 270, Otro 43) y V.seg.edadTen (6 celdas: 18–35, 36–55, 56+ por Alquiler y Propiedad, incluyendo 56+ Alquiler con n = 11 y 82 %).",
+      "cifra_propia": "Cuatro deficiencias metodológicas: (1) La celda «56+ × Alquiler» tiene n = 11 en la muestra del compañero (9/11 = 81,8 %) y n = 15 en nuestras 413 válidas (12/15 = 80,0 %), muy por debajo del umbral n < 30 sin incluir advertencia (regla 5 de AGENTS.md). (2) La tabla edad × tenencia omite a las 43 personas de la categoría «Otro» (44 en n = 413: 23 en 18–35, 16 en 36–55 y 5 en 56+ con q_abandono válido), reduciendo la suma de la tabla a n = 359 (n = 366 en nuestras válidas) sin declararlo. (3) No se advierte que 3 personas en Propiedad dejaron q_abandono en blanco (id_respuesta 83, 109 y 410), bajando la base de 405 a 402 (de 413 a 410 en nuestras válidas). (4) En «18–35 × Propiedad» incluye al menor de edad (n = 40 en vez de 39; 68 % en vez de 66,7 %).",
+      "n": 402,
+      "evidencia": [
+        {"fuente": "AGENTS.md", "ubicacion": "regla 5 («Acompaña cada porcentaje de su base (n). Advierte si n < 30.»)"},
+        {"fuente": "datos/modelos/fundament_2026.csv", "ubicacion": "cruce age × vivienda × q_abandono; filas con q_abandono vacío (id_respuesta 83, 109, 410)"},
+        {"fuente": "referencia/Verificación datos 2026.html", "ubicacion": "V.seg.tenencia y V.seg.edadTen"}
+      ],
+      "impacto": "medio",
+      "confianza": "alta",
+      "recomendacion": "Advertir explícitamente en cualquier celda con n < 30 (56+ × Alquiler), incorporar la fila/columna «Otro» para que el cruce sume la base completa de respuestas válidas a q_abandono (n = 410 en nuestras válidas) y señalar que se trata de asociaciones descriptivas transversales (regla 6 de AGENTS.md)."
+    },
+    {
+      "id": "H12",
+      "seccion_documento": "7, 8",
+      "supuesto": "En 2026 respondieron residentes de 34 de los 53 municipios (19 sin muestra) y el índice de representación territorial refleja simplemente la difusión desigual.",
+      "tipo": "sesgo_muestral",
+      "cifra_documento": "V.terr: «34 de 53 municipios con al menos 1 respuesta · 19 municipios sin muestra»; Valldemossa n = 51 (12,6 %, índice 5933).",
+      "cifra_propia": "Tres hallazgos sobre la distribución territorial: (1) El formulario web de 2026 solo tenía 52 botones de municipio porque se omitió «Porreres» por error (codebook/2026.yaml), por lo que ningún residente de Porreres pudo seleccionarlo. (2) En nuestras 413 válidas hay 36 municipios con respuesta (no 34): aparecen Mancor de la Vall (n = 1, id_respuesta = 105) y Búger (n = 1, id_respuesta = 312), además de subir Palma de 204 a 209 y Santa María del Camí de 5 a 6, quedando 16 municipios elegibles sin muestra más Porreres. (3) Las sobrerrepresentaciones extremas provienen de picos puntuales de captación: en Valldemossa (n = 51, índice 5933), el 76,5 % (39/51) entró en una sola semana (2026-07-20), el 68,6 % (35/51) respondió en catalán (frente al 19,6 % en el resto de la isla) y el 25,5 % (13/51) tiene marca_dispositivo_repetido = True; en Santanyí las 18 respuestas (100 %) entraron en la semana 2026-07-20; en Consell las 8 (100 %) en la semana 2026-07-06. Además, 17 de los 34 municipios (19 de 36 en n = 413) tienen n < 5, donde el índice de representación es volátil y el codebook prohíbe publicar cruces.",
+      "n": 413,
+      "evidencia": [
+        {"fuente": "codebook/2026.yaml", "ubicacion": "variables.municipio.nota («Falta Porreres: no tenía botón en el formulario web») y decision («No publicar cruces por municipio con n < 5»)"},
+        {"fuente": "datos/modelos/fundament_2026.csv", "ubicacion": "municipio × timestamp, lang y marca_dispositivo_repetido"},
+        {"fuente": "referencia/Verificación datos 2026.html", "ubicacion": "§7 (V.terr), §6 (V.demo.municipio) y §8"}
+      ],
+      "impacto": "medio",
+      "confianza": "alta",
+      "recomendacion": "Declarar que Porreres no estaba disponible en el formulario web, documentar los brotes semanales de captación en Valldemossa, Santanyí y Consell, y evitar publicar índices de representación para municipios con n < 5."
+    },
+    {
+      "id": "H13",
+      "seccion_documento": "1, 8",
+      "supuesto": "Conservar las 27 filas con fp_flagged = TRUE tras inspección manual basta para descartar sesgos por respuestas repetidas o ultrarrápidas, sin necesidad de reportar análisis de sensibilidad.",
+      "tipo": "afirmacion_no_sustentada",
+      "cifra_documento": "V.cleaning.fp_flagged_kept = 27 («revisadas una a una: respuestas coherentes y tiempos plausibles; corresponden a hogares o redes compartidas»).",
+      "cifra_propia": "El campo fp_flagged del formulario solo se activaba a partir de la 3.ª respuesta de una misma huella (fp_seen >= 3), dejando sin marcar la 1.ª y la 2.ª respuesta de esos mismos dispositivos. Nuestra regla dispositivo_repetido marca todas las filas de cualquier huella con max(fp_seen) >= 3, lo que asciende a 61 filas en n = 413 (y 57 filas dentro de las 404 comunes con la muestra del compañero), más 8 respuestas rápidas (duration_seconds < mediana/3). Al comparar nuestra muestra completa (n = 413) con la submuestra estricta sin marcas de sensibilidad (n = 346), las diferencias llegan a 2,84 pp en q_futuro_isla (acuerdo 6–10: 34,62 % en n = 413 frente a 31,79 % en n = 346) y 2,61 pp en q_gestion (acuerdo 6–10: 8,96 % en n = 413 frente a 6,36 % en n = 346).",
+      "n": 346,
+      "evidencia": [
+        {"fuente": "codebook/2026.yaml", "ubicacion": "variables.fp_flagged.nota y reglas_calidad.reglas (rapido y dispositivo_repetido)"},
+        {"fuente": "datos/modelos/fundament_2026.csv", "ubicacion": "comparación de porcentajes entre n = 413 y sensibilidad == False (n = 346)"},
+        {"fuente": "referencia/Verificación datos 2026.html", "ubicacion": "V.cleaning y §8 («Antifraude»)"}
+      ],
+      "impacto": "medio",
+      "confianza": "alta",
+      "recomendacion": "Incluir en el informe o anexo técnico la comparación de sensibilidad entre la muestra válida completa (n = 413) y la submuestra sin marcas (n = 346), detallando que el grupo de huellas repetidas abarca 61 respuestas totales y no solo las 27 a partir del tercer envío."
+    },
+    {
+      "id": "H14",
+      "seccion_documento": "4",
+      "supuesto": "La codificación cualitativa de cambio y preservar por expresiones regulares mantiene la taxonomía de 2024 (salvo «Vivienda y especulación») y es verificable con las cifras agregadas.",
+      "tipo": "afirmacion_no_sustentada",
+      "cifra_documento": "V.cualit: cambio (368 respondieron, 365 con contenido, 96 % clasificado, 10 categorías) y preservar (338 respondieron, 324 con contenido, 86 % clasificado, 10 categorías).",
+      "cifra_propia": "En las 404 filas comunes de fundament_2026.csv hay 367 textos no vacíos en cambio y 337 en preservar (que más la fila id_respuesta = 222 cuadran exactamente con 368 y 338; en n = 413 son 374 y 343). La suma de asignaciones (670 en cambio = 183,6 % sobre 365; 430 en preservar = 132,7 % sobre 324) confirma que es una clasificación multietiqueta donde los porcentajes se calculan sobre respuestas «con contenido» (tras descontar 3 y 14 respuestas de «nada / no sé»), sin indicarlo en la tabla. Además, no es cierto que solo «Vivienda y especulación» sea nueva respecto a 2024: en el Informe 2024 (§5.2.4 p. 33) el acceso a la vivienda estaba integrado dentro de «Regulación del alojamiento», por lo que segregarlo altera esa categoría; y en preservar aparecen «Prosperidad compartida y economía» y «Tipo de turismo deseable», que no existían entre las 8 categorías de §5.1 del Informe 2024.",
+      "n": 365,
+      "evidencia": [
+        {"fuente": "referencia/Verificación datos 2026.html", "ubicacion": "§4 y V.cualit"},
+        {"fuente": "datos/modelos/fundament_2026.csv", "ubicacion": "columnas cambio y preservar (textos no vacíos: 374 y 343 en n = 413; 367 y 337 en n = 404)"},
+        {"fuente": "resultados/2024/Estudio-sobre-la-Sostenibilidad-Social-del-Turismo-en-Mallorca-2024-ES-1-0.md", "ubicacion": "§5.1.1–5.1.8 (pp. 28–31) y §5.2.1–5.2.9 (pp. 32–35)"}
+      ],
+      "impacto": "medio",
+      "confianza": "alta",
+      "recomendacion": "Publicar el diccionario de expresiones regulares, las reglas de desempate/multietiqueta y la matriz de asignación por id_respuesta, advirtiendo que los porcentajes son multietiqueta sobre respuestas con contenido sustantivo y que la taxonomía de 2026 no es directamente comparable con la de 2024."
+    },
+    {
+      "id": "H15",
+      "seccion_documento": "8",
+      "supuesto": "Las 8 limitaciones enumeradas en §8 recogen todos los sesgos metodológicos relevantes de la edición 2026.",
+      "tipo": "omision",
+      "cifra_documento": "§8 enumera 8 puntos: Representatividad territorial, Sesgo de composición, Métrica mixta en 2024, Ítems nuevos sin serie, Salto temporal, Cualitativo descriptivo, Cobertura de codificación y Antifraude.",
+      "cifra_propia": "Se omiten seis sesgos clave verificables en los archivos del estudio: (1) Autoselección temática/activista: el 45,7 % de la muestra del compañero (185/405; 45,3 % = 187/413 en nuestras válidas) declara haber participado este año en alguna manifestación o actividad relacionada con el modelo turístico. (2) Sesgo mecánico del slider obligatorio que iniciaba en 5 y efecto techo en las escalas 0–10. (3) Cambio en el tratamiento de no-respuesta en escalas respecto a 2024 (en 2024 había entre 11 y 15 blancos por ítem sobre 440 filas; en 2026 eran obligatorias y hay 0 blancos). (4) Ítems dobles (double-barreled) como q_bienestar («en mi bienestar y en las interacciones comunitarias») e ítems sin dirección valorativa («afecta», «influye»). (5) Cambio estacional del trabajo de campo (verano en 2026 frente a otoño-invierno en 2022–2024) y concentración del 83,8 % de la muestra en 3 semanas de julio. (6) Riesgo de reidentificación en los 9 municipios con n = 1 (11 municipios en n = 413) si se cruzan con variables demográficas.",
+      "n": 413,
+      "evidencia": [
+        {"fuente": "referencia/Verificación datos 2026.html", "ubicacion": "§8 (const limites) y V.otras.manifestacion"},
+        {"fuente": "codebook/2026.yaml", "ubicacion": "notas de Escalas 0–10 y municipio.decision"},
+        {"fuente": "codebook/2024.yaml", "ubicacion": "nota de Escalas 0–10 (respuestas en blanco permitidas)"},
+        {"fuente": "datos/modelos/fundament_2026.csv", "ubicacion": "manifestacion, municipio y timestamp"}
+      ],
+      "impacto": "medio",
+      "confianza": "alta",
+      "recomendacion": "Ampliar la sección de limitaciones metodológicas incorporando estos seis puntos junto con los hallazgos H06 y H12."
+    },
+    {
+      "id": "H16",
+      "seccion_documento": "6",
+      "supuesto": "Los porcentajes de nacionalidad y dependencia económica del turismo se calculan sobre el total de la muestra (n = 405), incluyendo «Prefiero no decirlo» (99) y «No lo sé» (98), y se muestran todas las variables socioeconómicas del objeto V.",
+      "tipo": "metrica",
+      "cifra_documento": "V.demo.nacionalidad: Española 357 (88,1 %), Otra 43 (10,6 %), Prefiero no decirlo 5 (1,2 %). V.socio.tourism_dependencia: Nada 217 (53,6 %), Algo 105 (25,9 %), Bastante 66 (16,3 %), No lo sé 17 (4,2 %). V.socio.situacion_economica (media 5,34) no se renderiza en el HTML.",
+      "cifra_propia": "Según la regla 2 de AGENTS.md y codebook/2026.yaml, los códigos 98 y 99 son no-respuesta y deben excluirse del denominador de porcentajes y medias informando su recuento aparte: en la muestra del compañero, nacionalidad sobre base válida n = 400 da 89,25 % Española (357/400) y 10,75 % Otra (43/400) con 5 códigos 99 (en nuestras 413 válidas, con 7 códigos 99 y n = 406: 89,16 % Española y 10,84 % Otra); tourism_dependencia sobre base válida n = 388 da 55,93 % Nada (217/388), 27,06 % Algo (105/388) y 17,01 % Bastante (66/388) con 17 códigos 98 (en nuestras 413 válidas, con 25 códigos 98 y n = 388: 55,93 %, 27,06 % y 17,01 %). Además, el script define V.socio.situacion_economica (mean: 5.34 en n = 405; 5,34 en n = 404 y 5,31 en n = 413), pero olvida incluirla en el array de renderizado de #demo-tables.",
+      "n": 405,
+      "evidencia": [
+        {"fuente": "AGENTS.md", "ubicacion": "regla 2 («Los códigos 98 (no sabe) y 99 (prefiere no decirlo) son no-respuesta. Exclúyelos de medias y porcentajes e informa de cuántos hay.»)"},
+        {"fuente": "codebook/2026.yaml", "ubicacion": "variables.nacionalidad (código 99) y variables.tourism_dependencia (código 98)"},
+        {"fuente": "referencia/Verificación datos 2026.html", "ubicacion": "V.demo.nacionalidad, V.socio.tourism_dependencia, V.socio.situacion_economica y bucle de renderizado de #demo-tables (líneas 353–362)"}
+      ],
+      "impacto": "bajo",
+      "confianza": "alta",
+      "recomendacion": "Recalcular los porcentajes de nacionalidad y tourism_dependencia excluyendo los códigos 99 y 98 del denominador (declarando cuántos casos se excluyen) y añadir la distribución/media de situacion_economica en la sección 6."
+    },
+    {
+      "id": "H17",
+      "seccion_documento": "2, 3",
+      "supuesto": "Las cifras de 2026 en la tabla Likert (§2, V.likert) y en la serie histórica (§3, V.hist) proceden del mismo cálculo.",
+      "tipo": "diferencia_cifra",
+      "cifra_documento": "En 9 de los 13 ítems, V.hist.y['2026'] difiere de V.likert (posp o negp): Medio ambiente 97,1 vs 97,0; Transporte 92,4 vs 92,3; Vida diaria 89,2 vs 89,1; Gastos de ocio 89,0 vs 89,1; Espacios públicos 88,0 vs 87,9; Bienestar 88,0 vs 88,1; Futuro de la isla 54,7 vs 54,6; Interacciones 66,4 vs 66,2; Gestión 86,5 vs 86,4.",
+      "cifra_propia": "Las cifras de V.likert coinciden exactamente con recuentos enteros sobre n = 405 (por ejemplo, Medio ambiente 393/405 = 97,037 % → 97,0 %; Interacciones 268/405 = 66,17 % → 66,2 %), mientras que las de V.hist.y['2026'] no son cocientes exactos sobre 405 ni sobre 408 (p. ej., 66,4 % × 405 = 268,92), lo que indica que V.hist se copió de un cálculo preliminar con otra base (como n = 404 o n = 407) sin actualizarlo al fijar n = 405.",
+      "n": 405,
+      "evidencia": [
+        {"fuente": "referencia/Verificación datos 2026.html", "ubicacion": "V.likert[].posp / V.likert[].negp frente a V.hist[].y['2026']"}
+      ],
+      "impacto": "bajo",
+      "confianza": "alta",
+      "recomendacion": "Unificar el cálculo de §2 y §3 a partir de un único vector derivado de la misma base limpia."
+    },
+    {
+      "id": "H18",
+      "seccion_documento": "2, 3, 6",
+      "supuesto": "El resto de etiquetas abreviadas del documento conservan todos los matices relevantes de las preguntas originales del codebook 2026.",
+      "tipo": "redaccion",
+      "cifra_documento": "V.likert y §6: «Los espacios públicos se deterioran» (q_espacios), «El turismo afecta al transporte público» (q_transporte), «El turismo influye en mi bienestar/interacciones» (q_bienestar), «La gestión mejoró la convivencia» (q_gestion), «Participó en movilizaciones» (manifestacion).",
+      "cifra_propia": "Al contrastar con codebook/2026.yaml: (1) en q_espacios se omite la cláusula de atribución «a causa del turismo» («Los espacios públicos se deterioran a causa del turismo.»); (2) en q_transporte se omite «la calidad del» («El turismo afecta a la calidad del transporte público.»); (3) en q_bienestar se usa una barra «bienestar/interacciones» para resumir «en mi bienestar y en las interacciones comunitarias»; (4) en q_gestion se omite el marco temporal «esta temporada» («La gestión del turismo esta temporada ha mejorado la convivencia en Mallorca.»); y (5) en manifestacion se resume «¿Has participado este año en alguna manifestación o actividad relacionada con el modelo turístico de Mallorca?» como «Participó en movilizaciones», omitiendo «este año» y «o actividad».",
+      "n": null,
+      "evidencia": [
+        {"fuente": "codebook/2026.yaml", "ubicacion": "pregunta de q_espacios, q_transporte, q_bienestar, q_gestion y manifestacion"},
+        {"fuente": "referencia/Verificación datos 2026.html", "ubicacion": "V.likert[].lab y título de tabla en #demo-tables"}
+      ],
+      "impacto": "bajo",
+      "confianza": "alta",
+      "recomendacion": "Incluir siempre el enunciado literal completo de codebook/2026.yaml en las tablas de verificación."
+    }
+  ],
+  "comparabilidad_historica": [
+    {"item": "Precios", "anio": 2022, "variable": "q_productos_caros", "pregunta": "A causa del turismo, hay determinados productos más caros en Mallorca", "escala": "1–5", "direccion": "afirmacion", "misma_pregunta_que_2026": false, "misma_escala_que_2026": false, "cifra_documento": 90.16, "cifra_informe_publicado": 90.16, "ubicacion_informe": "Informe 2024 §4.6 p. 21 (tabla Informe 2022 p. 13; Informe 2023 p. 16)", "comparable": "no", "motivo": "Pregunta distinta (centrada en «determinados productos») y escala 1–5 en lugar de 0–10. Recalculado 4–5 en CSV 2022: 90,13 % (n = 446)."},
+    {"item": "Precios", "anio": 2023, "variable": "q_vida_cara", "pregunta": "Debido al turismo, la vida en Mallorca es más cara.", "escala": "1–5 (3 = «Neutro (no lo sé)»)", "direccion": "afirmacion", "misma_pregunta_que_2026": false, "misma_escala_que_2026": false, "cifra_documento": 96.69, "cifra_informe_publicado": 96.69, "ubicacion_informe": "Informe 2024 §4.6 p. 21 (Informe 2023 p. 16)", "comparable": "no", "motivo": "Pregunta distinta («la vida en Mallorca es más cara») y escala 1–5 con el punto 3 mezclando neutralidad y «no lo sé». Recalculado 4–5 en CSV 2023: 96,66 % (n = 419)."},
+    {"item": "Precios", "anio": 2024, "variable": "q_precios", "pregunta": "El turismo contribuye al aumento de precios en Mallorca.", "escala": "0–10", "direccion": "afirmacion", "misma_pregunta_que_2026": true, "misma_escala_que_2026": true, "cifra_documento": 97.66, "cifra_informe_publicado": 97.66, "ubicacion_informe": "Informe 2024 §4.6 p. 21", "comparable": "con_reservas", "motivo": "Misma pregunta, escala 0–10 y métrica 6–10 (recalculado: 97,66 %, n = 428). Reservas: trabajo de campo en otoño-invierno (nov 2024–feb 2025) frente a verano en 2026, respuestas en blanco permitidas en 2024 (12 blancos) frente a slider obligatorio iniciado en 5 en 2026, y anclas de 2024 documentadas desde el informe sin copia del formulario."},
+    {"item": "Medio ambiente", "anio": 2022, "variable": "q_no_impacto_ambiental", "pregunta": "No percibo que el turismo en Mallorca tenga un gran impacto ambiental", "escala": "1–5", "direccion": "negacion", "misma_pregunta_que_2026": false, "misma_escala_que_2026": false, "cifra_documento": 87.95, "cifra_informe_publicado": 87.95, "ubicacion_informe": "Informe 2024 §4.4 p. 20 (tabla Informe 2022 p. 13)", "comparable": "no", "motivo": "Pregunta formulada en negativo en escala 1–5: el 87,95 % (recalculado 1–2: 87,92 %, n = 447) mide el desacuerdo con la negación, pero el documento lo etiqueta como «afirmación»."},
+    {"item": "Medio ambiente", "anio": 2023, "variable": "q_impacto_ambiental", "pregunta": "El turismo en Mallorca tiene un gran impacto ambiental.", "escala": "1–5 (3 = «Neutro (no lo sé)»)", "direccion": "afirmacion", "misma_pregunta_que_2026": false, "misma_escala_que_2026": false, "cifra_documento": 95.96, "cifra_informe_publicado": 95.96, "ubicacion_informe": "Informe 2024 §4.4 p. 20 (Informe 2023 p. 16)", "comparable": "no", "motivo": "Pregunta con cuantificador («tiene un gran impacto ambiental» frente a «afecta al medio ambiente») y escala 1–5. Recalculado 4–5: 95,93 % (n = 418)."},
+    {"item": "Medio ambiente", "anio": 2024, "variable": "q_medio_ambiente", "pregunta": "El turismo afecta al medio ambiente.", "escala": "0–10", "direccion": "afirmacion", "misma_pregunta_que_2026": true, "misma_escala_que_2026": true, "cifra_documento": 97.0, "cifra_informe_publicado": 97.44, "ubicacion_informe": "Informe 2024 §4.4 p. 20", "comparable": "con_reservas", "motivo": "Misma pregunta, escala y métrica 6–10 (recalculado: 97,44 %, n = 429); V.hist usa el titular redondeado (97,0). Mismas reservas de campo y mecánica del slider que en Precios 2024."},
+    {"item": "Calidad de vida", "anio": 2022, "variable": "q_beneficio_calidad", "pregunta": "Cuando incrementa el beneficio del turismo, decrece la calidad de vida de los residentes en Mallorca", "escala": "1–5", "direccion": "afirmacion", "misma_pregunta_que_2026": false, "misma_escala_que_2026": false, "cifra_documento": 74.44, "cifra_informe_publicado": 74.44, "ubicacion_informe": "Informe 2024 §4.5 p. 21 (tabla Informe 2022 p. 13)", "comparable": "no", "motivo": "Pregunta condicional distinta («Cuando incrementa el beneficio del turismo, decrece la calidad de vida…») y escala 1–5. Recalculado 4–5: 74,39 % (n = 449)."},
+    {"item": "Calidad de vida", "anio": 2023, "variable": "q_mas_turismo_calidad", "pregunta": "Si hay más turismo, mejora la calidad de vida.", "escala": "1–5 (3 = «Neutro (no lo sé)»)", "direccion": "afirmacion", "misma_pregunta_que_2026": false, "misma_escala_que_2026": false, "cifra_documento": 82.98, "cifra_informe_publicado": 82.98, "ubicacion_informe": "Informe 2024 §4.5 p. 21 (Informe 2023 p. 16, rotulado «Negación»)", "comparable": "no", "motivo": "Pregunta de sentido positivo en escala 1–5 donde el 82,98 % (recalculado 1–2: 83,10 %, n = 420) es el desacuerdo («Negación»), mientras que en 2026 la pregunta es neutra («afecta a mi calidad de vida») y se mide el acuerdo 6–10."},
+    {"item": "Calidad de vida", "anio": 2024, "variable": "q_calidad_vida", "pregunta": "El turismo afecta a mi calidad de vida.", "escala": "0–10", "direccion": "afirmacion", "misma_pregunta_que_2026": true, "misma_escala_que_2026": true, "cifra_documento": 93.46, "cifra_informe_publicado": 93.46, "ubicacion_informe": "Informe 2024 §4.5 p. 20", "comparable": "con_reservas", "motivo": "Misma pregunta, escala y métrica 6–10 (recalculado: 93,46 %, n = 428). Reservas de estación de campo, slider y ausencia de valencia en el verbo «afecta»."},
+    {"item": "Transporte", "anio": 2022, "variable": "q_transporte_peor", "pregunta": "El transporte público es peor, a causa del incremento del turismo", "escala": "1–5", "direccion": "afirmacion", "misma_pregunta_que_2026": false, "misma_escala_que_2026": false, "cifra_documento": 50.78, "cifra_informe_publicado": 50.78, "ubicacion_informe": "Informe 2024 §4.7 p. 21 (tabla Informe 2022 p. 13)", "comparable": "no", "motivo": "Pregunta con dirección negativa («es peor») y escala 1–5. Recalculado 4–5: 50,67 % (n = 446)."},
+    {"item": "Transporte", "anio": 2023, "variable": "q_transporte_peor", "pregunta": "El incremento del turismo ha empeorado el transporte público.", "escala": "1–5 (3 = «Neutro (no lo sé)»)", "direccion": "afirmacion", "misma_pregunta_que_2026": false, "misma_escala_que_2026": false, "cifra_documento": 55.68, "cifra_informe_publicado": 55.68, "ubicacion_informe": "Informe 2024 §4.7 p. 21 (Informe 2023 p. 17)", "comparable": "no", "motivo": "Pregunta con dirección negativa («ha empeorado») y escala 1–5; el salto a 90,14 % en 2024 responde al cambio de pregunta («afecta a la calidad») y de escala. Recalculado 4–5: 55,85 % (n = 419)."},
+    {"item": "Transporte", "anio": 2024, "variable": "q_transporte", "pregunta": "El turismo afecta a la calidad del transporte público.", "escala": "0–10", "direccion": "afirmacion", "misma_pregunta_que_2026": true, "misma_escala_que_2026": true, "cifra_documento": 90.14, "cifra_informe_publicado": 90.14, "ubicacion_informe": "Informe 2024 §4.7 p. 21", "comparable": "con_reservas", "motivo": "Misma pregunta, escala y métrica 6–10 (recalculado: 90,14 %, n = 426). Reservas como en Precios 2024."},
+    {"item": "Vida diaria", "anio": 2022, "variable": "q_no_afecta_dia", "pregunta": "El turismo no me afecta en mi día a día", "escala": "1–5", "direccion": "negacion", "misma_pregunta_que_2026": false, "misma_escala_que_2026": false, "cifra_documento": 72.26, "cifra_informe_publicado": 72.26, "ubicacion_informe": "Informe 2024 §4.3 p. 20 (tabla Informe 2022 p. 13)", "comparable": "no", "motivo": "Pregunta en negativo en escala 1–5: el 72,26 % (recalculado 1–2: 72,20 %, n = 446) es el desacuerdo con «no me afecta», no una afirmación directa."},
+    {"item": "Vida diaria", "anio": 2023, "variable": "q_afecta_dia", "pregunta": "El turismo me afecta mi día a día.", "escala": "1–5 (3 = «Neutro (no lo sé)»)", "direccion": "afirmacion", "misma_pregunta_que_2026": false, "misma_escala_que_2026": false, "cifra_documento": 81.04, "cifra_informe_publicado": 81.04, "ubicacion_informe": "Informe 2024 §4.3 p. 20 (Informe 2023 p. 16)", "comparable": "no", "motivo": "Cambia la redacción («me afecta mi día a día» frente a «influye en mi vida diaria») y la escala 1–5. Recalculado 4–5: 81,38 % (n = 419)."},
+    {"item": "Vida diaria", "anio": 2024, "variable": "q_vida_diaria", "pregunta": "El turismo influye en mi vida diaria.", "escala": "0–10", "direccion": "afirmacion", "misma_pregunta_que_2026": true, "misma_escala_que_2026": true, "cifra_documento": 90.19, "cifra_informe_publicado": 90.19, "ubicacion_informe": "Informe 2024 §4.3 p. 20", "comparable": "con_reservas", "motivo": "Misma pregunta, escala y métrica 6–10 (recalculado en CSV 2024: 89,95 % = 385/428, 1 respuesta de diferencia respecto al 386/428 = 90,19 % publicado). Reservas como en Precios 2024."},
+    {"item": "Gastos de ocio", "anio": 2022, "variable": "q_ocio_incrementado", "pregunta": "El dinero que destino a ocio (deporte, cultura, restauración) se ha visto incrementado a consecuencia del turismo", "escala": "1–5", "direccion": "afirmacion", "misma_pregunta_que_2026": false, "misma_escala_que_2026": false, "cifra_documento": 47.19, "cifra_informe_publicado": 47.19, "ubicacion_informe": "Informe 2024 §4.10 p. 23 (tabla Informe 2022 p. 13)", "comparable": "no", "motivo": "Pregunta con dirección explícita («se ha visto incrementado») y ejemplos acotados en escala 1–5. Recalculado 4–5: 47,07 % (n = 444)."},
+    {"item": "Gastos de ocio", "anio": 2023, "variable": "q_ocio_aumentado", "pregunta": "El dinero que gasto en ocio ha aumentado a consecuencia del turismo.", "escala": "1–5 (3 = «Neutro (no lo sé)»)", "direccion": "afirmacion", "misma_pregunta_que_2026": false, "misma_escala_que_2026": false, "cifra_documento": 75.12, "cifra_informe_publicado": 75.12, "ubicacion_informe": "Informe 2024 §4.10 p. 23 (Informe 2023 p. 18)", "comparable": "no", "motivo": "Pregunta direccional («ha aumentado» frente a «ha afectado» en 2024/2026) y escala 1–5. Recalculado 4–5: 74,94 % (n = 419)."},
+    {"item": "Gastos de ocio", "anio": 2024, "variable": "q_gastos_ocio", "pregunta": "El turismo ha afectado a mis gastos de ocio.", "escala": "0–10", "direccion": "afirmacion", "misma_pregunta_que_2026": true, "misma_escala_que_2026": true, "cifra_documento": 93.68, "cifra_informe_publicado": 93.68, "ubicacion_informe": "Informe 2024 §4.10 p. 23", "comparable": "no", "motivo": "No comparable tal como está publicada: 93,68 % suma 5–10 (incluye el 5 neutral). Recalculando 6–10 sobre CSV 2024 da 89,70 % (n = 427), prácticamente igual al 89,1 % de 2026."},
+    {"item": "Espacios públicos", "anio": 2023, "variable": "q_espacios", "pregunta": "Los espacios públicos se deterioran a causa del turismo.", "escala": "1–5 (3 = «Neutro (no lo sé)»)", "direccion": "afirmacion", "misma_pregunta_que_2026": true, "misma_escala_que_2026": false, "cifra_documento": 81.67, "cifra_informe_publicado": 83.07, "ubicacion_informe": "Informe 2024 §4.8 p. 22; Informe 2023 p. 17", "comparable": "no", "motivo": "Misma pregunta pero escala 1–5. Además, 81,67 % no figura en ningún informe (el publicado es 83,07 % y el recalculado 4–5 es 83,29 %, n = 419); 81,67 sale de 89,98 − 8,31."},
+    {"item": "Espacios públicos", "anio": 2024, "variable": "q_espacios", "pregunta": "Los espacios públicos se deterioran a causa del turismo.", "escala": "0–10", "direccion": "afirmacion", "misma_pregunta_que_2026": true, "misma_escala_que_2026": true, "cifra_documento": 89.98, "cifra_informe_publicado": 89.98, "ubicacion_informe": "Informe 2024 §4.8 p. 22", "comparable": "con_reservas", "motivo": "Misma pregunta, escala y métrica 6–10 (recalculado: 89,98 %, n = 429). Reservas como en Precios 2024."},
+    {"item": "Bienestar", "anio": 2024, "variable": "q_bienestar", "pregunta": "El turismo influye en mi bienestar y en las interacciones comunitarias.", "escala": "0–10", "direccion": "afirmacion", "misma_pregunta_que_2026": true, "misma_escala_que_2026": true, "cifra_documento": 94.0, "cifra_informe_publicado": 93.66, "ubicacion_informe": "Informe 2024 §4.9 p. 22", "comparable": "no", "motivo": "No comparable con la cifra publicada: 93,66 % (redondeado a 94,0 en V.hist) suma 5–10. Recalculando 6–10 sobre CSV 2024 es 87,32 % (n = 426), frente a 88,1 % en 2026."},
+    {"item": "Diversificación", "anio": 2024, "variable": "q_diversificacion", "pregunta": "La economía de Mallorca sería más resistente con una mayor variedad de industrias.", "escala": "0–10", "direccion": "afirmacion", "misma_pregunta_que_2026": true, "misma_escala_que_2026": true, "cifra_documento": 98.0, "cifra_informe_publicado": 97.67, "ubicacion_informe": "Informe 2024 §4.12 p. 24", "comparable": "no", "motivo": "No comparable con la cifra publicada: 97,67 % (98,0 en V.hist) suma 5–10. Recalculando 6–10 sobre CSV 2024 es 93,71 % (n = 429), frente a 93,6 % en 2026."},
+    {"item": "Activismo mejoró gestión", "anio": 2024, "variable": "q_activismo", "pregunta": "El activismo de los residentes ha tenido un impacto positivo en la gestión del turismo.", "escala": "0–10", "direccion": "afirmacion", "misma_pregunta_que_2026": true, "misma_escala_que_2026": true, "cifra_documento": 62.0, "cifra_informe_publicado": 61.41, "ubicacion_informe": "Informe 2024 §4.14 p. 25", "comparable": "no", "motivo": "No comparable con la cifra publicada: 61,41 % (62,0 en V.hist) incluye el 24,71 % que marcó 5 (suma 5–10). Recalculando 6–10 sobre CSV 2024 cae a 36,71 % (n = 425), dejando la diferencia con 2026 (33,8 %) en −2,9 pp en vez de −28,2 pp."},
+    {"item": "Futuro de la isla", "anio": 2023, "variable": "q_futuro_isla", "pregunta": "El turismo es el futuro de la isla.", "escala": "1–5 (3 = «Neutro (no lo sé)»)", "direccion": "afirmacion", "misma_pregunta_que_2026": true, "misma_escala_que_2026": false, "cifra_documento": 67.0, "cifra_informe_publicado": 66.59, "ubicacion_informe": "Informe 2024 §4.11 p. 23; Informe 2023 p. 19 (titular 67 %)", "comparable": "no", "motivo": "Misma pregunta pero escala 1–5. V.hist toma el titular redondeado (67,0 %) en vez del texto (66,59 %; recalculado 1–2: 66,83 %, n = 419)."},
+    {"item": "Futuro de la isla", "anio": 2024, "variable": "q_futuro_isla", "pregunta": "El turismo es el futuro de la isla.", "escala": "0–10", "direccion": "afirmacion", "misma_pregunta_que_2026": true, "misma_escala_que_2026": true, "cifra_documento": 57.85, "cifra_informe_publicado": 57.85, "ubicacion_informe": "Informe 2024 §4.11 p. 23", "comparable": "no", "motivo": "Error de polaridad en el Informe 2024: rotuló 57,85 % como «Negación», pero 57,85 % (247/427) es el porcentaje de 5–10 (acuerdo + neutral). El desacuerdo real 0–4 en 2024 fue 42,15 % (180/427), por lo que entre 2024 y 2026 el rechazo subió (+12,45 pp, hasta 54,6 %) en vez de bajar."},
+    {"item": "Interacciones positivas", "anio": 2024, "variable": "q_interacciones", "pregunta": "El turismo favorece interacciones positivas entre residentes y visitantes.", "escala": "0–10", "direccion": "afirmacion", "misma_pregunta_que_2026": true, "misma_escala_que_2026": true, "cifra_documento": 52.0, "cifra_informe_publicado": 52.82, "ubicacion_informe": "Informe 2024 §4.13 p. 24", "comparable": "con_reservas", "motivo": "Misma pregunta, escala y métrica de desacuerdo 0–4 (recalculado: 52,82 %, n = 426; V.hist redondea a 52,0). Reservas por la caída del punto 5 (de 19,72 % en 2024 a 9,1 % en 2026 por el slider) y cambio estacional."},
+    {"item": "Gestión mejoró convivencia", "anio": 2024, "variable": "q_gestion", "pregunta": "La gestión del turismo durante la temporada 2024 ha mejorado la convivencia en Mallorca.", "escala": "0–10", "direccion": "afirmacion", "misma_pregunta_que_2026": true, "misma_escala_que_2026": true, "cifra_documento": 79.34, "cifra_informe_publicado": 79.34, "ubicacion_informe": "Informe 2024 §4.15 p. 25", "comparable": "con_reservas", "motivo": "Misma escala y métrica de desacuerdo 0–4 (recalculado: 79,34 %, n = 426). En 2024 se evaluó «la temporada 2024» una vez concluida (nov–feb), mientras que en 2026 se evaluó «esta temporada» en pleno verano."}
+  ],
+  "no_verificable": [
+    {"que": "Censo total de referencia (960.270 hab., «padrón ref. 2026») y cifras de población municipal usadas en V.terr", "por_que": "No se incluye ningún archivo de padrón municipal entre los archivos permitidos; solo se verificó que la aritmética interna (pct_m / pct_pob × 100) cuadra en los 34 municipios", "que_haria_falta": "Tabla oficial del padrón municipal con fuente (INE/IBESTAT) y fecha de referencia"},
+    {"que": "Existencia de 608 filas exportadas con 200 vacías y motivo por el que 21 filas de nuestro bruto (incluidas 9 válidas) no están en la hoja limpia del compañero", "por_que": "No se dispone del archivo «Sheet activo» ni del registro de borrado previo a las 408 filas de en_hoja_limpia", "que_haria_falta": "Exportación original congelada de la hoja del compañero y trazabilidad de las 21 filas ausentes"},
+    {"que": "Revisión manual de las 27 respuestas con fp_flagged = TRUE y sus tiempos de respuesta o huellas individuales", "por_que": "Las variables duration_seconds, fp_seen y fp_flagged tienen a_modelos: no en codebook/2026.yaml y no están en fundament_2026.csv", "que_haria_falta": "Reglas explícitas de validación y listado de decisiones por id_respuesta"},
+    {"que": "Identidad y variables de las 15 filas excluidas tanto por nosotros como por el compañero (y confirmación directa en el bruto de que id_respuesta = 222 tiene age == 1)", "por_que": "fundament_2026.csv solo contiene las 413 filas válidas; que id_respuesta = 222 es el menor de edad se deduce con certeza por diferencia entre V.demo.age / V.seg.edadTen y las 404 filas comunes", "que_haria_falta": "Tabla de motivos de exclusión por id_respuesta"},
+    {"que": "Reproducibilidad de los porcentajes del análisis cualitativo (§4, V.cualit) sobre cambio y preservar", "por_que": "No se proporcionan las expresiones regulares ni las etiquetas asignadas a cada id_respuesta", "que_haria_falta": "Script o diccionario de regex por categoría y matriz de codificación por id_respuesta"},
+    {"que": "Origen exacto de las discrepancias de ±0,1 a +0,2 pp entre las cifras 2026 de §2 (V.likert) y §3 (V.hist)", "por_que": "El HTML contiene las constantes literales en el objeto V sin el script que las generó", "que_haria_falta": "Script de cálculo del compañero para ambas secciones"},
+    {"que": "Verificación en formulario original de las anclas 0–10 de 2024 y del comportamiento inicial del slider en 2024", "por_que": "codebook/2024.yaml indica que las anclas 2024 se tomaron del informe publicado al no disponerse de copia del formulario 2024", "que_haria_falta": "Capturas o definición técnica del formulario web 2024"},
+    {"que": "Pequeñas diferencias de ±1 respuesta entre las cifras publicadas en 2022–2024 y el recálculo sobre los CSV actuales (p. ej. q_vida_diaria 2024: 90,19 % publicado frente a 89,95 % recalculado)", "por_que": "Los informes publicados en 2022–2024 no declaran el n exacto por pregunta ni la fecha de corte de su extracción", "que_haria_falta": "Scripts o cortes de datos exactos utilizados en los informes de 2022, 2023 y 2024"}
+  ],
+  "resumen": "La muestra del compañero (n = 405) se concilia exactamente con nuestras 413 válidas: 405 = 413 − 9 válidas ausentes de su hoja limpia (todas con marca de sensibilidad, incluidas 7 de las 8 rápidas) + 1 menor de edad (id = 222) no excluido y fusionado en 18–35.\nLa serie histórica 2024–2026 es inválida tal como se presenta: el informe 2024 calculó 5 ítems sumando 5–10 en vez de 6–10 o 0–4; al recalcular con la métrica de 2026 desaparece el desplome de activismo (−2,9 pp en vez de −28,2 pp) y el rechazo a «futuro de la isla» sube (+12,45 pp) en lugar de bajar.\nLas ediciones 2022 y 2023 no son comparables (escala 1–5, punto medio «Neutro (no lo sé)» en 2023 y preguntas en sentido inverso), y 7 cifras de V.hist no coinciden con el texto del informe citado (como 81,67 % en Espacios 2023, obtenido de 89,98 − 8,31).\nLas afirmaciones de representatividad (mínimo 384, IC 95 %, margen ±5 %) son improcedentes en una muestra autoseleccionada, y se omiten sesgos críticos: trabajo de campo en pleno verano (83,8 % en 3 semanas de julio) frente a otoño-invierno en 2022–2024, slider iniciado en 5 y 45,7 % de participación en movilizaciones.\nEn segmentación y territorio, la base de q_abandono cae a 402 sin aviso, hay celdas con n < 30 sin advertencia (56+ Alquiler, n = 11), se omite «Otro» en edad × tenencia, se incluyen códigos 98/99 en los porcentajes, Porreres no tenía botón en el formulario web y Valldemossa (índice 5933) concentra el 76,5 % de sus respuestas en una sola semana."
+}
+
