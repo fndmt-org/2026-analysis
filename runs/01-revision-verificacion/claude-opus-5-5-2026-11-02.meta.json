@@ -1,0 +1,31 @@
+{
+  "tarea": "tareas/01-revision-verificacion-2026.md",
+  "respuesta": "claude-opus-5-5-2026-11-02.json",
+  "modelo": "Claude Opus 5.5",
+  "version_modelo": "claude-opus-5-5",
+  "fecha": "2026-11-02",
+  "entorno": "Claude Code (extensión de VS Code), con acceso al repositorio y a la shell; Python 3.14 + pandas del .venv",
+  "commit": "d8b88041d46c012ad5da27d2255fb8c9939e3442",
+  "rama": "tarea-01",
+  "codebook": "2026 v0.2 (sin cambios desde la etiqueta codebook-v0.2); 2022–2024 v0.1 en HEAD, posteriores a la etiqueta",
+  "preparacion": [
+    "shasum -a 256 -c datos/SHA256SUMS: todos OK",
+    "E=2022|2023|2024: limpiar.py, anonimizar.py, exportar.py --sin-textos (resultado idéntico a los archivos que había)",
+    "2026: limpiar.py, anonimizar.py, exportar.py; companero.py (405 en su muestra, 408 en su hoja limpia)",
+    "fundament_2026.csv regenerado no coincidía con el que había (sha256 05a5355e… → 07684daf…): la exportación es determinista desde HEAD, pero no se conserva el archivo anterior para ver qué cambió"
+  ],
+  "sha256_entradas": {
+    "datos/modelos/fundament_2026.csv": "07684daf9d7b4ec70b89cd9e48280300596879e11b7bbdcad853a67024e73c4e",
+    "datos/modelos/fundament_2022_sin_textos.csv": "e6ec5d5c6fdf6b776584e9a4f13b75f22d428f81a6bb8179288aaeed05042a13",
+    "datos/modelos/fundament_2023_sin_textos.csv": "c41e4d0af9d3f1a6b26e161dc0698d8cbfb4830637a917fb15a70170edfcbe05",
+    "datos/modelos/fundament_2024_sin_textos.csv": "cb598e3ad4bfb8f9217ad95811c4d2b69a1650bf88f3c74180e848da0bd1b897",
+    "datos/modelos/companero_2026_filas.csv": "2c0cd8b292a71ac5b5f085808874d60ff2b70a1b087419c3feb2270c78bdeef8",
+    "referencia/Verificación datos 2026.html": "ed269a025d1185d30ffd539c378bc2d826e42ff2622cc68d06a74fd791e5c0a0"
+  },
+  "parametros": "Sin temperatura configurable. Cálculos con fragmentos de Python ad hoc durante la sesión; no se versionan.",
+  "diferencias_con_un_lanzamiento_limpio": [
+    "Antes de la revisión, el modelo leyó también README.md, la propia tarea, el historial de git y los diffs de codigo/ para preparar los datos.",
+    "Tenía en contexto las notas de memoria del proyecto (hallazgos del CSV 2026 y de ediciones anteriores). Las cifras de la respuesta se calcularon o comprobaron solo con los archivos de la lista de la tarea, pero el conocimiento previo pudo orientar qué buscar.",
+    "No vio brutos, intermedios, web/ ni el xlsx del compañero durante la revisión. Los scripts del pipeline sí los leyeron al regenerar las exportaciones."
+  ]
+}
