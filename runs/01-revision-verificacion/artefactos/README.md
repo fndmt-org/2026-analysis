@@ -7,7 +7,7 @@ No forman parte de las respuestas de la tarea: los JSON de `runs/01-revision-ver
 
 | Archivo | Qué contrasta | Publicada en | Estado |
 |---|---|---|---|
-| `contraste-verificacion-2026.html` | Todas las cifras del documento, histórico 2022–2024 incluido | https://claude.ai/artifact/3oLEQ7HwW898dWC7ned7bi | Privada. Tres pasadas, 2 y 4 nov. 2026 |
+| `contraste-verificacion-2026.html` | Todas las cifras del documento, histórico 2022–2024 incluido, con el estilo de `DESIGN.md` | https://claude.ai/artifact/3oLEQ7HwW898dWC7ned7bi | Privada. Tres pasadas, 2 y 4 nov. 2026 |
 | `cifras-2026-contrastadas.html` | Solo las cifras de 2026, con el estilo de `DESIGN.md` | https://claude.ai/artifact/TtX8hguLf44eGDwEWr7m1X | Privada. Tres pasadas, 4 nov. 2026 |
 
 Desde el 8 nov. 2026 se publican desde la cuenta de la asociación (pablo.grillo@fundament.es); los enlaces de

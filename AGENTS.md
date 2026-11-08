@@ -27,3 +27,5 @@ Si la tarea no indica la edición, es 2026.
 ## Salida
 
 El formato lo define cada tarea en `tareas/`. Si no se indica: JSON con las cifras y un resumen de cinco líneas como máximo.
+
+Toda página HTML (artifact) sigue la identidad visual de `DESIGN.md`.

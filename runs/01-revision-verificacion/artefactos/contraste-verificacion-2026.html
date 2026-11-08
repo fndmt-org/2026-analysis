@@ -1,101 +1,133 @@
 <title>Contraste de la verificación 2026</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: hoja de auditoría. Resumen arriba, luego una tabla por sección del documento revisado; cada fila lleva su estado como chip y franja. */
+/* Layout: informe de una columna sobre contenedor de 1120 px. Resumen en cifras clave arriba; después una tabla por sección del documento revisado. Identidad fundament (DESIGN.md): solo modo claro por regla de marca. */
 :root{
-  --bg:#f3f5f7; --surface:#ffffff; --ink:#15212b; --muted:#5a6772; --line:#d9e0e6; --accent:#1d4e89;
-  --ok:#1f7a4d; --ok-bg:#e6f3ec; --dif:#c03a17; --dif-bg:#fbe9e3; --nc:#9a6200; --nc-bg:#f8efd9; --nv:#5e6b78; --nv-bg:#e9edf1;
-  --f-head:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
-  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
   color-scheme:light;
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0f161c; --surface:#16212a; --ink:#e4eaef; --muted:#9aa8b4; --line:#2a3743; --accent:#7fb0ea;
-  --ok:#5fc795; --ok-bg:#15301f; --dif:#ff8a68; --dif-bg:#3a1c13; --nc:#e3b456; --nc-bg:#33270f; --nv:#a7b3bf; --nv-bg:#222d37;
-  color-scheme:dark;
-}}
-:root[data-theme="dark"]{
-  --bg:#0f161c; --surface:#16212a; --ink:#e4eaef; --muted:#9aa8b4; --line:#2a3743; --accent:#7fb0ea;
-  --ok:#5fc795; --ok-bg:#15301f; --dif:#ff8a68; --dif-bg:#3a1c13; --nc:#e3b456; --nc-bg:#33270f; --nv:#a7b3bf; --nv-bg:#222d37;
-  color-scheme:dark;
+  --black:#000000; --white:#FFFFFF;
+  --salmon:#E6A198; --bisque:#FFE1C2;
+  --muted:#5C5C5C; --rule:#E3E3E3;
+  --font:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  --container:1120px; --prose:720px;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5;
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0}
-.wrap{max-width:1080px;margin:0 auto;display:grid;gap:36px;padding-block:32px 56px}
-h1,h2{font-family:var(--f-head);text-wrap:balance;margin:0}
-h1{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700;letter-spacing:-.01em}
-h2{font-size:1.3rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
-h2 .sec{font-family:var(--f-mono);font-size:.8rem;color:var(--accent);font-weight:500}
-.eyebrow{font-family:var(--f-head);text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;color:var(--muted);margin:0 0 6px;font-weight:600}
-.lede{max-width:68ch;color:var(--muted);margin:10px 0 0}
-.lede b{color:var(--ink);font-weight:600}
-header{display:grid;gap:18px}
-.summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
-@media (max-width:640px){.summary{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.tile{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--c);padding:12px 14px;display:grid;gap:2px;text-align:left;font:inherit;color:inherit;cursor:pointer}
-.tile:focus-visible,.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.tile[aria-pressed="true"]{background:var(--cbg)}
-.tile .num{font-family:var(--f-head);font-size:2rem;font-weight:700;color:var(--c);line-height:1;font-variant-numeric:tabular-nums}
-.tile .lab{font-weight:600;font-size:.9rem}
-.tile .desc{font-size:.78rem;color:var(--muted)}
-.k-ok{--c:var(--ok);--cbg:var(--ok-bg)} .k-dif{--c:var(--dif);--cbg:var(--dif-bg)} .k-nc{--c:var(--nc);--cbg:var(--nc-bg)} .k-nv{--c:var(--nv);--cbg:var(--nv-bg)}
-.filterbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
-.btn{font:inherit;font-size:.82rem;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:4px 10px;cursor:pointer}
-.key{background:var(--surface);border:1px solid var(--line);padding:14px 16px;display:grid;gap:8px;font-size:.88rem}
-.key div{display:flex;gap:10px;align-items:baseline}
-section{display:grid;gap:10px}
-.note{color:var(--muted);font-size:.88rem;max-width:75ch;margin:0}
-.tw{overflow-x:auto;background:var(--surface);border:1px solid var(--line)}
-table{border-collapse:collapse;width:100%;min-width:760px;font-size:.88rem}
-th{font-family:var(--f-head);font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:.72rem;color:var(--muted);text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);background:var(--surface)}
-td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
-tr:last-child td{border-bottom:0}
-td.p{font-weight:500;width:24%}
-td.v{font-family:var(--f-mono);font-size:.82rem;font-variant-numeric:tabular-nums;width:18%}
-td.s{width:118px;white-space:nowrap}
-td.n{color:var(--muted);font-size:.84rem}
-tr{box-shadow:inset 4px 0 0 var(--c)}
-tr.r-dif td{background:var(--dif-bg)}
-tr.r-dif td.v.mine{color:var(--dif);font-weight:500}
-tr.r-ok td.v.mine{color:var(--ok)}
-.chip{display:inline-block;font-family:var(--f-head);font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border:1px solid var(--c);color:var(--c);background:var(--cbg)}
-.chip::before{content:var(--ico);margin-right:5px}
-.k-ok .chip,.chip.k-ok{--ico:"✓"} .k-dif .chip,.chip.k-dif{--ico:"≠"} .k-nc .chip,.chip.k-nc{--ico:"↯"} .k-nv .chip,.chip.k-nv{--ico:"?"}
+body{margin:0;background:var(--white);color:var(--black);font-family:var(--font);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));padding-block:0}
+@media (max-width:480px){body{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}}
+.wrap{max-width:var(--container);margin:0 auto}
+h1,h2{font-weight:400;letter-spacing:-0.01em;margin:0;text-wrap:balance}
+h1{font-size:clamp(2rem,4.4vw,3rem);line-height:1.12;max-width:18ch}
+h2{font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.2}
+p{margin:0;max-width:66ch}
+a{color:inherit;text-underline-offset:3px}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.86em}
+::selection{background:var(--salmon);color:var(--black)}
+:focus-visible{outline:2px solid var(--black);outline-offset:3px}
+.label{font-size:.75rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0}
+
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:18px;border-bottom:1px solid var(--rule)}
+.brand svg{height:22px;width:auto;display:block}
+
+.section{padding-block:64px;display:flex;flex-direction:column;gap:28px}
+.section + .section{border-top:2px solid var(--black)}
+.intro{padding-block:64px 48px;display:flex;flex-direction:column;gap:24px}
+.lede{font-size:1.18rem;line-height:1.6;max-width:62ch}
+.prose{max-width:var(--prose);display:flex;flex-direction:column;gap:14px;font-size:1rem;line-height:1.7}
+
+.keys{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+@media (max-width:900px){.keys{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.keys{grid-template-columns:1fr}}
+.key{font:inherit;color:inherit;text-align:left;cursor:pointer;background:var(--white);border:1px solid var(--rule);padding:20px 22px;display:flex;flex-direction:column;gap:6px;transition:background-color .15s ease,border-color .15s ease}
+.key:hover{border-color:var(--black)}
+.key .num{font-size:clamp(2.5rem,6vw,4rem);font-weight:300;line-height:1.05;letter-spacing:-0.02em;font-variant-numeric:tabular-nums}
+.key .desc{font-size:.9rem;color:var(--muted);line-height:1.5}
+.key[aria-pressed="true"]{border-color:var(--black);border-width:2px;padding:19px 21px}
+.key.k-dif[aria-pressed="true"]{background:var(--salmon)}
+.key.k-nc[aria-pressed="true"]{background:var(--bisque)}
+.key[aria-pressed="true"] .desc{color:var(--black)}
+.filterbar{display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-size:.9rem;color:var(--muted)}
+.btn{font:500 .88rem/1 var(--font);background:transparent;color:var(--black);border:1.5px solid var(--black);padding:10px 18px;cursor:pointer;transition:background-color .15s ease}
+.btn:hover{background:var(--bisque)}
+
+.head{display:flex;flex-direction:column;gap:10px}
+.head .note{color:var(--muted);font-size:.95rem}
+.tw{overflow-x:auto;border-top:1px solid var(--black)}
+table{border-collapse:collapse;width:100%;min-width:780px;font-size:.92rem}
+th{font-size:.72rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);text-align:left;padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:bottom}
+td{padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+td:first-child,th:first-child{border-left:5px solid transparent}
+tr.r-dif td:first-child{border-left-color:var(--salmon)}
+tr.r-nc td:first-child{border-left-color:var(--bisque)}
+tr.r-nv td:first-child{border-left-color:var(--muted)}
+td.p{font-weight:700;width:22%}
+td.v{font-variant-numeric:tabular-nums;width:20%}
+tr.r-dif td.v.mine{font-weight:700}
+td.s{white-space:nowrap;width:1%}
+td.n{color:var(--muted);font-size:.88rem}
+.chip{display:inline-flex;gap:6px;align-items:center;font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:4px 9px;border:1px solid var(--black);background:var(--white);color:var(--black);line-height:1.2}
+.chip b{font-weight:700;font-size:.9rem;letter-spacing:0}
+.chip.k-dif{background:var(--salmon);border-color:var(--salmon)}
+.chip.k-nc{background:var(--bisque);border-color:var(--bisque)}
+.chip.k-nv{border-style:dashed;border-color:var(--muted)}
 .hidden-row{display:none}
-footer{color:var(--muted);font-size:.8rem;border-top:1px solid var(--line);padding-top:14px;display:grid;gap:4px}
-code{font-family:var(--f-mono);font-size:.85em}
+
+.panel{border-left:5px solid var(--black);padding:28px 32px;max-width:var(--prose);background:var(--bisque);display:flex;flex-direction:column;gap:12px}
+@media (max-width:480px){.panel{padding:22px 20px}}
+.panel p{font-size:.98rem;line-height:1.7}
+
+footer{border-top:1px solid var(--rule);padding-block:32px 48px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;color:var(--muted);font-size:.86rem}
+footer .mark svg{width:44px;height:auto;display:block}
+footer div{display:flex;flex-direction:column;gap:6px;flex:1;min-width:240px}
+footer p{max-width:80ch}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
 </style>
 
 <div class="wrap">
-<header>
-  <div>
-    <p class="eyebrow">Fundament · Estudio de Convivencia Social 2026 · revisión de pares</p>
-    <h1>Contraste de la verificación 2026</h1>
-    <p class="lede">Cada cifra de la «Verificación de datos 2026», sección por sección, frente a nuestro recálculo. Recalculamos sobre <b>su muestra</b> (404 filas comunes; la 405.ª es una respuesta de menor de edad que nuestras reglas excluyen) y sobre <b>nuestras 413 válidas</b>. Las cifras 2022–2024 se contrastan con el texto de los informes publicados y con los datos de cada edición.</p>
+<div class="top">
+  <a href="https://fundament.es" class="brand" aria-label="fundament"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 457 76" role="img" aria-label="fundament"><g fill="#000" transform="translate(0,-1)"><path transform="translate(0,0.7344)" d="M11.9791,3.3349 C9.5041,5.5129 8.2171,8.9779 8.2171,13.9279 L8.2171,21.2539 L0.0001,21.2539 L0.0001,28.4809 L8.2171,28.4809 L8.2171,74.4159 L17.4241,74.4159 L17.4241,28.4809 L28.3141,28.4809 L28.3141,21.2539 L17.4241,21.2539 L17.4241,14.3229 C17.4241,8.8789 19.7011,7.4929 28.4131,8.0869 L28.4131,0.4639 C26.7301,0.3639 25.0471,0.2659 23.6611,0.2659 C18.5131,0.2659 14.5531,1.1569 11.9791,3.3349"/><path d="M68.774,54.3603 C68.774,62.5773 63.527,68.8143 55.409,68.8143 C48.083,68.8143 43.826,64.8543 43.826,58.1223 L43.826,21.9883 L34.619,21.9883 L34.619,58.6173 C34.619,69.7053 41.648,76.3393 52.637,76.3393 C60.26,76.3393 64.913,72.9723 68.675,67.7253 L68.873,67.7253 L68.873,75.1503 L77.981,75.1503 L77.981,21.9883 L68.774,21.9883 L68.774,54.3603 Z"/><path d="M110.9844,20.7011 C103.2624,20.7011 98.0154,24.1661 94.1544,29.5121 L93.8574,29.5121 L93.8574,21.9881 L84.7494,21.9881 L84.7494,75.1501 L93.9564,75.1501 L93.9564,42.7771 C93.9564,34.2641 99.8964,28.4231 108.1134,28.4231 C115.3404,28.4231 119.7954,32.2841 119.7954,39.1141 L119.7954,75.1501 L128.9034,75.1501 L128.9034,38.0251 C128.9034,26.9371 122.0724,20.7011 110.9844,20.7011"/><path d="M159.2593,69.1113 C149.4583,69.1113 144.5083,60.4993 144.5083,48.8163 C144.5083,37.1343 149.4583,28.4233 159.2593,28.4233 C169.9503,28.4233 175.5933,36.8383 175.5933,48.8163 C175.5933,60.4993 170.6443,69.1113 159.2593,69.1113 L159.2593,69.1113 Z M175.0993,20.3043 C175.0993,23.8693 175.1973,27.7293 175.3963,30.1053 L175.1973,30.1053 C171.8313,24.4633 165.8923,20.7013 158.3673,20.7013 C145.2003,20.7013 135.1033,31.1943 135.1033,48.7173 C135.1033,65.8443 144.2113,76.7343 158.5663,76.7343 C165.9903,76.7343 171.6343,73.2693 174.9993,67.5273 L175.1973,67.5273 L175.1973,75.1503 L184.3063,75.1503 L184.3063,1.4953 L175.0993,1.4953 L175.0993,20.3043 Z"/><path d="M226.3477,55.5488 C226.3477,61.6868 221.3987,69.5078 210.8057,69.5078 C205.4597,69.5078 200.2137,67.8238 200.2137,60.9928 C200.2137,53.6678 205.9547,52.0838 214.6657,50.5988 C219.0227,49.8068 223.6747,48.5198 226.3477,46.8368 L226.3477,55.5488 Z M234.7627,62.8738 L234.7627,38.0258 C234.7627,30.8978 232.0897,26.2448 227.6347,23.5718 C224.2697,21.5918 219.8147,20.7008 214.7657,20.7008 C200.4107,20.7008 193.5797,28.7198 193.1837,37.7288 L202.0947,37.7288 C202.3907,31.3928 206.4497,27.4328 214.8647,27.4328 C222.1907,27.4328 226.2487,30.9968 226.2487,36.7388 C226.2487,42.1838 221.2007,43.4708 213.3787,44.3608 C199.6187,46.0448 190.5117,48.7178 190.5117,61.0928 C190.5117,71.2888 198.4307,76.2388 208.5287,76.2388 C217.5367,76.2388 222.9827,71.9828 226.3477,67.3288 L226.4477,67.3288 C227.4377,72.9728 230.2087,75.6458 235.8517,75.6458 C238.0307,75.6458 239.5147,75.2488 240.8017,74.8538 L240.8017,68.4188 L240.4067,68.4188 C235.7527,69.4078 234.7627,67.1318 234.7627,62.8738 L234.7627,62.8738 Z"/><path d="M301.6172,20.7011 C295.1822,20.7011 288.9452,23.9681 285.1832,30.6001 L284.9852,30.6001 C282.8072,24.0671 277.6602,20.7011 271.2242,20.7011 C264.3932,20.7011 258.7512,24.1661 255.4842,29.9081 L255.1862,29.9081 L255.1862,21.9881 L246.0792,21.9881 L246.0792,75.1501 L255.2862,75.1501 L255.2862,42.3821 C255.2862,34.2641 262.1172,28.4231 268.4532,28.4231 C273.8972,28.4231 277.5602,32.2841 277.5602,38.8171 L277.5602,75.1501 L286.6692,75.1501 L286.6692,42.3821 C286.6692,34.2641 292.5102,28.4231 299.2412,28.4231 C304.5882,28.4231 308.8452,32.2841 308.8452,38.8171 L308.8452,75.1501 L318.0522,75.1501 L318.0522,38.0251 C318.0522,26.9371 311.3192,20.7011 301.6172,20.7011"/><path d="M333.5538,44.164 C334.7408,34.759 339.7898,27.829 349.3938,27.829 C358.5998,27.829 363.8468,33.967 364.3418,44.164 L333.5538,44.164 Z M367.6088,28.918 C363.4508,23.769 357.3138,20.701 349.3938,20.701 C334.1478,20.701 323.9498,33.175 323.9498,48.618 C323.9498,64.161 333.5538,76.636 349.8878,76.636 C362.1638,76.636 370.6778,69.903 373.0538,60.004 L364.0448,60.004 C362.3628,65.646 357.3138,69.111 349.9878,69.111 C339.6918,69.111 334.0478,61.191 333.3558,50.797 L374.1428,50.797 C374.1428,41.788 371.9648,34.165 367.6088,28.918 L367.6088,28.918 Z"/><path d="M406.1426,20.7011 C398.4206,20.7011 393.1736,24.1661 389.3136,29.5121 L389.0166,29.5121 L389.0166,21.9881 L379.9086,21.9881 L379.9086,75.1501 L389.1156,75.1501 L389.1156,42.7771 C389.1156,34.2641 395.0546,28.4231 403.2726,28.4231 C410.4986,28.4231 414.9546,32.2841 414.9546,39.1141 L414.9546,75.1501 L424.0616,75.1501 L424.0616,38.0251 C424.0616,26.9371 417.2306,20.7011 406.1426,20.7011"/><path transform="translate(428,4.7344)" d="M28.8262,24.3818 L28.8262,17.2538 L17.8382,17.2538 L17.8382,0.5228 L8.7292,0.5228 L8.7292,17.2538 L0.4142,17.2538 L0.4142,24.3818 L8.7292,24.3818 L8.7292,60.0218 C8.7292,67.8418 13.6802,70.7128 20.8072,70.8118 C23.1832,70.8118 25.7582,70.5148 28.2322,69.9208 L28.2322,62.1988 L27.9352,62.1988 C26.9452,62.4958 24.8662,62.8918 23.2822,62.8918 C19.9172,62.8918 17.8382,61.8028 17.8382,57.9428 L17.8382,24.3818 L28.8262,24.3818 Z"/></g></svg></a>
+  <p class="label">Estudio de Convivencia Social · edición 2026</p>
+</div>
+
+<section class="intro">
+  <p class="label">Revisión de pares · 2022–2026</p>
+  <h1>Contraste de la verificación 2026</h1>
+  <p class="lede">Cada cifra de la «Verificación de datos 2026», sección por sección, frente a nuestro recálculo. Las filas en salmón difieren; las de bisque coinciden con la fuente pero miden otra cosa.</p>
+  <div class="prose">
+    <p>Recalculamos sobre <b>su muestra</b> (404 filas comunes; la 405.ª es una respuesta de una persona menor de edad que nuestras reglas excluyen) y sobre <b>nuestras 413 válidas</b>. Las cifras 2022–2024 se contrastan con el texto de los informes publicados y con los datos de cada edición.</p>
+    <p>La muestra no es probabilística: todas las cifras describen a las personas encuestadas.</p>
   </div>
-  <div class="summary" id="summary"></div>
-  <div class="filterbar"><span id="filtro-txt">Mostrando todos los puntos.</span><button class="btn" id="ver-todo" type="button">Ver todo</button></div>
-</header>
+  <div class="keys" id="keys"></div>
+  <div class="filterbar"><span id="filtro-txt" aria-live="polite"></span><button class="btn" id="ver-todo" type="button">Ver todo</button></div>
+</section>
 
 <div id="secciones"></div>
 
+<section class="section">
+  <div class="head"><p class="label">Comentarios</p><h2>Cómo se hizo</h2></div>
+  <div class="panel">
+    <p>Tres iteraciones en Claude Code. La primera la hizo Claude Opus 5.5 (<code>claude-opus-5-5</code>) el 2 de noviembre de 2026: es la ejecución de la tarea 01 guardada en <code>runs/01-revision-verificacion/claude-opus-5-5-2026-11-02.json</code>, que no se ha modificado.</p>
+    <p>La segunda la hizo Claude Fable 5.1 (<code>claude-fable-5-1</code>) el 4 de noviembre. En ella se recalcularon desde los datos todas las cifras de esta página y los redondeos del objeto <code>V</code>, sin encontrar errores. Se comprobó que las 3 respuestas vacías de q_abandono son no respuesta real y que la lectura 5–10 de 2024 se mantiene sin las filas marcadas, y se añadió que 7 de las 9 filas que faltan en la hoja del compañero son de alquiler.</p>
+    <p>La tercera la hizo Claude Opus 5.5 (<code>claude-opus-5-5</code>) el 4 de noviembre. En ella se comprobó que las diferencias 2024–2026 se mantienen con cualquier combinación de bases (las tres de 2026 y las dos de 2024). Se rebajó a hecho observado una frase que atribuía la sobrerrepresentación territorial a redes locales, y se añadió que 6 de las 9 filas ausentes de la hoja del compañero responden «seriamente» a la pregunta de irse.</p>
+    <p>En las tres, el modelo tenía en contexto las notas del proyecto, así que esta revisión no es un lanzamiento en limpio comparable con los de los demás modelos.</p>
+  </div>
+</section>
+
 <footer>
-  <span>Fuentes: <code>datos/modelos/fundament_2026.csv</code>, <code>companero_2026_filas.csv</code>, <code>fundament_2022/2023/2024_sin_textos.csv</code>, <code>codebook/&lt;edición&gt;.yaml</code>, informes publicados 2022–2024 (páginas según marcas del .md) y el objeto <code>V</code> del documento revisado.</span>
-  <span>Commit d8b8804 (etiqueta <code>codebook-v0.3</code>) · recálculo del 2 de noviembre de 2026. Muestra no probabilística: todas las cifras describen a las personas encuestadas.</span>
-  <p class="note" style="margin-top:10px"><b>Comentarios.</b> Tres iteraciones en Claude Code. La primera la hizo Claude Opus 5.5 (<code>claude-opus-5-5</code>) el 2 de noviembre de 2026: es la ejecución de la tarea 01 guardada en <code>runs/01-revision-verificacion/claude-opus-5-5-2026-11-02.json</code>, que no se ha modificado. La segunda la hizo Claude Fable 5.1 (<code>claude-fable-5-1</code>) el 4 de noviembre. En ella se recalcularon desde los datos todas las cifras de esta página y los redondeos del objeto <code>V</code>, sin encontrar errores. Se comprobó que las 3 respuestas vacías de q_abandono son no respuesta real y que la lectura 5–10 de 2024 se mantiene sin las filas marcadas, y se añadió que 7 de las 9 filas que faltan en la hoja del compañero son de alquiler. La tercera la hizo Claude Opus 5.5 (<code>claude-opus-5-5</code>) el 4 de noviembre. En ella se comprobó que las diferencias 2024–2026 se mantienen con cualquier combinación de bases (las tres de 2026 y las dos de 2024). Se rebajó a hecho observado una frase que atribuía la sobrerrepresentación territorial a redes locales, y se añadió que 6 de las 9 filas ausentes de la hoja del compañero responden «seriamente» a la pregunta de irse. En las tres, el modelo tenía en contexto las notas del proyecto, así que esta revisión no es un lanzamiento en limpio comparable con los de los demás modelos.</p>
+  <span class="mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 245 173" role="img" aria-label="fundament símbolo"><path fill="#000" d="M244.6694,55.2463 C244.6674,55.1893 244.6654,55.1223 244.6634,55.0683 C243.3344,18.3563 223.5004,0.0003 185.1624,0.0003 C141.8324,0.0003 130.4134,36.7693 120.4524,74.1273 C109.5234,115.7673 109.4334,148.0813 61.4544,148.0813 C44.6764,148.0813 34.6064,137.7623 31.2284,117.1463 C30.3764,111.9493 29.9424,106.1093 29.9424,99.6013 L29.9424,6.2173 L0.0464,6.2173 C-0.0676,75.4363 0.0274,108.4533 0.3344,117.1463 C0.3364,117.1803 0.3374,117.2213 0.3384,117.2543 C1.6674,153.9663 21.5014,172.3223 59.8394,172.3223 C103.1694,172.3223 113.4264,138.2183 123.3884,100.8603 C134.3164,59.2213 135.5684,24.2403 183.5474,24.2403 C200.3444,24.2403 210.4194,34.5833 213.7854,55.2463 C214.6294,60.4263 215.0594,66.2433 215.0594,72.7203 L215.0594,166.1043 L244.9554,166.1043 C245.0694,97.0623 244.9744,64.0413 244.6694,55.2463"/></svg></span>
+  <div>
+    <p>Fuentes: <code>datos/modelos/fundament_2026.csv</code>, <code>companero_2026_filas.csv</code>, <code>fundament_2022/2023/2024_sin_textos.csv</code>, <code>codebook/&lt;edición&gt;.yaml</code>, informes publicados 2022–2024 (páginas según marcas del .md) y el objeto <code>V</code> del documento revisado.</p>
+    <p>Commit d8b8804 (etiqueta <code>codebook-v0.3</code>) · recálculo del 2 de noviembre de 2026.</p>
+  </div>
 </footer>
 </div>
 
 <script>
-const EST={ok:["Concuerda","Coincide con nuestro recálculo (diferencia ≤ 1 respuesta, atribuible a la fila del menor)"],
-  dif:["Difiere","Cifra, base, regla o etiqueta distinta de la nuestra o de la fuente"],
-  nc:["No comparable","La cifra coincide con la fuente, pero mide otra pregunta, escala o métrica"],
-  nv:["No verificable","No se puede comprobar con los archivos disponibles"]};
+const EST={
+  ok:["Concuerda","=","Coincide con nuestro recálculo (diferencia ≤ 1 respuesta, atribuible a la fila de la persona menor de edad)."],
+  dif:["Difiere","≠","Cifra, base, regla o etiqueta distinta de la nuestra o de la fuente."],
+  nc:["No comparable","~","La cifra coincide con la fuente, pero mide otra pregunta, escala o métrica."],
+  nv:["No verificable","?","No se puede comprobar con los archivos disponibles."]
+};
 
 const S=[
 {sec:"1",t:"Muestra y limpieza",note:"Conciliación: 405 = 413 válidas − 9 filas que no están en su hoja + 1 respuesta de menor de edad.",rows:[
@@ -208,44 +240,42 @@ const LIK=[
 
 let filtro=null;
 const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
-const chip=k=>`<span class="chip k-${k}">${EST[k][0]}</span>`;
+const chip=k=>`<span class="chip k-${k}"><b aria-hidden="true">${EST[k][1]}</b>${EST[k][0]}</span>`;
 
 function render(){
   const root=document.getElementById('secciones');root.innerHTML='';
   const cuenta={ok:0,dif:0,nc:0,nv:0};
   S.forEach(s=>{
-    const sec=el('section');
-    sec.appendChild(el('h2',null,`<span class="sec">§${s.sec}</span>${s.t}`));
-    if(s.note)sec.appendChild(el('p','note',s.note));
-    const tw=el('div','tw'),tb=el('table');
+    const sec=el('section','section');
+    sec.appendChild(el('div','head',`<p class="label">§${s.sec} del documento</p><h2>${s.t}</h2>${s.note?`<p class="note">${s.note}</p>`:''}`));
     let head,rows;
     if(s.rows==="LIKERT"){
-      head=['Ítem','Documento (n 405)','Nuestro: su muestra · 413','Cifra','Redacción','Nota'];
-      rows=LIK.map(r=>{cuenta[r[3]]++;cuenta[r[4]]++;return {k:(r[3]==='dif'||r[4]==='dif')?'dif':'ok',cells:[`<td class="p">${r[0]}</td>`,`<td class="v">${r[1]} %</td>`,`<td class="v mine">${r[2]} %</td>`,`<td class="s k-${r[3]}">${chip(r[3])}</td>`,`<td class="s k-${r[4]}">${chip(r[4])}</td>`,`<td class="n">${r[5]}</td>`],ks:[r[3],r[4]]}});
-      rows.push({k:'dif',ks:['dif'],cells:[`<td class="p">Etiqueta de tramos</td>`,`<td class="v">Desac. (1–4)</td>`,`<td class="v mine">Cuenta 0–4 (en gestión, 144 ceros)</td>`,`<td class="s k-dif">${chip('dif')}</td>`,`<td class="s"></td>`,`<td class="n">El 5 no es un neutral limpio: el slider empieza en 5.</td>`]});cuenta.dif++;
+      head=['Ítem','Documento n 405','Nuestro: su muestra · 413','Cifra','Redacción','Nota'];
+      rows=LIK.map(r=>{cuenta[r[3]]++;cuenta[r[4]]++;return {k:(r[3]==='dif'||r[4]==='dif')?'dif':'ok',ks:[r[3],r[4]],cells:[`<td class="p">${r[0]}</td>`,`<td class="v">${r[1]} %</td>`,`<td class="v mine">${r[2]} %</td>`,`<td class="s">${chip(r[3])}</td>`,`<td class="s">${chip(r[4])}</td>`,`<td class="n">${r[5]}</td>`]}});
+      rows.push({k:'dif',ks:['dif'],cells:[`<td class="p">Etiqueta de tramos</td>`,`<td class="v">Desac. (1–4)</td>`,`<td class="v mine">Cuenta 0–4 (en gestión, 144 ceros)</td>`,`<td class="s">${chip('dif')}</td>`,`<td class="s"></td>`,`<td class="n">El 5 no es un neutral limpio: el slider empieza en 5.</td>`]});cuenta.dif++;
     }else{
       head=['Punto','Documento','Nuestro recálculo','Estado','Nota'];
-      rows=s.rows.map(r=>{cuenta[r[3]]++;return {k:r[3],ks:[r[3]],cells:[`<td class="p">${r[0]}</td>`,`<td class="v">${r[1]}</td>`,`<td class="v mine">${r[2]}</td>`,`<td class="s k-${r[3]}">${chip(r[3])}</td>`,`<td class="n">${r[4]}</td>`]}});
+      rows=s.rows.map(r=>{cuenta[r[3]]++;return {k:r[3],ks:[r[3]],cells:[`<td class="p">${r[0]}</td>`,`<td class="v">${r[1]}</td>`,`<td class="v mine">${r[2]}</td>`,`<td class="s">${chip(r[3])}</td>`,`<td class="n">${r[4]}</td>`]}});
     }
+    const tw=el('div','tw'),tb=el('table');
     tb.innerHTML='<thead><tr>'+head.map(h=>`<th>${h}</th>`).join('')+'</tr></thead>';
-    const body=el('tbody');
-    let vis=0;
-    rows.forEach(r=>{const tr=el('tr',`k-${r.k} r-${r.k}`,r.cells.join(''));if(filtro&&!r.ks.includes(filtro))tr.classList.add('hidden-row');else vis++;body.appendChild(tr)});
+    const body=el('tbody');let vis=0;
+    rows.forEach(r=>{const tr=el('tr',`r-${r.k}`,r.cells.join(''));if(filtro&&!r.ks.includes(filtro))tr.classList.add('hidden-row');else vis++;body.appendChild(tr)});
     tb.appendChild(body);tw.appendChild(tb);sec.appendChild(tw);
     if(filtro&&!vis)sec.hidden=true;
     root.appendChild(sec);
   });
   return cuenta;
 }
-
 function resumen(c){
-  const s=document.getElementById('summary');s.innerHTML='';
+  const s=document.getElementById('keys');s.innerHTML='';
   ['ok','dif','nc','nv'].forEach(k=>{
-    const b=el('button',`tile k-${k}`,`<span class="num">${c[k]}</span><span class="lab">${EST[k][0]}</span><span class="desc">${EST[k][1]}</span>`);
+    const b=el('button',`key k-${k}`,`<span>${chip(k)}</span><span class="num">${c[k]}</span><span class="desc">${EST[k][2]}</span>`);
     b.type='button';b.id='f-'+k;b.setAttribute('aria-pressed',filtro===k?'true':'false');
     b.onclick=()=>{filtro=filtro===k?null:k;actualizar()};s.appendChild(b);
   });
   document.getElementById('filtro-txt').textContent=filtro?`Mostrando solo: ${EST[filtro][0].toLowerCase()}. Pulsa la tarjeta otra vez o «Ver todo» para quitar el filtro.`:'Mostrando todos los puntos. Pulsa una tarjeta para filtrar.';
+  document.getElementById('ver-todo').hidden=!filtro;
 }
 function actualizar(){resumen(render())}
 document.getElementById('ver-todo').onclick=()=>{filtro=null;actualizar()};
