@@ -7,16 +7,17 @@ No forman parte de las respuestas de la tarea: los JSON de `runs/01-revision-ver
 
 | Archivo | Qué contrasta | Publicada en | Estado |
 |---|---|---|---|
-| `contraste-verificacion-2026.html` | Todas las cifras del documento, histórico 2022–2024 incluido | https://claude.ai/code/artifact/a9a00788-bf0b-4d40-9617-b90313d16c32 | Privada. Tres pasadas, 2 y 4 nov. 2026 |
-| `cifras-2026-contrastadas.html` | Solo las cifras de 2026, con el estilo de `DESIGN.md` | https://claude.ai/code/artifact/85bc4114-bfcc-47bd-b97e-36858c95de91 | Compartida por enlace. Tres pasadas, 4 nov. 2026 |
+| `contraste-verificacion-2026.html` | Todas las cifras del documento, histórico 2022–2024 incluido | https://claude.ai/artifact/3oLEQ7HwW898dWC7ned7bi | Privada. Tres pasadas, 2 y 4 nov. 2026 |
+| `cifras-2026-contrastadas.html` | Solo las cifras de 2026, con el estilo de `DESIGN.md` | https://claude.ai/artifact/TtX8hguLf44eGDwEWr7m1X | Privada. Tres pasadas, 4 nov. 2026 |
 
-Las dos están publicadas desde la cuenta personal de Pableco. Otra cuenta (la de la asociación) puede verlas si
-están compartidas, pero no actualizarlas en el mismo enlace. Para cambiarlas desde otra cuenta, edita estos
-archivos y publícalos como página nueva. Los archivos empiezan en `<title>`: el publicador añade `<html>`, `<head>`
+Desde el 8 nov. 2026 se publican desde la cuenta de la asociación (pablo.grillo@fundament.es); los enlaces de
+arriba son los vigentes. Las versiones anteriores siguen en la cuenta personal de Pableco
+(…/a9a00788-bf0b-4d40-9617-b90313d16c32 y …/85bc4114-bfcc-47bd-b97e-36858c95de91) y ya no se actualizan.
+Para cambiar una página, edita su archivo y publícala desde la cuenta de la asociación en el mismo enlace. Los archivos empiezan en `<title>`: el publicador añade `<html>`, `<head>`
 y `<body>`.
 
 Fuente de las cifras: `datos/modelos/fundament_2026.csv`, `datos/modelos/companero_2026_filas.csv`,
-`codebook/2026.yaml` y el objeto `V` de `referencia/Verificación datos 2026.html`, en el commit d8b8804.
+`codebook/2026.yaml` y el objeto `V` de `referencia/Verificación datos 2026.html`, en el commit d8b8804 (etiqueta `codebook-v0.3`).
 
 ## Scripts
 
@@ -36,11 +37,7 @@ la primera página tampoco se guardaron.
 
 - **Quién hizo la 2.ª pasada de la primera página.** La página la atribuye a Claude Fable 5.1, pero no está
   confirmado: en esa sesión se cambió de modelo con `/model`. Corregir el comentario del pie si no fue así.
-- **Comentario del pie de la primera página.** Tras el texto de la 3.ª pasada sigue el de la 2.ª («Dos
-  iteraciones…»). Conviene unificarlos.
 - **`fundament_2026.csv` cambió de huella** al regenerarlo el 2 nov. (05a5355e… → 07684daf…) y no se guardó el
   anterior, así que no se sabe qué cambió. Detalle en `../claude-opus-5-5-2026-11-02.meta.json`.
-- **Etiqueta del codebook.** La tarea pide `codebook-v0.2`, pero los codebooks 2022–2024 cambiaron después.
-  Propuesta: etiquetar d8b8804 y citar esa etiqueta en la tarea.
 - **No son lanzamientos en limpio.** El modelo tenía en contexto las notas del proyecto y, en la segunda página, la
   revisión anterior. No comparar estas páginas con las ejecuciones en limpio de otros modelos.

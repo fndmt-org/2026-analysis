@@ -5,7 +5,8 @@ Copia desde «Prompt» hasta el final.
 
 ## Antes de lanzar
 
-- Codebook: etiqueta `codebook-v0.2`. Para cada edición: `limpiar.py`, `anonimizar.py` y `exportar.py`
+- Codebook: etiqueta `codebook-v0.3` (commit d8b8804). Las ejecuciones del 2 y el 4 de nov. de 2026 se hicieron
+  sobre ese commit; `codebook-v0.2` no incluye los cambios posteriores en los codebooks 2022–2024. Para cada edición: `limpiar.py`, `anonimizar.py` y `exportar.py`
   (2022–2024 con `--sin-textos`: sus textos abiertos no están revisados y esta tarea no los necesita).
 - `python codigo/companero.py` genera la pertenencia de cada fila a la muestra del compañero.
 - El modelo solo recibe archivos de esta lista. Nunca brutos, intermedios, `web/` ni el xlsx del compañero.

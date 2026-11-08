@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contexto 2026 — Estudio sobre la sostenibilidad social del turismo en Mallorca · fundament</title>
+<style>
+  :root{
+    --paper:#f4f1ea; --card:#ffffff; --line:#d9e0e0;
+    --ink:#0f1c1c; --muted:#5d6e6e;
+    --teal-dark:#1a3a3a; --teal-mid:#2d5a5a; --teal-soft:#e8f0f0;
+    --coral:#e8684a; --coral-dark:#c4472a;
+    --con-ink:#48665e; --rej-ink:#977f4f; --rec:#7d8a3f;
+    --font:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    --max:900px; color-scheme:light;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{ margin:0; background:var(--paper); color:var(--ink); font-family:var(--font); font-size:16px; line-height:1.5; -webkit-font-smoothing:antialiased; font-variant-numeric:tabular-nums; }
+  h1,h2,h3{margin:0; font-weight:700; letter-spacing:-0.015em; color:var(--teal-dark);}
+  p{margin:0;}
+  a{color:var(--con-ink); text-decoration:none; border-bottom:1px solid var(--line);}
+  a:hover{border-bottom-color:var(--con-ink);}
+  ::selection{background:var(--coral); color:#fff;}
+  @media (prefers-reduced-motion: reduce){ *{animation-duration:.01ms !important; transition-duration:.01ms !important; scroll-behavior:auto !important;} }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 max(20px,env(safe-area-inset-left,0px)); }
+
+  header.lead{ padding:56px 0 30px; }
+  .brand{ font-weight:700; font-size:1.1rem; color:var(--teal-dark); }
+  .eyebrow{ font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--coral-dark); font-weight:700; margin:26px 0 12px; }
+  h1{ font-size:clamp(2.1rem, 5.6vw, 3.4rem); line-height:1.03; color:var(--ink); }
+  h1 .soft{ color:var(--teal-mid); }
+  .lead-sub{ margin-top:18px; max-width:62ch; font-size:1.05rem; color:var(--muted); }
+
+  section.block{ padding:38px 0; border-top:1px solid var(--line); }
+  .sec-label{ font-size:.74rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--coral-dark); margin-bottom:8px; }
+  .sec-h{ font-size:1.3rem; font-weight:700; color:var(--teal-dark); margin-bottom:6px; }
+  .sec-intro{ max-width:64ch; color:var(--muted); font-size:.98rem; margin-bottom:26px; }
+  .sec-intro strong{ color:var(--ink); font-weight:700; }
+
+  /* dot-matrix: 1 residente + N turistas */
+  .dot-legend{ display:flex; gap:20px; font-size:.82rem; color:var(--muted); margin-bottom:22px; align-items:center; flex-wrap:wrap; }
+  .dot-legend span{ display:inline-flex; align-items:center; gap:7px; }
+  .dot{ width:15px; height:15px; border-radius:50%; display:inline-block; }
+  .dot.res{ background:var(--teal-dark); }
+  .dot.tur{ background:var(--coral); }
+  .dots-rows{ display:flex; flex-direction:column; gap:20px; }
+  .dots-row{ display:grid; grid-template-columns:62px 1fr; gap:16px; align-items:center; }
+  .dots-year{ font-weight:700; font-size:1.05rem; color:var(--teal-dark); }
+  .dots-field{ display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+  .dots-field .dot{ transform:scale(0); transition:transform .4s cubic-bezier(.34,1.56,.64,1); }
+  .dots-field.on .dot{ transform:scale(1); }
+  .dots-count{ margin-left:10px; font-weight:700; color:var(--coral-dark); font-size:1.05rem; }
+  .dot-foot{ margin-top:22px; font-size:.76rem; color:var(--muted); line-height:1.55; max-width:76ch; }
+  .dot-foot a{ color:var(--muted); }
+
+  .stat{ display:grid; grid-template-columns:minmax(200px,300px) 1fr; gap:24px 36px; align-items:start; padding:20px 0; }
+  .stat + .stat{ border-top:1px solid var(--line); }
+  .num{ font-weight:700; font-size:clamp(2.6rem, 6.4vw, 4.2rem); letter-spacing:-0.03em; color:var(--teal-dark); line-height:1; display:inline-block; }
+  .num .unit{ font-size:.4em; color:var(--muted); font-weight:700; margin-left:2px; }
+  .num.accent{ color:var(--coral-dark); }
+  .fig-foot{ margin-top:10px; font-size:.78rem; color:var(--muted); }
+  .stat-body .lead-txt{ font-size:1.06rem; color:var(--ink); line-height:1.4; }
+  .stat-body .lead-txt b{ font-weight:700; }
+  .src{ margin-top:11px; font-size:.78rem; color:var(--muted); }
+  .src a{ color:var(--con-ink); }
+  @media (max-width:720px){ .stat{ grid-template-columns:1fr; gap:12px; } }
+
+  .trio{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px 32px; }
+  .trio .t-num{ font-weight:700; font-size:clamp(2.2rem,5vw,3rem); letter-spacing:-0.03em; color:var(--teal-dark); line-height:1; }
+  .trio .t-lab{ margin-top:10px; font-size:.95rem; color:var(--ink); line-height:1.35; }
+  .trio .t-src{ margin-top:9px; font-size:.74rem; color:var(--muted); }
+  .trio .t-src a{ color:var(--con-ink); }
+  @media (max-width:720px){ .trio{ grid-template-columns:1fr; gap:22px; } }
+
+  table.ed{ width:100%; border-collapse:collapse; margin-top:8px; font-size:.92rem; max-width:520px; }
+  table.ed th, table.ed td{ text-align:left; padding:9px 14px 9px 0; border-bottom:1px solid var(--line); }
+  table.ed th{ font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); font-weight:700; }
+  table.ed td:last-child, table.ed th:last-child{ text-align:right; color:var(--teal-dark); font-weight:700; }
+
+  /* dots con valor (euros, CO2): cada punto = una unidad */
+  .units{ margin-top:30px; padding-top:26px; border-top:1px solid var(--line); }
+  .units-head{ font-size:.74rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:20px; }
+  .units-rows{ display:flex; flex-direction:column; gap:14px; max-width:580px; }
+  .units-row{ display:grid; grid-template-columns:104px 1fr 86px; gap:14px; align-items:center; }
+  .units-place{ font-size:.96rem; color:var(--ink); font-weight:700; }
+  .units-field{ display:flex; gap:6px; flex-wrap:wrap; }
+  .units-field .dot{ width:17px; height:17px; background:var(--teal-mid); transform:scale(0); transition:transform .35s cubic-bezier(.34,1.56,.64,1); }
+  .units-field.on .dot{ transform:scale(1); }
+  .units-field .dot.coral{ background:var(--coral); }
+  .units-val{ text-align:right; font-weight:700; color:var(--teal-dark); font-size:.98rem; }
+  .units-note{ margin-top:18px; font-size:.8rem; color:var(--muted); line-height:1.55; max-width:76ch; }
+  .units-note a{ color:var(--muted); }
+  @media (max-width:560px){ .units-row{ grid-template-columns:82px 1fr 60px; gap:10px; } }
+
+  /* línea de tiempo (del informe) */
+  .tlintro{ font-size:.92rem; color:var(--muted); line-height:1.55; max-width:70ch; margin:0 0 24px; }
+  .tl{ position:relative; padding-left:4px; }
+  .tlitem{ position:relative; padding:0 0 22px 24px; border-left:2px solid var(--line); }
+  .tlitem:last-child{ border-left-color:transparent; }
+  .cat-pol{--c:var(--con-ink)} .cat-act{--c:var(--coral-dark)} .cat-viv{--c:var(--rej-ink)} .cat-neg{--c:var(--teal-mid)} .cat-pre{--c:var(--muted)} .cat-rec{--c:var(--rec)}
+  .tldot{ position:absolute; left:-7px; top:3px; width:12px; height:12px; border-radius:50%; background:var(--c); box-shadow:0 0 0 3px var(--paper); }
+  .tlhead{ display:flex; align-items:baseline; gap:9px; flex-wrap:wrap; }
+  .tldate{ font-size:.76rem; font-weight:700; color:var(--ink); }
+  .tlcat{ font-size:.62rem; text-transform:uppercase; letter-spacing:.09em; font-weight:700; color:var(--c); }
+  .tltitle{ font-size:.98rem; font-weight:700; color:var(--ink); margin:5px 0 2px; }
+  .tltext{ font-size:.88rem; color:var(--muted); line-height:1.5; max-width:68ch; }
+  .tlsrc{ font-size:.76rem; margin-top:5px; }
+  .tlsrc a{ color:var(--con-ink); border-bottom:1px solid var(--line); }
+  .tlitem.future{ border-left-style:dashed; }
+  .tlitem.future .tldot{ background:var(--paper); border:2px solid var(--c); }
+  .tlfut{ font-size:.6rem; text-transform:uppercase; letter-spacing:.09em; font-weight:700; color:var(--muted); border:1px solid var(--line); border-radius:99px; padding:1px 7px; }
+
+  .handoff{ font-size:clamp(1.3rem,3vw,1.8rem); font-weight:700; color:var(--teal-dark); max-width:32ch; line-height:1.18; margin-top:30px; }
+  .handoff em{ font-style:normal; color:var(--coral-dark); }
+
+  footer{ padding:34px 0 60px; font-size:.78rem; color:var(--muted); border-top:1px solid var(--line); margin-top:24px; line-height:1.6; }
+  footer a{ color:var(--con-ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="lead">
+    <div class="brand">fundament</div>
+    <div class="eyebrow">Estudio bianual 2026 · Contexto</div>
+    <h1>El contexto de nuestra <span class="soft">encuesta del 2026</span></h1>
+    <p class="lead-sub">La encuesta se recogió durante la temporada 2026. Estas son las fuerzas que la rodearon, en política, sociedad y medio ambiente. No sustituyen a los resultados: los enmarcan, para leer cada respuesta a la luz de lo que estaba pasando fuera.</p>
+  </header>
+
+  <!-- ====== TURISTAS POR HABITANTE (dots) ====== -->
+  <section class="block">
+    <div class="sec-label">El punto de partida</div>
+    <div class="sec-h">Por cada persona que vive aquí</div>
+    <p class="sec-intro">La medida más simple de hasta dónde ha llegado la presión, y lo rápido que se llegó. Cada punto coral es un turista al año; el oscuro, el residente.</p>
+    <div class="dot-legend">
+      <span><i class="dot res"></i> 1 residente</span>
+      <span><i class="dot tur"></i> turistas al año, por residente</span>
+    </div>
+    <div class="dots-rows" id="thab">
+      <div class="dots-row"><div class="dots-year">1968</div><div class="dots-field" data-res="1" data-tur="3"></div></div>
+      <div class="dots-row"><div class="dots-year">2003</div><div class="dots-field" data-res="1" data-tur="11"></div></div>
+      <div class="dots-row"><div class="dots-year">2024</div><div class="dots-field" data-res="1" data-tur="14"></div></div>
+    </div>
+    <p class="dot-foot">En poco más de medio siglo pasamos de 3 a 14 turistas por residente. Turistas por habitante = llegadas de turistas al año entre población residente. 2024: 13.376.944 turistas (<a href="https://www.caib.es/sites/estadistiquesdelturisme/" target="_blank" rel="noopener">CAIB</a>) y 959.801 residentes (INE, 2024). 1968: serie histórica de Ibestat (cifra por confirmar). 2003: aproximado a partir de las series de llegadas.</p>
+  </section>
+
+  <!-- ====== OPINIÓN PÚBLICA + ECOTASA ====== -->
+  <section class="block">
+    <div class="sec-label">Lo que piensa la gente de las islas</div>
+    <div class="sec-h">El turismo ha perdido apoyo social</div>
+    <p class="sec-intro">La encuesta oficial del propio Govern lo confirmó, con mayorías claras a favor de regular la actividad.</p>
+    <div class="trio">
+      <div><div class="t-num" data-count="75.6" data-decimals="1" data-suffix="%">0%</div><p class="t-lab">cree que llegan demasiados turistas al año</p><p class="t-src"><a href="https://www.caib.es/sites/estadistiquesdelturisme/" target="_blank" rel="noopener">AETIB · Govern, oct. 2024</a></p></div>
+      <div><div class="t-num" data-count="80.5" data-decimals="1" data-suffix="%">0%</div><p class="t-lab">quiere limitar el alquiler vacacional</p><p class="t-src"><a href="https://www.caib.es/sites/estadistiquesdelturisme/" target="_blank" rel="noopener">AETIB · Govern, oct. 2024</a></p></div>
+      <div><div class="t-num" data-count="67.6" data-decimals="1" data-suffix="%">0%</div><p class="t-lab">apoya subir la ecotasa</p><p class="t-src"><a href="https://www.caib.es/sites/estadistiquesdelturisme/" target="_blank" rel="noopener">AETIB · Govern, oct. 2024</a></p></div>
+    </div>
+
+    <div class="units" id="ecotasa-cmp">
+      <div class="units-head">La ecotasa, comparada · tasa por persona y noche en hotel · cada punto ≈ 1 €</div>
+      <div class="units-rows">
+        <div class="units-row"><span class="units-place">Mallorca</span><div class="units-field" data-dots="2" data-coral="1"></div><span class="units-val">2 €</span></div>
+        <div class="units-row"><span class="units-place">Barcelona</span><div class="units-field" data-dots="6"></div><span class="units-val">6 €</span></div>
+        <div class="units-row"><span class="units-place">Berlín</span><div class="units-field" data-dots="8"></div><span class="units-val">~7,50 €</span></div>
+        <div class="units-row"><span class="units-place">París</span><div class="units-field" data-dots="10"></div><span class="units-val">9,75 €</span></div>
+      </div>
+      <p class="units-note">Venecia suma además una tasa de acceso de 5 € (10 € de última hora) solo por entrar un día, incluso sin dormir. Cifras representativas por persona y noche en hotel; varían por categoría y temporada. Mallorca va de 1 € a 4 € (<a href="https://pedraseca.es/articulos/ecotasa-vivienda-turistica-baleares.html" target="_blank" rel="noopener">ITS, Ley 13/2017</a>); Barcelona hasta 11 € en 5 estrellas (<a href="https://es.ara.cat/sociedad/barcelona/luz-verde-doblar-tasa-turistica-barcelona-alcanzara-8-euros-2029_1_5454748.amp.html" target="_blank" rel="noopener">IEET + recargo municipal</a>); París hasta 15,60 € (<a href="https://www.getwelcom.com/en/articles/taxe-sejour-hotels-2025" target="_blank" rel="noopener">taxe de séjour 2025</a>); Berlín es el 7,5% del precio de la habitación (<a href="https://www.berlin.de/sen/finanzen/steuern/informationen-fuer-steuerzahler-/faq-steuern/artikel.57911.php" target="_blank" rel="noopener">City Tax, 2025</a>); <a href="https://www.afar.com/magazine/venice-expands-its-tourist-tax-for-2025" target="_blank" rel="noopener">Venecia 2025</a>.</p>
+    </div>
+  </section>
+
+  <!-- ====== VIVIENDA ====== -->
+  <section class="block">
+    <div class="sec-label">Vivienda</div>
+    <div class="sec-h">El motor del malestar</div>
+    <p class="sec-intro">Baleares lidera el precio por metro cuadrado de España, con el alquiler residencial estrujado por el turístico, que retira parque del mercado de larga duración.</p>
+    <div class="stat">
+      <div>
+        <div class="num" data-count="19.7" data-decimals="1">0<span class="unit">€/m²</span></div>
+        <div class="fig-foot">alquiler al mes · +6,4% interanual</div>
+      </div>
+      <div class="stat-body">
+        <p class="lead-txt">cuesta ahora alquilar en Baleares, frente a los <b>16,2 €/m² de principios de 2024</b>. En la encuesta, ser inquilino (no la edad) es lo que más empuja la intención de marcharse de la isla.</p>
+        <table class="ed">
+          <tr><th>Compra, 2026</th><th>€/m²</th><th>Interanual</th></tr>
+          <tr><td>Vivienda nueva</td><td>4.086</td><td>+8,5%</td></tr>
+          <tr><td>Precio pedido (anuncios, marzo)</td><td>5.236</td><td>+9,1%</td></tr>
+        </table>
+        <p class="src">Fuentes: <a href="https://www.inmosoller.com/blog/article/mercado-inmobiliario-en-mallorca/" target="_blank" rel="noopener">informe 1T 2026</a> · <a href="https://www.economiademallorca.com/opinion/david-escribano/alquilar-baleares-sube-precio-baja-paciencia-crecen-riesgos/20260316121914117258.html" target="_blank" rel="noopener">economiademallorca</a>. Precio pedido = el que fija el vendedor en el anuncio, no el de venta cerrada.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== EL CIELO ====== -->
+  <section class="block">
+    <div class="sec-label">El cielo</div>
+    <div class="sec-h">Todo crece mientras el discurso dice contener</div>
+    <p class="sec-intro">En 2026 suben a la vez pasajeros, operaciones en pista y tráfico aéreo, cada uno sobre un máximo previo.</p>
+    <div class="stat">
+      <div>
+        <div class="num" data-count="28.6" data-decimals="1">0<span class="unit">M</span></div>
+        <div class="fig-foot">pasajeros · enero a septiembre · +2,2%</div>
+      </div>
+      <div class="stat-body">
+        <p class="lead-txt">pasaron por el aeropuerto de Palma en los nueve primeros meses. 2025 ya fue récord con <b>33,8 M</b>, y Aena proyecta 35,7 M para 2031 sin ampliar la capacidad declarada.</p>
+        <p class="src">Fuente: <a href="https://www.hosteltur.com/179251_el-aeropuerto-de-palma-suma-17-nuevas-rutas-de-aerolineas-y-alcanza-286-millones-de-pasajeros.html" target="_blank" rel="noopener">Aena / Hosteltur</a>.</p>
+      </div>
+    </div>
+    <div class="stat">
+      <div>
+        <div class="num" data-count="520" data-decimals="0">0</div>
+        <div class="fig-foot">techo declarado: 66 operaciones/hora</div>
+      </div>
+      <div class="stat-body">
+        <p class="lead-txt">aviones <b>aterrizaron cada día en agosto</b>, y otros tantos despegaron. El avión ocupa pista, hace ruido y emite, vaya lleno o vacío.</p>
+        <p class="src">Fuente: <a href="https://mallorcaglobalmag.es/aeropuerto-palma-mallorca-pasajeros-agosto-2026/" target="_blank" rel="noopener">datos de agosto 2026</a>.</p>
+      </div>
+    </div>
+
+    <!-- Aviación privada: titular + CO2 en dots -->
+    <div class="stat">
+      <div>
+        <div class="num" data-count="17500" data-decimals="0">0</div>
+        <div class="fig-foot">vuelos privados al año en Palma</div>
+      </div>
+      <div class="stat-body">
+        <p class="lead-txt">Palma es uno de los grandes focos europeos de <b>aviación privada</b>, con casi la mitad de sus emisiones concentradas en verano. Pocos pasajeros, pero cada vuelo pesa mucho más de lo que ocupa.</p>
+        <p class="src">Fuente: <a href="https://www.lunajets.com/en/airports/palma-de-mallorca-airport" target="_blank" rel="noopener">WingX / sector (2025)</a>.</p>
+      </div>
+    </div>
+    <div class="units" id="co2-cmp">
+      <div class="units-head">CO₂ por pasajero · cada punto = la huella de un pasajero de vuelo comercial</div>
+      <div class="units-rows">
+        <div class="units-row"><span class="units-place">Comercial</span><div class="units-field" data-dots="1"></div><span class="units-val">×1</span></div>
+        <div class="units-row"><span class="units-place">Jet privado</span><div class="units-field" data-dots="10" data-coral="1"></div><span class="units-val">×5 a ×14</span></div>
+      </div>
+      <p class="units-note">Por pasajero, un jet privado emite de 5 a 14 veces más CO₂ que un vuelo comercial (<a href="https://www.eco-business.com/news/how-do-private-jets-fuel-climate-change/" target="_blank" rel="noopener">Transport &amp; Environment</a>).</p>
+    </div>
+  </section>
+
+  <!-- ====== EL MAR ====== -->
+  <section class="block">
+    <div class="sec-label">El mar</div>
+    <div class="sec-h">Lo que de verdad entra</div>
+    <p class="sec-intro">Govern, Ayuntamiento de Palma y la patronal CLIA pactaron un nuevo tope para 2027: máximo 3 cruceros al día y 7.500 cruceristas, de los 8.500 de ahora. La pregunta es cuántos entran de verdad.</p>
+    <div class="stat">
+      <div>
+        <div class="num" data-count="1.06" data-decimals="2">0<span class="unit">M</span></div>
+        <div class="fig-foot">cruceristas · Baleares · solo enero a junio de 2025 · +11%</div>
+      </div>
+      <div class="stat-body">
+        <p class="lead-txt">llegaron en medio año, en 344 escalas de crucero. Palma, el principal puerto, ronda <b>1,4 M de cruceristas al año</b>. El tope regula los días punta, cuando coinciden varios megacruceros.</p>
+        <p class="src">Fuentes: <a href="https://mallorcaglobalmag.es/trafico-cruceros-balears-primer-semestre-2025/" target="_blank" rel="noopener">Puertos del Estado</a> · <a href="https://www.travelandtourworld.com/news/article/9bupl8c6bq7e/" target="_blank" rel="noopener">CLIA</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== PRESIÓN HUMANA ====== -->
+  <section class="block">
+    <div class="sec-label">Presión humana</div>
+    <div class="sec-h">Récord de gente a la vez en la isla</div>
+    <p class="sec-intro">El Índice de Presión Humana del Ibestat, que suma residentes y visitantes presentes al mismo tiempo, batió récord en 2026.</p>
+    <div class="stat">
+      <div>
+        <div class="num" data-count="1.25" data-decimals="2">0<span class="unit">M</span></div>
+        <div class="fig-foot">Mallorca · 30 de abril de 2026</div>
+      </div>
+      <div class="stat-body">
+        <p class="lead-txt">personas a la vez en la isla, frente a unos <b>960.000 residentes</b>. Y es un dato de temporada media: el pico real de agosto es aún mayor.</p>
+        <p class="src">Fuente: <a href="https://www.mallorcadiario.com/nuevo-record-presion-humana-baleares-abril-2026" target="_blank" rel="noopener">Ibestat / Mallorca Diario</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== PRESIÓN AMBIENTAL ====== -->
+  <section class="block">
+    <div class="sec-label">Medio ambiente</div>
+    <div class="sec-h">Agua, residuos y energía</div>
+    <div class="trio">
+      <div><div class="t-num" data-count="36" data-decimals="0" data-suffix="%">0%</div><p class="t-lab">quedaron las reservas de agua en septiembre, de un 45% en junio: el 98,4% del territorio en alerta</p><p class="t-src"><a href="https://www.ultimahora.es/noticias/local/2026/07/10/2667993/baleares-afronta-verano-reservas-hidricas-contexto-calor-extremo-elevada-demanda.html" target="_blank" rel="noopener">Portal de l'Aigua (2026)</a></p></div>
+      <div><div class="t-num" data-count="17.5" data-decimals="1" data-suffix=" t">0</div><p class="t-lab">de residuos retiradas de las costas de Mallorca en la temporada, más de la mitad del total balear (34,2 t)</p><p class="t-src"><a href="https://www.ultimahora.es/noticias/local/2026/10/31/2740275/servicio-limpieza-del-litoral-retira-toneladas-residuos-costas-baleares-durante-temporada-2026.html" target="_blank" rel="noopener">Servei de neteja del litoral (2026)</a></p></div>
+      <div><div class="t-num" data-count="13.9" data-decimals="1" data-suffix="%">0%</div><p class="t-lab">del mix eléctrico balear fue renovable en octubre, aún con el ciclo combinado dominando</p><p class="t-src"><a href="https://www.review-energy.com/otras-fuentes/las-renovables-aportan-el-48-4-de-la-generacion-electrica-de-espana-en-octubre-de-2026" target="_blank" rel="noopener">Red Eléctrica (2026)</a></p></div>
+    </div>
+  </section>
+
+  <!-- ====== Y DENTRO DE CASA ====== -->
+  <section class="block">
+    <div class="sec-label">Experiencia residente</div>
+    <div class="sec-h">Lo que dicen las personas que viven aquí</div>
+    <div class="trio">
+      <div><div class="t-num" data-count="97" data-decimals="0" data-suffix="%">0%</div><p class="t-lab">de los residentes: el turismo afecta al medio ambiente</p><p class="t-src">fundament, muestra 2026</p></div>
+      <div><div class="t-num" data-count="96" data-decimals="0" data-suffix="%">0%</div><p class="t-lab">de los residentes: el turismo sube los precios</p><p class="t-src">fundament, muestra 2026</p></div>
+      <div><div class="t-num accent" data-count="7" data-decimals="0" data-suffix="%">0%</div><p class="t-lab">está de acuerdo con la gestión turística actual</p><p class="t-src">fundament, muestra 2026</p></div>
+    </div>
+  </section>
+
+  <!-- ====== LÍNEA DE TIEMPO (al final) ====== -->
+  <section class="block">
+    <div class="sec-label">Más contexto</div>
+    <div class="sec-h">Los hitos del año 2026 en la prensa</div>
+    <p class="tlintro" id="tl-intro"></p>
+    <div class="tl" id="timeline"></div>
+  </section>
+
+  <footer>
+    fundament asociación · estudio sobre la sostenibilidad social del turismo en Mallorca, temporada 2026 · <a href="https://www.fundament.es" target="_blank" rel="noopener">fundament.es</a><br>
+    Publicado en abierto bajo licencia CC BY-SA 4.0. Cada cifra lleva su fuente; las aproximadas se señalan como tales.
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var TL = {
+    intro: "Telón de fondo de la temporada: el Govern apostó por gestionar y no limitar el turismo; la extensión de la temporada dejó a los residentes sin meses de respiro; la Targeta Intermodal (transporte público gratuito) se anunció pero quedó inservible por la saturación. La isla generó unos 23.400 millones de euros en ingresos turísticos mientras trabajadores esenciales (profesores, médicos, policías) no pueden permitirse vivir en ella. El trabajo de campo de esta encuesta se hizo entre finales de junio y septiembre de 2026, en plena efervescencia.",
+    items: [
+      {date:"27 feb", cat:"pol", catl:"Política", title:"Pacto para limitar cruceros hasta 2031", text:"Palma y el Govern firman con 20 navieras un acuerdo que fija un máximo de 3 cruceros al día y un tope de unos 7.500 cruceristas en temporada alta.", srcs:[{name:"COPE",url:"https://www.cope.es/emisoras/illes-balears/baleares/mallorca/noticias/palma-grandes-navieras-sellan-nuevo-pacto-limitar-llegada-cruceros-verano-20260227_3316879.html"},{name:"Mallorca Informa",url:"https://mallorcainforma.com/2026/02/27/baleares-y-palma-firman-un-nuevo-acuerdo-con-20-navieras-para-regular-los-cruceros-hasta-2031/"}]},
+      {date:"1 jun", cat:"viv", catl:"Vivienda", title:"El alquiler bate récords", text:"El alquiler absorbe de media el 64% del salario, 2ª comunidad más cara de España. En Palma, 19,2 €/m² (+8,2% en un año).", srcs:[{name:"elDiario",url:"https://www.eldiario.es/illes-balears/economia/precio-alquiler-bate-records-balears-absorbe-64-sueldo-segundo-caro-espana_1_13265570.html"}]},
+      {date:"7 jun", cat:"act", catl:"Activismo", title:"Se convoca la gran manifestación", text:"Las plataformas ciudadanas convocan una marcha contra la masificación turística para el 26 de julio.", srcs:[{name:"Mallorca Diario",url:"https://www.mallorcadiario.com/manifestacion-antiturismo-julio-2026"},{name:"VilaWeb",url:"https://www.vilaweb.cat/noticies/crida-a-collapsar-palma-en-la-manifestacio-contra-la-massifiacio-turistica-del-26-de-juliol/"}]},
+      {date:"22 jul", cat:"rec", catl:"Recursos", title:"Los hoteles pagan hasta 9 veces menos por el agua", text:"Sale a la luz que la tarifa de EMAYA bonifica el agua a los hoteles de Palma desde 2002, hasta nueve veces más barata que para un hogar. Lo denuncian Menys Turisme Més Vida y entidades ecologistas.", srcs:[{name:"Última Hora",url:"https://www.ultimahora.es/noticias/local/2026/07/22/2675467/menys-turisme-mes-vida-denuncia-palma-bonifica-precio-del-agua-hoteleros-desde-2002.html"},{name:"Ara Balears",url:"https://en.arabalears.cat/society/emaya-s-preferential-treatment-of-hotels-uncovers-obsolete-water-tariffs_130_5817011.html"}]},
+      {date:"26 jul", cat:"act", catl:"Activismo", title:"Una marea humana toma Palma", text:"Entre 22.500 y 25.000 personas marchan en Palma (Menys Turisme Més Vida), con el respaldo de unas 145 entidades. La mayor movilización hasta la fecha, en pleno trabajo de campo de la encuesta.", srcs:[{name:"El Debate",url:"https://www.eldebate.com/espana/baleares/20260726/protesta-antiturismo-recorre-palma-entre-proclamas-radicales-esteladas-banderas-palestinas_443820.html"},{name:"Forbes",url:"https://forbes.es/?p=987787"},{name:"Público",url:"https://www.publico.es/sociedad/miles-personas-manifiestan-masificacion-turistica-palma.html"}]},
+      {date:"25 jul", cat:"pre", catl:"Prensa", title:"Los hoteleros contraatacan", text:"La patronal hotelera (FEHM) responde con una campaña de bienvenida al turista y réplicas como la de Camp de Mar.", srcs:[{name:"Última Hora",url:"https://www.ultimahora.es/noticias/part-forana/2026/07/25/2677103/replica-manifestacion-contra-masificacion-mallorca-bienvenidos-turistas-camp-mar.html"},{name:"Hosteltur",url:"https://www.hosteltur.com/170812_tourist-go-home-happy-la-respuesta-de-fehm-a-la-turismofobia.html"}]},
+      {date:"29 jul", cat:"rec", catl:"Recursos", title:"El círculo vicioso de la basura (TIRME)", text:"El contrato con la incineradora de TIRME obliga a quemar un mínimo de residuos. Mallorca llega a importar basura de Ibiza para alimentarla. El Consell inyecta 41 millones a Tirme para rebajar la tasa.", srcs:[{name:"Última Hora",url:"https://www.ultimahora.es/noticias/local/2026/07/29/2678961/consell-bajara-tarifa-residuos-tras-aportacion-millones-tirme.html"},{name:"Periódico de Ibiza",url:"https://www.periodicodeibiza.es/pitiusas/ibiza/2026/07/09/2666617/ibiza-enviara-entre-30000-40000-toneladas-residuos-ano-quemar-mallorca.html"}]},
+      {date:"Verano", cat:"neg", catl:"Negocio local", title:"El comercio de Palma estalla", text:"Los comercios del centro denuncian que los cierres de tráfico los están matando; se multiplican los traspasos y la gentrificación comercial.", srcs:[{name:"Mallorca Diario",url:"https://www.mallorcadiario.com/el-comercio-de-palma-estalla-los-cierres-de-trafico-nos-estan-matando"}]},
+      {date:"Sep", cat:"viv", catl:"Vivienda", title:"La vivienda, la más cara de España", text:"El precio medio supera los 4.000 €/m² (unos 4.173 €/m² según APIBaleares), dejando fuera del mercado a médicos, profesores y jóvenes.", srcs:[{name:"Mallorca Diario",url:"https://www.mallorcadiario.com/precio-medio-vivienda-baleares-ya-alcanza-4-173-euros-metro-cuadrado"},{name:"Última Hora",url:"https://www.ultimahora.es/noticias/local/2026/08/05/2683809/viviendas-baleares-caen-ventas-pero-precios-siguen-alza.html"}]},
+      {date:"20 sep", cat:"act", catl:"Activismo", title:"Protesta contra la ampliación del aeropuerto", text:"El GOB y una quincena de entidades marchan contra la ampliación del aeropuerto de Palma (Aena) y el crecimiento del tráfico aéreo: ni más ampliación, ni más promoción.", srcs:[{name:"Última Hora",url:"https://www.ultimahora.es/noticias/local/2026/09/20/2712727/centenares-personas-salen-calle-palma-contra-ampliacion-del-aeropuerto-piden-reducir-trafico-aereo.html"},{name:"Infobae",url:"https://www.infobae.com/espana/agencias/2026/09/20/cientos-de-personas-marchan-en-palma-al-grito-de-no-mas-ampliacion-del-aeropuerto/"}]},
+      {date:"7 oct", cat:"pol", catl:"Política", title:"Decretos de contención turística y vivienda", text:"El Govern aprueba decretos que reviven el IVA a los pisos turísticos, congelan los alquileres y prohíben nuevas plazas turísticas en viviendas plurifamiliares.", srcs:[{name:"Última Hora",url:"https://www.ultimahora.es/noticias/local/2026/10/07/2723921/decretos-reviven-iva-pisos-turisticos-congelan-alquileres.html"},{name:"CAIB",url:"https://www.caib.es/pidip2front/ficha_convocatoria.xhtml?lang=es&urlSemantica=consell-de-govern-el-consell-de-govern-aprueba-el-decreto-ley-de-contencion-turistica-con-la-prohibicion-de-nuevas-plazas-en-viviendas-plurifamiliares"}]},
+      {date:"1 dic", cat:"pol", catl:"Política", future:true, title:"Entra en vigor el IVA al alquiler turístico de corta estancia", text:"Nueva fiscalidad sobre el alquiler turístico de corta estancia en Baleares, ya aprobada pero con efecto posterior al trabajo de campo de esta encuesta.", srcs:[{name:"Última Hora",url:"https://www.ultimahora.es/noticias/local/2026/10/07/2723921/decretos-reviven-iva-pisos-turisticos-congelan-alquileres.html"}]}
+    ]
+  };
+  document.getElementById('tl-intro').textContent = TL.intro;
+  document.getElementById('timeline').innerHTML = TL.items.map(function(e){
+    return '<div class="tlitem cat-'+e.cat+(e.future?' future':'')+'">'
+      +'<span class="tldot"></span>'
+      +'<div class="tlhead"><span class="tldate">'+e.date+'</span><span class="tlcat">'+e.catl+'</span>'+(e.future?'<span class="tlfut">futuro</span>':'')+'</div>'
+      +'<div class="tltitle">'+e.title+'</div>'
+      +'<div class="tltext">'+e.text+'</div>'
+      +'<div class="tlsrc">'+e.srcs.map(function(x){return '<a href="'+x.url+'" target="_blank" rel="noopener">'+x.name+'</a>';}).join(' · ')+'</div>'
+      +'</div>';
+  }).join('');
+
+  function buildDots(field){
+    var res = parseInt(field.getAttribute('data-res')||'0',10);
+    var tur = parseInt(field.getAttribute('data-tur')||'0',10);
+    var n=0, html='';
+    for (var i=0;i<res;i++){ html += '<span class="dot res" style="transition-delay:'+(n*35)+'ms"></span>'; n++; }
+    for (var j=0;j<tur;j++){ html += '<span class="dot tur" style="transition-delay:'+(n*35)+'ms"></span>'; n++; }
+    html += '<span class="dots-count">'+tur+'</span>';
+    field.innerHTML = html;
+  }
+  function buildUnits(field){
+    var d = parseInt(field.getAttribute('data-dots')||'0',10);
+    var coral = parseInt(field.getAttribute('data-coral')||'0',10);
+    var html='';
+    for (var i=0;i<d;i++){ html += '<span class="dot'+(coral?' coral':'')+'" style="transition-delay:'+(i*40)+'ms"></span>'; }
+    field.innerHTML = html;
+  }
+  document.querySelectorAll('.dots-field').forEach(buildDots);
+  document.querySelectorAll('.units-field').forEach(buildUnits);
+
+  function fmt(n, dec){ return n.toLocaleString('es-ES', { minimumFractionDigits:dec, maximumFractionDigits:dec }); }
+  function animateCount(el){
+    var target = parseFloat(el.getAttribute('data-count')); if (isNaN(target)) return;
+    var dec = parseInt(el.getAttribute('data-decimals')||'0',10);
+    var suffix = el.getAttribute('data-suffix')||'';
+    var unit = el.querySelector('.unit'); var unitHTML = unit ? unit.outerHTML : '';
+    function paint(v){ el.innerHTML = fmt(v,dec)+suffix+unitHTML; }
+    if (reduce){ paint(target); return; }
+    var dur=1150, start=null;
+    function tick(ts){ if(!start) start=ts; var p=Math.min((ts-start)/dur,1); var e=1-Math.pow(1-p,3); paint(target*e); if(p<1) requestAnimationFrame(tick); else paint(target); }
+    requestAnimationFrame(tick);
+  }
+  function reveal(el){
+    el.querySelectorAll('[data-count]').forEach(animateCount);
+    el.querySelectorAll('.dots-field, .units-field').forEach(function(f){ f.classList.add('on'); });
+  }
+  var targets = [].slice.call(document.querySelectorAll('.block'));
+  if (!('IntersectionObserver' in window)){ targets.forEach(reveal); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(ev){ if(!ev.isIntersecting) return; reveal(ev.target); io.unobserve(ev.target); });
+  }, { threshold:0.2 });
+  targets.forEach(function(t){ io.observe(t); });
+})();
+</script>
+</body>
+</html>
