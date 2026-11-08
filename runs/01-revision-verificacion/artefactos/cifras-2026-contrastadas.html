@@ -1,0 +1,292 @@
+<title>Cifras 2026 contrastadas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: informe de una columna sobre contenedor de 1120 px. Resumen en cifras clave arriba; después una tabla por sección del documento revisado. Identidad fundament (DESIGN.md): solo modo claro por regla de marca. */
+:root{
+  color-scheme:light;
+  --black:#000000; --white:#FFFFFF;
+  --salmon:#E6A198; --bisque:#FFE1C2;
+  --muted:#5C5C5C; --rule:#E3E3E3;
+  --font:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  --container:1120px; --prose:720px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--white);color:var(--black);font-family:var(--font);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));padding-block:0}
+@media (max-width:480px){body{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}}
+.wrap{max-width:var(--container);margin:0 auto}
+h1,h2{font-weight:400;letter-spacing:-0.01em;margin:0;text-wrap:balance}
+h1{font-size:clamp(2rem,4.4vw,3rem);line-height:1.12;max-width:18ch}
+h2{font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.2}
+h3{font-weight:700;font-size:1.05rem;line-height:1.35;margin:0}
+p{margin:0;max-width:66ch}
+a{color:inherit;text-underline-offset:3px}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.86em}
+::selection{background:var(--salmon);color:var(--black)}
+:focus-visible{outline:2px solid var(--black);outline-offset:3px}
+.label{font-size:.75rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0}
+
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:18px;border-bottom:1px solid var(--rule)}
+.brand svg{height:22px;width:auto;display:block}
+.top .label{color:var(--muted)}
+
+.section{padding-block:64px;display:flex;flex-direction:column;gap:28px}
+.section + .section{border-top:2px solid var(--black)}
+.intro{padding-block:64px 48px;display:flex;flex-direction:column;gap:24px}
+.lede{font-size:1.18rem;line-height:1.6;max-width:62ch}
+.prose{max-width:var(--prose);display:flex;flex-direction:column;gap:14px;font-size:1rem;line-height:1.7}
+
+.keys{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:700px){.keys{grid-template-columns:1fr}}
+.key{font:inherit;color:inherit;text-align:left;cursor:pointer;background:var(--white);border:1px solid var(--rule);padding:20px 22px;display:flex;flex-direction:column;gap:6px;transition:background-color .15s ease,border-color .15s ease}
+.key:hover{border-color:var(--black)}
+.key .num{font-size:clamp(2.5rem,6vw,4rem);font-weight:300;line-height:1.05;letter-spacing:-0.02em;font-variant-numeric:tabular-nums}
+.key .desc{font-size:.9rem;color:var(--muted);line-height:1.5}
+.key[aria-pressed="true"]{border-color:var(--black);border-width:2px;padding:19px 21px}
+.key.k-dif[aria-pressed="true"]{background:var(--salmon)}
+.key.k-nv[aria-pressed="true"]{background:var(--bisque)}
+.key[aria-pressed="true"] .desc{color:var(--black)}
+.filterbar{display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-size:.9rem;color:var(--muted)}
+.btn{font:500 .88rem/1 var(--font);background:transparent;color:var(--black);border:1.5px solid var(--black);padding:10px 18px;cursor:pointer;transition:background-color .15s ease}
+.btn:hover{background:var(--bisque)}
+
+.legend{display:flex;gap:24px;flex-wrap:wrap;font-size:.9rem;align-items:center}
+.legend span{display:flex;gap:8px;align-items:center}
+
+.head{display:flex;flex-direction:column;gap:10px}
+.head .note{color:var(--muted);font-size:.95rem}
+.tw{overflow-x:auto;border-top:1px solid var(--black)}
+table{border-collapse:collapse;width:100%;min-width:780px;font-size:.92rem}
+th{font-size:.72rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);text-align:left;padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:bottom}
+td{padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+td:first-child,th:first-child{border-left:5px solid transparent}
+tr.r-dif td:first-child{border-left-color:var(--salmon)}
+tr.r-nv td:first-child{border-left-color:var(--bisque)}
+td.p{font-weight:700;width:22%}
+td.v{font-variant-numeric:tabular-nums;width:19%}
+tr.r-dif td.v.mine{font-weight:700}
+td.s{white-space:nowrap;width:1%}
+td.n{color:var(--muted);font-size:.88rem}
+td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+th.num{text-align:right}
+.chip{display:inline-flex;gap:6px;align-items:center;font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:4px 9px;border:1px solid var(--black);background:var(--white);color:var(--black);line-height:1.2}
+.chip b{font-weight:700;font-size:.9rem;letter-spacing:0}
+.chip.k-dif{background:var(--salmon);border-color:var(--salmon)}
+.chip.k-nv{background:var(--bisque);border-color:var(--bisque)}
+.hidden-row{display:none}
+
+.panel{border-left:5px solid var(--black);padding:28px 32px;max-width:var(--prose);background:var(--bisque);display:flex;flex-direction:column;gap:12px}
+@media (max-width:480px){.panel{padding:22px 20px}}
+.panel p{font-size:.98rem;line-height:1.7}
+
+footer{border-top:1px solid var(--rule);padding-block:32px 48px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;color:var(--muted);font-size:.86rem}
+footer .mark svg{width:44px;height:auto;display:block}
+footer div{display:flex;flex-direction:column;gap:6px;flex:1;min-width:240px}
+footer p{max-width:80ch}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
+</style>
+
+<div class="wrap">
+<div class="top">
+  <a href="https://fundament.es" class="brand" aria-label="fundament"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 457 76" role="img" aria-label="fundament"><g fill="#000" transform="translate(0,-1)"><path transform="translate(0,0.7344)" d="M11.9791,3.3349 C9.5041,5.5129 8.2171,8.9779 8.2171,13.9279 L8.2171,21.2539 L0.0001,21.2539 L0.0001,28.4809 L8.2171,28.4809 L8.2171,74.4159 L17.4241,74.4159 L17.4241,28.4809 L28.3141,28.4809 L28.3141,21.2539 L17.4241,21.2539 L17.4241,14.3229 C17.4241,8.8789 19.7011,7.4929 28.4131,8.0869 L28.4131,0.4639 C26.7301,0.3639 25.0471,0.2659 23.6611,0.2659 C18.5131,0.2659 14.5531,1.1569 11.9791,3.3349"/><path d="M68.774,54.3603 C68.774,62.5773 63.527,68.8143 55.409,68.8143 C48.083,68.8143 43.826,64.8543 43.826,58.1223 L43.826,21.9883 L34.619,21.9883 L34.619,58.6173 C34.619,69.7053 41.648,76.3393 52.637,76.3393 C60.26,76.3393 64.913,72.9723 68.675,67.7253 L68.873,67.7253 L68.873,75.1503 L77.981,75.1503 L77.981,21.9883 L68.774,21.9883 L68.774,54.3603 Z"/><path d="M110.9844,20.7011 C103.2624,20.7011 98.0154,24.1661 94.1544,29.5121 L93.8574,29.5121 L93.8574,21.9881 L84.7494,21.9881 L84.7494,75.1501 L93.9564,75.1501 L93.9564,42.7771 C93.9564,34.2641 99.8964,28.4231 108.1134,28.4231 C115.3404,28.4231 119.7954,32.2841 119.7954,39.1141 L119.7954,75.1501 L128.9034,75.1501 L128.9034,38.0251 C128.9034,26.9371 122.0724,20.7011 110.9844,20.7011"/><path d="M159.2593,69.1113 C149.4583,69.1113 144.5083,60.4993 144.5083,48.8163 C144.5083,37.1343 149.4583,28.4233 159.2593,28.4233 C169.9503,28.4233 175.5933,36.8383 175.5933,48.8163 C175.5933,60.4993 170.6443,69.1113 159.2593,69.1113 L159.2593,69.1113 Z M175.0993,20.3043 C175.0993,23.8693 175.1973,27.7293 175.3963,30.1053 L175.1973,30.1053 C171.8313,24.4633 165.8923,20.7013 158.3673,20.7013 C145.2003,20.7013 135.1033,31.1943 135.1033,48.7173 C135.1033,65.8443 144.2113,76.7343 158.5663,76.7343 C165.9903,76.7343 171.6343,73.2693 174.9993,67.5273 L175.1973,67.5273 L175.1973,75.1503 L184.3063,75.1503 L184.3063,1.4953 L175.0993,1.4953 L175.0993,20.3043 Z"/><path d="M226.3477,55.5488 C226.3477,61.6868 221.3987,69.5078 210.8057,69.5078 C205.4597,69.5078 200.2137,67.8238 200.2137,60.9928 C200.2137,53.6678 205.9547,52.0838 214.6657,50.5988 C219.0227,49.8068 223.6747,48.5198 226.3477,46.8368 L226.3477,55.5488 Z M234.7627,62.8738 L234.7627,38.0258 C234.7627,30.8978 232.0897,26.2448 227.6347,23.5718 C224.2697,21.5918 219.8147,20.7008 214.7657,20.7008 C200.4107,20.7008 193.5797,28.7198 193.1837,37.7288 L202.0947,37.7288 C202.3907,31.3928 206.4497,27.4328 214.8647,27.4328 C222.1907,27.4328 226.2487,30.9968 226.2487,36.7388 C226.2487,42.1838 221.2007,43.4708 213.3787,44.3608 C199.6187,46.0448 190.5117,48.7178 190.5117,61.0928 C190.5117,71.2888 198.4307,76.2388 208.5287,76.2388 C217.5367,76.2388 222.9827,71.9828 226.3477,67.3288 L226.4477,67.3288 C227.4377,72.9728 230.2087,75.6458 235.8517,75.6458 C238.0307,75.6458 239.5147,75.2488 240.8017,74.8538 L240.8017,68.4188 L240.4067,68.4188 C235.7527,69.4078 234.7627,67.1318 234.7627,62.8738 L234.7627,62.8738 Z"/><path d="M301.6172,20.7011 C295.1822,20.7011 288.9452,23.9681 285.1832,30.6001 L284.9852,30.6001 C282.8072,24.0671 277.6602,20.7011 271.2242,20.7011 C264.3932,20.7011 258.7512,24.1661 255.4842,29.9081 L255.1862,29.9081 L255.1862,21.9881 L246.0792,21.9881 L246.0792,75.1501 L255.2862,75.1501 L255.2862,42.3821 C255.2862,34.2641 262.1172,28.4231 268.4532,28.4231 C273.8972,28.4231 277.5602,32.2841 277.5602,38.8171 L277.5602,75.1501 L286.6692,75.1501 L286.6692,42.3821 C286.6692,34.2641 292.5102,28.4231 299.2412,28.4231 C304.5882,28.4231 308.8452,32.2841 308.8452,38.8171 L308.8452,75.1501 L318.0522,75.1501 L318.0522,38.0251 C318.0522,26.9371 311.3192,20.7011 301.6172,20.7011"/><path d="M333.5538,44.164 C334.7408,34.759 339.7898,27.829 349.3938,27.829 C358.5998,27.829 363.8468,33.967 364.3418,44.164 L333.5538,44.164 Z M367.6088,28.918 C363.4508,23.769 357.3138,20.701 349.3938,20.701 C334.1478,20.701 323.9498,33.175 323.9498,48.618 C323.9498,64.161 333.5538,76.636 349.8878,76.636 C362.1638,76.636 370.6778,69.903 373.0538,60.004 L364.0448,60.004 C362.3628,65.646 357.3138,69.111 349.9878,69.111 C339.6918,69.111 334.0478,61.191 333.3558,50.797 L374.1428,50.797 C374.1428,41.788 371.9648,34.165 367.6088,28.918 L367.6088,28.918 Z"/><path d="M406.1426,20.7011 C398.4206,20.7011 393.1736,24.1661 389.3136,29.5121 L389.0166,29.5121 L389.0166,21.9881 L379.9086,21.9881 L379.9086,75.1501 L389.1156,75.1501 L389.1156,42.7771 C389.1156,34.2641 395.0546,28.4231 403.2726,28.4231 C410.4986,28.4231 414.9546,32.2841 414.9546,39.1141 L414.9546,75.1501 L424.0616,75.1501 L424.0616,38.0251 C424.0616,26.9371 417.2306,20.7011 406.1426,20.7011"/><path transform="translate(428,4.7344)" d="M28.8262,24.3818 L28.8262,17.2538 L17.8382,17.2538 L17.8382,0.5228 L8.7292,0.5228 L8.7292,17.2538 L0.4142,17.2538 L0.4142,24.3818 L8.7292,24.3818 L8.7292,60.0218 C8.7292,67.8418 13.6802,70.7128 20.8072,70.8118 C23.1832,70.8118 25.7582,70.5148 28.2322,69.9208 L28.2322,62.1988 L27.9352,62.1988 C26.9452,62.4958 24.8662,62.8918 23.2822,62.8918 C19.9172,62.8918 17.8382,61.8028 17.8382,57.9428 L17.8382,24.3818 L28.8262,24.3818 Z"/></g></svg></a>
+  <p class="label">Estudio de Convivencia Social · edición 2026</p>
+</div>
+
+<section class="intro">
+  <p class="label">Revisión de pares · datos 2026</p>
+  <h1>Cifras 2026 contrastadas</h1>
+  <p class="lede">Cada cifra de 2026 de la «Verificación de datos 2026», punto por punto, frente a nuestro recálculo con los datos limpios. Las filas en salmón difieren; las que concuerdan llevan la marca «=».</p>
+  <div class="prose">
+    <p>Recalculamos sobre tres bases. <b>Su muestra</b>: 404 de sus 405 filas; la 405.ª es una respuesta de una persona menor de edad que nuestras reglas excluyen, así que una diferencia de una respuesta se debe a esa fila. <b>Nuestras 413 válidas</b>, tras excluir menores, pruebas y tests. <b>Las 346 sin ninguna marca de calidad</b>, sin respuestas rápidas ni de dispositivos repetidos.</p>
+    <p>Esta página no revisa las cifras ni las versiones de 2022, 2023 y 2024. Del histórico solo se contrasta la columna 2026. La muestra no es probabilística: todas las cifras describen a las personas encuestadas.</p>
+  </div>
+  <div class="keys" id="keys"></div>
+  <div class="filterbar"><span id="filtro-txt" aria-live="polite"></span><button class="btn" id="ver-todo" type="button">Ver todo</button></div>
+</section>
+
+<div id="secciones"></div>
+
+<section class="section">
+  <div class="head"><p class="label">Comentarios</p><h2>Cómo se hizo</h2></div>
+  <div class="panel" id="comentarios">
+    <p>Análisis hecho con Claude Opus 5.5 (<code>claude-opus-5-5</code>) en Claude Code, el 4 de noviembre de 2026, en tres iteraciones. En la primera se recalcularon con pandas todas las cifras de 2026 del objeto <code>V</code> del documento sobre las tres bases. En la segunda se volvieron a contar con una implementación independiente, sin pandas, y se comprobaron los redondeos, las bases y las marcas de calidad; las dos pasadas dieron el mismo resultado y el documento no tiene ningún error de redondeo sobre su propia base. En la tercera se cruzaron con un script todas las cifras escritas en esta página con los resultados de las dos pasadas anteriores, sin discrepancias, y se revisó el texto. En la fila de composición se sustituyeron sus porcentajes por los nuestros. También se suavizó una frase sobre la autoselección que interpretaba más de lo que dicen los datos. Por último, se quitaron los nombres de los dos municipios que solo aparecen en las filas ausentes, para no publicar cruces por municipio con n &lt; 5. No se ha revisado ninguna cifra de ediciones anteriores. El modelo tenía en contexto la revisión anterior de este mismo documento, así que no es un análisis en limpio.</p>
+  </div>
+</section>
+
+<footer>
+  <span class="mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 245 173" role="img" aria-label="fundament símbolo"><path fill="#000" d="M244.6694,55.2463 C244.6674,55.1893 244.6654,55.1223 244.6634,55.0683 C243.3344,18.3563 223.5004,0.0003 185.1624,0.0003 C141.8324,0.0003 130.4134,36.7693 120.4524,74.1273 C109.5234,115.7673 109.4334,148.0813 61.4544,148.0813 C44.6764,148.0813 34.6064,137.7623 31.2284,117.1463 C30.3764,111.9493 29.9424,106.1093 29.9424,99.6013 L29.9424,6.2173 L0.0464,6.2173 C-0.0676,75.4363 0.0274,108.4533 0.3344,117.1463 C0.3364,117.1803 0.3374,117.2213 0.3384,117.2543 C1.6674,153.9663 21.5014,172.3223 59.8394,172.3223 C103.1694,172.3223 113.4264,138.2183 123.3884,100.8603 C134.3164,59.2213 135.5684,24.2403 183.5474,24.2403 C200.3444,24.2403 210.4194,34.5833 213.7854,55.2463 C214.6294,60.4263 215.0594,66.2433 215.0594,72.7203 L215.0594,166.1043 L244.9554,166.1043 C245.0694,97.0623 244.9744,64.0413 244.6694,55.2463"/></svg></span>
+  <div>
+    <p>Fuentes: <code>datos/modelos/fundament_2026.csv</code>, <code>datos/modelos/companero_2026_filas.csv</code>, <code>codebook/2026.yaml</code> (v0.2) y el objeto <code>V</code> de <code>referencia/Verificación datos 2026.html</code>. Commit d8b8804 (etiqueta <code>codebook-v0.3</code>).</p>
+    <p>Reglas aplicadas: excluir menor_edad, prueba y test_explicito (413 filas); sensibilidad con rapido y dispositivo_repetido (346 filas sin marcas). Los códigos 98 y 99 se tratan como no respuesta.</p>
+  </div>
+</footer>
+</div>
+
+<script>
+const EST={
+  ok:["Concuerda","=","Coincide con nuestro recálculo sobre su muestra. Una respuesta de diferencia corresponde a la fila de la persona menor de edad."],
+  dif:["Difiere","≠","Cifra, base, regla o etiqueta distinta de la nuestra o del codebook 2026."],
+  nv:["No verificable","?","No se puede comprobar con los archivos disponibles."]
+};
+
+const S=[
+{sec:"1",t:"Muestra y limpieza",note:"Conciliación: 405 = 413 válidas − 9 filas que no están en su hoja + 1 respuesta de una persona menor de edad.",rows:[
+ ["Filas con contenido","408 (608 exportadas − 200 vacías)","408 filas en su hoja limpia según companero_2026_filas.csv","ok",""],
+ ["Filas exportadas y vacías","608 y 200","Nuestro bruto tiene 429 filas","nv","Su fuente es un «Sheet activo» sin fecha ni huella: no se puede reproducir el paso de 608 a 408."],
+ ["Pruebas retiradas","3 (utm_campaign = prueba)","Las 3 también están excluidas por nosotros","ok",""],
+ ["Filas válidas fuera de su hoja","No se mencionan","9 filas, todas con marca de calidad: 7 rápidas y 4 de dispositivo repetido (2 con las dos)","dif","Filtrado no declarado que deja fuera 7 de las 8 respuestas rápidas de la edición. De las 9, 7 son de personas en alquiler y 6 han pensado «seriamente» en irse (n = 9, solo descriptivo)."],
+ ["Menores de edad","1 respuesta «Menos de 18 años» dentro de la muestra","Excluida por la regla menor_edad","dif","Sin consentimiento válido. Además, entra en el tramo 18–35 del cruce edad × vivienda."],
+ ["Tamaño final","n = 405","413 válidas · 346 sin ninguna marca","dif","En los ítems 0–10 la diferencia con su cifra es como máximo de 1,8 puntos frente a 413 y de 2,8 frente a 346."],
+ ["Respuestas rápidas","Sin regla de duración declarada","8 en nuestras 413; solo 1 queda en su muestra","dif","La regla del codebook marca, no excluye: el análisis se hace con y sin estas filas."],
+ ["Huellas repetidas","27 fp_flagged conservadas, «revisadas una a una»","57 respuestas de dispositivo repetido en su muestra (61 en 413)","dif","fp_flagged solo marca desde la 3.ª respuesta de una huella; la regla del codebook marca también la 1.ª y la 2.ª. No se publica el criterio de revisión ni un análisis con y sin ellas."],
+ ["Representatividad","Mínimo 384 para IC 95 % ±5 %; n = 405 lo supera","No aplica: muestra autoseleccionada","dif","384 sale de la fórmula del muestreo aleatorio simple. El propio §8 del documento reconoce la autoselección."],
+ ["Población de referencia","960.270 habitantes en 53 municipios (padrón ref. 2026)","Sin archivo de población","nv","Los 34 municipios con respuesta suman 916.107 habitantes en su tabla."]
+]},
+{sec:"2",t:"Ítems 0–10: % de acuerdo (6–10)",note:"Su cifra sobre 405 frente a nuestro recálculo. Ningún ítem tiene códigos 98 o 99 ni respuestas vacías. «Redacción» compara su etiqueta con la pregunta del codebook 2026.",rows:"LIKERT"},
+{sec:"3",t:"Columna 2026 del histórico",note:"Solo se contrasta la cifra de 2026 de cada fila con la tabla del §2 del mismo documento. Los ítems de rechazo usan el % de 0–4. Las cifras de 2022–2024 quedan fuera de esta revisión.",rows:"HIST"},
+{sec:"4",t:"Análisis cualitativo",note:"Solo se pueden comprobar recuentos y aritmética: no hay codificación respuesta a respuesta.",rows:[
+ ["«cambio»: personas que respondieron","368","367 en su muestra + 1 de la fila excluida (376 en nuestras 413)","ok",""],
+ ["«preservar»: personas que respondieron","338","337 en su muestra + 1 de la fila excluida (346 en nuestras 413)","ok",""],
+ ["Respuestas con contenido","365 (cambio) · 324 (preservar)","Requiere juicio sobre cada texto","nv",""],
+ ["Aritmética multietiqueta","Reparto por nº de categorías y suma de categorías","Cuadra: 365 y 324 respuestas; 670 y 430 asignaciones","ok",""],
+ ["% clasificado","96 % · 86 %","95,9 % · 86,4 %","ok","Sin clasificar: 15 de 365 (4,1 %) y 44 de 324 (13,6 %)."],
+ ["% por categoría","«% sobre sust.»","Los % suman 183,6 % y 132,7 %","dif","Es correcto en una clasificación multietiqueta, pero la tabla no lo dice."],
+ ["Clasificación por respuesta","Palabras clave + revisión manual","Sin lista de palabras, definiciones ni acuerdo entre codificadores","nv",""]
+]},
+{sec:"5",t:"Segmentación: haber pensado en irse",note:"Pregunta: «¿Has pensado alguna vez en irte de Mallorca a causa del turismo?». Datos transversales: las diferencias entre grupos no indican causas.",rows:[
+ ["Alquiler","n 89 · No 18 · de pasada 28 · seriamente 43","n 89 · 18 · 28 · 43","ok","Sí en total: 71 (79,8 %)."],
+ ["Propiedad","n 270 · No 123 · de pasada 89 · seriamente 58","n 269 · 123 · 89 · 57","ok","La diferencia es la fila de la persona menor de edad."],
+ ["Otro","n 43 · No 11 · de pasada 12 · seriamente 20","n 43 · 11 · 12 · 20","ok",""],
+ ["Alquiler con nuestras 413","n 89","n 96 · No 19 · de pasada 28 · seriamente 49","dif","Seriamente pasa de 48,3 % a 51,0 %; sí en total, de 79,8 % a 80,2 %. Sin marcas (n 71): 80,3 % sí en total."],
+ ["18–35 · Alquiler","n 35 · 80 %","n 35 · 80 %","ok",""],
+ ["18–35 · Propiedad","n 40 · 68 %","n 39 · 67 %","dif","Incluye a la persona menor de edad en un tramo de adultos."],
+ ["36–55 · Alquiler / Propiedad","n 43 · 79 % / n 113 · 56 %","n 43 · 79 % / n 113 · 56 %","ok",""],
+ ["56+ · Alquiler","n 11 · 82 %","n 11 · 82 %","ok",""],
+ ["56+ · Propiedad","n 117 · 49 %","n 117 · 49 %","ok",""],
+ ["Avisos de n < 30","Ninguno","56+ · Alquiler n 11; vivienda «Otro» con n 23, 15 y 5","dif","Celdas pequeñas presentadas sin aviso."],
+ ["Vivienda «Otro» por edad","Omitida","n 23 · 15 · 5","dif",""],
+ ["Base del cruce","n 405 en la cabecera","402: 3 personas no respondieron","dif","No se declara la no respuesta."],
+ ["Etiqueta «Se plantea irse»","«Intención de dejar la isla»","La pregunta es si lo ha pensado alguna vez e incluye «de pasada»","dif","Solo «seriamente»: Alquiler 48,3 %, Propiedad 21,5 % (su muestra)."]
+]},
+{sec:"6",t:"Demografía y situación socioeconómica",note:"Cada distribución difiere en una sola respuesta, la de la fila de la persona menor de edad.",rows:[
+ ["Género","Mujer 255 · Hombre 147 · Otro 3","254 · 147 · 3","ok",""],
+ ["Edad","Incluye «Menos de 18 años» (n 1)","Tramos adultos idénticos: 30 · 67 · 83 · 90 · 91 · 40 · 3","dif","La fila de la persona menor de edad no debería estar."],
+ ["Nacionalidad","Española 371 · Europea 25 · No europea 4 · Prefiero no decirlo 5","370 · 25 · 4 · 5","ok",""],
+ ["Idioma","es 302 · ca 103","301 · 103","ok",""],
+ ["Situación laboral","Trabajo 317 · Jubilado/a 59 · Parado/a 17 · Estudiante 12","316 · 59 · 17 · 12","ok",""],
+ ["Vivienda","Propiedad 273 · Alquiler 89 · Otro 43","272 · 89 · 43","ok",""],
+ ["Dependencia del turismo","No 248 · Sí 140 · No lo sé 17","247 · 140 · 17","ok",""],
+ ["Convivencia","51 · 103 · 102 · 72 · 63 · 14","51 · 103 · 102 · 72 · 63 · 13","ok",""],
+ ["Manifestaciones","No 220 · Sí 185","220 · 184","ok",""],
+ ["Responsable","Ambos 270 · Gobierno 65 · Sector 62 · Otro 8","270 · 65 · 61 · 8","ok",""],
+ ["Ha pensado irse","No 152 · de pasada 129 · seriamente 121 (base 402)","152 · 129 · 120","ok","La base 402 no se declara."],
+ ["Situación económica","Media 5,34","Media 5,34 (n 404)","ok",""],
+ ["Bases con no respuesta","Los % de nacionalidad y dependencia usan 405","«Prefiero no decirlo» (5) y «No lo sé» (17) son no respuesta","dif","Con sus recuentos y la base sin no respuesta (400 y 388): española 92,8 % en lugar de 91,6 %; depende del turismo 36,1 % en lugar de 34,6 %."]
+]},
+{sec:"7",t:"Representación territorial",note:"No se publican cruces por municipio con n < 5.",rows:[
+ ["Reparto por municipio","34 municipios; Palma 204, Valldemossa 51, Santanyí 18…","Igual en su muestra (Palma 203 + la fila excluida)","ok",""],
+ ["Reparto con nuestras 413","—","36 municipios; Palma 209","dif","Dos municipios solo aparecen en las 9 filas que no están en su hoja."],
+ ["Aritmética del índice","% respuestas ÷ % población × 100","Cuadra en los 34 municipios","ok",""],
+ ["Población por municipio","Padrón ref. 2026","Sin archivo de población","nv",""],
+ ["Municipios sin respuesta","19","19 en su muestra; 17 con nuestras 413","dif","El formulario ofrecía 52 municipios: Porreres no se podía elegir y cuenta como «sin respuesta»."],
+ ["Índice en municipios pequeños","Se publica para todos","17 municipios con n < 5 y 9 con n = 1","dif","Con tan pocas respuestas el índice no es interpretable."],
+ ["Causa de la sobrerrepresentación","«La difusión no fue proporcional»","Valldemossa: 39 de 51 respuestas en la semana del 20 de julio; Santanyí, 18 de 18 en esa semana; Consell, 8 de 8 en la del 6 de julio","dif","Coincide con picos de respuesta en semanas concretas; el canal de difusión no consta en los datos. Sin Valldemossa, los % de acuerdo cambian como máximo 1,1 puntos."]
+]},
+{sec:"8",t:"Limitaciones de 2026",note:"Solo las limitaciones que afectan a los datos de 2026.",rows:[
+ ["Sesgo territorial","Palma ~50 %, Valldemossa con índice > 5000","Palma 50,2 % (203 de 404); el índice 5933 cuadra con sus recuentos","ok","No menciona Porreres ni la concentración en semanas concretas."],
+ ["Sesgo de composición","63 % mujeres, 75 % en castellano, 92 % española","62,9 % · 74,5 % · 91,6 % (n 404)","ok",""],
+ ["Sin clasificar en abiertas","4 % (cambio) · 14 % (preservar)","4,1 % · 13,6 %","ok",""],
+ ["Antifraude","Conserva las huellas repetidas si el tiempo de cumplimentación es plausible","7 de las 8 respuestas rápidas no están en su hoja","dif","El documento no declara que esas filas se quitaron ni con qué umbral."],
+ ["Mecánica del slider","No se menciona","El slider se muestra en 5 y hay que moverlo y volver para dejar un 5","dif","El codebook advierte de que el 5 puede estar infrarrepresentado: el «neutral» no es limpio."],
+ ["Ítems sin dirección","No se menciona","«afecta» e «influye» no dicen si el efecto es bueno o malo; bienestar mezcla dos cosas","dif","Un 10 indica acuerdo con que hay efecto, no su signo."],
+ ["Autoselección por interés","Autoselección genérica","45,5 % de su muestra participó este año en una manifestación o actividad sobre turismo (184 de 404)","dif","Dato que conviene citar junto a la autoselección; el documento no lo menciona."],
+ ["Época de campo","No se menciona","Respuestas válidas entre la semana del 6 de julio y la del 28 de septiembre de 2026","dif","Se preguntó durante la temporada turística; el ítem de gestión pregunta por «esta temporada»."]
+]}
+];
+
+// [ítem, etiqueta del documento, doc %, su muestra %, 413 %, 346 %, estado cifra, estado redacción, nota]
+const LIK=[
+ ["Precios","contribuye al aumento de precios","96,3","96,3","95,4","96,2","ok","ok",""],
+ ["Medio ambiente","afecta al medio ambiente","97,0","97,0","96,4","97,4","ok","ok",""],
+ ["Calidad de vida","afecta a mi calidad de vida","93,6","93,6","92,3","93,9","ok","ok",""],
+ ["Transporte público","afecta al transporte público","92,3","92,3","91,5","91,9","ok","dif","Omite «la calidad del»."],
+ ["Gastos de ocio","Mi gasto en ocio subió por el turismo","89,1","89,1","88,9","89,6","ok","dif","La pregunta es «ha afectado a mis gastos de ocio», sin dirección."],
+ ["Vida diaria","influye en mi vida diaria","89,1","89,1","87,9","88,7","ok","ok",""],
+ ["Bienestar","influye en mi bienestar/interacciones","88,1","88,1","87,2","89,3","ok","dif","Ítem doble: «bienestar y las interacciones comunitarias»."],
+ ["Espacios públicos","Los espacios públicos se deterioran","87,9","87,9","87,2","88,2","ok","dif","Omite «a causa del turismo»."],
+ ["Diversificación","más resistente diversificando","93,6","93,6","92,5","94,2","ok","ok",""],
+ ["Futuro de la isla","es el futuro de la isla","34,6","34,7","35,1","31,8","ok","ok",""],
+ ["Activismo","El activismo mejoró la gestión","33,8","33,7","34,9","33,8","ok","ok",""],
+ ["Interacciones","favorece interacciones positivas","24,7","24,8","25,7","24,3","ok","ok",""],
+ ["Gestión","La gestión mejoró la convivencia","7,2","7,2","9,0","7,2","ok","dif","Omite «esta temporada»."]
+];
+const LIK_EXTRA=[
+ ["Etiqueta del tramo bajo","«Desac. (1–4)»","Cuenta de 0 a 4","dif","Incluye los 0: en gestión son 144 de 404."],
+ ["Medias","9,17 … 2,13","Diferencia máxima de 0,01 sobre su muestra","ok",""]
+];
+// [ítem, métrica, columna 2026, §2, su muestra]
+const HIST=[
+ ["Precios","acuerdo","96,3","96,3","96,3"],
+ ["Medio ambiente","acuerdo","97,1","97,0","97,0"],
+ ["Calidad de vida","acuerdo","93,6","93,6","93,6"],
+ ["Transporte","acuerdo","92,4","92,3","92,3"],
+ ["Vida diaria","acuerdo","89,2","89,1","89,1"],
+ ["Gastos de ocio","acuerdo","89,0","89,1","89,1"],
+ ["Espacios públicos","acuerdo","88,0","87,9","87,9"],
+ ["Bienestar","acuerdo","88,0","88,1","88,1"],
+ ["Diversificación","acuerdo","93,6","93,6","93,6"],
+ ["Activismo","acuerdo","33,8","33,8","33,7"],
+ ["Futuro de la isla","rechazo","54,7","54,6","54,5"],
+ ["Interacciones positivas","rechazo","66,4","66,2","66,1"],
+ ["Gestión","rechazo","86,5","86,4","86,4"]
+];
+
+let filtro=null;
+const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
+const chip=k=>`<span class="chip k-${k}"><b aria-hidden="true">${EST[k][1]}</b>${EST[k][0]}</span>`;
+const fila=(k,ks,cells)=>({k,ks,cells});
+const std=r=>fila(r[3],[r[3]],[`<td class="p">${r[0]}</td>`,`<td class="v">${r[1]}</td>`,`<td class="v mine">${r[2]}</td>`,`<td class="s">${chip(r[3])}</td>`,`<td class="n">${r[4]}</td>`]);
+
+function render(){
+  const root=document.getElementById('secciones');root.innerHTML='';
+  const cuenta={ok:0,dif:0,nv:0};
+  S.forEach(s=>{
+    const sec=el('section','section');
+    sec.appendChild(el('div','head',`<p class="label">§${s.sec} del documento</p><h2>${s.t}</h2>${s.note?`<p class="note">${s.note}</p>`:''}`));
+    let head,rows,numCols=[];
+    if(s.rows==="LIKERT"){numCols=[2,3,4,5];
+      head=['Ítem','Etiqueta del documento','Documento<br>n 405','Su muestra<br>n 404','Nuestras<br>n 413','Sin marcas<br>n 346','Cifra','Redacción','Nota'];
+      rows=LIK.map(r=>fila((r[6]==='dif'||r[7]==='dif')?'dif':'ok',[r[6],r[7]],[`<td class="p">${r[0]}</td>`,`<td class="n">${r[1]}</td>`,`<td class="num">${r[2]} %</td>`,`<td class="num"><b>${r[3]} %</b></td>`,`<td class="num">${r[4]} %</td>`,`<td class="num">${r[5]} %</td>`,`<td class="s">${chip(r[6])}</td>`,`<td class="s">${chip(r[7])}</td>`,`<td class="n">${r[8]}</td>`]));
+      rows.forEach(r=>r.ks.forEach(k=>cuenta[k]++));
+      LIK_EXTRA.forEach(r=>{cuenta[r[3]]++;rows.push(fila(r[3],[r[3]],[`<td class="p">${r[0]}</td>`,`<td class="n">${r[1]}</td>`,`<td colspan="4">${r[2]}</td>`,`<td class="s">${chip(r[3])}</td>`,`<td class="s"></td>`,`<td class="n">${r[4]}</td>`]))});
+    }else if(s.rows==="HIST"){numCols=[2,3,4];
+      head=['Ítem','Métrica','Columna 2026','Tabla del §2','Su muestra n 404','Estado'];
+      rows=HIST.map(r=>{const k=r[2]===r[3]?'ok':'dif';cuenta[k]++;return fila(k,[k],[`<td class="p">${r[0]}</td>`,`<td class="n">% de ${r[1]}</td>`,`<td class="num">${r[2]} %</td>`,`<td class="num">${r[3]} %</td>`,`<td class="num">${r[4]} %</td>`,`<td class="s">${chip(k)}</td>`])});
+    }else{
+      head=['Punto','Documento','Nuestro recálculo','Estado','Nota'];
+      rows=s.rows.map(r=>{cuenta[r[3]]++;return std(r)});
+    }
+    const tw=el('div','tw'),tb=el('table');
+    tb.innerHTML='<thead><tr>'+head.map((h,i)=>`<th${numCols.includes(i)?' class="num"':''}>${h}</th>`).join('')+'</tr></thead>';
+    const body=el('tbody');let vis=0;
+    rows.forEach(r=>{const tr=el('tr',`r-${r.k}`,r.cells.join(''));if(filtro&&!r.ks.includes(filtro))tr.classList.add('hidden-row');else vis++;body.appendChild(tr)});
+    tb.appendChild(body);tw.appendChild(tb);sec.appendChild(tw);
+    if(filtro&&!vis)sec.hidden=true;
+    root.appendChild(sec);
+  });
+  return cuenta;
+}
+function resumen(c){
+  const s=document.getElementById('keys');s.innerHTML='';
+  ['ok','dif','nv'].forEach(k=>{
+    const b=el('button',`key k-${k}`,`<span>${chip(k)}</span><span class="num">${c[k]}</span><span class="desc">${EST[k][2]}</span>`);
+    b.type='button';b.id='f-'+k;b.setAttribute('aria-pressed',filtro===k?'true':'false');
+    b.onclick=()=>{filtro=filtro===k?null:k;actualizar()};s.appendChild(b);
+  });
+  document.getElementById('filtro-txt').textContent=filtro?`Mostrando solo: ${EST[filtro][0].toLowerCase()}. Pulsa la tarjeta otra vez o «Ver todo» para quitar el filtro.`:'Mostrando todos los puntos. Pulsa una tarjeta para filtrar.';
+  document.getElementById('ver-todo').hidden=!filtro;
+}
+function actualizar(){resumen(render())}
+document.getElementById('ver-todo').onclick=()=>{filtro=null;actualizar()};
+actualizar();
+</script>

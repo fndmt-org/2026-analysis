@@ -1,0 +1,271 @@
+<title>Panorama 2026</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: informe de una columna sobre contenedor de 1120 px. Cifras clave arriba; después una sección por bloque del cuestionario, cada una con su gráfico de barras horizontales y su base. Identidad fundament (DESIGN.md): solo modo claro por regla de marca. */
+:root{
+  color-scheme:light;
+  --black:#000000; --white:#FFFFFF;
+  --salmon:#E6A198; --bisque:#FFE1C2;
+  --muted:#5C5C5C; --rule:#E3E3E3;
+  --font:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  --container:1120px; --prose:720px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--white);color:var(--black);font-family:var(--font);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));padding-block:0}
+@media (max-width:480px){body{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}}
+.wrap{max-width:var(--container);margin:0 auto}
+h1,h2{font-weight:400;letter-spacing:-0.01em;margin:0;text-wrap:balance}
+h1{font-size:clamp(2rem,4.4vw,3rem);line-height:1.12;max-width:18ch}
+h2{font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.2}
+h3{font-weight:700;font-size:1.05rem;line-height:1.35;margin:0}
+p{margin:0;max-width:66ch}
+a{color:inherit;text-underline-offset:3px}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.86em}
+::selection{background:var(--salmon);color:var(--black)}
+:focus-visible{outline:2px solid var(--black);outline-offset:3px}
+.label{font-size:.75rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0}
+
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:18px;border-bottom:1px solid var(--rule)}
+.brand svg{height:22px;width:auto;display:block}
+
+.intro{padding-block:64px 48px;display:flex;flex-direction:column;gap:24px}
+.lede{font-size:1.18rem;line-height:1.6;max-width:62ch}
+.section{padding-block:64px;display:flex;flex-direction:column;gap:28px;border-top:2px solid var(--black)}
+.head{display:flex;flex-direction:column;gap:10px}
+.note{color:var(--muted);font-size:.95rem}
+
+.keys{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+@media (max-width:900px){.keys{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){.keys{grid-template-columns:1fr}}
+.key{border:1px solid var(--rule);padding:20px 22px;display:flex;flex-direction:column;gap:6px}
+.key .num{font-size:clamp(2.5rem,5vw,3.5rem);font-weight:300;line-height:1.05;letter-spacing:-0.02em;font-variant-numeric:tabular-nums}
+.key .desc{font-size:.9rem;color:var(--muted);line-height:1.5}
+
+.legend{display:flex;gap:20px;flex-wrap:wrap;font-size:.75rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;align-items:center}
+.legend span{display:inline-flex;gap:8px;align-items:center}
+.sw{width:14px;height:14px;display:inline-block}
+.c-bajo{background:var(--salmon)} .c-cinco{background:var(--bisque);box-shadow:inset 0 0 0 1px var(--black)} .c-alto{background:var(--black)}
+.c-no{background:var(--bisque);box-shadow:inset 0 0 0 1px var(--black)} .c-pasada{background:var(--salmon)} .c-seria{background:var(--black)}
+
+/* Barras apiladas al 100 % */
+.stack{display:grid;grid-template-columns:minmax(180px,34%) 1fr 64px;gap:10px 16px;align-items:center}
+@media (max-width:640px){.stack{grid-template-columns:1fr 56px}.stack .q{grid-column:1/-1;margin-bottom:-6px}}
+.stack .q{font-size:.92rem;line-height:1.4}
+.stack .q small{display:block;color:var(--muted);font-size:.8rem}
+.bar{display:flex;gap:2px;height:30px}
+.seg{display:flex;align-items:center;justify-content:center;font-size:.78rem;font-variant-numeric:tabular-nums;min-width:0;overflow:hidden;white-space:nowrap;cursor:default}
+.seg.c-alto,.seg.c-seria{color:var(--white)}
+.seg:hover,.seg:focus-visible{outline:2px solid var(--black);outline-offset:1px}
+.stack .m{font-size:.85rem;font-variant-numeric:tabular-nums;color:var(--muted);text-align:right}
+.stack .colh{font-size:.72rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+
+/* Histogramas */
+.multi{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:28px 24px}
+.hist{display:flex;flex-direction:column;gap:8px}
+.hist h3{font-size:.92rem;font-weight:700;line-height:1.35;min-height:2.7em}
+.cols{display:grid;grid-template-columns:repeat(11,1fr);gap:2px;align-items:end;height:90px;border-bottom:1px solid var(--black)}
+.col{background:var(--black);min-height:1px}
+.col.b{background:var(--salmon)} .col.c{background:var(--bisque);box-shadow:inset 0 0 0 1px var(--black)}
+.col:hover{outline:2px solid var(--black);outline-offset:1px}
+.ticks{display:grid;grid-template-columns:repeat(11,1fr);gap:2px;font-size:.7rem;color:var(--muted);text-align:center;font-variant-numeric:tabular-nums}
+.hist .meta{font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* Barras simples */
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 48px}
+@media (max-width:760px){.grid2{grid-template-columns:1fr}}
+.blk{display:flex;flex-direction:column;gap:12px}
+.blk .meta{font-size:.8rem;color:var(--muted)}
+.rows{display:grid;grid-template-columns:minmax(120px,auto) 1fr;gap:6px 14px;align-items:center}
+.rows .e{font-size:.88rem;line-height:1.3}
+.track{display:flex;align-items:center;gap:8px}
+.fill{height:18px;background:var(--black);min-width:2px}
+.track .v{font-size:.82rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.track .v small{color:var(--muted)}
+
+.weeks{display:grid;gap:3px;align-items:end;height:160px;border-bottom:1px solid var(--black)}
+.wk{background:var(--black);position:relative;min-height:0}
+.wk:hover{outline:2px solid var(--black);outline-offset:1px}
+.wlabels{display:grid;gap:3px;font-size:.7rem;color:var(--muted);text-align:center}
+
+details{border-top:1px solid var(--rule);padding-top:12px}
+summary{cursor:pointer;font-size:.88rem}
+.tw{overflow-x:auto;margin-top:12px}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.86rem}
+th{font-size:.72rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);text-align:left;padding:8px 10px;border-bottom:1px solid var(--rule)}
+td{padding:8px 10px;border-bottom:1px solid var(--rule);font-variant-numeric:tabular-nums}
+td.num,th.num{text-align:right}
+
+.panel{border-left:5px solid var(--black);padding:28px 32px;max-width:var(--prose);background:var(--bisque);display:flex;flex-direction:column;gap:12px}
+@media (max-width:480px){.panel{padding:22px 20px}}
+.panel p{font-size:.98rem;line-height:1.7}
+
+#tip{position:fixed;pointer-events:none;background:var(--white);color:var(--black);border:1px solid var(--black);padding:8px 10px;font-size:.82rem;line-height:1.4;max-width:260px;z-index:20;font-variant-numeric:tabular-nums}
+
+footer{border-top:1px solid var(--rule);padding-block:32px 48px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;color:var(--muted);font-size:.86rem}
+footer .mark svg{width:44px;height:auto;display:block}
+footer div{display:flex;flex-direction:column;gap:6px;flex:1;min-width:240px}
+footer p{max-width:80ch}
+</style>
+
+<div class="wrap">
+<div class="top">
+  <a href="https://fundament.es" class="brand" aria-label="fundament">{{LOGO}}</a>
+  <p class="label">Estudio de Convivencia Social · edición 2026</p>
+</div>
+
+<section class="intro">
+  <p class="label">Datos limpios · julio a septiembre de 2026</p>
+  <h1>Panorama 2026</h1>
+  <p class="lede">Qué respondieron las personas residentes en Mallorca que participaron en la encuesta online de 2026: su acuerdo con trece afirmaciones sobre el turismo, si han pensado en irse de la isla y quiénes son.</p>
+  <p class="note">La muestra no es probabilística: se difundió online y en redes. Todas las cifras describen a las personas encuestadas, no a la población de Mallorca.</p>
+  <div class="keys" id="keys"></div>
+</section>
+
+<section class="section">
+  <div class="head">
+    <p class="label">Afirmaciones · escala 0–10</p>
+    <h2>Grado de acuerdo con cada afirmación</h2>
+    <p class="note">0 = nada de acuerdo, 10 = totalmente de acuerdo. Ordenadas de más a menos acuerdo (6–10). Varias afirmaciones no tienen dirección («afecta», «influye»): un 10 indica acuerdo con que hay efecto, no si es bueno o malo. El deslizador empezaba en 5, y para dejarlo en 5 había que moverlo y volver, así que el 5 puede estar algo infrarrepresentado.</p>
+  </div>
+  <div class="legend" aria-hidden="true"><span><i class="sw c-bajo"></i>Desacuerdo 0–4</span><span><i class="sw c-cinco"></i>Punto medio 5</span><span><i class="sw c-alto"></i>Acuerdo 6–10</span></div>
+  <div class="stack" id="likert"></div>
+  <details><summary>Ver la tabla</summary><div class="tw"><table id="t-likert"></table></div></details>
+</section>
+
+<section class="section">
+  <div class="head">
+    <p class="label">Distribuciones · 0 a 10</p>
+    <h2>Cómo se reparten las respuestas</h2>
+    <p class="note">Número de personas en cada punto de la escala. Misma escala vertical en todos los gráficos, para poder compararlos. Incluye la percepción de la propia situación económica (0 = muy mala, 10 = muy buena).</p>
+  </div>
+  <div class="multi" id="hists"></div>
+</section>
+
+<section class="section">
+  <div class="head">
+    <p class="label">Pensar en irse</p>
+    <h2>¿Has pensado alguna vez en irte de Mallorca a causa del turismo?</h2>
+    <p class="note" id="nota-abandono"></p>
+  </div>
+  <div class="legend" aria-hidden="true"><span><i class="sw c-no"></i>No</span><span><i class="sw c-pasada"></i>Sí, de pasada</span><span><i class="sw c-seria"></i>Sí, seriamente</span></div>
+  <div class="stack" id="abandono"></div>
+</section>
+
+<section class="section">
+  <div class="head">
+    <p class="label">Perfil</p>
+    <h2>Quién respondió</h2>
+    <p class="note">Porcentajes sobre quienes respondieron cada pregunta. «Prefiero no decirlo» y «No lo sé» son no respuesta y quedan fuera de la base; se indica cuántos hay.</p>
+  </div>
+  <div class="grid2" id="perfil"></div>
+</section>
+
+<section class="section">
+  <div class="head">
+    <p class="label">Territorio</p>
+    <h2>Municipio de residencia</h2>
+    <p class="note" id="nota-mun"></p>
+  </div>
+  <div class="rows" id="mun"></div>
+</section>
+
+<section class="section">
+  <div class="head">
+    <p class="label">Trabajo de campo</p>
+    <h2>Respuestas por semana</h2>
+    <p class="note">Semanas de lunes a domingo, hora de Mallorca. Las respuestas se concentran en tres semanas de julio y una de septiembre: la recogida coincidió con la temporada turística.</p>
+  </div>
+  <div id="semanas"></div>
+</section>
+
+<section class="section">
+  <div class="head"><p class="label">Método</p><h2>Base y reglas aplicadas</h2></div>
+  <div class="panel" id="metodo"></div>
+</section>
+
+<footer>
+  <span class="mark" aria-hidden="true">{{MARK}}</span>
+  <div>
+    <p>Fuente: <code>datos/limpios/fundament survey - 2026 - Respuestas limpio.csv</code> (hoja «Respuestas limpio»), codificada con <code>codebook/2026.yaml</code>. Agregados calculados con <code>visualizaciones/limpio-2026/agregar.py</code> el 8 de noviembre de 2026.</p>
+    <p>Huella SHA-256 del archivo: <code id="sha"></code>. Si el archivo no cambia, los scripts dan siempre estas mismas cifras.</p>
+    <p>La página solo contiene recuentos agregados: ni identificadores, ni textos libres, ni municipios con menos de 5 respuestas.</p>
+  </div>
+</footer>
+</div>
+<div id="tip" hidden></div>
+
+<script>
+const D={{DATOS}};
+
+const fmt=x=>x.toLocaleString('es-ES',{minimumFractionDigits:1,maximumFractionDigits:1});
+const fmt2=x=>x.toLocaleString('es-ES',{minimumFractionDigits:2,maximumFractionDigits:2});
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const $=id=>document.getElementById(id);
+const CORTO={q_vida_diaria:"Influye en mi vida diaria",q_medio_ambiente:"Afecta al medio ambiente",q_calidad_vida:"Afecta a mi calidad de vida",q_precios:"Contribuye al aumento de precios",q_transporte:"Afecta a la calidad del transporte público",q_espacios:"Los espacios públicos se deterioran",q_bienestar:"Influye en el bienestar y las interacciones comunitarias",q_gastos_ocio:"Ha afectado a mis gastos de ocio",q_futuro_isla:"Es el futuro de la isla",q_diversificacion:"Más variedad de industrias haría la economía más resistente",q_interacciones:"Favorece interacciones positivas con visitantes",q_activismo:"El activismo vecinal ha mejorado la gestión",q_gestion:"La gestión de esta temporada ha mejorado la convivencia",situacion_economica:"Mi situación económica"};
+
+// Cifras clave
+const ab=D.abandono, abSi=ab.cats[1].n+ab.cats[2].n, man=D.perfil.find(p=>p.var==='manifestacion').cats[0];
+const pal=D.municipio.filas[0];
+$('keys').innerHTML=[
+  [D.n,'personas encuestadas','Todas las respuestas del archivo limpio, sin filtros.'],
+  [fmt(100*abSi/ab.base)+' %','ha pensado en irse','De pasada o seriamente, por el turismo (n '+ab.base+').'],
+  [fmt(man.pct)+' %','se ha manifestado','Ha participado este año en una manifestación o actividad sobre turismo (n '+D.perfil.find(p=>p.var==='manifestacion').base+').'],
+  [fmt(pal.pct)+' %','vive en Palma','El resto se reparte entre otros '+(D.municipio.total_municipios-1)+' municipios.']
+].map(k=>`<div class="key"><span class="num">${k[0]}</span><span class="label">${k[1]}</span><span class="desc">${k[2]}</span></div>`).join('');
+
+// Tooltip
+const tip=$('tip');
+document.addEventListener('pointerover',e=>{const t=e.target.closest('[data-tip]');if(!t){tip.hidden=true;return}tip.innerHTML=t.dataset.tip;tip.hidden=false});
+document.addEventListener('pointermove',e=>{if(tip.hidden)return;const x=Math.min(e.clientX+14,innerWidth-tip.offsetWidth-8),y=e.clientY+16+tip.offsetHeight>innerHeight?e.clientY-tip.offsetHeight-12:e.clientY+16;tip.style.left=x+'px';tip.style.top=y+'px'});
+document.addEventListener('focusin',e=>{const t=e.target.closest('[data-tip]');if(!t)return;tip.innerHTML=t.dataset.tip;tip.hidden=false;const r=t.getBoundingClientRect();tip.style.left=Math.min(r.left,innerWidth-tip.offsetWidth-8)+'px';tip.style.top=(r.bottom+8)+'px'});
+document.addEventListener('focusout',()=>{tip.hidden=true});
+
+function seg(cls,pct,n,titulo,base){
+  const lab=pct>=7?fmt(pct)+' %':'';
+  return `<span class="seg ${cls}" style="flex:${pct} 0 0" tabindex="0" data-tip="<b>${esc(titulo)}</b><br>${fmt(pct)} % · ${n} de ${base}">${lab}</span>`;
+}
+
+// Likert
+const items=D.escalas.filter(e=>e.var!=='situacion_economica').sort((a,b)=>b.alto-a.alto);
+$('likert').innerHTML=`<span class="colh">Afirmación · «El turismo…»</span><span class="colh">% de personas (n ${items[0].n})</span><span class="colh" style="text-align:right">Media</span>`+items.map(e=>{
+  const nb=e.dist.slice(0,5).reduce((a,b)=>a+b,0),n5=e.dist[5],na=e.dist.slice(6).reduce((a,b)=>a+b,0);
+  return `<span class="q">${CORTO[e.var]}<small>${esc(e.pregunta)}</small></span><span class="bar" role="img" aria-label="${esc(CORTO[e.var])}: desacuerdo ${fmt(e.bajo)} %, punto medio ${fmt(e.cinco)} %, acuerdo ${fmt(e.alto)} %">${seg('c-bajo',e.bajo,nb,'Desacuerdo 0–4',e.n)}${seg('c-cinco',e.cinco,n5,'Punto medio 5',e.n)}${seg('c-alto',e.alto,na,'Acuerdo 6–10',e.n)}</span><span class="m">${fmt2(e.media)}</span>`;
+}).join('');
+$('t-likert').innerHTML='<thead><tr><th>Afirmación</th><th class="num">n</th><th class="num">0–4</th><th class="num">5</th><th class="num">6–10</th><th class="num">Media</th></tr></thead><tbody>'+items.map(e=>`<tr><td>${esc(e.pregunta)}</td><td class="num">${e.n}</td><td class="num">${fmt(e.bajo)} %</td><td class="num">${fmt(e.cinco)} %</td><td class="num">${fmt(e.alto)} %</td><td class="num">${fmt2(e.media)}</td></tr>`).join('')+'</tbody>';
+
+// Histogramas
+const hs=[...items,D.escalas.find(e=>e.var==='situacion_economica')];
+const maxH=Math.max(...hs.flatMap(e=>e.dist));
+$('hists').innerHTML=hs.map(e=>`<div class="hist"><h3>${CORTO[e.var]}</h3><div class="cols" role="img" aria-label="${esc(CORTO[e.var])}: ${e.dist.map((v,i)=>i+': '+v).join(', ')}">${e.dist.map((v,i)=>`<span class="col ${i<5?'b':i===5?'c':''}" style="height:${100*v/maxH}%" data-tip="<b>${i}</b> · ${v} personas (${fmt(100*v/e.n)} %)"></span>`).join('')}</div><div class="ticks" aria-hidden="true">${e.dist.map((_,i)=>`<span>${i}</span>`).join('')}</div><span class="meta">n ${e.n} · media ${fmt2(e.media)}</span></div>`).join('');
+
+// Abandono
+const filasAb=[{etq:'Todas las personas',n:ab.base,cats:ab.cats},...D.abandono_vivienda.map(v=>({etq:'Vivienda: '+v.etq,n:v.n,cats:v.cats}))];
+const clsAb=['c-no','c-pasada','c-seria'];
+$('abandono').innerHTML=filasAb.map(f=>`<span class="q">${f.etq}<small>n ${f.n}${f.n<30?' · base pequeña':''}</small></span><span class="bar" role="img" aria-label="${esc(f.etq)}: ${f.cats.map(c=>c.etq+' '+fmt(c.pct)+' %').join(', ')}">${f.cats.map((c,i)=>seg(clsAb[i],c.pct,c.n,c.etq,f.n)).join('')}</span><span class="m"></span>`).join('');
+$('nota-abandono').textContent=`Base: ${ab.base} personas; ${ab.vacias} dejaron la pregunta en blanco. Las diferencias por régimen de vivienda son descriptivas: con datos transversales no indican causas.`;
+
+// Perfil
+const TIT={gender:'Género',age:'Edad',nacionalidad:'Nacionalidad',lang:'Idioma del formulario',situacion:'Situación',convivencia:'Personas con quien convive',vivienda:'Régimen de vivienda',tourism_dependencia:'Su ocupación depende o ha dependido del turismo',manifestacion:'Se ha manifestado este año',responsable:'Quién debería hacerse cargo de los efectos del turismo'};
+$('perfil').innerHTML=D.perfil.map(p=>{
+  const mx=Math.max(...p.cats.map(c=>c.pct));
+  const nr=p.no_respuesta?` · ${p.no_respuesta} no respuesta fuera de la base`:'';
+  return `<div class="blk"><h3>${TIT[p.var]}</h3><span class="meta">${esc(p.pregunta)} · n ${p.base}${nr}</span><div class="rows">${p.cats.map(c=>`<span class="e">${esc(c.etq)}</span><span class="track"><span class="fill" style="width:${70*c.pct/mx}%"></span><span class="v">${fmt(c.pct)} % <small>(${c.n})</small></span></span>`).join('')}</div></div>`;
+}).join('');
+
+// Municipios
+const M=D.municipio, mxm=M.filas[0].pct;
+$('mun').innerHTML=M.filas.map(c=>`<span class="e">${esc(c.etq)}</span><span class="track"><span class="fill" style="width:${70*c.pct/mxm}%"></span><span class="v">${fmt(c.pct)} % <small>(${c.n})</small></span></span>`).join('')+`<span class="e">Otros ${M.resto.municipios} municipios</span><span class="track"><span class="fill" style="width:${70*(100*M.resto.n/D.n)/mxm}%;background:var(--muted)"></span><span class="v">${fmt(100*M.resto.n/D.n)} % <small>(${M.resto.n})</small></span></span>`;
+$('nota-mun').textContent=`${M.total_municipios} municipios con alguna respuesta, sobre los 52 que ofrecía el formulario (Porreres no se podía elegir). Se muestran los que tienen 5 respuestas o más; los ${M.resto.municipios} restantes se agrupan para no identificar a nadie. Base: ${D.n}.`;
+
+// Semanas, con las semanas sin respuestas a cero
+const W=[];{const ini=new Date(D.semanas[0].semana+'T00:00:00Z'),fin=new Date(D.semanas.at(-1).semana+'T00:00:00Z');const mp=Object.fromEntries(D.semanas.map(s=>[s.semana,s.n]));for(let d=new Date(ini);d<=fin;d.setUTCDate(d.getUTCDate()+7)){const k=d.toISOString().slice(0,10);W.push({k,n:mp[k]||0})}}
+const mxw=Math.max(...W.map(w=>w.n)),MES=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+const lab=k=>{const d=new Date(k+'T00:00:00Z');return d.getUTCDate()+' '+MES[d.getUTCMonth()]};
+const cols=`grid-template-columns:repeat(${W.length},1fr)`;
+$('semanas').innerHTML=`<div class="weeks" style="${cols}" role="img" aria-label="Respuestas por semana: ${W.map(w=>lab(w.k)+' '+w.n).join(', ')}">${W.map(w=>`<span class="wk" style="height:${100*w.n/mxw}%" tabindex="0" data-tip="Semana del <b>${lab(w.k)}</b><br>${w.n} respuestas (${fmt(100*w.n/D.n)} %)"></span>`).join('')}</div><div class="wlabels" style="${cols}" aria-hidden="true">${W.map((w,i)=>`<span>${i%2===0?lab(w.k):''}</span>`).join('')}</div>`;
+
+$('sha').textContent=D.archivo_sha256.slice(0,16)+'…';
+// Método
+$('metodo').innerHTML=`<p>Se usan las ${D.filas_archivo} respuestas del archivo limpio tal cual, sin filtros añadidos. La base es de <b>${D.n} personas</b>. Incluye ${D.menores_incluidos} respuesta de una persona menor de 18 años, que la regla <code>menor_edad</code> del codebook excluiría por falta de consentimiento válido.</p><p>Tampoco se aplican las reglas de sensibilidad <code>rapido</code> y <code>dispositivo_repetido</code>, que usan la duración y la huella del dispositivo.</p><p>No respuesta: 5 personas prefirieron no decir su nacionalidad, 17 no saben si su ocupación depende del turismo y 3 no respondieron si han pensado en irse. Se excluyen de sus porcentajes. Las preguntas abiertas no se muestran.</p>`;
+</script>
