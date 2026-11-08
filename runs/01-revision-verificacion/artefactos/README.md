@@ -38,10 +38,12 @@ la primera página tampoco se guardaron.
 - **Quién hizo cada pasada de la primera página.** Las tres, Claude Opus 5.5. Se pidió Fable 5.1 con `/model` el 2 y el
   4 nov., pero Fable no llegó a responder: sus dos turnos terminaron con «sin créditos de uso» y, según el registro de
   la sesión, la 2.ª pasada (4 nov., 19:15–19:17) la generó `claude-opus-5-5`. La página ya lo dice así.
+- **`fundament_2026.csv` cambió de huella** al regenerarlo el 2 nov. (05a5355e… → 07684daf…). Cerrado sin resolver: no
+  se guardó el archivo anterior y no se puede saber qué cambió. La exportación es determinista desde d8b8804, así que
+  quien regenere los datos desde ese commit obtiene la huella 07684daf…, la de las ejecuciones. Las cifras de las
+  páginas y de las ejecuciones se refieren a ese archivo. Detalle en `../claude-opus-5-5-2026-11-02.meta.json`.
 
 ## Pendiente
 
-- **`fundament_2026.csv` cambió de huella** al regenerarlo el 2 nov. (05a5355e… → 07684daf…) y no se guardó el
-  anterior, así que no se sabe qué cambió. Detalle en `../claude-opus-5-5-2026-11-02.meta.json`.
 - **No son lanzamientos en limpio.** El modelo tenía en contexto las notas del proyecto y, en la segunda página, la
   revisión anterior. No comparar estas páginas con las ejecuciones en limpio de otros modelos.
